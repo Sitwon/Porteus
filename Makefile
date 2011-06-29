@@ -4,6 +4,12 @@ ISO= porteus.iso
 ZIP= porteus.zip
 INITRD= new/boot/initrd.xz
 INITRD_SIZE= 6666
+DIRS= \
+	  new/porteus/base \
+	  new/porteus/modules \
+	  new/porteus/optional \
+	  new/porteus/rootcopy \
+
 BASE= \
 	  new/porteus/base/000-kernel.xzm \
 	  new/porteus/base/001-core.xzm \
@@ -24,7 +30,7 @@ clean:
 	rm -f $(INITRD)
 	rm -f $(BASE)
 
-build: $(INITRD) $(BASE) new/porteus/md5sums.txt
+build: $(DIRS) $(INITRD) $(BASE) new/porteus/md5sums.txt
 
 iso: $(ISO)
 
@@ -39,31 +45,34 @@ $(ZIP): $(INITRD) $(BASE)
 new/porteus/md5sums.txt: $(INITRD) $(BASE)
 	cd new/porteus && md5sum ../boot/vmlinuz ../boot/initrd.xz `find ./base -iname '*.xzm'` >$@
 
-new/porteus/base/000-kernel.xzm:
+$(DIRS):
+	mkdir -p $@
+
+new/porteus/base/000-kernel.xzm: $(DIRS)
 	porteus-scripts/dir2xzm base/000-kernel $@
 
-new/porteus/base/001-core.xzm:
+new/porteus/base/001-core.xzm: $(DIRS)
 	porteus-scripts/dir2xzm base/001-core $@
 
-new/porteus/base/002-xorg.xzm:
+new/porteus/base/002-xorg.xzm: $(DIRS)
 	porteus-scripts/dir2xzm base/002-xorg $@
 
-new/porteus/base/003-lxde.xzm:
+new/porteus/base/003-lxde.xzm: $(DIRS)
 	porteus-scripts/dir2xzm base/003-lxde $@
 
-new/porteus/base/004-kde.xzm:
+new/porteus/base/004-kde.xzm: $(DIRS)
 	porteus-scripts/dir2xzm base/004-kde $@
 
-new/porteus/base/005-kdeapps.xzm:
+new/porteus/base/005-kdeapps.xzm: $(DIRS)
 	porteus-scripts/dir2xzm base/005-kdeapps $@
 
-new/porteus/base/006-koffice.xzm:
+new/porteus/base/006-koffice.xzm: $(DIRS)
 	porteus-scripts/dir2xzm base/006-koffice $@
 
-new/porteus/base/007-devel.xzm:
+new/porteus/base/007-devel.xzm: $(DIRS)
 	porteus-scripts/dir2xzm base/007-devel $@
 
-new/porteus/base/008-firefox.xzm:
+new/porteus/base/008-firefox.xzm: $(DIRS)
 	porteus-scripts/dir2xzm base/008-firefox $@
 
 $(INITRD):
