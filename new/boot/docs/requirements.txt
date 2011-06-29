@@ -1,0 +1,44 @@
+PORTEUS 32-bit Requirements
+=================
+
+PORTEUS is not pretentious, nevertheless it requires some minimal 
+hardware to run properly. It depends on what do you wish to use 
+PORTEUS for, of course. The most important thing is memory. You need 
+at least 30 MB of RAM to boot porteus. More detailed description 
+follows:
+
+Medium
+------
+either IDE connected CDROM (to boot from the CD)
+or USB FlashDisk (to boot from the mass storage device)
+or maybe some harddisk (to boot PORTEUS from the disk)
+
+
+BIOS
+----
+either non-emulation booting enabled (to boot from the CD)
+or USB FlashDrive booting enabled (to boot from the mass storage device)
+
+
+Memory
+------
+36 MB to boot porteus.
+96 MB to run Xwindow with LXDE
+144 MB to run Xwindow with KDE
+328 MB to be able to use copy2ram cheatcode
+
+Processor
+---------
+i486 or better, Pentium or AMD are both OK.
+
+
+Peripheral devices
+------------------
+some keyboard
+some PS/2 or USB connected mouse
+
+
+Harddisk
+--------
+No harddisk is required
+

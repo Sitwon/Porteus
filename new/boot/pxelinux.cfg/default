@@ -1,0 +1,3 @@
+PROMPT 0
+IPAPPEND 1
+DEFAULT /vmlinuz vga=791 initrd=/initrd.xz autoexec=xconf;startx

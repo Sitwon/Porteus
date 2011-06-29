@@ -1,0 +1,36 @@
+Restoring your Master Boot Record
+
+If you have accidentally overwritten your Master Boot Record (MBR) by 
+running lin_start_here.sh or win_start_here.hta on a partition holding 
+another operating system then you may be able to recover it.
+
+WINDOWS
+This applies only if you tried to run win_start_here.hta against a 
+C: drive containing a windows install. It also assumes the most common 
+instance where windows is on the first hard drive.
+
+Inside the /boot/tools/ folder in the Porteus .iso there is a utility 
+called MbrFix.exe. This utility is used to make a backup of the first 
+512 bytes of the first disk found, whenever win_start_here.hta is run. 
+This backup, named mbr.bak, is placed on the root of the drive on 
+which the win_start_here.hta script is run.
+
+You can restore this backup to your drive's MBR by starting a command 
+prompt as administrator, changing into the directory with MbrFix.exe 
+(/boot/tools/) and running:
+
+MbrFix /drive 0 restorembr ../mbr.bak
+
+This utility has many other uses including rewriting a windows 
+XP/Vista/7 MBR. You can see these other options by typing only 
+MbrFix.exe
+
+LINUX
+If you chose to backup the MBR while running lin_start_here.sh then 
+the first 512 bytes of the chosen partition was backed up on the root 
+of the drive from which you ran the lin_start_here.sh script. You can 
+restore the MBR by copying the MBR backup elsewhere and issuing the 
+following from a console:
+
+dd if=/path/to/mbr.bak of=/dev/sdx bs=512 count=1
+(where sdx is the drive you are restoring).

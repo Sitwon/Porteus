@@ -1,0 +1,11 @@
+To install Porteus on a USB drive just extract or mount the porteus
+ISO (Windows users can use 7-zip, Winrar or cdEmu for this), copy the
+/boot and /porteus folders from the ISO to your USB drive, then launch
+/boot/win_start_here.hta (Windows) or /boot/lin_start_here.sh (Linux)
+and follow the instructions.
+
+Porteus can also be installed to your
+hard drive -- see the Installation Methods section on our forum, at
+http://porteus.org/forum/viewforum.php?f=62
+
+More detailed info can be found at /boot/docs/install.txt

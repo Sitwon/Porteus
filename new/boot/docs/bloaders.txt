@@ -1,0 +1,47 @@
+***********************
+* Porteus Bootloaders *
+***********************
+
+The bootloader that you install should be determined by your existing
+operating system and the file system of the partition on which you
+are installing Porteus.
+
+NOTE:  For more information on non-standard installs, visit the 
+"Installation Methods" section of our forum, at 
+https://porteus.org/forum/viewforum.php?f=62
+
+
+WINDOWS
+--------
+If you are a Windows user, the SYSLINUX bootloader will be installed
+on FAT formatted devices. Lilo can be used for NTFS formatted devices.
+
+You can see your file system by right clicking on the drive you want
+to install Porteus on and selecting 'Properties'.
+
+LINUX
+--------
+If you are a Linux user, then EXTLINUX should be installed on
+ext(2,3 or 4) formatted devices, and SYSLINUX should be used
+for FAT formatted devices.
+
+You can see your file system by opening a console and issuing:
+df -T /dev/xxxN (where xxxN is your partition - e.g. sda, sdb2, etc.)
+If you are unsure about the partition number or filesystem, go to a
+directory that you know is on the partition to which you are
+installing Porteus and run the "df -T ." command. It will tell you
+the exact device name, mount point and the filesystem on it.
+
+NOTE:  Lilo can be used to boot every filesystem type, including NTFS.
+Versions 1.0 and higher of Porteus include a text menu for Lilo with
+the same options as the graphical SYSLINUX and EXTLINUX loaders.
+
+ALSO NOTE: a .dat container file will be necessary
+if you want to save your changes on a device formatted
+with a Windows (FAT or NTFS) filesystem.  You can create
+a .dat container with the 'Porteus .dat manager' tool, 
+located in the KDE and LXDE menu, under 'System".  You
+can access your changes files by using the mloop command, e.g.,
+'mloop /mnt/sdb1/porteus/save.dat'.  This will mount
+your changes files to /mnt/loop folder.
+

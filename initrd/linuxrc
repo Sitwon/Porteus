@@ -1,0 +1,275 @@
+#!/bin/ash
+### linuxc script by fanthom <http://www.porteus.org>
+
+export PATH=/bin:/usr/bin:./
+
+mount -n -t proc proc /proc
+mount -n -t sysfs sysfs /sys
+echo 0 >/proc/sys/kernel/printk
+
+echo "[1m""Starting optimized linuxrc inspired by <http://www.linux-live.org/>""[0m"
+
+# Functions
+param() { egrep -qwo $1 /proc/cmdline; }
+value() { egrep -o "$1=[^[:space:]]+" /proc/cmdline | cut -d= -f2; }
+debug() { param debug && { echo -e "\n=====\n: Debugging started. Here is the root shell for you.\n: Type your desired commands or hit Ctrl+D to continue booting.\n"; ash </dev/console; echo -e "\n\n"; }; }
+
+# Variables
+i=`echo "[1;33m""^ ""[0m"`
+m=`echo "[1;33m""->""[0m"`
+DELAY=`value delay`; [ $DELAY ] && { echo $i"delaying $DELAY sec... (waiting for slow devices to settle up)"; sleep $DELAY; }
+SGN=`value sgnfile`; [ $SGN ] || SGN=porteus-v1.0.sgn
+SGNDEV=`value from_dev`
+FOLDER=`value from_dir`; [ ! $FOLDER ] && FOLDER=porteus || FOLDER=$FOLDER/porteus
+ISO=`value from_iso`
+IP=`value ip | cut -d: -f2`
+CHANGES=`value changes`
+RAMSIZE=`value ramsize`; [ $RAMSIZE ] || RAMSIZE=60%
+LOAD=`value load | sed 's/;/|/g'`; [ $LOAD ] || LOAD=._null
+NOLOAD=`value noload | sed 's/;/|/g'`; [ $NOLOAD ] || NOLOAD=._null
+EXTRAMOD=`value extramod`
+ROOTCOPY=`value rootcopy`
+grep -q iocharset= /proc/cmdline && CHARSET=",iocharset=$(value iocharset)"
+param noauto && AUTO=noauto || AUTO=auto
+
+# Device Functions
+chk_params() { opt="noatime,users,suid,dev,exec"
+[ $1 = vfat ] && opt="$opt,quiet,umask=0,check=s,shortname=mixed$CHARSET"
+[ $1 = iso9660 ] && opt="$opt,ro$CHARSET"
+[ $1 = ntfs ] && { LANG=`value lang`; [ $LANG ] || LANG=utf8; opt="$opt,locale=$LANG"; }; }
+fstab() { [ -e /tmp/devices ] && rm /tmp/devices
+param nocd || for x in /dev/sr*; do blkid $x >>/tmp/devices; done
+param nohd || blkid | egrep -v '/dev/sr|/dev/loop' >>/tmp/devices
+dev=`egrep -v 'TYPE="swap"|TYPE="LVM2_member"' /tmp/devices 2>/dev/null | cut -d: -f1 | cut -d/ -f3`
+echo -e "# System mounts\naufs / aufs defaults 0 0 # AutoUpdate\nproc /proc proc defaults 0 0 # AutoUpdate\nsysfs /sys sysfs defaults 0 0 # AutoUpdate\n\n# Device partitions" >/etc/fstab
+for x in $dev; do
+    fs=`grep -w /dev/$x /tmp/devices | egrep -o ' TYPE=[^[:space:]]+' | cut -d'"' -f2`
+    chk_params $fs
+    echo "/dev/$x /mnt/$x $fs $opt 0 0 # AutoUpdate" >>/etc/fstab
+done
+
+if ! param noswap; then
+    SWAP=`grep -c 'TYPE="swap"' /tmp/devices 2>/dev/null`
+    if [ $SWAP != 0 ]; then
+	SWAPPART=`grep 'TYPE="swap"' /tmp/devices | cut -d: -f1`; x=1
+	echo -e "\n# Swap partitions" >>/etc/fstab
+	while [ $x -le $SWAP ]; do
+	    PART=`echo "$SWAPPART" | sed -n "$x"p`
+	    echo "$PART none swap $AUTO,sw,pri=1 0 0 # AutoUpdate" >>/etc/fstab
+	    let x=x+1
+	done
+    fi
+fi }
+mount_device() {
+if grep -qw /dev/$1 /etc/fstab; then
+    mkdir /mnt/$1; mount -n /mnt/$1
+else
+    fs=`blkid /dev/$1 | egrep -o ' TYPE=[^[:space:]]+' | cut -d'"' -f2`
+    if [ "$fs" ]; then
+	chk_params $fs; mkdir /mnt/$1
+	[ $fs != ntfs ] && mount -n /dev/$1 /mnt/$1 -o $opt || mount -n /dev/$1 /mnt/$1 -o $opt -t ntfs
+    fi
+fi }
+
+# Other functions
+search() { for x in $dev; do
+[ -d /mnt/$x ] || { mkdir /mnt/$x; mount -n /mnt/$x; }
+[ $1 /mnt/$x/$2 ] && { DEV=$x; FND=y; break; }; done }
+lazy() { SLEEP=5
+while [ $SLEEP -gt 0 -a $FND = none ]; do
+echo -en $i"[1m""device not ready yet? delaying $SLEEP seconds\r""[0m"; sleep 1
+let SLEEP=SLEEP-1
+fstab; search $1 $2; done }
+locate() { LPATH=`echo $2 | cut -b -5 | sed s@/dev@/mnt@`; FND=none
+if [ $LPATH = /mnt/ ]; then
+    DEV=`echo $2 | cut -d/ -f3`; LPTH=`echo $2 | cut -d/ -f4-`
+    [ "$DEV" = "" ] && DEV="---"
+    [ -b /dev/$DEV ] || { echo $i"/dev/$DEV not ready yet? sleeping for 2 seconds (use 'delay=' cheatcode if necessary)"; sleep 2; fstab; }
+    [ -d /mnt/$DEV ] || mount_device $DEV
+    [ $1 /mnt/$DEV/$LPTH ]
+elif [ $LPATH = UUID: -o $LPATH = LABEL ]; then
+    ID=`echo $2 | cut -d: -f2 | cut -d/ -f1`
+    blkid | grep -q $ID || { echo $i"$ID not ready yet? sleeping for 2 seconds (use 'delay=' cheatcode if necessary)"; sleep 2; fstab; }
+    DEV=`blkid | grep $ID | cut -d: -f1 | cut -d/ -f3`; LPTH=`echo $2 | sed -e s/UUID:// -e s/LABEL:// -e s^$ID^^`
+    [ "$DEV" = "" ] && DEV="---"
+    [ -d /mnt/$DEV ] || mount_device $DEV
+    [ $1 /mnt/$DEV/$LPTH ]
+else
+    LPTH=$2; search $1 $2
+    [ $FND = y ] || lazy $1 $2
+fi }
+fail() { echo $i"couldn't find $1 - is the path correct? Sleeping 3 secs..."; sleep 3; }
+insertmod() { for x in `cat $1`; do
+NAME=`echo $x | rev | cut -d/ -f-1 | rev`
+mkdir /memory/images/$NAME
+mount -n -t squashfs -o loop $2/$x /memory/images/$NAME 2>/dev/null
+if [ $? -ne 0 ]; then
+    echo $i"1;36m""Cannot read $x. corrupted download?""0m"; rmdir /memory/images/$NAME
+else
+    echo "  $m  $x"; mount -n -o remount,add:1:/memory/images/$NAME=rr aufs /union
+fi; done }
+
+## Let's start!
+echo $i"creating /dev entries for block devices"
+mdev -s
+echo /bin/mdev > /proc/sys/kernel/hotplug
+echo $i"adding valid entries to /etc/fstab"
+fstab
+
+# fsck
+if param fsck; then
+    echo $i"performing linux filesystem check:"
+    echo "[1;33m""---------------------------------------------------------""[0m"
+    for x in `grep 'TYPE="ext' /tmp/devices | cut -d: -f1`; do e2fsck -C 0 -p $x; done
+    for x in `grep 'TYPE="reiserfs"' /tmp/devices | cut -d: -f1`; do reiserfsck -p $x; done
+    pid=`ps a | grep -c fsck`
+    while [ $pid != 1 ]; do
+	sleep 1
+	pid=`ps a | grep -c fsck`
+    done
+    echo "[1;33m""---------------------------------------------------------""[0m"
+else
+    echo $i"fsck cheatcode not used - skipping filesystem check"
+fi
+
+debug
+# *.sgn file
+echo $i"searching for $SGN file"
+if [ $IP ]; then SGNDEV=httpfs; BOOTDEV=network
+    guess=`find /lib/modules/$(uname -r)/kernel/drivers/net -name *.ko | sed 's/.ko//g' | egrep "$(pcimodules)"`
+    for x in $guess `find /lib/modules/$(uname -r)/kernel/drivers/net -name *.ko | sed 's/.ko//g'`; do modprobe $x 2>/dev/null; [ -d /sys/class/net/eth0 ] && break || modprobe -r $x 2>/dev/null; done
+    udhcpc; mkdir -p /mnt/httpfs; httpfs http://$IP /mnt/httpfs
+elif [ $ISO ]; then SGNDEV=isoloop
+    locate -e $ISO && { BOOTDEV=$DEV; mkdir /mnt/isoloop; mount -n -o loop /mnt/$DEV/$LPTH /mnt/isoloop; }
+else
+    locate -e $SGNDEV/$FOLDER/$SGN || { search -e $FOLDER/$SGN || lazy -e $FOLDER/$SGN; }
+    SGNDEV=$DEV
+fi
+
+[ -e /mnt/$SGNDEV/$FOLDER/$SGN ] && PTH=/mnt/$SGNDEV/$FOLDER || . fatal
+echo $i"using Porteus data from $PTH"
+
+debug
+# changes
+if [ $CHANGES ]; then
+    echo $i"setting up directory for changes"
+    locate -r $CHANGES && { [ -d /mnt/$DEV/$LPTH ] && mount -n -o rbind /mnt/$DEV/$LPTH /memory || mount -n -o loop /mnt/$DEV/$LPTH /memory; CHNDEV=$DEV; } || { fail $CHANGES; CHANGES=none; }
+else
+    CHANGES=none
+fi
+
+debug
+[ $CHANGES = none ] || touch /memory/._test1 2>/dev/null
+if [ ! -e /memory/._test1 ]; then
+    echo $i"changes not used or not writable, using memory only"
+    mount -n -t tmpfs -o size=$RAMSIZE tmpfs /memory; mkdir /memory/xino; CHANGES=none
+else
+    echo $i"testing $CHANGES filesystem for posix compatibility"
+    ln -s /memory/._test1 /memory/._test2 2>/dev/null && chmod +x /memory/._test1 2>/dev/null && [ -x /memory/._test1 ] && chmod -x /memory/._test1 2>/dev/null && [ ! -x /memory/._test1 ] && rm /memory/._test1 /memory/._test2 2>/dev/null
+    if [ $? -ne 0 ]; then
+	echo && echo -e "[1;33m""A Windows filesystem (FAT, NTFS) or other non-posix compatible filesystem\nhas been detected on $CHANGES.\nYour changes cannot be saved directly to the specified storage media with this\nsetup. Please use the "Porteus save.dat manager" to create a .dat container\nand use it for saving your changes after your next reboot.""[0m"
+	echo "press enter to continue in '[1;36mAlways Fresh[0m' mode for this session"
+	read
+	rm /memory/._test1 /memory/._test2 2>/dev/null
+	umount /memory; mount -n -t tmpfs -o size=$RAMSIZE tmpfs /memory; mkdir /memory/xino; CHANGES=none; CHNDEV=none
+    else
+	echo $i"filesystem is posix compatible"
+	mkdir -p /memory/xino; mount -n -t tmpfs tmpfs /memory/xino
+	rmdir /memory/changes/mnt/* /memory/images/* 2>/dev/null
+	rm /memory/changes/var/lock/subsys/* 2>/dev/null
+	for x in `find /memory/changes/var/run -name "*.pid" 2>/dev/null`; do rm $x; done
+	rm /memory/changes/etc/mtab 2>/dev/null
+    fi
+fi
+
+mkdir -p /memory/changes/mnt/live /memory/images
+
+debug
+# aufs
+echo $i"setting union directory (using aufs)"
+mount -t aufs -o nowarn_perm,xino=memory/xino/.aufs.xino,br:memory/changes=rw aufs /union
+if [ $? -ne 0 ]; then echo "31m""cant setup union (aufs) - read only filesystem?""0m"; ash </dev/console; fi
+
+# modules
+find $PTH/base $PTH/modules -name *.xzm 2>/dev/null | egrep -v "$NOLOAD" | sort | sed s@$PTH/@@ >/tmp/modules
+find $PTH/optional -name *.xzm 2>/dev/null | egrep "$LOAD" | sort | sed s@$PTH/@@ >>/tmp/modules
+
+if [ $EXTRAMOD ]; then
+    echo $i"checking $EXTRAMOD for additional modules"
+    locate -d $EXTRAMOD && { EXTDEV=$DEV; PTH1=/mnt/$DEV; find $PTH1/$LPTH -name *.xzm 2>/dev/null | egrep -v "$NOLOAD" | sort | sed s@$PTH1/@@ >/tmp/modules1; } || fail $EXTRAMOD
+fi
+
+# copy2ram
+if param copy2ram; then
+    echo $i"copying Porteus data to RAM, this may take some time..."
+    cpmod() { NUM=`grep -c '.' $1`
+    for x in `cat $1`; do echo -en "[1;33m""  ($NUM modules left)  \r""[0m"; NUM=$((NUM-1)); cp $2/$x /memory/copy2ram/$x; done
+    if [ $? -ne 0 ]; then echo "[1;36m""Not enough memory. Using ramsize=$RAMSIZE""[0m"; fi }
+    [ $CHANGES = none ] || { mkdir -p /memory/copy2ram; mount -n -t tmpfs -o size=$RAMSIZE tmpfs /memory/copy2ram; }
+    mkdir -p /memory/copy2ram/base /memory/copy2ram/modules /memory/copy2ram/optional
+    cpmod /tmp/modules $PTH; PTH=/memory/copy2ram
+    [ -e /tmp/modules1 ] && { mkdir -p /memory/copy2ram/$LPTH; cpmod /tmp/modules1 $PTH1; PTH1=/memory/copy2ram; }
+fi
+
+debug
+echo $i"inserting modules and creating live filesystem"
+insertmod /tmp/modules $PTH
+[ -e /tmp/modules1 ] && insertmod /tmp/modules1 $PTH1
+
+if [ $ROOTCOPY ]; then
+    echo $i"copying content of $ROOTCOPY directory"
+    locate -d $ROOTCOPY && cp -af /mnt/$DEV/$LPTH/* /union 2>/dev/null || { fail $ROOTCOPY; ROOTCOPY=none; }
+else
+    ROOTCOPY=none
+    echo $i"copying content of /porteus/rootcopy directory"
+    if [ $PTH = /mnt/httpfs/$FOLDER ]; then
+	mount -n -t tmpfs tmpfs /opt
+	cp -af /mnt/$SGNDEV/$FOLDER/rootcopy/* /opt 2>/dev/null && chmod 755 /opt/etc/rc.d/* /opt/bin/* /opt/sbin/* /opt/usr/bin/* /opt/usr/sbin/* /opt/usr/local/bin/* /opt/usr/local/sbin/* 2>/dev/null; cp -af /opt/* /union 2>/dev/null
+	umount /opt
+    else
+	cp -af /mnt/$SGNDEV/$FOLDER/rootcopy/* /union 2>/dev/null
+    fi
+fi
+
+debug
+# finish
+echo $i"changing root directory..."
+if param copy2ram; then
+    [ "$EXTDEV" ] && umount /mnt/$EXTDEV 2>/dev/null && rmdir /mnt/$EXTDEV
+    [ "$BOOTDEV" ] && { umount /mnt/$SGNDEV 2>/dev/null && rmdir /mnt/$SGNDEV; SGNDEV=$BOOTDEV; }
+    umount /mnt/$SGNDEV 2>/dev/null && rmdir /mnt/$SGNDEV
+    SGNDISK=`echo $SGNDEV | cut -b -3`; REMOVABLE=`cat /sys/block/$SGNDISK/removable 2>/dev/null`
+    if [ "$REMOVABLE" = 1 ]; then
+	if ! param noeject; then
+	    CD=`grep -w "/mnt/$SGNDEV.*iso9660" /etc/fstab`
+	    [ "$CD" ] && echo 1 >/proc/sys/dev/cdrom/autoeject && echo 0 >/proc/sys/dev/cdrom/autoeject
+	    dev=`echo $dev | sed s/$SGNDEV//`
+	    grep -vw /mnt/$SGNDEV /etc/fstab > /etc/fstab_fix; mv /etc/fstab_fix /etc/fstab
+      fi
+    fi
+else
+    mount -n -o rbind /mnt/$SGNDEV/boot /union/boot 2>/dev/null
+fi
+sed -i /etc/fstab -e s/noatime,/$AUTO,noatime,/g
+cp /etc/fstab /union/etc
+for x in `ls /mnt | egrep -vw "$SGNDEV|$BOOTDEV|$CHNDEV|$EXTDEV|none"`; do umount /mnt/$x 2>/dev/null; rmdir /mnt/$x 2>/dev/null; done
+for x in $dev; do mkdir /union/mnt/$x; done
+param nohotplug && cp -fdR /dev /union || { mkdir -p /union/dev; cp -af /dev/console /dev/null /union/dev; }
+# debug file
+[ -e /tmp/devices ] && { echo "# Recognized devices:" >/var/log/livedbg; cat /tmp/devices >>/var/log/livedbg; }
+[ "$BOOTDEV" ] && SGNDEV=$BOOTDEV
+echo -e "\n# Porteus boot device:\n$SGNDEV\n\n# Porteus data found in:\n$PTH\n\n# Changes are stored in:\n$CHANGES\n\n# Non standard /rootcopy dir:\n$ROOTCOPY\n\n# Loaded modules:" >>/var/log/livedbg; cat /tmp/modules >>/var/log/livedbg; cat /tmp/modules1 2>/dev/null >>/var/log/livedbg
+cp /var/log/livedbg /union/var/log/porteus-livedbg
+rm /tmp/*
+umount /sys
+
+debug
+echo "[1m""live system is ready now - starting Porteus""[0m"
+cp -af /union/sbin/init /bin
+if [ $? -eq 0 ]; then
+    pivot_root /union  /union/mnt/live
+    exec bin/chroot . /mnt/live/bin/init <dev/console >dev/console 2>&1
+else
+    echo -e "[31m""!!ERROR!!\nCouldn't copy '/sbin/init' file - you need at least 600KB free space inside initrd!!""[0m"
+    ash </dev/console
+fi

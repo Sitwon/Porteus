@@ -1,0 +1,475 @@
+***************************************
+* Official Porteus Installation Guide *
+***************************************
+spacebar = pagedown
+q = quit
+
+
+Introduction:
+-----------------
+
+Porteus is a linux distribution that runs live, without being 
+'installed' natively like most other operating systems. Porteus creates 
+its file system on the fly, within seconds, every time it is started 
+up. This allows it to be run from many different kinds of media, 
+including:
+
+1)Writeable CD's or DVD's
+2)USB Flash Drives (aka Pendrives)
+3)External or Internal Hard Drives
+4)Other writeable media, including flash cards, mp3 players, etc. 
+(these installations are not covered by this Guide).
+
+Porteus comes in the form of an ISO image file. An ISO file is an 
+'image' of what should be on a CD/DVD. This file can be burned as a CD 
+or DVD, or it can be mounted as a file system or upacked to gain 
+access to the files for flash drive or hard drive installations. 
+Burning the file to a CD is the easiest method of installation, but 
+none of the changes you make (or files that you download) will be 
+saved once the system is rebooted*. Installing Porteus to a flash 
+drive or hard drive will allow you boot up more quickly, save changes 
+to your flashdrive and add new files and programs easily.
+
+*Note that changes to your system can be saved to external media when 
+running Porteus (from a CD or otherwise), using the 'changes=' 
+cheatcode, and specifying the path to the desired storage location. 
+You can find more information on this and many other useful cheatcodes 
+in the file /boot/docs/cheatcodes.txt.
+
+
+Downloading Porteus
+-----------------------
+
+Porteus has two editions: 32-bit (i486) and 64-bit (x86_64). If you 
+are running a 64-bit computer system, then you can download either 
+edition. If you are running a 32-bit system, then you must download 
+the 32-bit edition. Both editions can be downloaded by going to 
+http://www.porteus.org, hovering over the 'Download' tab at the top 
+of the webpage, and selecting your edition from the dropdown menu. You 
+will be presented with an Index menu from our server. Click on 
+"current", and then click on the porteus .iso file to download it.
+
+Once your download is complete, you should also download the 
+md5sums.txt file (from the same directory as the .iso file you just 
+downloaded) and check to make sure the Md5 sum of your .iso file 
+matches the Md5 sum listed in the md5sums.txt file. This will ensure 
+that the .iso file was not corrupted while being downloaded. If your 
+Md5 sum does not match, you should delete the .iso file and download 
+it again, or Porteus may not run properly. If you do not already have 
+software to check the Md5 Sum, you can use some freely available 
+software, such as winMd5.
+
+*******************************************
+* Burning an ISO file to a CD or DVD Disk *
+*******************************************
+
+Most CD/DVD creation software has a function to 'burn an image to 
+disk'. Please be aware that this is not the same as simply burning a 
+file to disk or creating a 'data disk'. The end result should not be a 
+disk that contains the .iso file, e.g. 'porteus-v1.0-i486.iso'. The 
+end result should be a disk that contains two folders: one called 
+'boot' and one called 'porteus'.
+
+If your current CD/DVD creation software doesn't contain the function 
+to 'burn an image to disk' then you can use some freely available 
+software, such as imgburn.
+
+Steps to install (varies by CD creation program):
+----------------------------------------------------
+
+1) Insert a blank writeable CD or DVD.
+
+2) Start your CD/DVD creation software and select 'burn image' or 
+'burn image to disk'
+
+3) Navigate to and select the Porteus .iso file
+
+4) Burn the file to the disk.
+
+5) Check the CD to make sure it contains the 'boot' and 'porteus' 
+folders.
+
+5) Reboot your computer, leaving the disk in your computer.
+
+In order for your computer to run Porteus from the CD, you must make 
+sure that your BIOS is set to boot to your CDROM device first, before
+booting to your hard disk. If you are unsure how to change the boot 
+order in your BIOS, please see Appendix A.
+
+*******************************************
+* Installing Porteus to a USB Flash Drive *
+*******************************************
+
+~~~~~~~~~~~~~~~~~
+| From Windows: |
+~~~~~~~~~~~~~~~~~
+
+Porteus is installed to a flash drive by copying the files from the 
+.iso file to the flash drive and then making the drive bootable. 
+Please note that you must be logged in as an administrator (or run the 
+included 'win_start_here.hta' file with administrative priveleges) in 
+order to make your drive bootable from Windows.
+
+In order to install Porteus to a flash drive, you must first extract 
+the porteus .iso file so that you can copy the included folders 
+('boot' and 'porteus') to your flash drive. This can be done with 
+archival software, similar to unzipping a .zip file. If your existing 
+archival software cannot extract an .iso file, then try installing the 
+free application 7zip or winrar. Once it is installed, you can right 
+click on the .iso file, choose 7zip from the right-click menu (or, 
+open winrar and navigate to the .iso's location), and select the option 
+to extract the file.
+
+(*NOTE* you can also use a program called wincdemu, which will allow 
+you to double click on the .iso file and then access the folders 
+inside it as if it were a CD mounted in your CD drive).
+
+If you have already created a bootable Porteus CD, you can also 
+insert that CD and copy the files from there.
+
+Steps to install:
+---------------------
+
+1) Insert your flash drive and open it to view the contents. Make a 
+note of the Drive Letter assigned to this drive (e.g. E:\)
+
+2) Copy the folders 'boot' and 'porteus' from the .iso file to the 
+top-level directory of your flash drive (meaning the files should not 
+be placed inside any other folders on the drive. For example, they 
+should be located at E:\boot and E:\porteus, assuming your flash drive 
+is device E:\).
+
+3) Navigate into the boot folder that you just copied to your flash 
+drive. You should see an HTML Application file there called 
+win_start_here.hta. Right click on this file (make sure it is 
+win_start_here.hta and not lin_start_here.sh) and choose to run it as 
+an administrator. A window should appear with a menu.
+
+4) If you are running the installer from Windows Vista or Windows 7 
+(users of Windows XP and earlier versions can skip this step), you 
+must disable the User Account Control (UAC) program or it will prevent 
+you from writing to your flash drive's MBR. To simplify this task, an 
+application called MyUAC has been included with our installer. In 
+order to temporarily disable UAC, click on the "Disable UAC" button on 
+the win_start_here.hta menu, then read the instructions and click on 
+the "Deactivate UAC" button. Then, click "Yes" to reboot your computer 
+to apply these settings. After your computer reboots into Windows, 
+open the win_start_here.hta application again, and proceed with Step 5 
+below to install your bootloader. Once your installation is complete, 
+you can run the win_start_here.hta application again, click on the 
+"Disable UAC" button once more, and then click on the "Activate UAC" 
+button. This will turn UAC back on the next time you boot up Windows.
+
+5) From the menu, select 'Install Porteus'.  A dialog box will open.  
+Please read the information carefully, and be sure to confirm that 
+the correct drive is being made bootable.  This is important as the 
+installation program will write to the master boot record (MBR) on 
+the first sector of the device from which the script is run. Your 
+flash drive will not be made bootable if you write to the MBR of 
+another device, and it could make it so that your computer will no 
+longer boot to Windows (if this happens to you, please read the file 
+\boot\docs\restore-mbr.txt inside the Porteus ISO for recovery 
+instructions).  Press any key when you are done reading to complete 
+the installation.
+
+6) After running the installation program, you should be able to boot 
+Porteus from your flash drive. Reboot your computer, and make sure 
+that your BIOS is set to boot from the USB device first, before it 
+boots to your hard disk. If you are unsure how to change the boot 
+order in your BIOS, please see Appendix A.
+
+*NOTE* If you are having problems making your drive bootable from 
+within Windows or if you do not have administrative priveleges, try 
+burning Porteus to a CD or DVD using the instructions above, and then 
+follow the instructions to install Porteus to a USB flash drive from 
+within Linux, below.
+
+*NOTE* If your flashdrive is formatted with a Windows filesystem (e.g. 
+FAT or NTFS), none of the changes you make to your system will survive 
+between reboots (Porteus will default to "Always Fresh" mode). If you 
+would like to save your changes, you can create a '.dat' file 
+container for this purpose. See Appendix B below for more information 
+about this very important feature, which is required for saving your 
+changes to a partition formatted with a Windows filesystem.
+
+~~~~~~~~~~~~~~~
+| From Linux: |
+~~~~~~~~~~~~~~~
+
+Installing Porteus through Linux is similar to installing through 
+Windows. You must have root (super user) priveleges on your system in 
+order to run the installation script.
+
+*NOTE*  You cannot install 64-bit Porteus from within a 32-bit linux 
+system, nor can you install 32-bit Porteus from a 64-bit linux system 
+(unless you are running in a 64-bit multi-lib environment).  This is 
+because syslinux and extlinux are not compiled statically and they 
+require libraries from your running system for the installation.  If 
+this is an issue, you can burn the desired edition of Porteus to a CD 
+and boot from the CD to perform the installation.
+
+Before installing, you must extract or mount the .iso file in order 
+to copy the /boot and /porteus directories to your target device. Some 
+archiving programs are capable of extracting the .iso, or you can 
+simply mount it with the following commands:
+
+mkdir /mnt/loop
+mount -o loop /path/to/file.iso /mnt/loop
+
+If you are using Porteus for this installation, you can simply enter:
+
+mloop /path/to/file.iso
+
+And you can then navigate to /mnt/loop to access the necessary files. 
+If you are running from a Porteus CD, you can navigate to /mnt/sr0/ 
+and copy the files from there.
+
+Steps to Install:
+---------------------
+
+1) Insert your flash drive. If a window automatically pops up when 
+you plug it in, click to open the device. This will mount your flash 
+drive and you can see it's path by opening a console and typing:
+
+mount
+
+If the device is not mounted automatically, then you can open a 
+console and type:
+
+fdisk -l
+
+to get the path of your flash drive (e.g., /dev/sdb1), and then:
+
+mkdir /mnt/sdb1
+mount /dev/sdb1 /mnt/sdb1
+
+(substitute sdb1 with the name of your device if it was listed 
+differently in fdisk)
+
+Make note of the device's name, as this is the device which will need 
+to be modified by a script later in the process.
+
+2) Copy the files /boot and /porteus from the Porteus .iso file (or 
+from a Porteus CD) to the root directory of your flash drive (meaning 
+the files should not be placed inside any other folders on the drive. 
+For example, they should be located at /mnt/sdb1/boot and 
+/mnt/sdb1/porteus, assuming your flash drive is device sdb1, and is 
+mounted at /mnt/sdb1).
+
+3) Open a console and change directories to the boot folder that you 
+just copied into the flash drive, e.g.
+
+cd /mnt/sdb1/boot
+
+Execute the lin_start_here.sh script:
+
+./lin_start_here.sh
+
+*NOTE* If you are not running as root already, you must use the su or 
+sudo command and enter your root password before starting this script, 
+or it will not be able to configure your device properly.
+
+This script will bring up a menu.
+
+4) From the menu, select the 'Install Porteus to...' option that 
+matches the filesystem type of the drive to which you are installing. 
+Most drives are formatted with a FAT filesystem at the factory, and 
+should work with option number 7, "Install Porteus to a FATx partition 
+(syslinux)". If you have formatted your flash drive to a linux 
+partition (e.g. EXT2, EXT3, etc), then use option number 6 to install 
+extlinux. Option number 8 will install LILO as your bootloader. LILO 
+will work for any filesystem type (including NTFS), but it boots up 
+with a text menu instead of a graphical menu like syslinux or 
+extlinux. Once you have selected your bootloader, follow the 
+instructions given by the script from here, and be sure to confirm 
+that the correct device is being made bootable. This is important as 
+the script will write to the master boot record (MBR) on the first 
+sector of the device from which the script is run. Your flash drive 
+will not be made bootable if you write to the MBR of another device, 
+and it could make it so that your computer will no longer boot (if 
+this happens to you, please read the instructions in 
+/boot/docs/restore-mbr.txt in the Porteus ISO for recovery 
+instructions). 
+
+5) After running the install script, you should be able to boot 
+Porteus from your flash drive. Reboot your computer, and make sure 
+that your BIOS is set to boot from the USB device first, before it 
+boots to your hard disk. If you are unsure how to change the boot 
+order in your BIOS, please see Appendix A.
+
+*NOTE* If your flashdrive is formatted with a Windows filesystem 
+(e.g. FAT or NTFS), none of the changes you make to your system will 
+survive between reboots (Porteus will default to "Always Fresh" mode). 
+If you would like to save your changes, you can create a '.dat' file 
+container for this purpose. See Appendix B below for more information 
+about this very important feature, which is required for saving your 
+changes to a partition formatted with a Windows filesystem.
+
+*NOTE* if you are using a Porteus CD to install Porteus on a flash 
+drive, you can use the 'Porteus-2-USB' script, located in the 
+application menu, under System Tools. This useful script automates 
+the installation process. It will format your flash drive into two 
+partitions, copy the Porteus files, and make your flash drive bootable.
+
+
+*****************************************************
+* Installations to Internal or External Hard Drives *
+*****************************************************
+
+Porteus can be installed to Hard drives, but it should be left in its 
+compressed state (otherwise known as a 'Frugal' installation). 
+Installing extracted files to a hard drive is not supported; it is 
+suggested that you install Slackware Linux instead if you wish to have 
+an Operating System installed to your system natively.
+
+Creating a 'Frugal' installation is very similar to installing on a 
+USB drive. Porteus can be installed on it's own partition, or it can 
+be installed side by side with Windows or another Linux OS on the same 
+partition.
+
+If Porteus is the only Operating System that you are installing to a 
+device (internal or external), follow the instructions given above for 
+installing to a USB flash drive, making sure you tell the start_here 
+script to write to the Master Boot Record of the desired drive.
+
+For directions on installing Porteus to a device that will also run 
+other operating systems, please visit the documentation section and/or 
+the community forum at the Porteus website, at http://porteus.org. 
+These installations are highly variable depending on whether or not 
+Windows needs to be installed on the device, and on what bootloader 
+is used for the system.
+
+*NOTE* If your drive is formatted with a Windows filesystem (e.g. 
+FAT or NTFS), none of the changes you make to your system will survive 
+between reboots (Porteus will default to "Always Fresh" mode). If you 
+would like to save your changes, you can create a '.dat' file 
+container for this purpose. See Appendix B below for more information 
+about this very important feature, which is required for saving your 
+changes to a partition formatted with a Windows filesystem.
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$ APPENDIX A: Configuring your boot settings in BIOS $
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+In order to boot Porteus from a device other than your computer's 
+hard drive, you must make sure that your BIOS is set to boot to that 
+device before booting to the first hard disk.
+
+To enter the BIOS of your machine, you will need to press a particular 
+key during your computer's startup procedure. The exact key varies 
+from computer to computer, but is typically shown briefly during 
+startup, and it is usually one of the following keys:
+F1, F2, F12, Esc, Tab, etc.
+
+Once you press the specified key, you will be shown the BIOS menu. 
+While in BIOS, the legend for using the keyboard is at the bottom of 
+the screen. Inside the BIOS menu, you should look for your 'boot 
+order' option, and set your desired device (CDROM or USB device) to 
+the top of the list. Once you have changed your boot order, press F10 
+to save your changes and exit. If you are planning to boot to a USB 
+device, make sure it is plugged in when you enter your BIOS, as some 
+systems will only show the USB option when a USB device is present.
+
+Many machines also have another key to press during startup that 
+allows you to choose which device to boot from, without entering 
+the BIOS. While this is very handy, at some stage you will probably 
+want to change the BIOS setting so you don't have to keep pressing 
+this button at every boot. Be aware if your machine contains sensitive 
+data and is used by other people that leaving the setting to 'boot 
+from USB' presents a security risk. Others could also plug in a device 
+and boot to their own OS and access the information on your hard drive.
+
+No Boot from USB in BIOS?
+-------------------------
+
+Don't panic just yet, you may still be able to boot from your USB 
+device. Porteus contains a boot loader called Plop. Using this boot 
+loader, you can plug in your USB device as well as a Porteus CD. Boot 
+to the CD and when the Porteus menu comes up, highlight the Plop Boot 
+Manager and press enter to start up Plop. Within Plop, you can select 
+'USB', and press enter to boot from the USB device.
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$ Appendix B - Saving changes to a Windows Filesystem $
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+Porteus allows users to save their changes (i.e., system settings, 
+downloaded files, bookmarks, browser history, etc) to a folder or 
+image file (aka container) that exists outside of Porteus' core files. 
+The 'changes=' cheatcode parameter sets the location for these 
+changes. When you start Porteus with this cheatcode (enabled by 
+default for USB installations), it will boot up the operating system 
+and then apply your changes from this location. By default, Porteus is 
+set to save these changes to /porteus/changes.
+
+If you are installing Porteus to a device that is formatted with a 
+Windows filesystem (e.g. FAT 32, NTFS, etc), you are required to use 
+a '.dat' container for your changes. This container allows you to 
+retain linux permissions and symlinks, which are necessary for your 
+system to run properly and securely. 
+
+While starting up, Porteus will run a check to see if you are asking 
+it to save changes directly to a device with a Windows filesystem.  
+If you are, then Porteus will boot into "Always Fresh" mode.  To 
+create a '.dat' container file and start saving your changes, boot 
+Porteus into KDE or LXDE.  Then open up the menu and navigate to 
+"System -> Porteus .dat manager" (NOTE:  You can also access this 
+program through the new "Porteus Settings Assistant" program which 
+is included with V1.0 Final).  Click on this application to open it.  
+It will ask you for the location where you want to save it 
+(e.g. /mnt/sdb1/changes, if sdb1 is your desired storage device).  
+It will then ask you for a name to call the container.  You can 
+choose any name you like, for example 0, save, mychanges, etc. 
+(upon creation, the .dat suffix will be added).  You must then select 
+the size of the container in megabytes and it will be created placed 
+on your storage device.  In order to start saving your changes, you 
+will need to make a simple modification to the file that configures 
+your bootup procedure. Here are the necessary steps:
+
+As root, open the file /boot/porteus.cfg. You will have several 
+entries in this file, which look like this:
+
+LABEL xconf
+MENU LABEL Graphics mode (KDE).
+KERNEL /boot/vmlinuz
+APPEND initrd=/boot/initrd.xz vga=791 autoexec=xconf;telinit~4 
+    changes=/porteus/
+TEXT HELP
+Run Porteus the best way we can.
+Try to autoconfigure graphics
+card and use the maximum
+allowed resolution
+ENDTEXT
+
+LABEL lxde
+MENU LABEL Graphics mode (LXDE).
+KERNEL /boot/vmlinuz
+APPEND initrd=/boot/initrd.xz vga=791 lxde 
+    autoexec=xconf;telinit~4 changes=/porteus/
+TEXT HELP
+Run Porteus the same as above.
+Lightweight LXDE to be
+launched as default desktop
+ENDTEXT
+
+You will need to edit the end of the APPEND line, to make it read 
+'changes=/porteus/save.dat' (without the quotes, using the name you 
+specified earlier). Save this file and upon reboot your changes 
+will be saved to this container.
+
+*NOTE* If you need to gain access directly to the files in your 
+save.dat container (if, for example, you boot into 'Always Fresh' 
+mode and need to remove or edit one of your saved files), you can 
+mount the container on a loop, using these commands in a console:
+
+mkdir /mnt/loop
+mount -no loop /mnt/live/mnt/sdXN/save.dat /mnt/loop
+
+where sdXN is the name of your device, e.g. sdb1.
+
+You will then have access to these files, in /mnt/loop
+
+~~~~~~~~~~~~~~~
+
+Thanks for using Porteus!

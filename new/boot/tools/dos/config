@@ -1,0 +1,3 @@
+init=linuxrc
+load_ramdisk=1
+prompt_ramdisk=0

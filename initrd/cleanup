@@ -1,0 +1,80 @@
+#!/bin/ash
+# Optional script to be called instead of final reboot/shutdown
+# To safely switch back to initrd root and unmount everything possible
+# Mainly needed if you use changes= boot parameter in order to correctly
+# unmount the changes device/filesystem. Also needed to free up all loops
+# (to properly free disk space) if you delete an used lzm module.
+#
+# Call it this way in your shutdown script:
+#   cd /mnt/live
+#   exec ./cleanup <dev/console >dev/console 2>&1
+
+export PATH=.:/mnt/live:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib
+
+# This script needs to be re-executed to free up any shell
+# from the union which may be used (eg. /union/bin/bash)
+if [ ! "$RE_EXEC_CLEANUP" ]; then
+   export RE_EXEC_CLEANUP=1
+   echo "starting Linux Live shutdown procedures..."
+   echo "changing root back to initrd"
+   pivot_root . union
+   echo "re-executing cleanup script"
+   exec chroot . /cleanup "$@" <dev/console >dev/console 2>&1
+   echo "Something was wrong because we should never be here!"
+fi
+
+# kill all processes which can be killed
+PID=`pidof cleanup`
+for pid in `ps | grep -v "PID" | egrep -v "\[.*\]" | fgrep -v mount | fgrep -v ntfs | sed -r "s/^[[:space:]]*([0-9]+).*/\\1/"`; do
+    if [ $pid -lt $PID ]; then LIST="$LIST $pid"; fi
+done
+kill -SIGTERM $LIST 2>/dev/null # SIGTERM
+
+# kill all kdeinit processes which left
+#for x in `pidof kded4`; do kill -9 $x; done
+sleep 2
+
+# once again - to be sure
+kill -SIGKILL $LIST 2>/dev/null # SIGKILL
+
+fumount() { umount -n "$1" >/dev/null 2>&1
+if [ $? -ne 0 ]; then mount -no remount,ro "$1" >/dev/null 2>&1; fi }
+
+echo "unmounting union"
+umount -l /union/dev/pts
+umount -l /union/dev
+umount -l /union/proc
+umount -l /union/sys
+fumount /union/boot
+umount /union
+if [ $? -ne 0 ]; then mount -no remount,ro /union; fi
+
+echo "unmounting images"
+umount /memory/images/* 2>/dev/null
+for x in `ls /dev/loop*`; do losetup -d $x 2>/dev/null; done
+
+echo "unmounting mountpoints"
+fumount /memory/copy2ram
+fumount /memory/changes
+fumount /memory/xino
+fumount /memory
+fumount /mnt/*
+
+# eject cdrom devices
+if ! grep noeject /proc/cmdline >/dev/null; then
+    for x in `ls /mnt | grep 'sr' | sed s@/@@ 2>/dev/null`; do
+	echo "Ejecting $x..."
+	eject -m /dev/$x >/dev/null 2>&1
+	echo "CD tray will be closed in 6 seconds..."
+	sleep 6
+	eject -t /dev/$x >/dev/null 2>&1
+    done
+fi
+
+sync
+echo $1
+# $1 = action, eg. poweroff or reboot
+if [ "$1" = "" ]; then reboot -f; fi
+if [ "$1" = "halt" ]; then poweroff -f; else $1 -f; fi
+
+echo "Something was wrong because we should never be here!"

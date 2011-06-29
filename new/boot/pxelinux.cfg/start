@@ -1,0 +1,31 @@
+#!/bin/bash
+# This script will start a DHCP server and TFTP server in order to provide
+# fully functional environment for PXE booting.
+#
+
+cd $(dirname $(readlink -f $0))
+# find out our own IP address. If more interfaces are available, use the first one
+IP=$(ifconfig $(ls -1 /sys/class/net | grep eth | head -n 1 | sed "s|@||g") | grep "inet addr" | cut -d : -f 2 | cut -d " " -f 1)
+
+# if no IP is assigned to this computer, setup private address randomly
+if [ "$IP" = "" ]; then
+   killall dhcpcd 2>/dev/null
+   IP="10."$(($RANDOM/130+1))"."$(($RANDOM/130+1))".1"
+   ifconfig $(ls -1 /sys/class/net | head -n 1 | sed "s|@||g") $IP netmask 255.0.0.0
+fi
+
+# calculate C class range
+RANGE=$(echo $IP | cut -d "." -f 1-3)
+
+# with copy2ram cheatocde /boot is not availiable, after mounting porteus media you can run this script manually
+device=`awk 'c-->0;/Porteus data found in/{c=1}' /mnt/live/var/log/livedbg`
+[ "$device" != "/memory/copy2ram" ] && ROOT=/ || ROOT=`cd ../../ ; pwd`
+
+# make sure dnsmasq can be started
+killall dnsmasq 2>/dev/null
+mkdir -p /var/state/dnsmasq
+
+# start the DHCP server and TFTP server
+./dnsmasq --enable-tftp --tftp-root=$ROOT/boot \
+--dhcp-boot=/pxelinux.0,"$IP",$IP \
+--dhcp-range=$RANGE.50,$RANGE.250,infinite --log-dhcp

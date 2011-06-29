@@ -1,0 +1,9 @@
+# Aliases for symbols, used by symbol_request().
+alias symbol:mii_ethtool_gset mii
+alias symbol:mii_ethtool_sset mii
+alias symbol:generic_mii_ioctl mii
+alias symbol:mii_check_media mii
+alias symbol:mii_check_link mii
+alias symbol:mii_check_gmii_support mii
+alias symbol:mii_nway_restart mii
+alias symbol:mii_link_ok mii

@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>Porteus winstaller</title>
+<HTA:APPLICATION
+     ID="objScriptFromText"
+     CONTEXTMENU = "No"
+     APPLICATIONNAME="Porteus winstaller"
+     SCROLL="no"
+     SINGLEINSTANCE="yes"
+     BORDER="thin"
+     ICON="docs\favicon.ico"
+>
+
+</head>
+
+<SCRIPT Language="VBScript">
+Sub Window_onLoad
+      intWidth = 350
+      intHeight = 190
+      Me.ResizeTo intWidth, intHeight
+      Me.MoveTo ((Screen.Width / 2) - (intWidth / 2)), ((Screen.Height / 2) - (intHeight / 2))
+End Sub
+
+Sub UAC
+   CreateObject("WScript.Shell").Run "tools\MyUAC.exe"
+End Sub
+
+Sub InstallGuide
+   CreateObject("WScript.Shell").Run "wordpad.exe docs\install.txt"
+End Sub
+
+Sub ReadCheatcodes
+   CreateObject("WScript.Shell").Run "wordpad.exe docs\cheatcodes.txt"
+End Sub
+
+Sub Requirements
+   CreateObject("WScript.Shell").Run "wordpad.exe docs\requirements.txt"
+End Sub
+
+Sub InstallPorteus
+   CreateObject("WScript.Shell").Run "syslinux\bootinst.bat"
+End Sub
+
+Sub PorteusExit
+        window.close()
+End Sub
+
+Sub Pointer
+    document.body.style.cursor = "hand"
+End Sub
+
+Sub DefaultCursor
+    document.body.style.cursor = "default"
+End Sub
+
+</SCRIPT>
+
+<body background="docs\porteus.png">
+<table width="100%">
+<tr>
+<td align="center">Information<br /><br /><input style="width: 9em" id=runbutton  class="button" type="button" value="Requirements" name="run_button" onClick="Requirements">
+<input style="width: 9em" id=runbutton  class="button" type="button" value="Installation guide" name="run_button" onClick="InstallGuide">
+<input style="width: 9em" id=runbutton  class="button" type="button" value="Cheatcodes" name="run_button" onClick="ReadCheatcodes"></td>
+<td align="center">Install<br /><br /><input style="width: 9em" id=runbutton  class="button" type="button" value="Disable UAC" name="run_button" onClick="UAC">
+<input style="width: 9em" id=runbutton  class="button" type="button" value="Install Porteus" name="run_button" onClick="InstallPorteus">
+<input style="width: 9em" id=runbutton  class="button" type="button" value="Exit" name="run_button" onClick="PorteusExit"></td>
+</tr>
+</table>
+
+</body>
+</html>

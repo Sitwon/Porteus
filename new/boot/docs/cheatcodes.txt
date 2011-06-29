@@ -1,0 +1,323 @@
+Cheatcodes for Porteus.
+=======================================
+spacebar = pagedown
+q = quit
+
+Boot parameters (also known as cheatcodes) are used to affect the
+booting process of Porteus. Some of them are common for all Linuxes,
+others are specific for Porteus only. You can use them to disable 
+desired kinds of hardware detection, to start Porteus from a harddisk, 
+to skip the login prompt and start GUI, etc.
+
+Reboot your computer and wait several seconds until the graphical 
+Porteus logo appears with a boot menu (it's there usually for less 
+then 9 seconds). Choose your desired menu entry and hit Tab, which 
+will allow you to edit the command line. Add your desired boot 
+argument from the list below to affect booting the way you like. 
+Here's an example of what the boot line would look like, adding the 
+noauto, copy2ram and toroot cheatcodes to a standard Porteus boot 
+option (which already uses several cheatcodes by default):
+
+APPEND initrd=/boot/initrd.xz vga=791 autoexec=xconf;telinit~4
+changes=/porteus/ noauto copy2ram toroot
+
+These cheatcodes can also be added to the APPEND line of your 
+/boot/porteus.cfg entries (or other bootloader config files, if you 
+don't use EXTLINUX or SYSLINUX) to apply them automatically on every 
+boot. 
+
+NOTE for LILO users: if you have installed the LILO bootloader, you 
+will get a text interface instead of a graphical Porteus logo.  A text 
+menu with the standard boot options (KDE, LXDE, Always Fresh, etc) 
+will appear. Use your arrow key to highlight your desired entry (if 
+you are using the first entry (KDE), press down, then up to highlight 
+KDE).  The name of your boot option is added to the 'boot:' line, and 
+you can type your cheatcodes after that.  For example:
+
+boot:  KDE debug noauto
+
+would boot into KDE with all of the standard codes used for KDE, plus 
+debug and noauto.  If you want to use LILO with custom cheatcodes at 
+every boot without manually entering them each time, you must modify 
+the /boot/syslinux/liloinst.sh script and then reinstall LILO with the 
+modified script.
+
+SPECIAL NOTE FOR USING CHEATCODES WITH 'LABEL' AND 'UUID':
+If you specify a LABEL or UUID with a cheatcode, remember that all 
+portions of these commands are case sensitive.  You should use a 
+unique label for each of your partitions if you wish to use device 
+labels with your cheatcodes. Use the 'blkid' command to view your 
+device's UUID and LABEL. Using UUID and LABEL can be quite handy 
+because they are unique to your device, and your data will be found 
+and properly mapped on different hardware configurations.
+
+---------------------------------------
+
+List of available cheatcodes (in alphabetical order):
+
+acpi=off
+
+       Disables use of acpi (Advanced Configuration and Power Interface)
+
+autoexec=...
+autoexec=startx
+autoexec=xconf;startx
+autoexec=xconf;startx;reboot
+
+   ... Execute specified command(s) before logging in to Porteus 
+       (i.e. before going multiuser). In this example, skip the 
+       Porteus login prompt and automatically start the 
+       XWindow system. Use semicolons (;) as command separators.
+   ... Porteus will not reboot automatically after the command(s) 
+       finish, so if you'd like to restart, specify 'reboot' or 
+       'poweroff' as the last command.
+   ... If you need to use spaces in the commandline, replace them 
+       with ~. For example, autoexec=echo~Shutting~power;poweroff 
+       will echo your text with spaces instead of ~.
+
+changes=/dev/device
+changes=/dev/device/file.dat
+changes=/path/
+changes=/path/file.dat
+changes=/dev/device/path/
+changes=LABEL:YourLabelName/path
+changes=UUID:STrING-0F-ChARACtERS/path/file.dat
+
+   ... All changes made in Porteus are kept in memory until you reboot.
+       But with this boot parameter, you tell Porteus to use a device
+       (or a file or directory) other than your memory for storing 
+       changes. You can, for example, format your disk partition 
+       /dev/sda1 with some Linux filesystem (eg. xfs) and then use 
+       changes=/dev/sda1 to store all changes to that disk. This way 
+       you won't loose your changes after reboot.
+   ... If you use a file image instead of a device, and the image 
+       contains a valid filesystem, Porteus will mount it as a loop 
+       device and will store changes to it. Moreover if you don't 
+       specify the device where the file is stored, Porteus will try 
+       to find it on all your partitions.
+   ... If you use a directory, Porteus will save changes to it (it 
+       will make a 'changes' subdirectory there). This should only 
+       be used for linux filesystems, if changes need to be saved to a 
+       FAT or NTFS partition, a '.dat' container file must be used.
+
+copy2ram
+
+   ... Copy all files (all required and optional modules) to RAM.
+       You'll need at least 320MB of RAM to do this and boot Porteus 
+       properly. (64-bit Porteus with KDE-4 requires at least 768MB of 
+       RAM for this) This will slow down the boot phase but it will 
+       speed up Porteus!
+
+debug
+
+   ... Enable debug mode (and start an ash shell several times during 
+       the boot) hit Ctrl+D to continue booting every time the shell 
+       stops the boot process.
+
+delay=some_value
+
+   ... To be used for devices which need extra time to settle up. 
+       Example: 'delay=5' will cause a 5 second delay before Porteus 
+       starts booting.
+
+extramod=/path/to_folder/with_modules
+extramod=/dev/device/path/to_folder/with_modules
+extramod=LABEL:YourLabelName/path/to_folder/with_modules
+extramod=UUID:STrING-0F-ChARACtERS/path/to_folder/with_modules
+
+   ... This cheatcode lets you load modules from an external folder 
+       which is placed outside of the /porteus directory. Full path 
+       is not required, although it is recommended to avoid searching 
+       through all devices.
+       Example: 'extramod=/mnt/sdb3/porteus/xzm'
+
+from_dev=/dev/sda1
+from_dev=LABEL:YourLabelName
+from_dev=UUID:STrING-0F-ChARACtERS
+
+   ... Loads Porteus from the specified device.  This may be a device 
+       other than the device from which you are booting.
+       This cheatcode also speeds up boot time because the init script 
+       searches for the Porteus data on the specified device first.
+
+from_dir=/path/to/folder
+
+   ... This cheatcode provides a path to a directory where the Porteus 
+       ISO image has been unpacked. It can be used with the 'from_dev=' 
+       parameter to avoid searching through all available devices. 
+       Example: 'from_dev=/dev/sda6' 'from_dir=/linux/porteus-v09' 
+       will cause searching for *.sgn file in the 
+       /mnt/sda6/linux/porteus-v09/porteus folder first.
+
+from_iso=/path/to/image.iso
+from_iso=/dev/device/path/image.iso
+from_iso=LABEL:YourLabelName/path/to/image.iso
+from_iso=UUID:STrING-0F-ChARACtERS/path/to/image.iso
+
+   ... This cheatcode can be used to boot from a Porteus ISO image 
+       directly. The full path to the ISO is not required although it 
+       is recommended to avoid searching through all devices.
+       WARNING: You can't use it together with the 'from_dev=' 
+       parameter.
+       Example: 'from_iso=/mnt/sda6/linux-images/latest-porteus.iso'
+
+fsck
+
+   ... Enables a filesystem check for ext(2,3,4) and reiserfs 
+       partitions during boot time before anything is mounted by 
+       Porteus. Xfs does not need fsck as a check is performed 
+       automatically during the mount operation.
+
+iocharset=some_iocharset
+
+   ... Same as 'lang=' parameter (see below), but applies to fat and 
+       iso9660 (CD,DVD) filesystems. 
+       A list of available iocharsets can be found in the  
+       /usr/doc/language/fat.txt file.
+       Example: iocharset=iso8859-2 will cause mounting of fat/iso9660 
+       filesystems with polish charset.
+
+
+lang=some_locale
+
+   ... Specifies 'locale' option for ntfs filesystem and sets 
+       localization for the whole system when Language-Selection-Tool 
+       is not used. Example: lang=pl_PL will cause mounting of ntfs 
+       partition with polish charset.
+
+       Please remember:
+       If Porteus will be booted from nfts partition then nls support 
+       is reduced to utf8 encoding only. Porteus doesn't provide 
+       localized versions of initrd so please stick with utf8, 
+       remaster initrd or use some other filesystem for booting media 
+       if possible.
+
+load=module
+
+   ... Load optional modules from /optional/ directory on the booting 
+       media. You can use full module name (module.xzm) or you can 
+       skip the extension.
+
+lxde
+
+   ... This parameter will let you use lxde as the default desktop, 
+       rather than KDE.
+
+max_loop=some_value
+
+   ... This parameter tells the kernel how many loop devices need to 
+       be created in advance during boot time.
+       Example: max_loop=150 will give you 150 loop devices at startup, 
+       but this number is hardcoded into the kernel and you wont be 
+       able to create more.
+
+noauto
+
+   ... List harddisks in fstab with 'noauto', so you have to mount 
+       every disk manually in order to access it.
+
+nocd
+
+   ... Disable cdrom detection.
+
+nodma
+
+   ... Disable DMA for all CD-ROMs and disks.
+
+noeject
+
+   ... Do not eject CD/DVD disc during boot time and shutdown.
+      
+       NOTE: when the 'copy2ram' cheatcode is used with 'noeject', 
+       this will prevent the unmounting of your boot partition on all 
+       removable devices (CD/DVD disc, usb, card readers, etc). To 
+       eject the CD you will have to umount /mnt/sr0 manually and 
+       issue the command 'eject /dev/sr0' from a console. (This 
+       behavior is new in Porteus V1.0 Final).
+
+nohd
+
+   ... Disable harddisk detection
+
+nohotplug
+
+   ... Disable specified hardware autodetection in the case of 
+       hangups. None of your hardware will be detected, and you'll 
+       have to use the "pcimodules" command after logging in to 
+       Porteus and modprobe all needed modules from the list manually.
+
+noload=module
+noload=module[1];module[n]
+
+   ... Disable loading of any modules specified. This affects all the 
+       modules on the Porteus CD, including /base and /modules, so 
+       using noload=kde will disable loading of all modules with 'kde' 
+       in the name. It is useful with the copy2ram cheatcode, because 
+       any un-used module is not copied to ram.
+
+nomagic
+
+   ... Do not bind "magic folders" during boot time. Usefull when 
+       something went wrong with your Porteus configuration and you 
+       want to boot into true 'Always Fresh' mode.
+
+nomodeset
+
+   ... Prevents the use of Kernel Mode Setting (high resolution in 
+       console mode) drivers.  Be aware that intel, opensource radeon 
+       and nouveau drivers won't work without KMS in Graphical User 
+       Interface (GUI) mode.
+
+noswap
+
+   ... Prevents using a swap partition.
+
+passwd=somepass
+passwd=ask
+
+   ... Set root's password to "somepass", or ask (with =ask) for a 
+       new password during the boot, before starting porteus 
+       (don't worry, the new password won't be shown at the login 
+       screen)
+
+ramsize=some_value%
+
+   ... Will let you set the custom size of root (/) aufs partition. 
+       Default value is 60% of available RAM memory. Useful for PC's 
+       with a small amount of memory.
+       Example: ramsize=40%
+
+rootcopy=/path/to_folder/with_files
+rootcopy=/dev/device/path/to_folder/with_files
+rootcopy=UUID:STrING-0F-ChARACtERS/path/to_folder/with_files
+rootcopy=LABEL:YourLabelName/path/to_folder/with_files
+
+
+   ... Copy files from specified directory directly to the live 
+       filesystem. This directory will be used instead of the 
+       traditional /porteus/rootcopy. Full path is not required, 
+       although it is recommended to avoid searching through all 
+       devices.
+       Example: 'rootcopy=/dev/sda5/porteus-files'
+
+sgnfile=some_name.sgn
+
+   ... This cheatcode specifies the *.sgn file which Porteus will 
+       search for.  This is Useful when you need to store several 
+       linux-live distros on one disk/disc.
+       Example: sgnfile=porteus-usb.sgn
+
+toroot
+
+   ... This parameter allows you to log directly into the GUI 
+       desktop as the root user.
+
+vmalloc=some_valueMB
+
+   ... When many modules are loaded (30 or more), some kernel drivers 
+       may not be initialized correctly. Use this cheatcode to 
+       increase kernel memory allocation to fix this issue.
+       Example: vmalloc=256MB 
+       If this is not enough, try with the 512MB option.
+
+

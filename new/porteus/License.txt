@@ -1,0 +1,7 @@
+Porteus comes with no guarantees or warranties of any sorts,
+either written or implied.
+
+Porteus is released under GPL. Check GNU_GPL file for more details.
+Individual packages in the distribution may come with their own licences.
+
+http://www.porteus.org
