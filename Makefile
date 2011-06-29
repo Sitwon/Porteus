@@ -29,6 +29,7 @@ all: iso zip
 clean:
 	rm -f $(INITRD)
 	rm -f $(BASE)
+	rm -f new/porteus/md5sums.txt
 
 build: $(DIRS) $(INITRD) $(BASE) new/porteus/md5sums.txt
 

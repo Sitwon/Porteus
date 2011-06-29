@@ -1,0 +1,7 @@
+.*.swp
+*~
+new/boot/initrd.xz
+new/porteus/base
+new/porteus/md5sums.txt
+porteus.iso
+porteus.zip
