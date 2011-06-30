@@ -83,5 +83,5 @@ $(INITRD):
 	mount -o loop new/boot/initrd /tmp/initrd-new
 	cp -af initrd/* /tmp/initrd-new
 	umount /tmp/initrd-new
-	xz new/boot/initrd
+	xz --check=crc32 --x86 --lzma2 new/boot/initrd
 
