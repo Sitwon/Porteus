@@ -31,11 +31,11 @@ clean:
 	rm -f $(BASE)
 	rm -f new/porteus/md5sums.txt
 
-build: $(DIRS) $(INITRD) $(BASE) new/porteus/md5sums.txt
+build: $(DIRS) $(INITRD) $(BASE)
 
-iso: $(ISO)
+iso: $(ISO) new/porteus/md5sums.txt
 
-zip: $(ZIP)
+zip: $(ZIP) new/porteus/md5sums.txt
 
 $(ISO): $(INITRD) $(BASE)
 	cd new && porteus/make_iso.sh ../$@
