@@ -1,0 +1,737 @@
+build
+|-- etc
+|   `-- mplayer
+|       |-- input.conf
+|       `-- mplayer.conf
+|-- usr
+|   |-- bin
+|   |   |-- extract_archive.sh
+|   |   |-- kopete
+|   |   |-- kopete_latexconvert.sh
+|   |   |-- kppp
+|   |   |-- kppplogview
+|   |   |-- krdc
+|   |   |-- krec
+|   |   |-- lisa
+|   |   |-- reslisa
+|   |   |-- winpopup-install.sh
+|   |   `-- winpopup-send.sh
+|   |-- etc
+|   |-- lib
+|   |   |-- libartsgui.so -> libartsgui.so.0.0.0
+|   |   |-- libartsgui.so.0 -> libartsgui.so.0.0.0
+|   |   |-- libartsgui_idl.so -> libartsgui_idl.so.0.0.0
+|   |   |-- libartsgui_idl.so.0 -> libartsgui_idl.so.0.0.0
+|   |   |-- libartsgui_kde.so -> libartsgui_kde.so.0.0.0
+|   |   |-- libartsgui_kde.so.0 -> libartsgui_kde.so.0.0.0
+|   |   |-- libartsmidi.so -> libartsmidi.so.0.0.0
+|   |   |-- libartsmidi.so.0 -> libartsmidi.so.0.0.0
+|   |   |-- libartsmidi_idl.so -> libartsmidi_idl.so.0.0.0
+|   |   |-- libartsmidi_idl.so.0 -> libartsmidi_idl.so.0.0.0
+|   |   |-- libartsmodules.so -> libartsmodules.so.0.0.0
+|   |   |-- libartsmodules.so.0 -> libartsmodules.so.0.0.0
+|   |   |-- libartsmodulescommon.so -> libartsmodulescommon.so.0.0.0
+|   |   |-- libartsmodulescommon.so.0 -> libartsmodulescommon.so.0.0.0
+|   |   |-- libartsmoduleseffects.so -> libartsmoduleseffects.so.0.0.0
+|   |   |-- libartsmoduleseffects.so.0 -> libartsmoduleseffects.so.0.0.0
+|   |   |-- libartsmodulesmixers.so -> libartsmodulesmixers.so.0.0.0
+|   |   |-- libartsmodulesmixers.so.0 -> libartsmodulesmixers.so.0.0.0
+|   |   |-- libartsmodulessynth.so -> libartsmodulessynth.so.0.0.0
+|   |   |-- libartsmodulessynth.so.0 -> libartsmodulessynth.so.0.0.0
+|   |   |-- libaudiocdplugins.so -> libaudiocdplugins.so.1.0.0
+|   |   |-- libaudiocdplugins.so.1 -> libaudiocdplugins.so.1.0.0
+|   |   |-- libbeep.so -> libbeep.so.2.0.0
+|   |   |-- libbeep.so.2 -> libbeep.so.2.0.0
+|   |   |-- libexif.so.12 -> libexif.so.12.3.2
+|   |   |-- libexif.so.12.3.2
+|   |   |-- libgd.so -> libgd.so.2.0.0
+|   |   |-- libgd.so.2 -> libgd.so.2.0.0
+|   |   |-- libgphoto2.so.2 -> libgphoto2.so.2.4.0
+|   |   |-- libgphoto2.so.2.4.0
+|   |   |-- libgphoto2_port.so.0 -> libgphoto2_port.so.0.8.0
+|   |   |-- libgphoto2_port.so.0.8.0
+|   |   |-- libid3-3.8.so.3 -> libid3-3.8.so.3.0.0
+|   |   |-- libid3.so -> libid3-3.8.so.3.0.0
+|   |   |-- libieee.a
+|   |   |-- libieee1284.so.3 -> libieee1284.so.3.2.2
+|   |   |-- libieee1284.so.3.2.2
+|   |   |-- libk3b.so -> libk3b.so.3.0.0
+|   |   |-- libk3b.so.3 -> libk3b.so.3.0.0
+|   |   |-- libk3bdevice.so -> libk3bdevice.so.5.0.0
+|   |   |-- libk3bdevice.so.5 -> libk3bdevice.so.5.0.0
+|   |   |-- libkcddb.so.1
+|   |   |-- libkcmlaptop.so -> libkcmlaptop.so.0.0.0
+|   |   |-- libkcmlaptop.so.0 -> libkcmlaptop.so.0.0.0
+|   |   |-- libkdegames.so -> libkdegames.so.1.2.0
+|   |   |-- libkdegames.so.1 -> libkdegames.so.1.2.0
+|   |   |-- libkghostviewlib.so -> libkghostviewlib.so.0.0.0
+|   |   |-- libkghostviewlib.so.0 -> libkghostviewlib.so.0.0.0
+|   |   |-- libkimageviewer.so -> libkimageviewer.so.0.0.0
+|   |   |-- libkimageviewer.so.0 -> libkimageviewer.so.0.0.0
+|   |   |-- libkmilo.so -> libkmilo.so.1.0.0
+|   |   |-- libkmilo.so.1 -> libkmilo.so.1.0.0
+|   |   |-- libkmultipage.so -> libkmultipage.so.0.0.0
+|   |   |-- libkmultipage.so.0 -> libkmultipage.so.0.0.0
+|   |   |-- libkopete.so -> libkopete.so.1.0.0
+|   |   |-- libkopete.so.1 -> libkopete.so.1.0.0
+|   |   |-- libkopete_msn_shared.so -> libkopete_msn_shared.so.0.0.0
+|   |   |-- libkopete_msn_shared.so.0 -> libkopete_msn_shared.so.0.0.0
+|   |   |-- libkopete_oscar.so -> libkopete_oscar.so.2.0.0
+|   |   |-- libkopete_oscar.so.2 -> libkopete_oscar.so.2.0.0
+|   |   |-- libkopete_videodevice.so -> libkopete_videodevice.so.0.0.0
+|   |   |-- libkopete_videodevice.so.0 -> libkopete_videodevice.so.0.0.0
+|   |   |-- libkscan.so -> libkscan.so.1.0.0
+|   |   |-- libkscan.so.1 -> libkscan.so.1.0.0
+|   |   |-- libksvg.so -> libksvg.so.0.0.1
+|   |   |-- libksvg.so.0 -> libksvg.so.0.0.1
+|   |   |-- libkwalletclient.so -> libkwalletclient.so.1.0.1
+|   |   |-- libkwalletclient.so.1 -> libkwalletclient.so.1.0.1
+|   |   |-- libmp3lame.so -> libmp3lame.so.0.0.0
+|   |   |-- libmp3lame.so.0 -> libmp3lame.so.0.0.0
+|   |   |-- libpoppler-glib.so -> libpoppler-glib.so.3.0.0
+|   |   |-- libpoppler-qt.so -> libpoppler-qt.so.2.0.0
+|   |   |-- libpoppler-qt.so.2 -> libpoppler-qt.so.2.0.0
+|   |   |-- libpoppler-qt.so.2.0.0
+|   |   |-- libpoppler.so -> libpoppler.so.7.0.0
+|   |   |-- libpoppler.so.3 -> libpoppler.so.7.0.0
+|   |   |-- libpoppler.so.7 -> libpoppler.so.7.0.0
+|   |   |-- libpoppler.so.7.0.0
+|   |   |-- libtext2path.so -> libtext2path.so.0.0.0
+|   |   |-- libtext2path.so.0 -> libtext2path.so.0.0.0
+|   |   |-- libva-0.31.1.1.so.1 -> libva-0.31.1.1.so.1.0.3
+|   |   |-- libva-compat.so -> libva-compat.so.0.0.0
+|   |   |-- libva-compat.so.0 -> libva-compat.so.0.0.0
+|   |   |-- libva-glx-0.31.1.1.so.1 -> libva-glx-0.31.1.1.so.1.0.3
+|   |   |-- libva-glx.so -> libva-glx-0.31.1.1.so.1.0.3
+|   |   |-- libva-tpi-0.31.1.1.so.1 -> libva-tpi-0.31.1.1.so.1.0.3
+|   |   |-- libva-tpi.so -> libva-tpi-0.31.1.1.so.1.0.3
+|   |   |-- libva-x11-0.31.1.1.so.1 -> libva-x11-0.31.1.1.so.1.0.3
+|   |   |-- libva-x11.so -> libva-x11-0.31.1.1.so.1.0.3
+|   |   |-- libva.so -> libva-0.31.1.1.so.1.0.3
+|   |   |-- libvdpau.so -> libvdpau.so.1.0.0
+|   |   |-- libvdpau.so.1 -> libvdpau.so.1.0.0
+|   |   |-- libvdpau_trace.so -> vdpau/libvdpau_trace.so
+|   |   |-- va
+|   |   |   `-- drivers
+|   |   |       |-- fglrx_drv_video.so -> xvba_drv_video.so
+|   |   |       |-- nvidia_drv_video.so -> vdpau_drv_video.so
+|   |   |       |-- s3g_drv_video.so -> vdpau_drv_video.so
+|   |   |       `-- xvba_drv_video.so
+|   |   `-- vdpau
+|   |       |-- libvdpau_trace.so -> libvdpau_trace.so.1.0.0
+|   |       `-- libvdpau_trace.so.1 -> libvdpau_trace.so.1.0.0
+|   |-- man
+|   |   `-- man1
+|   |       |-- beep-media-player.1
+|   |       |-- lame.1
+|   |       `-- mencoder.1 -> mplayer.1
+|   `-- share
+|       |-- applications
+|       |   `-- kde
+|       |       |-- Kppp.desktop
+|       |       |-- kcmsambaconf.desktop
+|       |       |-- kopete.desktop
+|       |       |-- kppplogview.desktop
+|       |       `-- krdc.desktop
+|       |-- applnk
+|       |-- apps
+|       |   |-- kasteroids
+|       |   |   |-- sounds
+|       |   |   `-- sprites
+|       |   |       |-- bits
+|       |   |       |-- exhaust
+|       |   |       |-- missile
+|       |   |       |-- powerups
+|       |   |       |-- rock1
+|       |   |       |-- rock2
+|       |   |       |-- rock3
+|       |   |       |-- shield
+|       |   |       `-- ship
+|       |   |-- kicker
+|       |   |   `-- applets
+|       |   |       `-- kwireless.desktop
+|       |   |-- kinetd
+|       |   |   `-- eventsrc
+|       |   |-- konqsidebartng
+|       |   |   `-- virtual_folders
+|       |   |       `-- services
+|       |   |           `-- lisa.desktop
+|       |   |-- konqueror
+|       |   |   |-- dirtree
+|       |   |   |   `-- remote
+|       |   |   |       `-- lan.desktop
+|       |   |   `-- servicemenus
+|       |   |       `-- smb2rdc.desktop
+|       |   |-- kpoker
+|       |   |   `-- sounds
+|       |   |-- kppp
+|       |   |   |-- Provider
+|       |   |   |   |-- Austria
+|       |   |   |   |   `-- Simon%032Media
+|       |   |   |   |-- Belarus
+|       |   |   |   |   `-- AtlantTelecom
+|       |   |   |   |-- Czech_Republic
+|       |   |   |   |   |-- AICOM
+|       |   |   |   |   |-- ARsystem
+|       |   |   |   |   |-- ASYS
+|       |   |   |   |   |-- ApexNet
+|       |   |   |   |   |-- BohemiaNet
+|       |   |   |   |   |-- Brailcom
+|       |   |   |   |   |-- CITYNET
+|       |   |   |   |   |-- Contactel
+|       |   |   |   |   |-- ES-servis
+|       |   |   |   |   |-- Econnect
+|       |   |   |   |   |-- Falco_computer
+|       |   |   |   |   |-- Fortech
+|       |   |   |   |   |-- HP-NET
+|       |   |   |   |   |-- INTERNET_OnLine
+|       |   |   |   |   |-- INTERNEXT
+|       |   |   |   |   |-- IQNET
+|       |   |   |   |   |-- KPNQuest
+|       |   |   |   |   |-- M-soft
+|       |   |   |   |   |-- Nextra
+|       |   |   |   |   |-- ProfiNet
+|       |   |   |   |   |-- SeverNET
+|       |   |   |   |   |-- Video_OnLine
+|       |   |   |   |   `-- Volny
+|       |   |   |   |-- Denmark
+|       |   |   |   |   `-- Get2Net
+|       |   |   |   |-- France
+|       |   |   |   |   `-- ClubInternetFull
+|       |   |   |   |-- Germany
+|       |   |   |   |   |-- CityWeb
+|       |   |   |   |   |-- FH%032Rhein%032Sieg%032%040Informatik%041
+|       |   |   |   |   |-- MUC%046DE
+|       |   |   |   |   `-- Netsurf
+|       |   |   |   |-- Irland
+|       |   |   |   |   |-- Eircom
+|       |   |   |   |   `-- IOL
+|       |   |   |   |-- Netherlands
+|       |   |   |   |   |-- 12Move
+|       |   |   |   |   |-- Bart
+|       |   |   |   |   |-- Betuwenet%032BFree
+|       |   |   |   |   |-- Betuwenet%032BQuality
+|       |   |   |   |   |-- Cistron
+|       |   |   |   |   |-- Concepts%032ICT
+|       |   |   |   |   |-- Cubic%032Circle
+|       |   |   |   |   |-- Dataweb
+|       |   |   |   |   |-- Daxis%032Internet
+|       |   |   |   |   |-- Demon%032Internet
+|       |   |   |   |   |-- Energis-Ision
+|       |   |   |   |   |-- Euronet%032anytime
+|       |   |   |   |   |-- Euronet%032professional
+|       |   |   |   |   |-- FlakkeeNet
+|       |   |   |   |   |-- FreeAcces
+|       |   |   |   |   |-- Freeler%032basis
+|       |   |   |   |   |-- Freeler%032compleet
+|       |   |   |   |   |-- Freeler%032voordelig
+|       |   |   |   |   |-- HCC%032NET
+|       |   |   |   |   |-- Hacom
+|       |   |   |   |   |-- HetNet%032Basis%032Surfen
+|       |   |   |   |   |-- HetNet%032Frequent%032Surfen
+|       |   |   |   |   |-- HetNet%032Regelmatig%032Surfen
+|       |   |   |   |   |-- IAE
+|       |   |   |   |   |-- ILimburg
+|       |   |   |   |   |-- InterNLnet
+|       |   |   |   |   |-- Interbox
+|       |   |   |   |   |-- Internet%032Acces%032Facilities
+|       |   |   |   |   |-- Internet%032Online
+|       |   |   |   |   |-- Interstroom
+|       |   |   |   |   |-- IntroWeb%032Hengelo%032e.o.
+|       |   |   |   |   |-- IntroWeb%032met%0323-cijferig%032kengetal
+|       |   |   |   |   |-- IntroWeb%032met%0324-cijferig%032kengetal
+|       |   |   |   |   |-- Kabelfoon
+|       |   |   |   |   |-- KeyAcces%032met%0323%032cijferig%032kengetal
+|       |   |   |   |   |-- KeyAcces%032met%0324%032cijferig%032kengetal
+|       |   |   |   |   |-- Luna
+|       |   |   |   |   |-- Macom
+|       |   |   |   |   |-- Nederland.net
+|       |   |   |   |   |-- Planet%032Internet%032Premium
+|       |   |   |   |   |-- Planet%032Internet%032Standaard
+|       |   |   |   |   |-- Plant%032Acces
+|       |   |   |   |   |-- Popin
+|       |   |   |   |   |-- PublishNet
+|       |   |   |   |   |-- Raketnet
+|       |   |   |   |   |-- Solcon
+|       |   |   |   |   |-- Support%032Net
+|       |   |   |   |   |-- Telebyte
+|       |   |   |   |   |-- Tiscali%032Compleet
+|       |   |   |   |   |-- Tiscali%032Gratis
+|       |   |   |   |   |-- UwNet
+|       |   |   |   |   |-- Via%032Networks
+|       |   |   |   |   |-- Wannadoo%032budget
+|       |   |   |   |   |-- Wannadoo%032budget%320plus
+|       |   |   |   |   |-- Wannadoo%032smartpack
+|       |   |   |   |   |-- Wirehub
+|       |   |   |   |   |-- XS4All
+|       |   |   |   |   |-- Zeelandnet
+|       |   |   |   |   |-- Zon%0322
+|       |   |   |   |   |-- Zon%032Gratis
+|       |   |   |   |   `-- Zon%032Inclusief
+|       |   |   |   |-- NewZealand
+|       |   |   |   |   |-- OrconInternet
+|       |   |   |   |   |-- Paradise
+|       |   |   |   |   |-- Voyager
+|       |   |   |   |   |-- XTRA
+|       |   |   |   |   `-- ihug
+|       |   |   |   |-- Norway
+|       |   |   |   |   |-- BGNett
+|       |   |   |   |   `-- Institutt%032for%032informatikk
+|       |   |   |   |-- Portugal
+|       |   |   |   |   |-- Clix
+|       |   |   |   |   |-- Netc
+|       |   |   |   |   `-- OniNet
+|       |   |   |   |-- Slovenia
+|       |   |   |   |   |-- AmisNet
+|       |   |   |   |   |-- Arnes
+|       |   |   |   |   |-- Kiss
+|       |   |   |   |   |-- MojNet
+|       |   |   |   |   |-- SiOL
+|       |   |   |   |   `-- Volja
+|       |   |   |   |-- Sweden
+|       |   |   |   |   |-- Tiscali
+|       |   |   |   |   `-- Utfors
+|       |   |   |   |-- Switzerland
+|       |   |   |   |   `-- Bluewin
+|       |   |   |   |-- Taiwan
+|       |   |   |   |   |-- EraNet
+|       |   |   |   |   |-- HiNet
+|       |   |   |   |   `-- SeedNet
+|       |   |   |   |-- Ukraine
+|       |   |   |   |   |-- Adamant
+|       |   |   |   |   |-- IPTelecom
+|       |   |   |   |   `-- NuVse
+|       |   |   |   |-- United_Kingdom
+|       |   |   |   |   |-- Demon%032Green%0322120666
+|       |   |   |   |   |-- Demon%032Purple%0322121666
+|       |   |   |   |   |-- Demon%032Red%0320798666
+|       |   |   |   |   |-- FreeServe
+|       |   |   |   |   |-- UK%032Free%032Software%032Network%032ISDN
+|       |   |   |   |   |-- UK%032Free%032Software%032Network%032Modem
+|       |   |   |   |   |-- UKPOST%032ISDN
+|       |   |   |   |   |-- UKPOST%032Modem
+|       |   |   |   |   `-- UTV
+|       |   |   |   `-- Yugoslavia
+|       |   |   |       |-- 041Net
+|       |   |   |       |-- BeoTelNet
+|       |   |   |       |-- CG.Bar.yu
+|       |   |   |       |-- CG.Berane.yu
+|       |   |   |       |-- CG.BijeloPolje.CG.yu
+|       |   |   |       |-- CG.Budva.yu
+|       |   |   |       |-- CG.Cetinje.yu
+|       |   |   |       |-- CG.HercegNovi.yu
+|       |   |   |       |-- CG.Kotor.yu
+|       |   |   |       |-- CG.Niksic.yu
+|       |   |   |       |-- CG.Pljevlja.yu
+|       |   |   |       |-- CG.Podgorica.yu
+|       |   |   |       |-- CG.Tivat.yu
+|       |   |   |       |-- CG.Ulcinj.yu
+|       |   |   |       |-- CG.yu
+|       |   |   |       |-- DrenikNet
+|       |   |   |       |-- EUnet@Full
+|       |   |   |       |-- EUnet@Lite
+|       |   |   |       |-- EUnetBeograd
+|       |   |   |       |-- EUnetCacak
+|       |   |   |       |-- EUnetKragujevac
+|       |   |   |       |-- EUnetNis
+|       |   |   |       |-- EUnetNoviSad
+|       |   |   |       |-- EUnetPristina
+|       |   |   |       |-- EUnetSombor
+|       |   |   |       |-- EUnetSubotica
+|       |   |   |       |-- InfoSKY
+|       |   |   |       |-- PTT
+|       |   |   |       |-- SCnet
+|       |   |   |       |-- Sezampro
+|       |   |   |       |-- SuOnline
+|       |   |   |       |-- TippNet
+|       |   |   |       |-- VeratNet
+|       |   |   |       `-- YUBCnet
+|       |   |   `-- Rules
+|       |   |       |-- Australia
+|       |   |       |   |-- Local.rst
+|       |   |       |   |-- Optus_Residential.rst
+|       |   |       |   |-- STD_Zone_1_-_25-50_kms.rst
+|       |   |       |   |-- STD_Zone_2_-_50-85_kms.rst
+|       |   |       |   |-- STD_Zone_3_-_85-165_kms.rst
+|       |   |       |   `-- STD_Zone_4_-_165+_kms.rst
+|       |   |       |-- Austria
+|       |   |       |   |-- Business_1
+|       |   |       |   |   |-- Local.rst
+|       |   |       |   |   |-- Long_Distance.rst
+|       |   |       |   |   `-- Online.rst
+|       |   |       |   |-- Business_2
+|       |   |       |   |   |-- Local.rst
+|       |   |       |   |   |-- Long_Distance.rst
+|       |   |       |   |   `-- Online.rst
+|       |   |       |   |-- Minimum
+|       |   |       |   |   |-- Local.rst
+|       |   |       |   |   |-- Long_Distance.rst
+|       |   |       |   |   `-- Online.rst
+|       |   |       |   `-- Standard
+|       |   |       |       |-- Local.rst
+|       |   |       |       |-- Long_Distance.rst
+|       |   |       |       |-- Online.rst
+|       |   |       |       `-- UTA_easyinternet.rst
+|       |   |       |-- Italy
+|       |   |       |   |-- Atlanet.rst
+|       |   |       |   |-- Cheapnet.rst
+|       |   |       |   |-- Infostrada_Internet_SpZero.rst
+|       |   |       |   |-- Infostrada_Libero1055_Base.rst
+|       |   |       |   |-- Infostrada_Libero1055_SpZero.rst
+|       |   |       |   |-- Infostrada_Loc_Reg_Naz_SpZero.rst
+|       |   |       |   |-- Infostrada_Locali_Base.rst
+|       |   |       |   |-- Infostrada_Reg_Naz_Base.rst
+|       |   |       |   |-- Tele2_Altri_ISP.rst
+|       |   |       |   |-- Tele2_Internet_Tele2.rst
+|       |   |       |   |-- Telecom_Interurbane_Fino15Km.rst
+|       |   |       |   |-- Telecom_Interurbane_Oltre15Km.rst
+|       |   |       |   |-- Telecom_Locali.rst
+|       |   |       |   |-- Teleconomy24_Internet.rst
+|       |   |       |   |-- Teleconomy24_Nazionali.rst
+|       |   |       |   |-- Teleconomy_NoStop_Internet.rst
+|       |   |       |   |-- Wind_24ore_Internet_AltriISP.rst
+|       |   |       |   |-- Wind_24ore_Internet_InWind.rst
+|       |   |       |   |-- Wind_24ore_Interurbane.rst
+|       |   |       |   |-- Wind_24ore_Urbane.rst
+|       |   |       |   |-- Wind_Family+SuperLight_Internet_InWind.rst
+|       |   |       |   |-- Wind_Family+SuperLight_Urbane_Interurbane.rst
+|       |   |       |   |-- Wind_Family_Internet_AltriISP.rst
+|       |   |       |   |-- Wind_Family_Internet_InWind.rst
+|       |   |       |   |-- Wind_Family_Interurbane.rst
+|       |   |       |   |-- Wind_Family_Urbane.rst
+|       |   |       |   |-- Wind_Flat_Internet_AltriISP.rst
+|       |   |       |   |-- Wind_Flat_Internet_InWind.rst
+|       |   |       |   `-- Wind_Urbana_1088_Light.rst
+|       |   |       |-- Netherlands
+|       |   |       |   |-- 12Move.rst
+|       |   |       |   |-- BelBasis_Buiten_Regio.rst
+|       |   |       |   |-- BelBasis_Buiten_Regio_Nummervoordeel.rst
+|       |   |       |   |-- BelBasis_Regio.rst
+|       |   |       |   |-- BelBasis_Regio_Nummervoordeel.rst
+|       |   |       |   |-- BelBudget_Buiten_Regio.rst
+|       |   |       |   |-- BelBudget_Regio.rst
+|       |   |       |   |-- BelPlus_Buiten_Regio.rst
+|       |   |       |   |-- BelPlus_Regio.rst
+|       |   |       |   |-- BelPlus_Regio_Nummervoordeel.rst
+|       |   |       |   |-- Cistron
+|       |   |       |   |-- Freeler_Basis.rst
+|       |   |       |   |-- Freeler_Voordelig.rst
+|       |   |       |   |-- HetNet_Regelmatig_Surfen.rst
+|       |   |       |   |-- InterNLnet.rst
+|       |   |       |   |-- OneTel_Spaarstand_Buiten_Regio.rst
+|       |   |       |   |-- OneTel_Spaarstand_Regio.rst
+|       |   |       |   |-- OneTel_Toets_1658_Buiten_Regio.rst
+|       |   |       |   |-- OneTel_Toets_1658_Regio.rst
+|       |   |       |   |-- Planet_Internet.rst
+|       |   |       |   |-- Priority_Telecom_Nationaal.rst
+|       |   |       |   |-- Priority_Telecom_Regionaal.rst
+|       |   |       |   |-- Tele2_Extra_Buiten_Regio.rst
+|       |   |       |   |-- Tele2_Extra_Regio.rst
+|       |   |       |   |-- Tele2_Preselect_Buiten_Regio.rst
+|       |   |       |   |-- Tele2_Preselect_Regio.rst
+|       |   |       |   |-- Tele2_Toets_1609_Buiten_Regio.rst
+|       |   |       |   |-- Tele2_Toets_1609_Regio.rst
+|       |   |       |   `-- Wannadoo_Budget_Plus
+|       |   |       |-- South_Afrika
+|       |   |       |   |-- South_Afrika.rst
+|       |   |       |   `-- South_Afrika_Justin.rst
+|       |   |       `-- United_Kingdom
+|       |   |           |-- BirminghamCable_Local.rst
+|       |   |           |-- BirminghamCable_National.rst
+|       |   |           |-- BirminghamCable_SameTelco.rst
+|       |   |           |-- BritishTelecom_Local.rst
+|       |   |           |-- BritishTelecom_National.rst
+|       |   |           |-- BritishTelecom_Regional.rst
+|       |   |           |-- British_OneTel.rst
+|       |   |           `-- Connaught_Telecom.rst
+|       |   |-- krdc
+|       |   |   `-- pics
+|       |   |       |-- close.png
+|       |   |       |-- iconify.png
+|       |   |       |-- pindown.png
+|       |   |       |-- pinup.png
+|       |   |       |-- pointcursor.png
+|       |   |       `-- pointcursormask.png
+|       |   |-- krec
+|       |   |   |-- icons
+|       |   |   |   `-- crystalsvg
+|       |   |   |       |-- 16x16
+|       |   |   |       |   `-- actions
+|       |   |   |       |-- 22x22
+|       |   |   |       |   `-- actions
+|       |   |   |       `-- 32x32
+|       |   |   |           |-- actions
+|       |   |   |           `-- mimetypes
+|       |   |   `-- tips
+|       |   |-- lisa
+|       |   |   `-- README
+|       |   |-- remoteview
+|       |   |   `-- lan.desktop
+|       |   `-- zeroconf
+|       |       `-- _rfb._tcp
+|       |-- icons
+|       |   |-- crystalsvg
+|       |   |   |-- 16x16
+|       |   |   |   |-- actions
+|       |   |   |   |   |-- account_offline_overlay.png
+|       |   |   |   |   |-- add_user.png
+|       |   |   |   |   |-- contact_away_overlay.png
+|       |   |   |   |   |-- contact_busy_overlay.png
+|       |   |   |   |   |-- contact_food_overlay.png
+|       |   |   |   |   |-- contact_invisible_overlay.png
+|       |   |   |   |   |-- contact_phone_overlay.png
+|       |   |   |   |   |-- contact_xa_overlay.png
+|       |   |   |   |   |-- delete_user.png
+|       |   |   |   |   |-- edit_user.png
+|       |   |   |   |   |-- emoticon.png
+|       |   |   |   |   |-- jabber_away.png
+|       |   |   |   |   |-- jabber_chatty.png
+|       |   |   |   |   |-- jabber_group.png
+|       |   |   |   |   |-- jabber_invisible.png
+|       |   |   |   |   |-- jabber_na.png
+|       |   |   |   |   |-- jabber_offline.png
+|       |   |   |   |   |-- jabber_online.png
+|       |   |   |   |   |-- jabber_raw.png
+|       |   |   |   |   |-- jabber_serv_off.png
+|       |   |   |   |   |-- jabber_serv_on.png
+|       |   |   |   |   |-- jabber_xa.png
+|       |   |   |   |   |-- kopeteavailable.png
+|       |   |   |   |   |-- kopeteaway.png
+|       |   |   |   |   |-- kopeteeditstatusmessage.png
+|       |   |   |   |   |-- kopetestatusmessage.png
+|       |   |   |   |   |-- metacontact_away.png
+|       |   |   |   |   |-- metacontact_offline.png
+|       |   |   |   |   |-- metacontact_online.png
+|       |   |   |   |   |-- metacontact_unknown.png
+|       |   |   |   |   |-- newmsg.png
+|       |   |   |   |   |-- search_user.png
+|       |   |   |   |   |-- show_offliners.png
+|       |   |   |   |   |-- status_unknown.png
+|       |   |   |   |   |-- status_unknown_overlay.png
+|       |   |   |   |   |-- voicecall.png
+|       |   |   |   |   |-- webcamreceive.png
+|       |   |   |   |   `-- webcamsend.png
+|       |   |   |   |-- apps
+|       |   |   |   |   |-- jabber_gateway_aim.png
+|       |   |   |   |   |-- jabber_gateway_gadu.png
+|       |   |   |   |   |-- jabber_gateway_http.png
+|       |   |   |   |   |-- jabber_gateway_icq.png
+|       |   |   |   |   |-- jabber_gateway_irc.png
+|       |   |   |   |   |-- jabber_gateway_msn.png
+|       |   |   |   |   |-- jabber_gateway_qq.png
+|       |   |   |   |   |-- jabber_gateway_sms.png
+|       |   |   |   |   |-- jabber_gateway_smtp.png
+|       |   |   |   |   |-- jabber_gateway_tlen.png
+|       |   |   |   |   |-- jabber_gateway_yahoo.png
+|       |   |   |   |   `-- jabber_protocol.png
+|       |   |   |   `-- mimetypes
+|       |   |   |       `-- kopete_emoticons.png
+|       |   |   |-- 22x22
+|       |   |   |   |-- actions
+|       |   |   |   |   |-- account_offline_overlay.png
+|       |   |   |   |   |-- add_user.png
+|       |   |   |   |   |-- delete_user.png
+|       |   |   |   |   |-- edit_user.png
+|       |   |   |   |   |-- kopeteavailable.png
+|       |   |   |   |   |-- kopeteaway.png
+|       |   |   |   |   |-- kopeteeditstatusmessage.png
+|       |   |   |   |   |-- search_user.png
+|       |   |   |   |   |-- show_offliners.png
+|       |   |   |   |   |-- voicecall.png
+|       |   |   |   |   |-- webcamreceive.png
+|       |   |   |   |   `-- webcamsend.png
+|       |   |   |   |-- apps
+|       |   |   |   |   |-- kopete_all_away.png
+|       |   |   |   |   |-- kopete_offline.png
+|       |   |   |   |   |-- kopete_some_away.png
+|       |   |   |   |   `-- kopete_some_online.png
+|       |   |   |   `-- mimetypes
+|       |   |   |       `-- kopete_emoticons.png
+|       |   |   |-- 32x32
+|       |   |   |   |-- actions
+|       |   |   |   |   |-- account_offline_overlay.png
+|       |   |   |   |   |-- add_user.png
+|       |   |   |   |   |-- delete_user.png
+|       |   |   |   |   |-- edit_user.png
+|       |   |   |   |   |-- kopeteavailable.png
+|       |   |   |   |   |-- kopeteaway.png
+|       |   |   |   |   |-- kopeteeditstatusmessage.png
+|       |   |   |   |   |-- metacontact_away.png
+|       |   |   |   |   |-- metacontact_offline.png
+|       |   |   |   |   |-- metacontact_online.png
+|       |   |   |   |   |-- metacontact_unknown.png
+|       |   |   |   |   |-- newmsg.png
+|       |   |   |   |   |-- search_user.png
+|       |   |   |   |   |-- show_offliners.png
+|       |   |   |   |   |-- voicecall.png
+|       |   |   |   |   |-- webcamreceive.png
+|       |   |   |   |   `-- webcamsend.png
+|       |   |   |   `-- apps
+|       |   |   |       |-- jabber_protocol.png
+|       |   |   |       `-- krdc.png
+|       |   |   |-- 48x48
+|       |   |   |   |-- actions
+|       |   |   |   |   |-- kopeteavailable.png
+|       |   |   |   |   |-- kopeteaway.png
+|       |   |   |   |   |-- metacontact_away.png
+|       |   |   |   |   |-- metacontact_offline.png
+|       |   |   |   |   |-- metacontact_online.png
+|       |   |   |   |   |-- voicecall.png
+|       |   |   |   |   |-- webcamreceive.png
+|       |   |   |   |   `-- webcamsend.png
+|       |   |   |   |-- apps
+|       |   |   |   |   |-- jabber_protocol.png
+|       |   |   |   |   `-- krdc.png
+|       |   |   |   `-- devices
+|       |   |   |-- 64x64
+|       |   |   |   |-- actions
+|       |   |   |   |   |-- fileopen.png
+|       |   |   |   |   |-- voicecall.png
+|       |   |   |   |   |-- webcamreceive.png
+|       |   |   |   |   `-- webcamsend.png
+|       |   |   |   `-- devices
+|       |   |   `-- scalable
+|       |   |       `-- devices
+|       |   `-- hicolor
+|       |       |-- 128x128
+|       |       |   `-- apps
+|       |       |       |-- kopete.png
+|       |       |       `-- kppp.png
+|       |       |-- 16x16
+|       |       |   |-- actions
+|       |       |   |   |-- emoticon.png
+|       |       |   |   |-- jabber_away.png
+|       |       |   |   |-- jabber_chatty.png
+|       |       |   |   |-- jabber_group.png
+|       |       |   |   |-- jabber_invisible.png
+|       |       |   |   |-- jabber_na.png
+|       |       |   |   |-- jabber_offline.png
+|       |       |   |   |-- jabber_online.png
+|       |       |   |   |-- jabber_raw.png
+|       |       |   |   |-- jabber_serv_off.png
+|       |       |   |   |-- jabber_serv_on.png
+|       |       |   |   |-- jabber_xa.png
+|       |       |   |   |-- kopeteavailable.png
+|       |       |   |   |-- kopeteaway.png
+|       |       |   |   |-- newmsg.png
+|       |       |   |   |-- status_unknown.png
+|       |       |   |   `-- status_unknown_overlay.png
+|       |       |   `-- apps
+|       |       |       |-- jabber_protocol.png
+|       |       |       |-- kcmsambaconf.png
+|       |       |       |-- kopete.png
+|       |       |       `-- kppp.png
+|       |       |-- 22x22
+|       |       |   |-- actions
+|       |       |   |   |-- kopeteavailable.png
+|       |       |   |   `-- kopeteaway.png
+|       |       |   `-- apps
+|       |       |       |-- kopete.png
+|       |       |       `-- kppp.png
+|       |       |-- 32x32
+|       |       |   |-- actions
+|       |       |   |   |-- kopeteavailable.png
+|       |       |   |   `-- kopeteaway.png
+|       |       |   `-- apps
+|       |       |       |-- jabber_protocol.png
+|       |       |       |-- kopete.png
+|       |       |       `-- kppp.png
+|       |       |-- 48x48
+|       |       |   |-- actions
+|       |       |   |   |-- kopeteavailable.png
+|       |       |   |   `-- kopeteaway.png
+|       |       |   `-- apps
+|       |       |       |-- jabber_protocol.png
+|       |       |       |-- kopete.png
+|       |       |       `-- kppp.png
+|       |       `-- 64x64
+|       |           `-- apps
+|       |               |-- kopete.png
+|       |               `-- kppp.png
+|       |-- mimelnk
+|       |   |-- application
+|       |   |   |-- x-icq.desktop
+|       |   |   `-- x-kopete-emoticons.desktop
+|       |   `-- media
+|       |-- mplayer
+|       |   `-- subfont.ttf -> /usr/lib/X11/fonts/TTF/DejaVuSans.ttf
+|       |-- pixmaps
+|       |   `-- mplayer.xpm
+|       |-- services
+|       |   |-- aim.protocol
+|       |   |-- chatwindow.desktop
+|       |   |-- emailwindow.desktop
+|       |   |-- irc.protocol
+|       |   |-- jabberdisco.protocol
+|       |   |-- kconfiguredialog
+|       |   |   |-- kopete_addbookmarks_config.desktop
+|       |   |   |-- kopete_alias_config.desktop
+|       |   |   |-- kopete_autoreplace_config.desktop
+|       |   |   |-- kopete_cryptography_config.desktop
+|       |   |   |-- kopete_highlight_config.desktop
+|       |   |   |-- kopete_history_config.desktop
+|       |   |   |-- kopete_latex_config.desktop
+|       |   |   |-- kopete_msn_config.desktop
+|       |   |   |-- kopete_netmeeting_config.desktop
+|       |   |   |-- kopete_nowlistening_config.desktop
+|       |   |   |-- kopete_texteffect_config.desktop
+|       |   |   |-- kopete_translator_config.desktop
+|       |   |   `-- kopete_webpresence_config.desktop
+|       |   |-- kded
+|       |   |   `-- kinetd.desktop
+|       |   |-- kfile_torrent.desktop
+|       |   |-- kopete_accountconfig.desktop
+|       |   |-- kopete_addbookmarks.desktop
+|       |   |-- kopete_aim.desktop
+|       |   |-- kopete_alias.desktop
+|       |   |-- kopete_appearanceconfig.desktop
+|       |   |-- kopete_autoreplace.desktop
+|       |   |-- kopete_avdeviceconfig.desktop
+|       |   |-- kopete_behaviorconfig.desktop
+|       |   |-- kopete_connectionstatus.desktop
+|       |   |-- kopete_contactnotes.desktop
+|       |   |-- kopete_cryptography.desktop
+|       |   |-- kopete_gadu.desktop
+|       |   |-- kopete_groupwise.desktop
+|       |   |-- kopete_highlight.desktop
+|       |   |-- kopete_history.desktop
+|       |   |-- kopete_icq.desktop
+|       |   |-- kopete_identityconfig.desktop
+|       |   |-- kopete_irc.desktop
+|       |   |-- kopete_jabber.desktop
+|       |   |-- kopete_latex.desktop
+|       |   |-- kopete_msn.desktop
+|       |   |-- kopete_netmeeting.desktop
+|       |   |-- kopete_nowlistening.desktop
+|       |   |-- kopete_statistics.desktop
+|       |   |-- kopete_testbed.desktop
+|       |   |-- kopete_texteffect.desktop
+|       |   |-- kopete_translator.desktop
+|       |   |-- kopete_webpresence.desktop
+|       |   |-- kopete_wp.desktop
+|       |   |-- kopete_yahoo.desktop
+|       |   |-- lan.protocol
+|       |   |-- rdp.protocol
+|       |   |-- rlan.protocol
+|       |   `-- vnc.protocol
+|       |-- servicetypes
+|       |   |-- kinetdmodule.desktop
+|       |   |-- kopeteplugin.desktop
+|       |   |-- kopeteprotocol.desktop
+|       |   `-- kopeteui.desktop
+|       `-- sounds
+|           |-- Kopete_Event.ogg
+|           |-- Kopete_Received.ogg
+|           |-- Kopete_Sent.ogg
+|           `-- Kopete_User_is_Online.ogg
+`-- var
+    |-- cache
+    |-- log
+    |   `-- setup
+    |       `-- tmp
+    `-- tmp
+        `-- kdecache-root
+            |-- ksycoca
+            `-- ksycocastamp
+
+142 directories, 592 files

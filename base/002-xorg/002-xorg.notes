@@ -1,0 +1,730 @@
+build
+|-- etc
+|   |-- X11
+|   |   |-- gui.conf
+|   |   |-- xinit
+|   |   `-- xorg.conf
+|   |-- cups
+|   |   |-- cupsd.conf
+|   |   |-- cupsd.conf.default
+|   |   `-- snmp.conf
+|   |-- dbus-1
+|   |   `-- system.d
+|   |       |-- cups.conf
+|   |       |-- hal.conf
+|   |       `-- wicd.conf
+|   |-- esd.conf
+|   |-- gamin
+|   |   `-- gaminrc
+|   |-- gtk-2.0
+|   |   |-- gtkrc
+|   |   `-- im-multipress.conf
+|   |-- mplayer
+|   |   `-- mplayer.conf
+|   |-- profile.d
+|   |   |-- libglib2.csh
+|   |   `-- libglib2.sh
+|   |-- rc.d
+|   |   |-- rc.cups
+|   |   |-- rc.hald
+|   |   `-- rc.wicd
+|   |-- wicd
+|   |   `-- manager-settings.conf
+|   `-- xdg
+|       `-- autostart
+|           `-- paths.desktop
+|-- home
+|   `-- guest
+|-- opt
+|   |-- porteus-scripts
+|   |   |-- extpkg
+|   |   |-- icons
+|   |   |   |-- ant.png
+|   |   |   |-- exclamation-red-48.png
+|   |   |   |-- module-32.png
+|   |   |   |-- oxygen-icons-license_cc-sa-3.0
+|   |   |   |-- porteus-header-dark-300w.png
+|   |   |   |-- porteus64.png
+|   |   |   |-- ppm-side200w.png
+|   |   |   |-- step-changes.png
+|   |   |   |-- step-help.png
+|   |   |   |-- step-panelette.png
+|   |   |   |-- step-users.png
+|   |   |   |-- step-write-changes.png
+|   |   |   |-- step1-internet.png
+|   |   |   |-- step2-language.png
+|   |   |   |-- step3-firewall.png
+|   |   |   |-- step4-hostname.png
+|   |   |   |-- step5-password.png
+|   |   |   |-- steps-complete.png
+|   |   |   |-- tick-green.png
+|   |   |   `-- welcome_step.png
+|   |   |-- make-changes.sh
+|   |   |-- paths
+|   |   |-- porteus-package-manager
+|   |   |-- porteusmodman
+|   |   |-- rempkg
+|   |   |-- xactivate
+|   |   |-- xconf
+|   |   |-- xdeactivate
+|   |   |-- xlanguage-selection-tool
+|   |   |-- xmodtools
+|   |   |-- xpns-tool.sh
+|   |   `-- xporteus-settings-assistant
+|   `-- ppm
+|       |-- LIBS.TXT
+|       |-- PACKAGES.TXT
+|       `-- ppmversion.txt
+|-- root
+|-- usr
+|   |-- X11R6
+|   |   |-- bin -> ../bin
+|   |   |-- include -> ../include
+|   |   |-- lib -> ../lib
+|   |   |-- libexec -> ../libexec
+|   |   |-- man -> ../man
+|   |   `-- share -> ../share
+|   |-- bin
+|   |   |-- extpkg -> /opt/porteus-scripts/extpkg
+|   |   |-- make-changes.sh -> /opt/porteus-scripts/make-changes.sh
+|   |   |-- porteus-package-manager -> /opt/porteus-scripts/porteus-package-manager
+|   |   |-- porteusmodman -> /opt/porteus-scripts/porteusmodman
+|   |   |-- rempkg -> /opt/porteus-scripts/rempkg
+|   |   |-- xactivate -> /opt/porteus-scripts/xactivate
+|   |   |-- xconf -> /opt/porteus-scripts/xconf
+|   |   |-- xdeactivate -> /opt/porteus-scripts/xdeactivate
+|   |   |-- xlanguage-selection-tool -> /opt/porteus-scripts/xlanguage-selection-tool
+|   |   |-- xmodtools -> /opt/porteus-scripts/xmodtools
+|   |   |-- xpns-tool.sh -> /opt/porteus-scripts/xpns-tool.sh
+|   |   `-- xporteus-settings-assistant -> /opt/porteus-scripts/xporteus-settings-assistant
+|   |-- doc
+|   |   |-- Porteus-FAQ.html
+|   |   |-- language
+|   |   |   |-- fat.txt
+|   |   |   |-- kde-i18n.txt
+|   |   |   |-- locale-non-utf8.txt
+|   |   |   |-- locale-utf8.txt
+|   |   |   |-- man.txt
+|   |   |   `-- system.txt
+|   |   `-- xvba-video
+|   |       |-- README
+|   |       `-- copyright
+|   |-- lib
+|   |   |-- libFLAC++.so -> libFLAC++.so.6.2.0
+|   |   |-- libFLAC++.so.6 -> libFLAC++.so.6.2.0
+|   |   |-- libFLAC.so -> libFLAC.so.8.2.0
+|   |   |-- libFLAC.so.8 -> libFLAC.so.8.2.0
+|   |   |-- libva-0.32.0.2.so.1 -> libva-0.32.0.2.so.1.0.10
+|   |   |-- libva-compat.so -> libva-compat.so.0.0.0
+|   |   |-- libva-compat.so.0 -> libva-compat.so.0.0.0
+|   |   |-- libva-egl-0.32.0.2.so.1 -> libva-egl-0.32.0.2.so.1.0.10
+|   |   |-- libva-egl.so -> libva-egl-0.32.0.2.so.1.0.10
+|   |   |-- libva-glx-0.32.0.2.so.1 -> libva-glx-0.32.0.2.so.1.0.10
+|   |   |-- libva-glx.so -> libva-glx-0.32.0.2.so.1.0.10
+|   |   |-- libva-tpi-0.32.0.2.so.1 -> libva-tpi-0.32.0.2.so.1.0.10
+|   |   |-- libva-tpi.so -> libva-tpi-0.32.0.2.so.1.0.10
+|   |   |-- libva-x11-0.32.0.2.so.1 -> libva-x11-0.32.0.2.so.1.0.10
+|   |   |-- libva-x11.so -> libva-x11-0.32.0.2.so.1.0.10
+|   |   |-- libva.so -> libva-0.32.0.2.so.1.0.10
+|   |   |-- macroport
+|   |   `-- va
+|   |       `-- drivers
+|   |           |-- fglrx_drv_video.so -> xvba_drv_video.so
+|   |           `-- xvba_drv_video.so
+|   |-- man
+|   |   |-- man1
+|   |   |   |-- Xdialog.1
+|   |   |   |-- Xdmx.1
+|   |   |   |-- Xorg.1
+|   |   |   |-- Xserver.1
+|   |   |   |-- audacious.1
+|   |   |   |-- audtool.1
+|   |   |   |-- bmp2tiff.1
+|   |   |   |-- cancel-cups.1
+|   |   |   |-- cancel.1
+|   |   |   |-- cd-paranoia.1
+|   |   |   |-- cdrdao.1
+|   |   |   |-- cjpeg.1
+|   |   |   |-- cue2toc.1
+|   |   |   |-- cups-config.1
+|   |   |   |-- cupstestdsc.1
+|   |   |   |-- cupstestppd.1
+|   |   |   |-- cvt.1
+|   |   |   |-- cxpm.1
+|   |   |   |-- dbus-binding-tool.1
+|   |   |   |-- djpeg.1
+|   |   |   |-- dmxtodmx.1
+|   |   |   |-- esd-config.1
+|   |   |   |-- esd.1
+|   |   |   |-- esdcat.1
+|   |   |   |-- esdctl.1
+|   |   |   |-- esddsp.1
+|   |   |   |-- esdfilt.1
+|   |   |   |-- esdloop.1
+|   |   |   |-- esdmon.1
+|   |   |   |-- esdplay.1
+|   |   |   |-- esdrec.1
+|   |   |   |-- esdsample.1
+|   |   |   |-- faad.1
+|   |   |   |-- fax2ps.1
+|   |   |   |-- fax2tiff.1
+|   |   |   |-- fc-cache.1
+|   |   |   |-- fc-cat.1
+|   |   |   |-- fc-list.1
+|   |   |   |-- fc-match.1
+|   |   |   |-- fc-query.1
+|   |   |   |-- fc-scan.1
+|   |   |   |-- flac.1
+|   |   |   |-- gdbus.1
+|   |   |   |-- gdk-pixbuf-csource.1
+|   |   |   |-- gdk-pixbuf-query-loaders.1
+|   |   |   |-- gif2tiff.1
+|   |   |   |-- gio-querymodules.1
+|   |   |   |-- glib-compile-schemas.1
+|   |   |   |-- glib-genmarshal.1
+|   |   |   |-- glib-gettextize.1
+|   |   |   |-- glib-mkenums.1
+|   |   |   |-- gobject-query.1
+|   |   |   |-- gsettings.1
+|   |   |   |-- gsf-vba-dump.1
+|   |   |   |-- gsf.1
+|   |   |   |-- gtester-report.1
+|   |   |   |-- gtester.1
+|   |   |   |-- gtf.1
+|   |   |   |-- hal-disable-polling.1
+|   |   |   |-- hal-find-by-capability.1
+|   |   |   |-- hal-find-by-property.1
+|   |   |   |-- hal-get-property.1
+|   |   |   |-- hal-is-caller-locked-out.1
+|   |   |   |-- hal-lock.1
+|   |   |   |-- hal-set-property.1
+|   |   |   |-- icc2ps.1
+|   |   |   |-- icclink.1
+|   |   |   |-- iceauth.1
+|   |   |   |-- iodbc-config.1
+|   |   |   |-- iodbcadm-gtk.1
+|   |   |   |-- iodbctest.1
+|   |   |   |-- iodbctestw.1
+|   |   |   |-- jpegicc.1
+|   |   |   |-- jpegtran.1
+|   |   |   |-- koi8rxterm.1
+|   |   |   |-- lame.1
+|   |   |   |-- lp-cups.1
+|   |   |   |-- lp.1
+|   |   |   |-- lpoptions.1
+|   |   |   |-- lppasswd.1
+|   |   |   |-- lpq-cups.1
+|   |   |   |-- lpq.1
+|   |   |   |-- lpr-cups.1
+|   |   |   |-- lpr.1
+|   |   |   |-- lprm-cups.1
+|   |   |   |-- lprm.1
+|   |   |   |-- lpstat-cups.1
+|   |   |   |-- lpstat.1
+|   |   |   |-- lshal.1
+|   |   |   |-- mencoder.1 -> mplayer.1
+|   |   |   |-- metaflac.1
+|   |   |   |-- mkfontdir.1
+|   |   |   |-- mkfontscale.1
+|   |   |   |-- ogg123.1
+|   |   |   |-- oggdec.1
+|   |   |   |-- oggenc.1
+|   |   |   |-- ogginfo.1
+|   |   |   |-- on_ac_power.1
+|   |   |   |-- pal2rgb.1
+|   |   |   |-- pango-querymodules.1
+|   |   |   |-- pango-view.1
+|   |   |   |-- pkaction.1
+|   |   |   |-- pkcheck.1
+|   |   |   |-- pkexec.1
+|   |   |   |-- pm-is-supported.1
+|   |   |   |-- ppdc.1
+|   |   |   |-- ppdhtml.1
+|   |   |   |-- ppdi.1
+|   |   |   |-- ppdmerge.1
+|   |   |   |-- ppdpo.1
+|   |   |   |-- ppm2tiff.1
+|   |   |   |-- python.1
+|   |   |   |-- ras2tiff.1
+|   |   |   |-- raw2tiff.1
+|   |   |   |-- rdesktop.1
+|   |   |   |-- rdjpgcom.1
+|   |   |   |-- resize.1
+|   |   |   |-- rgb2ycbcr.1
+|   |   |   |-- rsvg.1
+|   |   |   |-- setxkbmap.1
+|   |   |   |-- sgi2tiff.1
+|   |   |   |-- showrgb.1
+|   |   |   |-- sndfile-cmp.1
+|   |   |   |-- sndfile-concat.1
+|   |   |   |-- sndfile-convert.1
+|   |   |   |-- sndfile-deinterleave.1
+|   |   |   |-- sndfile-info.1
+|   |   |   |-- sndfile-interleave.1
+|   |   |   |-- sndfile-metadata-get.1
+|   |   |   |-- sndfile-metadata-set.1
+|   |   |   |-- sndfile-play.1
+|   |   |   |-- sshfs.1
+|   |   |   |-- startx.1
+|   |   |   |-- sxpm.1
+|   |   |   |-- synclient.1
+|   |   |   |-- syndaemon.1
+|   |   |   |-- tclsh.1
+|   |   |   |-- thumbnail.1
+|   |   |   |-- tiff2bw.1
+|   |   |   |-- tiff2pdf.1
+|   |   |   |-- tiff2ps.1
+|   |   |   |-- tiff2rgba.1
+|   |   |   |-- tiffcmp.1
+|   |   |   |-- tiffcp.1
+|   |   |   |-- tiffcrop.1
+|   |   |   |-- tiffdither.1
+|   |   |   |-- tiffdump.1
+|   |   |   |-- tiffgt.1
+|   |   |   |-- tifficc.1
+|   |   |   |-- tiffinfo.1
+|   |   |   |-- tiffmedian.1
+|   |   |   |-- tiffset.1
+|   |   |   |-- tiffsplit.1
+|   |   |   |-- tiffsv.1
+|   |   |   |-- toc2cddb.1
+|   |   |   |-- toc2cue.1
+|   |   |   |-- update-mime-database.1
+|   |   |   |-- uxterm.1
+|   |   |   |-- vcut.1
+|   |   |   |-- vdltodmx.1
+|   |   |   |-- vorbiscomment.1
+|   |   |   |-- wavpack.1
+|   |   |   |-- wicd-client.1
+|   |   |   |-- wish.1
+|   |   |   |-- wrjpgcom.1
+|   |   |   |-- wtpt.1
+|   |   |   |-- wvgain.1
+|   |   |   |-- wvunpack.1
+|   |   |   |-- xauth.1
+|   |   |   |-- xdg-desktop-icon.1
+|   |   |   |-- xdg-desktop-menu.1
+|   |   |   |-- xdg-email.1
+|   |   |   |-- xdg-icon-resource.1
+|   |   |   |-- xdg-mime.1
+|   |   |   |-- xdg-open.1
+|   |   |   |-- xdg-screensaver.1
+|   |   |   |-- xdg-settings.1
+|   |   |   |-- xdmxconfig.1
+|   |   |   |-- xev.1
+|   |   |   |-- xhost.1
+|   |   |   |-- xinit.1
+|   |   |   |-- xkbcomp.1
+|   |   |   |-- xkill.1
+|   |   |   |-- xmessage.1
+|   |   |   |-- xml2-config.1
+|   |   |   |-- xmlcatalog.1
+|   |   |   |-- xmllint.1
+|   |   |   |-- xmlwf.1
+|   |   |   |-- xmodmap.1
+|   |   |   |-- xprop.1
+|   |   |   |-- xrandr.1
+|   |   |   |-- xrdb.1
+|   |   |   |-- xset.1
+|   |   |   |-- xsetroot.1
+|   |   |   |-- xsetwacom.1
+|   |   |   |-- xsltproc.1
+|   |   |   |-- xterm.1
+|   |   |   |-- xvinfo.1
+|   |   |   `-- xwmconfig.1
+|   |   |-- man5
+|   |   |   |-- Compose.5
+|   |   |   |-- XCompose.5
+|   |   |   |-- classes.conf.5
+|   |   |   |-- client.conf.5
+|   |   |   |-- cups-snmp.conf.5
+|   |   |   |-- cupsd.conf.5
+|   |   |   |-- fonts-conf.5
+|   |   |   |-- jng.5
+|   |   |   |-- libao.conf.5
+|   |   |   |-- mailto.conf.5
+|   |   |   |-- mime.convs.5
+|   |   |   |-- mime.types.5
+|   |   |   |-- mng.5
+|   |   |   |-- png.5
+|   |   |   |-- ppdcfile.5
+|   |   |   |-- printers.conf.5
+|   |   |   |-- subscriptions.conf.5
+|   |   |   |-- wicd-manager-settings.conf.5
+|   |   |   |-- wicd-wired-settings.conf.5
+|   |   |   |-- wicd-wireless-settings.conf.5
+|   |   |   `-- xorg.conf.5
+|   |   |-- man7
+|   |   |   |-- backend.7
+|   |   |   |-- filter.7
+|   |   |   `-- notifier.7
+|   |   |-- man8
+|   |   |   |-- accept.8
+|   |   |   |-- cups-deviced.8
+|   |   |   |-- cups-driverd.8
+|   |   |   |-- cups-lpd.8
+|   |   |   |-- cups-polld.8
+|   |   |   |-- cupsaccept.8
+|   |   |   |-- cupsaddsmb.8
+|   |   |   |-- cupsctl.8
+|   |   |   |-- cupsd.8
+|   |   |   |-- cupsdisable.8
+|   |   |   |-- cupsenable.8
+|   |   |   |-- cupsfilter.8
+|   |   |   |-- cupsreject.8
+|   |   |   |-- hald.8
+|   |   |   |-- lpadmin.8
+|   |   |   |-- lpc-cups.8
+|   |   |   |-- lpc.8
+|   |   |   |-- lpinfo.8
+|   |   |   |-- lpmove.8
+|   |   |   |-- pklocalauthority.8
+|   |   |   |-- pm-action.8
+|   |   |   |-- pm-hibernate.8
+|   |   |   |-- pm-pmu.8
+|   |   |   |-- pm-powersave.8
+|   |   |   |-- pm-suspend-hybrid.8
+|   |   |   |-- pm-suspend.8
+|   |   |   |-- polkit.8
+|   |   |   |-- polkitd.8
+|   |   |   |-- reject.8
+|   |   |   |-- wicd-cli.8
+|   |   |   |-- wicd-curses.8
+|   |   |   `-- wicd.8
+|   |   `-- mann
+|   |       |-- SafeBase.n
+|   |       |-- Tcl.n
+|   |       |-- TclX.n
+|   |       |-- after.n
+|   |       |-- append.n
+|   |       |-- apply.n
+|   |       |-- array.n
+|   |       |-- auto_execok.n
+|   |       |-- auto_import.n
+|   |       |-- auto_load.n
+|   |       |-- auto_mkindex.n
+|   |       |-- auto_mkindex_old.n
+|   |       |-- auto_qualify.n
+|   |       |-- auto_reset.n
+|   |       |-- bell.n
+|   |       |-- bgerror.n
+|   |       |-- binary.n
+|   |       |-- bind.n
+|   |       |-- bindtags.n
+|   |       |-- bitmap.n
+|   |       |-- break.n
+|   |       |-- button.n
+|   |       |-- canvas.n
+|   |       |-- case.n
+|   |       |-- catch.n
+|   |       |-- cd.n
+|   |       |-- chan.n
+|   |       |-- checkbutton.n
+|   |       |-- clipboard.n
+|   |       |-- clock.n
+|   |       |-- close.n
+|   |       |-- colors.n
+|   |       |-- concat.n
+|   |       |-- console.n
+|   |       |-- continue.n
+|   |       |-- cursors.n
+|   |       |-- dde.n
+|   |       |-- destroy.n
+|   |       |-- dict.n
+|   |       |-- encoding.n
+|   |       |-- entry.n
+|   |       |-- eof.n
+|   |       |-- error.n
+|   |       |-- eval.n
+|   |       |-- event.n
+|   |       |-- exec.n
+|   |       |-- exit.n
+|   |       |-- expr.n
+|   |       |-- fblocked.n
+|   |       |-- fconfigure.n
+|   |       |-- fcopy.n
+|   |       |-- file.n
+|   |       |-- fileevent.n
+|   |       |-- filename.n
+|   |       |-- flush.n
+|   |       |-- focus.n
+|   |       |-- font.n
+|   |       |-- for.n
+|   |       |-- foreach.n
+|   |       |-- format.n
+|   |       |-- frame.n
+|   |       |-- gets.n
+|   |       |-- glob.n
+|   |       |-- global.n
+|   |       |-- grab.n
+|   |       |-- grid.n
+|   |       |-- history.n
+|   |       |-- http.n
+|   |       |-- if.n
+|   |       |-- image.n
+|   |       |-- incr.n
+|   |       |-- info.n
+|   |       |-- interp.n
+|   |       |-- join.n
+|   |       |-- keysyms.n
+|   |       |-- label.n
+|   |       |-- labelframe.n
+|   |       |-- lappend.n
+|   |       |-- lassign.n
+|   |       |-- lindex.n
+|   |       |-- linsert.n
+|   |       |-- list.n
+|   |       |-- listbox.n
+|   |       |-- llength.n
+|   |       |-- load.n
+|   |       |-- loadTk.n
+|   |       |-- lower.n
+|   |       |-- lrange.n
+|   |       |-- lrepeat.n
+|   |       |-- lreplace.n
+|   |       |-- lreverse.n
+|   |       |-- lsearch.n
+|   |       |-- lset.n
+|   |       |-- lsort.n
+|   |       |-- mathfunc.n
+|   |       |-- mathop.n
+|   |       |-- memory.n
+|   |       |-- menu.n
+|   |       |-- menubutton.n
+|   |       |-- message.n
+|   |       |-- msgcat.n
+|   |       |-- namespace.n
+|   |       |-- open.n
+|   |       |-- option.n
+|   |       |-- options.n
+|   |       |-- pack-old.n
+|   |       |-- pack.n
+|   |       |-- package.n
+|   |       |-- panedwindow.n
+|   |       |-- parray.n
+|   |       |-- photo.n
+|   |       |-- pid.n
+|   |       |-- pkg::create.n
+|   |       |-- pkg_mkIndex.n
+|   |       |-- place.n
+|   |       |-- platform.n
+|   |       |-- platform::shell.n
+|   |       |-- proc.n
+|   |       |-- puts.n
+|   |       |-- pwd.n
+|   |       |-- radiobutton.n
+|   |       |-- raise.n
+|   |       |-- re_syntax.n
+|   |       |-- read.n
+|   |       |-- refchan.n
+|   |       |-- regexp.n
+|   |       |-- registry.n
+|   |       |-- regsub.n
+|   |       |-- rename.n
+|   |       |-- return.n
+|   |       |-- scale.n
+|   |       |-- scan.n
+|   |       |-- scrollbar.n
+|   |       |-- seek.n
+|   |       |-- selection.n
+|   |       |-- send.n
+|   |       |-- set.n
+|   |       |-- socket.n
+|   |       |-- source.n
+|   |       |-- spinbox.n
+|   |       |-- split.n
+|   |       |-- string.n
+|   |       |-- subst.n
+|   |       |-- switch.n
+|   |       |-- tcl_endOfWord.n
+|   |       |-- tcl_findLibrary.n
+|   |       |-- tcl_startOfNextWord.n
+|   |       |-- tcl_startOfPreviousWord.n
+|   |       |-- tcl_wordBreakAfter.n
+|   |       |-- tcl_wordBreakBefore.n
+|   |       |-- tcltest.n
+|   |       |-- tclvars.n
+|   |       |-- tell.n
+|   |       |-- text.n
+|   |       |-- time.n
+|   |       |-- tk.n
+|   |       |-- tk_bindForTraversal.n
+|   |       |-- tk_bisque.n
+|   |       |-- tk_chooseColor.n
+|   |       |-- tk_chooseDirectory.n
+|   |       |-- tk_dialog.n
+|   |       |-- tk_focusFollowsMouse.n
+|   |       |-- tk_focusNext.n
+|   |       |-- tk_focusPrev.n
+|   |       |-- tk_getOpenFile.n
+|   |       |-- tk_getSaveFile.n
+|   |       |-- tk_menuBar.n
+|   |       |-- tk_menuSetFocus.n
+|   |       |-- tk_messageBox.n
+|   |       |-- tk_optionMenu.n
+|   |       |-- tk_popup.n
+|   |       |-- tk_setPalette.n
+|   |       |-- tk_textCopy.n
+|   |       |-- tk_textCut.n
+|   |       |-- tk_textPaste.n
+|   |       |-- tkerror.n
+|   |       |-- tkvars.n
+|   |       |-- tkwait.n
+|   |       |-- tm.n
+|   |       |-- toplevel.n
+|   |       |-- trace.n
+|   |       |-- ttk::button.n
+|   |       |-- ttk::checkbutton.n
+|   |       |-- ttk::combobox.n
+|   |       |-- ttk::entry.n
+|   |       |-- ttk::frame.n
+|   |       |-- ttk::intro.n
+|   |       |-- ttk::label.n
+|   |       |-- ttk::labelframe.n
+|   |       |-- ttk::menubutton.n
+|   |       |-- ttk::notebook.n
+|   |       |-- ttk::panedwindow.n
+|   |       |-- ttk::progressbar.n
+|   |       |-- ttk::radiobutton.n
+|   |       |-- ttk::scale.n
+|   |       |-- ttk::scrollbar.n
+|   |       |-- ttk::separator.n
+|   |       |-- ttk::sizegrip.n
+|   |       |-- ttk::spinbox.n
+|   |       |-- ttk::style.n
+|   |       |-- ttk::treeview.n
+|   |       |-- ttk::widget.n
+|   |       |-- ttk_image.n
+|   |       |-- ttk_vsapi.n
+|   |       |-- unknown.n
+|   |       |-- unload.n
+|   |       |-- unset.n
+|   |       |-- update.n
+|   |       |-- uplevel.n
+|   |       |-- upvar.n
+|   |       |-- variable.n
+|   |       |-- vwait.n
+|   |       |-- while.n
+|   |       |-- winfo.n
+|   |       `-- wm.n
+|   `-- share
+|       |-- applications
+|       |   |-- Porteus-FAQ.desktop
+|       |   |-- activate.desktop
+|       |   |-- magic-folders.desktop
+|       |   |-- make-changes-file.desktop
+|       |   |-- mimeapps.list
+|       |   |-- mimeinfo.cache
+|       |   |-- porteus-package-manager.desktop
+|       |   |-- porteus-settings-assistant.desktop
+|       |   |-- porteus2usb.desktop
+|       |   |-- porteus_encrypter.desktop
+|       |   |-- porteusmodman.desktop
+|       |   |-- power-saver-switch.desktop
+|       |   |-- psinfo.desktop
+|       |   |-- su-terminal.desktop
+|       |   |-- xlanguage-selection-tool.desktop
+|       |   |-- xmodtools.desktop
+|       |   `-- xpns-tool.desktop
+|       |-- audacious
+|       |   `-- Skins
+|       |       `-- Default
+|       |           |-- balance.png
+|       |           |-- gen.png
+|       |           |-- genex.png
+|       |           |-- skin-classic.hints
+|       |           `-- video.png
+|       |-- doc
+|       |   `-- xvba-video
+|       |       |-- NEWS
+|       |       `-- changelog.Debian
+|       |-- icons
+|       |   `-- hicolor
+|       |       |-- 128x128
+|       |       |   `-- mimetypes
+|       |       |       `-- cdr.png
+|       |       |-- 16x16
+|       |       |   `-- mimetypes
+|       |       |       `-- cdr.png
+|       |       |-- 22x22
+|       |       |   `-- mimetypes
+|       |       |       `-- cdr.png
+|       |       |-- 32x32
+|       |       |   `-- mimetypes
+|       |       |       `-- cdr.png
+|       |       |-- 48x48
+|       |       |   `-- mimetypes
+|       |       |       `-- cdr.png
+|       |       `-- 64x64
+|       |           `-- mimetypes
+|       |               `-- cdr.png
+|       `-- pixmaps
+|           |-- default
+|           |   `-- index.theme
+|           `-- pinux
+|               `-- cursors
+|                   |-- X_cursor
+|                   |-- alias
+|                   |-- all-scroll
+|                   |-- circle
+|                   |-- closedhand
+|                   |-- col-resize
+|                   |-- color-picker
+|                   |-- copy
+|                   |-- cross
+|                   |-- crossed_circle
+|                   |-- dnd-copy
+|                   |-- dnd-link
+|                   |-- dnd-no-drop
+|                   |-- dnd-none
+|                   |-- e-resize
+|                   |-- fleur
+|                   |-- forbidden
+|                   |-- half-busy
+|                   |-- hand1
+|                   |-- hand2
+|                   |-- help
+|                   |-- ibeam
+|                   |-- left_ptr
+|                   |-- left_ptr_watch
+|                   |-- link
+|                   |-- move
+|                   |-- n-resize
+|                   |-- not-allowed
+|                   |-- openhand
+|                   |-- pencil
+|                   |-- pirate
+|                   |-- plus
+|                   |-- pointer
+|                   |-- pointing_hand
+|                   |-- progress
+|                   |-- question_arrow
+|                   |-- row-resize
+|                   |-- s-resize
+|                   |-- sb_h_double_arrow
+|                   |-- sb_v_double_arrow
+|                   |-- size_all
+|                   |-- size_bdiag
+|                   |-- size_fdiag
+|                   |-- size_hor
+|                   |-- size_ver
+|                   |-- split_h
+|                   |-- split_v
+|                   |-- text
+|                   |-- up_arrow
+|                   |-- v_double_arrow
+|                   |-- w-resize
+|                   |-- wait
+|                   |-- watch
+|                   |-- whats_this
+|                   `-- xterm
+`-- var
+    `-- log
+        |-- packages
+        |-- scripts
+        |   |-- flac-1.2.1-i486-3
+        |   `-- libva-0.32.0-i486-1ftm
+        `-- setup
+            `-- tmp
+
+71 directories, 656 files

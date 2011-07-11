@@ -1,0 +1,1644 @@
+build
+|-- bin
+|   `-- bash
+|-- dir2xzm -> usr/bin/dir2xzm
+|-- etc
+|   |-- DIR_COLORS
+|   |-- HOSTNAME
+|   |-- acpi
+|   |   `-- acpi_handler.sh
+|   |-- asound.state -> ../var/lib/alsa/asound.state
+|   |-- cron.daily
+|   |   `-- certwatch
+|   |-- csh.login
+|   |-- default
+|   |   `-- cdrecord
+|   |-- dhcpcd.conf
+|   |-- group
+|   |-- gshadow
+|   |-- hardwareclock
+|   |-- host.conf
+|   |-- hosts
+|   |-- hosts.allow
+|   |-- hosts.deny
+|   |-- hosts.equiv
+|   |-- inittab
+|   |-- inputrc
+|   |-- issue
+|   |-- issue.net
+|   |-- ld.so.conf
+|   |-- localtime-copied-from -> /usr/share/zoneinfo/Factory
+|   |-- login.access
+|   |-- login.defs
+|   |-- logrotate.conf
+|   |-- logrotate.d
+|   |   `-- syslog
+|   |-- lvm
+|   |   |-- backup
+|   |   `-- lvm.conf
+|   |-- mdadm.conf
+|   |-- mke2fs.conf
+|   |-- modprobe.d
+|   |   |-- blacklist.conf
+|   |   |-- isapnp.conf
+|   |   |-- psmouse.conf
+|   |   `-- usb-controller.conf
+|   |-- mtab
+|   |-- networks
+|   |-- nntpserver
+|   |-- nsswitch.conf
+|   |-- passwd
+|   |-- pcmcia
+|   |   `-- config.opts
+|   |-- porteus-version
+|   |-- ppp
+|   |   |-- chap-secrets
+|   |   |-- firewall-masq
+|   |   |-- firewall-standalone
+|   |   |-- options
+|   |   |-- pap-secrets
+|   |   |-- pppoe-server-options
+|   |   `-- pppoe.conf
+|   |-- printcap
+|   |-- profile
+|   |-- profile.d
+|   |   |-- glibc.csh
+|   |   |-- glibc.sh
+|   |   |-- lang.csh
+|   |   `-- lang.sh
+|   |-- protocols
+|   |-- radiusclient
+|   |   |-- issue
+|   |   |-- radiusclient.conf
+|   |   |-- realms
+|   |   `-- servers
+|   |-- rarfiles.lst
+|   |-- rc.d
+|   |   |-- rc.4
+|   |   |-- rc.6
+|   |   |-- rc.FireWall
+|   |   |-- rc.K
+|   |   |-- rc.M
+|   |   |-- rc.S
+|   |   |-- rc.font
+|   |   |-- rc.fuse
+|   |   |-- rc.gpm
+|   |   |-- rc.inet1
+|   |   |-- rc.inet1.conf
+|   |   |-- rc.inet2
+|   |   |-- rc.ip_forward
+|   |   |-- rc.local
+|   |   |-- rc.loop
+|   |   |-- rc.messagebus
+|   |   |-- rc.pcmcia
+|   |   |-- rc.rpc
+|   |   |-- rc.saslauthd
+|   |   |-- rc.serial
+|   |   |-- rc.sshd
+|   |   |-- rc.syslog
+|   |   |-- rc.sysstat
+|   |   |-- rc.sysvinit
+|   |   |-- rc.udev
+|   |   |-- rc.wireless
+|   |   `-- rc.wireless.conf
+|   |-- resolv.conf
+|   |-- screenrc
+|   |-- securetty
+|   |-- sensors3.conf
+|   |-- serial.conf
+|   |-- services
+|   |-- shadow
+|   |-- shells
+|   |-- skel
+|   |-- ssh
+|   |   |-- ssh_config
+|   |   `-- sshd_config
+|   |-- ssl
+|   |   `-- openssl.cnf
+|   |-- syslog.conf
+|   |-- sysstat
+|   |   `-- sysstat
+|   |-- termcap
+|   |-- wgetrc
+|   `-- wpa_supplicant.conf
+|-- home
+|   `-- guest
+|-- lib
+|   |-- firmware
+|   |   |-- isl3877
+|   |   |-- isl3886
+|   |   |-- isl3887usb_bare
+|   |   |-- isl3890
+|   |   |-- isl3890usb
+|   |   |-- rt3070.bin -> rt2870.bin
+|   |   |-- rt3071.bin
+|   |   `-- rt3090.bin -> rt2860.bin
+|   |-- ld-2.13.so
+|   |-- libBrokenLocale-2.13.so
+|   |-- libanl-2.13.so
+|   |-- libc-2.13.so
+|   |-- libcidn-2.13.so
+|   |-- libcidn.so.1 -> libcidn-2.13.so
+|   |-- libcrypt-2.13.so
+|   |-- libdl-2.13.so
+|   |-- libm-2.13.so
+|   |-- libmemusage.so
+|   |-- libnsl-2.13.so
+|   |-- libnss_compat-2.13.so
+|   |-- libnss_dns-2.13.so
+|   |-- libnss_files-2.13.so
+|   |-- libnss_hesiod-2.13.so
+|   |-- libnss_nis-2.13.so
+|   |-- libnss_nisplus-2.13.so
+|   |-- libpcprofile.so
+|   |-- libpthread-2.13.so
+|   |-- libresolv-2.13.so
+|   |-- librt-2.13.so
+|   |-- libthread_db-1.0.so
+|   `-- libutil-2.13.so
+|-- opt
+|   `-- porteus-scripts
+|       |-- act.sh
+|       |-- activate
+|       |-- add_loop_devices
+|       |-- changes-time.sh
+|       |-- chkbase.sh
+|       |-- deactivate
+|       |-- deb2xzm
+|       |-- dir2xzm
+|       |-- lsxzm
+|       |-- lzm2xzm
+|       |-- magic_folders
+|       |-- mkfileswap
+|       |-- mloop
+|       |-- pns-tool
+|       |-- porteus-usb.sh
+|       |-- porteus_encrypter
+|       |-- power_saver
+|       |-- psinfo
+|       |-- pxe-boot
+|       |-- save-changes
+|       |-- tgz2xzm -> txz2xzm
+|       |-- txz2xzm
+|       |-- unpack
+|       |-- update_module
+|       `-- xzm2dir
+|-- root
+|-- sbin
+|   |-- fsck.aufs -> /bin/true
+|   |-- fsck.rootfs -> /bin/true
+|   |-- fsck.tmpfs -> /bin/true
+|   |-- init
+|   |-- mount.ntfs -> mount.ntfs-3g
+|   `-- pcimodules -> /mnt/live/bin/pcimodules
+|-- usr
+|   |-- X11R6
+|   |   |-- bin -> ../bin
+|   |   |-- include -> ../include
+|   |   |-- lib -> ../lib
+|   |   |-- libexec -> ../libexec
+|   |   |-- man -> ../man
+|   |   `-- share -> ../share
+|   |-- bin
+|   |   |-- act.sh -> /opt/porteus-scripts/act.sh
+|   |   |-- activate -> /opt/porteus-scripts/activate
+|   |   |-- add_loop_devices -> /opt/porteus-scripts/add_loop_devices
+|   |   |-- changes-time.sh -> /opt/porteus-scripts/changes-time.sh
+|   |   |-- chkbase.sh -> /opt/porteus-scripts/chkbase.sh
+|   |   |-- deactivate -> /opt/porteus-scripts/deactivate
+|   |   |-- deb2xzm -> /opt/porteus-scripts/deb2xzm
+|   |   |-- dir2xzm -> /opt/porteus-scripts/dir2xzm
+|   |   |-- extpkg -> /opt/porteus-scripts/extpkg
+|   |   |-- lsxzm -> /opt/porteus-scripts/lsxzm
+|   |   |-- lzm2xzm -> /opt/porteus-scripts/lzm2xzm
+|   |   |-- magic_folders -> /opt/porteus-scripts/magic_folders
+|   |   |-- mkfileswap -> /opt/porteus-scripts/mkfileswap
+|   |   |-- mksquashfs
+|   |   |-- mksquashfs3
+|   |   |-- mloop -> /opt/porteus-scripts/mloop
+|   |   |-- pns-tool -> /opt/porteus-scripts/pns-tool
+|   |   |-- porteus-usb.sh -> /opt/porteus-scripts/porteus-usb.sh
+|   |   |-- porteus_encrypter -> /opt/porteus-scripts/porteus_encrypter
+|   |   |-- power_saver -> /opt/porteus-scripts/power_saver
+|   |   |-- psinfo -> /opt/porteus-scripts/psinfo
+|   |   |-- pxe-boot -> /opt/porteus-scripts/pxe-boot
+|   |   |-- rempkg -> /opt/porteus-scripts/rempkg
+|   |   |-- reset -> tset
+|   |   |-- save-changes -> /opt/porteus-scripts/save-changes
+|   |   |-- txz2xzm -> /opt/porteus-scripts/txz2xzm
+|   |   |-- unpack -> /opt/porteus-scripts/unpack
+|   |   |-- unsquashfs
+|   |   |-- unsquashfs3
+|   |   |-- update_module -> /opt/porteus-scripts/update_module
+|   |   |-- vi -> /mnt/live/bin/busybox
+|   |   `-- xzm2dir -> /opt/porteus-scripts/xzm2dir
+|   |-- doc
+|   |   `-- ipw3945-ucode-1.14.2
+|   |       `-- README.ipw3945-ucode
+|   |-- lib
+|   |   |-- liblinuxlive
+|   |   |-- man.conf
+|   |   `-- perl5
+|   |       `-- 5.12.3
+|   |           `-- i486-linux-thread-multi
+|   |               `-- perllocal.pod
+|   |-- local
+|   |   `-- bin
+|   |       `-- man
+|   |-- man
+|   |   |-- man1
+|   |   |   |-- 7z.1
+|   |   |   |-- 7za.1
+|   |   |   |-- 7zr.1
+|   |   |   |-- CA.pl.1
+|   |   |   |-- a2p.1
+|   |   |   |-- aconnect.1
+|   |   |   |-- addftinfo.1
+|   |   |   |-- afmtodit.1
+|   |   |   |-- alsactl.1
+|   |   |   |-- alsaloop.1
+|   |   |   |-- alsamixer.1
+|   |   |   |-- amidi.1
+|   |   |   |-- amixer.1
+|   |   |   |-- aoss.1
+|   |   |   |-- aplay.1
+|   |   |   |-- aplaymidi.1
+|   |   |   |-- apropos.1
+|   |   |   |-- arch.1
+|   |   |   |-- arecord.1
+|   |   |   |-- arecordmidi.1
+|   |   |   |-- aseqdump.1
+|   |   |   |-- aseqnet.1
+|   |   |   |-- ash.1
+|   |   |   |-- asn1parse.1
+|   |   |   |-- attr.1
+|   |   |   |-- awk.1
+|   |   |   |-- base64.1
+|   |   |   |-- basename.1
+|   |   |   |-- bash.1
+|   |   |   |-- bc.1
+|   |   |   |-- btcflash.1
+|   |   |   |-- builtins.1
+|   |   |   |-- bzdiff.1
+|   |   |   |-- bzgrep.1
+|   |   |   |-- bzip2.1
+|   |   |   |-- bzip2recover.1
+|   |   |   |-- bzmore.1
+|   |   |   |-- c2ph.1
+|   |   |   |-- ca.1
+|   |   |   |-- cal.1
+|   |   |   |-- captoinfo.1m
+|   |   |   |-- cat.1
+|   |   |   |-- cdda2mp3.1
+|   |   |   |-- cdda2ogg.1
+|   |   |   |-- cdda2wav.1
+|   |   |   |-- cdrecord.1
+|   |   |   |-- chacl.1
+|   |   |   |-- chage.1
+|   |   |   |-- chattr.1
+|   |   |   |-- chcon.1
+|   |   |   |-- chem.1
+|   |   |   |-- chfn.1
+|   |   |   |-- chgrp.1
+|   |   |   |-- chkdupexe.1
+|   |   |   |-- chmod.1
+|   |   |   |-- chown.1
+|   |   |   |-- chroot.1
+|   |   |   |-- chrt.1
+|   |   |   |-- chsh.1
+|   |   |   |-- chvt.1
+|   |   |   |-- ciphers.1
+|   |   |   |-- cksum.1
+|   |   |   |-- clear.1
+|   |   |   |-- cmp.1
+|   |   |   |-- col.1
+|   |   |   |-- colcrt.1
+|   |   |   |-- colrm.1
+|   |   |   |-- column.1
+|   |   |   |-- comm.1
+|   |   |   |-- compile_et.1
+|   |   |   |-- compress.1
+|   |   |   |-- config_data.1
+|   |   |   |-- consoletype.1
+|   |   |   |-- corelist.1
+|   |   |   |-- cp.1
+|   |   |   |-- cpan.1
+|   |   |   |-- cpan2dist.1
+|   |   |   |-- cpanp.1
+|   |   |   |-- cpio.1
+|   |   |   |-- crl.1
+|   |   |   |-- crl2pkcs7.1
+|   |   |   |-- crontab.1
+|   |   |   |-- csplit.1
+|   |   |   |-- cut.1
+|   |   |   |-- date.1
+|   |   |   |-- dbilogstrip.1
+|   |   |   |-- dbiprof.1
+|   |   |   |-- dbiproxy.1
+|   |   |   |-- dbus-cleanup-sockets.1
+|   |   |   |-- dbus-daemon.1
+|   |   |   |-- dbus-launch.1
+|   |   |   |-- dbus-monitor.1
+|   |   |   |-- dbus-send.1
+|   |   |   |-- dbus-uuidgen.1
+|   |   |   |-- dc.1
+|   |   |   |-- dd.1
+|   |   |   |-- ddate.1
+|   |   |   |-- deallocvt.1
+|   |   |   |-- df.1
+|   |   |   |-- dgst.1
+|   |   |   |-- dhparam.1
+|   |   |   |-- dialog.1
+|   |   |   |-- diff.1
+|   |   |   |-- diff3.1
+|   |   |   |-- diffstat.1
+|   |   |   |-- dir.1
+|   |   |   |-- dircolors.1
+|   |   |   |-- dirname.1
+|   |   |   |-- dmesg.1
+|   |   |   |-- dnsdomainname.1
+|   |   |   |-- domainname.1
+|   |   |   |-- dprofpp.1
+|   |   |   |-- dsa.1
+|   |   |   |-- dsaparam.1
+|   |   |   |-- du.1
+|   |   |   |-- dumpiso.1
+|   |   |   |-- dumpkeys.1
+|   |   |   |-- ec.1
+|   |   |   |-- echo.1
+|   |   |   |-- ecparam.1
+|   |   |   |-- egrep.1
+|   |   |   |-- eject.1
+|   |   |   |-- enc.1
+|   |   |   |-- enc2xs.1
+|   |   |   |-- env.1
+|   |   |   |-- envsubst.1
+|   |   |   |-- eqn.1
+|   |   |   |-- eqn2graph.1
+|   |   |   |-- errstr.1
+|   |   |   |-- expand.1
+|   |   |   |-- expiry.1
+|   |   |   |-- expr.1
+|   |   |   |-- factor.1
+|   |   |   |-- fallocate.1
+|   |   |   |-- false.1
+|   |   |   |-- fgconsole.1
+|   |   |   |-- fgrep.1
+|   |   |   |-- file.1
+|   |   |   |-- find.1
+|   |   |   |-- find2perl.1
+|   |   |   |-- fiz.1
+|   |   |   |-- flock.1
+|   |   |   |-- fmt.1
+|   |   |   |-- fold.1
+|   |   |   |-- free.1
+|   |   |   |-- funzip.1
+|   |   |   |-- fuser.1
+|   |   |   |-- gawk.1
+|   |   |   |-- gdiffmk.1
+|   |   |   |-- gendiff.1
+|   |   |   |-- gendsa.1
+|   |   |   |-- genrsa.1
+|   |   |   |-- getfacl.1
+|   |   |   |-- getfattr.1
+|   |   |   |-- getopt.1
+|   |   |   |-- gettext.1
+|   |   |   |-- ginstall.1
+|   |   |   |-- gpasswd.1
+|   |   |   |-- gpm-root.1
+|   |   |   |-- grap2graph.1
+|   |   |   |-- grep.1
+|   |   |   |-- grn.1
+|   |   |   |-- grodvi.1
+|   |   |   |-- groff.1
+|   |   |   |-- groffer.1
+|   |   |   |-- grog.1
+|   |   |   |-- grohtml.1
+|   |   |   |-- grolbp.1
+|   |   |   |-- grolj4.1
+|   |   |   |-- grops.1
+|   |   |   |-- grotty.1
+|   |   |   |-- groups.1
+|   |   |   |-- growisofs.1
+|   |   |   |-- gunzip.1
+|   |   |   |-- gxditview.1
+|   |   |   |-- gzexe.1
+|   |   |   |-- gzip.1
+|   |   |   |-- h2ph.1
+|   |   |   |-- h2xs.1
+|   |   |   |-- head.1
+|   |   |   |-- hexdump.1
+|   |   |   |-- hostid.1
+|   |   |   |-- hostname.1
+|   |   |   |-- hpftodit.1
+|   |   |   |-- id.1
+|   |   |   |-- idn.1
+|   |   |   |-- iecset.1
+|   |   |   |-- igawk.1
+|   |   |   |-- indxbib.1
+|   |   |   |-- infocmp.1m
+|   |   |   |-- infotocap.1m
+|   |   |   |-- initlog.1
+|   |   |   |-- install.1
+|   |   |   |-- instmodsh.1
+|   |   |   |-- ionice.1
+|   |   |   |-- iostat.1
+|   |   |   |-- ipcmk.1
+|   |   |   |-- ipcrm.1
+|   |   |   |-- ipcs.1
+|   |   |   |-- jaztool.1
+|   |   |   |-- join.1
+|   |   |   |-- kbd_mode.1
+|   |   |   |-- kill.1
+|   |   |   |-- killall.1
+|   |   |   |-- last.1
+|   |   |   |-- lastb.1
+|   |   |   |-- less.1
+|   |   |   |-- lesskey.1
+|   |   |   |-- libnetcfg.1
+|   |   |   |-- line.1
+|   |   |   |-- link.1
+|   |   |   |-- lkbib.1
+|   |   |   |-- ln.1
+|   |   |   |-- loadkeys.1
+|   |   |   |-- logger.1
+|   |   |   |-- login.1
+|   |   |   |-- logname.1
+|   |   |   |-- look.1
+|   |   |   |-- lookbib.1
+|   |   |   |-- ls.1
+|   |   |   |-- lsattr.1
+|   |   |   |-- lscpu.1
+|   |   |   |-- lynx.1
+|   |   |   |-- lzcat.1
+|   |   |   |-- lzcmp.1
+|   |   |   |-- lzdiff.1
+|   |   |   |-- lzegrep.1
+|   |   |   |-- lzfgrep.1
+|   |   |   |-- lzgrep.1
+|   |   |   |-- lzless.1
+|   |   |   |-- lzma.1
+|   |   |   |-- lzmadec.1
+|   |   |   |-- lzmainfo.1
+|   |   |   |-- lzmore.1
+|   |   |   |-- man.1
+|   |   |   |-- man2html.1
+|   |   |   |-- mc.1
+|   |   |   |-- mcedit.1
+|   |   |   |-- mcookie.1
+|   |   |   |-- mcview.1
+|   |   |   |-- md2.1
+|   |   |   |-- md4.1
+|   |   |   |-- md5.1
+|   |   |   |-- md5sum.1
+|   |   |   |-- mdc2.1
+|   |   |   |-- mesg.1
+|   |   |   |-- mev.1
+|   |   |   |-- mk_cmds.1
+|   |   |   |-- mkdir.1
+|   |   |   |-- mkfifo.1
+|   |   |   |-- mknod.1
+|   |   |   |-- mktemp-gnu.1
+|   |   |   |-- mktemp.1
+|   |   |   |-- mkzftree.1
+|   |   |   |-- mmroff.1
+|   |   |   |-- more.1
+|   |   |   |-- most.1
+|   |   |   |-- mountpoint.1
+|   |   |   |-- mouse-test.1
+|   |   |   |-- mpstat.1
+|   |   |   |-- mt-GNU.1
+|   |   |   |-- mv.1
+|   |   |   |-- namei.1
+|   |   |   |-- ncurses5-config.1
+|   |   |   |-- ncursesw5-config.1
+|   |   |   |-- neon-config.1
+|   |   |   |-- neqn.1
+|   |   |   |-- newgrp.1
+|   |   |   |-- ngettext.1
+|   |   |   |-- nice.1
+|   |   |   |-- nisdomainname.1
+|   |   |   |-- nl.1
+|   |   |   |-- nohup.1
+|   |   |   |-- nproc.1
+|   |   |   |-- nroff.1
+|   |   |   |-- nseq.1
+|   |   |   |-- ocsp.1
+|   |   |   |-- od.1
+|   |   |   |-- openssl.1
+|   |   |   |-- openvt.1
+|   |   |   |-- p7zip.1
+|   |   |   |-- passwd.1
+|   |   |   |-- paste.1
+|   |   |   |-- patch.1
+|   |   |   |-- pathchk.1
+|   |   |   |-- pcap-config.1
+|   |   |   |-- pdfroff.1
+|   |   |   |-- pfbtops.1
+|   |   |   |-- pg.1
+|   |   |   |-- pgawk.1
+|   |   |   |-- pgrep.1
+|   |   |   |-- pic.1
+|   |   |   |-- pic2graph.1
+|   |   |   |-- piconv.1
+|   |   |   |-- pidstat.1
+|   |   |   |-- pinky.1
+|   |   |   |-- pkcs12.1
+|   |   |   |-- pkcs7.1
+|   |   |   |-- pkcs8.1
+|   |   |   |-- pkill.1
+|   |   |   |-- pl2pm.1
+|   |   |   |-- pod2html.1
+|   |   |   |-- pod2latex.1
+|   |   |   |-- pod2man.1
+|   |   |   |-- pod2text.1
+|   |   |   |-- pod2usage.1
+|   |   |   |-- podchecker.1
+|   |   |   |-- podselect.1
+|   |   |   |-- pr.1
+|   |   |   |-- preconv.1
+|   |   |   |-- printenv.1
+|   |   |   |-- printf.1
+|   |   |   |-- prove.1
+|   |   |   |-- ps.1
+|   |   |   |-- psed.1
+|   |   |   |-- psfaddtable.1
+|   |   |   |-- psfgettable.1
+|   |   |   |-- psfstriptable.1
+|   |   |   |-- psfxtable.1
+|   |   |   |-- pstree.1
+|   |   |   |-- pstruct.1
+|   |   |   |-- ptar.1
+|   |   |   |-- ptardiff.1
+|   |   |   |-- ptx.1
+|   |   |   |-- pwd.1
+|   |   |   |-- rand.1
+|   |   |   |-- rbash.1
+|   |   |   |-- readcd.1
+|   |   |   |-- readlink.1
+|   |   |   |-- readprofile.1
+|   |   |   |-- refer.1
+|   |   |   |-- rename.1
+|   |   |   |-- renice.1
+|   |   |   |-- req.1
+|   |   |   |-- reset.1
+|   |   |   |-- rev.1
+|   |   |   |-- ripemd160.1
+|   |   |   |-- rm.1
+|   |   |   |-- rmdir.1
+|   |   |   |-- roff2dvi.1
+|   |   |   |-- roff2html.1
+|   |   |   |-- roff2pdf.1
+|   |   |   |-- roff2ps.1
+|   |   |   |-- roff2text.1
+|   |   |   |-- roff2x.1
+|   |   |   |-- rsa.1
+|   |   |   |-- rsautl.1
+|   |   |   |-- rsync.1
+|   |   |   |-- runcon.1
+|   |   |   |-- rzip.1
+|   |   |   |-- s2p.1
+|   |   |   |-- s_client.1
+|   |   |   |-- s_server.1
+|   |   |   |-- s_time.1
+|   |   |   |-- sadf.1
+|   |   |   |-- sar.1
+|   |   |   |-- scgcheck.1
+|   |   |   |-- scgskeleton.1
+|   |   |   |-- scp.1
+|   |   |   |-- screen.1
+|   |   |   |-- script.1
+|   |   |   |-- scriptreplay.1
+|   |   |   |-- sdiff.1
+|   |   |   |-- sed.1
+|   |   |   |-- sendiso.1
+|   |   |   |-- sensors.1
+|   |   |   |-- seq.1
+|   |   |   |-- sess_id.1
+|   |   |   |-- setfacl.1
+|   |   |   |-- setfattr.1
+|   |   |   |-- setleds.1
+|   |   |   |-- setmetamode.1
+|   |   |   |-- setsid.1
+|   |   |   |-- setterm.1
+|   |   |   |-- sftp.1
+|   |   |   |-- sg.1
+|   |   |   |-- sha.1
+|   |   |   |-- sha1.1
+|   |   |   |-- sha1sum.1
+|   |   |   |-- sha224sum.1
+|   |   |   |-- sha256sum.1
+|   |   |   |-- sha384sum.1
+|   |   |   |-- sha512sum.1
+|   |   |   |-- shasum.1
+|   |   |   |-- showkey.1
+|   |   |   |-- shred.1
+|   |   |   |-- shuf.1
+|   |   |   |-- skill.1
+|   |   |   |-- slabtop.1
+|   |   |   |-- sleep.1
+|   |   |   |-- slogin.1
+|   |   |   |-- smime.1
+|   |   |   |-- snice.1
+|   |   |   |-- soelim.1
+|   |   |   |-- sort.1
+|   |   |   |-- speaker-test.1
+|   |   |   |-- speed.1
+|   |   |   |-- spkac.1
+|   |   |   |-- splain.1
+|   |   |   |-- split.1
+|   |   |   |-- sqlite3.1
+|   |   |   |-- ssh-add.1
+|   |   |   |-- ssh-agent.1
+|   |   |   |-- ssh-copy-id.1
+|   |   |   |-- ssh-keygen.1
+|   |   |   |-- ssh-keyscan.1
+|   |   |   |-- ssh.1
+|   |   |   |-- ssl_passwd.1
+|   |   |   |-- stat.1
+|   |   |   |-- stdbuf.1
+|   |   |   |-- strace.1
+|   |   |   |-- strings.1
+|   |   |   |-- stty.1
+|   |   |   |-- su.1
+|   |   |   |-- sum.1
+|   |   |   |-- sync.1
+|   |   |   |-- systool.1
+|   |   |   |-- tabs.1
+|   |   |   |-- tac.1
+|   |   |   |-- tail.1
+|   |   |   |-- tailf.1
+|   |   |   |-- tar.1
+|   |   |   |-- taskset.1
+|   |   |   |-- tbl.1
+|   |   |   |-- tcpdump.1
+|   |   |   |-- tee.1
+|   |   |   |-- telnet.1
+|   |   |   |-- tempfile.1
+|   |   |   |-- test.1
+|   |   |   |-- testlibraw.1
+|   |   |   |-- tfmtodit.1
+|   |   |   |-- tic.1m
+|   |   |   |-- timeout.1
+|   |   |   |-- tload.1
+|   |   |   |-- toe.1m
+|   |   |   |-- top.1
+|   |   |   |-- touch.1
+|   |   |   |-- tput.1
+|   |   |   |-- tr.1
+|   |   |   |-- troff.1
+|   |   |   |-- true.1
+|   |   |   |-- truncate.1
+|   |   |   |-- tset.1
+|   |   |   |-- tsort.1
+|   |   |   |-- tty.1
+|   |   |   |-- ul.1
+|   |   |   |-- uname.1
+|   |   |   |-- uncompress.1
+|   |   |   |-- unexpand.1
+|   |   |   |-- unicode_start.1
+|   |   |   |-- unicode_stop.1
+|   |   |   |-- uniq.1
+|   |   |   |-- unlink.1
+|   |   |   |-- unlzma.1
+|   |   |   |-- unrar.1
+|   |   |   |-- unshare.1
+|   |   |   |-- unxz.1
+|   |   |   |-- unzip.1
+|   |   |   |-- unzipsfx.1
+|   |   |   |-- uptime.1
+|   |   |   |-- usb-devices.1
+|   |   |   |-- users.1
+|   |   |   |-- usleep.1
+|   |   |   |-- uuidgen.1
+|   |   |   |-- vdir.1
+|   |   |   |-- verify.1
+|   |   |   |-- version.1
+|   |   |   |-- volname.1
+|   |   |   |-- w.1
+|   |   |   |-- wall.1
+|   |   |   |-- watch.1
+|   |   |   |-- wc.1
+|   |   |   |-- wget.1
+|   |   |   |-- whatis.1
+|   |   |   |-- whereis.1
+|   |   |   |-- which.1
+|   |   |   |-- who.1
+|   |   |   |-- whoami.1
+|   |   |   |-- whois.1
+|   |   |   |-- write.1
+|   |   |   |-- x509.1
+|   |   |   |-- xargs.1
+|   |   |   |-- xsubpp.1
+|   |   |   |-- xtotroff.1
+|   |   |   |-- xz.1
+|   |   |   |-- xzcat.1
+|   |   |   |-- xzcmp.1
+|   |   |   |-- xzdec.1
+|   |   |   |-- xzdiff.1
+|   |   |   |-- xzegrep.1
+|   |   |   |-- xzfgrep.1
+|   |   |   |-- xzgrep.1
+|   |   |   |-- xzless.1
+|   |   |   |-- xzmore.1
+|   |   |   |-- yes.1
+|   |   |   |-- ypdomainname.1
+|   |   |   |-- zcat.1
+|   |   |   |-- zcmp.1
+|   |   |   |-- zdiff.1
+|   |   |   |-- zforce.1
+|   |   |   |-- zgrep.1
+|   |   |   |-- zip.1
+|   |   |   |-- zipgrep.1
+|   |   |   |-- zipinfo.1
+|   |   |   |-- ziptool.1
+|   |   |   |-- zless.1
+|   |   |   |-- zmore.1
+|   |   |   |-- znew.1
+|   |   |   `-- zoo.1
+|   |   |-- man5
+|   |   |   |-- acl.5
+|   |   |   |-- attr.5
+|   |   |   |-- config.5
+|   |   |   |-- depmod.conf.5
+|   |   |   |-- dhcpcd.conf.5
+|   |   |   |-- e2fsck.conf.5
+|   |   |   |-- ethers.5
+|   |   |   |-- faillog.5
+|   |   |   |-- fb.modes.5
+|   |   |   |-- fstab.5
+|   |   |   |-- groff_font.5
+|   |   |   |-- groff_out.5
+|   |   |   |-- groff_tmac.5
+|   |   |   |-- gshadow.5
+|   |   |   |-- iftab.5
+|   |   |   |-- initscript.5
+|   |   |   |-- inittab.5
+|   |   |   |-- isapnp.conf.5
+|   |   |   |-- isodump.5
+|   |   |   |-- keymaps.5
+|   |   |   |-- lilo.conf.5
+|   |   |   |-- limits.5
+|   |   |   |-- lj4_font.5
+|   |   |   |-- login.access.5
+|   |   |   |-- login.defs.5
+|   |   |   |-- lvm.conf.5
+|   |   |   |-- magic.5
+|   |   |   |-- man.conf.5
+|   |   |   |-- mdadm.conf.5
+|   |   |   |-- mke2fs.conf.5
+|   |   |   |-- modprobe.conf.5
+|   |   |   |-- modprobe.d.5
+|   |   |   |-- modules.dep.5
+|   |   |   |-- moduli.5
+|   |   |   |-- passwd.5
+|   |   |   |-- pcap-savefile.5
+|   |   |   |-- porttime.5
+|   |   |   |-- pppoe.conf.5
+|   |   |   |-- projects.5
+|   |   |   |-- projid.5
+|   |   |   |-- rc.inet1.conf.5
+|   |   |   |-- rsyncd.conf.5
+|   |   |   |-- sensors.conf.5
+|   |   |   |-- sensors3.conf.5
+|   |   |   |-- shadow.5
+|   |   |   |-- ssh_config.5
+|   |   |   |-- sshd_config.5
+|   |   |   |-- suauth.5
+|   |   |   |-- sysctl.conf.5
+|   |   |   |-- syslog.conf.5
+|   |   |   |-- term.5
+|   |   |   |-- terminfo.5
+|   |   |   |-- wpa_supplicant.conf.5
+|   |   |   |-- x509v3_config.5
+|   |   |   `-- xfs.5
+|   |   |-- man7
+|   |   |   |-- alsactl_init.7
+|   |   |   |-- des_modes.7
+|   |   |   |-- ditroff.7
+|   |   |   |-- gpm-types.7
+|   |   |   |-- groff.7
+|   |   |   |-- groff_char.7
+|   |   |   |-- groff_diff.7
+|   |   |   |-- groff_hdtbl.7
+|   |   |   |-- groff_man.7
+|   |   |   |-- groff_mdoc.7
+|   |   |   |-- groff_me.7
+|   |   |   |-- groff_mm.7
+|   |   |   |-- groff_mmse.7
+|   |   |   |-- groff_mom.7
+|   |   |   |-- groff_ms.7
+|   |   |   |-- groff_trace.7
+|   |   |   |-- groff_www.7
+|   |   |   |-- pcap-filter.7
+|   |   |   |-- pcap-linktype.7
+|   |   |   |-- pcilib.7
+|   |   |   |-- roff.7
+|   |   |   |-- term.7
+|   |   |   |-- udev.7
+|   |   |   `-- wireless.7
+|   |   `-- man8
+|   |       |-- acpi_listen.8
+|   |       |-- acpid.8
+|   |       |-- addpart.8
+|   |       |-- adjtimex.8
+|   |       |-- agetty.8
+|   |       |-- alsaconf.8
+|   |       |-- arp.8
+|   |       |-- arping.8
+|   |       |-- badblocks.8
+|   |       |-- biosdecode.8
+|   |       |-- blkid.8
+|   |       |-- blockdev.8
+|   |       |-- bootlogd.8
+|   |       |-- cfdisk.8
+|   |       |-- chat.8
+|   |       |-- chgpasswd.8
+|   |       |-- chpasswd.8
+|   |       |-- clock.8
+|   |       |-- clockdiff.8
+|   |       |-- crond.8
+|   |       |-- ctrlaltdel.8
+|   |       |-- cytune.8
+|   |       |-- debugfs.8
+|   |       |-- debugreiserfs.8
+|   |       |-- delpart.8
+|   |       |-- depmod.8
+|   |       |-- devdump.8
+|   |       |-- dhcpcd-run-hooks.8
+|   |       |-- dhcpcd.8
+|   |       |-- dmeventd.8
+|   |       |-- dmidecode.8
+|   |       |-- dmsetup.8
+|   |       |-- dosfsck.8
+|   |       |-- dosfslabel.8
+|   |       |-- dumpe2fs.8
+|   |       |-- e2freefrag.8
+|   |       |-- e2fsck.8
+|   |       |-- e2image.8
+|   |       |-- e2label.8
+|   |       |-- e2undo.8
+|   |       |-- explodepkg.8
+|   |       |-- faillog.8
+|   |       |-- fancontrol.8
+|   |       |-- fbset.8
+|   |       |-- fdformat.8
+|   |       |-- fdisk.8
+|   |       |-- filefrag.8
+|   |       |-- findfs.8
+|   |       |-- findmnt.8
+|   |       |-- fsadm.8
+|   |       |-- fsck.8
+|   |       |-- fsck.ext2.8
+|   |       |-- fsck.ext3.8
+|   |       |-- fsck.ext4.8
+|   |       |-- fsck.ext4dev.8
+|   |       |-- fsck.jfs.8
+|   |       |-- fsck.minix.8
+|   |       |-- fsck.msdos.8
+|   |       |-- fsck.vfat.8
+|   |       |-- fsck.xfs.8
+|   |       |-- fsfreeze.8
+|   |       |-- fstab-decode.8
+|   |       |-- fstrim.8
+|   |       |-- getkeycodes.8
+|   |       |-- gpm.8
+|   |       |-- groupadd.8
+|   |       |-- groupdel.8
+|   |       |-- groupmems.8
+|   |       |-- groupmod.8
+|   |       |-- grpck.8
+|   |       |-- grpconv.8
+|   |       |-- grpunconv.8
+|   |       |-- halt.8
+|   |       |-- hdparm.8
+|   |       |-- hwclock.8
+|   |       |-- i386.8
+|   |       |-- ifconfig.8
+|   |       |-- ifrename.8
+|   |       |-- in.telnetd.8
+|   |       |-- init.8
+|   |       |-- insmod.8
+|   |       |-- installpkg.8
+|   |       |-- ip6tables-restore.8
+|   |       |-- ip6tables-save.8
+|   |       |-- ip6tables.8
+|   |       |-- ipmask.8
+|   |       |-- iptables-restore.8
+|   |       |-- iptables-save.8
+|   |       |-- iptables-xml.8
+|   |       |-- iptables.8
+|   |       |-- isadump.8
+|   |       |-- isapnp.8
+|   |       |-- isaset.8
+|   |       |-- isodebug.8
+|   |       |-- isodump.8
+|   |       |-- isoinfo.8
+|   |       |-- isosize.8
+|   |       |-- isovfy.8
+|   |       |-- iwconfig.8
+|   |       |-- iwevent.8
+|   |       |-- iwgetid.8
+|   |       |-- iwlist.8
+|   |       |-- iwpriv.8
+|   |       |-- iwspy.8
+|   |       |-- jfs_debugfs.8
+|   |       |-- jfs_fsck.8
+|   |       |-- jfs_fscklog.8
+|   |       |-- jfs_logdump.8
+|   |       |-- jfs_mkfs.8
+|   |       |-- jfs_tune.8
+|   |       |-- kbdrate.8
+|   |       |-- killall5.8
+|   |       |-- klogd.8
+|   |       |-- lastlog.8
+|   |       |-- ldattach.8
+|   |       |-- lilo.8
+|   |       |-- linux32.8
+|   |       |-- linux64.8
+|   |       |-- loadunimap.8
+|   |       |-- logoutd.8
+|   |       |-- logrotate.8
+|   |       |-- logsave.8
+|   |       |-- losetup.8
+|   |       |-- lsblk.8
+|   |       |-- lsdev.8
+|   |       |-- lsmod.8
+|   |       |-- lsof.8
+|   |       |-- lspci.8
+|   |       |-- lspcmcia.8
+|   |       |-- lsscsi.8
+|   |       |-- lsusb.8
+|   |       |-- lvchange.8
+|   |       |-- lvconvert.8
+|   |       |-- lvcreate.8
+|   |       |-- lvdisplay.8
+|   |       |-- lvextend.8
+|   |       |-- lvm.8
+|   |       |-- lvmchange.8
+|   |       |-- lvmconf.8
+|   |       |-- lvmdiskscan.8
+|   |       |-- lvmdump.8
+|   |       |-- lvmsadc.8
+|   |       |-- lvmsar.8
+|   |       |-- lvreduce.8
+|   |       |-- lvremove.8
+|   |       |-- lvrename.8
+|   |       |-- lvresize.8
+|   |       |-- lvs.8
+|   |       |-- lvscan.8
+|   |       |-- makepkg.8
+|   |       |-- makewhatis.8
+|   |       |-- mapscrn.8
+|   |       |-- mdadm.8
+|   |       |-- mdmon.8
+|   |       |-- mii-tool.8
+|   |       |-- mkdosfs.8
+|   |       |-- mke2fs.8
+|   |       |-- mkfs.8
+|   |       |-- mkfs.bfs.8
+|   |       |-- mkfs.ext2.8
+|   |       |-- mkfs.ext3.8
+|   |       |-- mkfs.ext4.8
+|   |       |-- mkfs.ext4dev.8
+|   |       |-- mkfs.jfs.8
+|   |       |-- mkfs.minix.8
+|   |       |-- mkfs.msdos.8
+|   |       |-- mkfs.vfat.8
+|   |       |-- mkfs.xfs.8
+|   |       |-- mkhybrid.8
+|   |       |-- mkisofs.8
+|   |       |-- mklost+found.8
+|   |       |-- mkreiserfs.8
+|   |       |-- mkrescue.8
+|   |       |-- mkswap.8
+|   |       |-- modinfo.8
+|   |       |-- modprobe.8
+|   |       |-- mount.8
+|   |       |-- mount.lowntfs-3g.8
+|   |       |-- mount.ntfs-3g.8
+|   |       |-- nameif.8
+|   |       |-- netstat.8
+|   |       |-- newusers.8
+|   |       |-- nologin.8
+|   |       |-- ntfs-3g.8
+|   |       |-- ntfs-3g.probe.8
+|   |       |-- ntfs-3g.secaudit.8
+|   |       |-- ntfs-3g.usermap.8
+|   |       |-- ownership.8
+|   |       |-- parted.8
+|   |       |-- partprobe.8
+|   |       |-- partx.8
+|   |       |-- pccardctl.8
+|   |       |-- pidof.8
+|   |       |-- ping.8
+|   |       |-- ping6.8
+|   |       |-- pivot_root.8
+|   |       |-- pkgtool.8
+|   |       |-- plipconfig.8
+|   |       |-- pluginviewer.8
+|   |       |-- pmap_dump.8
+|   |       |-- pmap_set.8
+|   |       |-- pnpdump.8
+|   |       |-- portmap.8
+|   |       |-- poweroff.8
+|   |       |-- pppd-radattr.8
+|   |       |-- pppd-radius.8
+|   |       |-- pppd.8
+|   |       |-- pppdump.8
+|   |       |-- pppoe-connect.8
+|   |       |-- pppoe-relay.8
+|   |       |-- pppoe-server.8
+|   |       |-- pppoe-setup.8
+|   |       |-- pppoe-sniff.8
+|   |       |-- pppoe-start.8
+|   |       |-- pppoe-status.8
+|   |       |-- pppoe-stop.8
+|   |       |-- pppoe.8
+|   |       |-- pppstats.8
+|   |       |-- procinfo.8
+|   |       |-- pvchange.8
+|   |       |-- pvck.8
+|   |       |-- pvcreate.8
+|   |       |-- pvdisplay.8
+|   |       |-- pvmove.8
+|   |       |-- pvremove.8
+|   |       |-- pvresize.8
+|   |       |-- pvs.8
+|   |       |-- pvscan.8
+|   |       |-- pwck.8
+|   |       |-- pwconv.8
+|   |       |-- pwmconfig.8
+|   |       |-- pwunconv.8
+|   |       |-- rarp.8
+|   |       |-- rarpd.8
+|   |       |-- raw.8
+|   |       |-- rc.inet1.8
+|   |       |-- rdisc.8
+|   |       |-- reboot.8
+|   |       |-- reiserfsck.8
+|   |       |-- reiserfstune.8
+|   |       |-- removepkg.8
+|   |       |-- resize2fs.8
+|   |       |-- resize_reiserfs.8
+|   |       |-- resizecons.8
+|   |       |-- rmmod.8
+|   |       |-- rmt.8
+|   |       |-- route.8
+|   |       |-- rpc.portmap.8
+|   |       |-- rpm.8
+|   |       |-- rpm2cpio.8
+|   |       |-- rpmbuild.8
+|   |       |-- rpmdeps.8
+|   |       |-- rpmgraph.8
+|   |       |-- rtcwake.8
+|   |       |-- run-parts.8
+|   |       |-- runlevel.8
+|   |       |-- sa1.8
+|   |       |-- sa2.8
+|   |       |-- sadc.8
+|   |       |-- saslauthd.8
+|   |       |-- sasldblistusers2.8
+|   |       |-- saslpasswd2.8
+|   |       |-- savelog.8
+|   |       |-- scsi_id.8
+|   |       |-- sdparm.8
+|   |       |-- sensors-detect.8
+|   |       |-- setarch.8
+|   |       |-- setfont.8
+|   |       |-- setkeycodes.8
+|   |       |-- setpci.8
+|   |       |-- setserial.8
+|   |       |-- sfdisk.8
+|   |       |-- sftp-server.8
+|   |       |-- showconsolefont.8
+|   |       |-- shutdown.8
+|   |       |-- slattach.8
+|   |       |-- socklist.8
+|   |       |-- ssh-keysign.8
+|   |       |-- ssh-pkcs11-helper.8
+|   |       |-- sshd.8
+|   |       |-- swaplabel.8
+|   |       |-- swapoff.8
+|   |       |-- swapon.8
+|   |       |-- switch_root.8
+|   |       |-- sysctl.8
+|   |       |-- sysklogd.8
+|   |       |-- syslogd.8
+|   |       |-- telinit.8
+|   |       |-- tracepath.8
+|   |       |-- tracepath6.8
+|   |       |-- traceroute.8
+|   |       |-- traceroute6.8
+|   |       |-- tune2fs.8
+|   |       |-- tunelp.8
+|   |       |-- udevadm.8
+|   |       |-- udevd.8
+|   |       |-- umount.8
+|   |       |-- update-pciids.8
+|   |       |-- upgradepkg.8
+|   |       |-- useradd.8
+|   |       |-- userdel.8
+|   |       |-- usermod.8
+|   |       |-- vgcfgbackup.8
+|   |       |-- vgcfgrestore.8
+|   |       |-- vgchange.8
+|   |       |-- vgck.8
+|   |       |-- vgconvert.8
+|   |       |-- vgcreate.8
+|   |       |-- vgdisplay.8
+|   |       |-- vgexport.8
+|   |       |-- vgextend.8
+|   |       |-- vgimport.8
+|   |       |-- vgimportclone.8
+|   |       |-- vgmerge.8
+|   |       |-- vgmknodes.8
+|   |       |-- vgreduce.8
+|   |       |-- vgremove.8
+|   |       |-- vgrename.8
+|   |       |-- vgs.8
+|   |       |-- vgscan.8
+|   |       |-- vgsplit.8
+|   |       |-- vigr.8
+|   |       |-- vipw.8
+|   |       |-- vmstat.8
+|   |       |-- vpddecode.8
+|   |       |-- wipefs.8
+|   |       |-- wpa_background.8
+|   |       |-- wpa_cli.8
+|   |       |-- wpa_gui.8
+|   |       |-- wpa_passphrase.8
+|   |       |-- wpa_priv.8
+|   |       |-- wpa_supplicant.8
+|   |       |-- xfs_admin.8
+|   |       |-- xfs_bmap.8
+|   |       |-- xfs_check.8
+|   |       |-- xfs_copy.8
+|   |       |-- xfs_db.8
+|   |       |-- xfs_estimate.8
+|   |       |-- xfs_freeze.8
+|   |       |-- xfs_fsr.8
+|   |       |-- xfs_growfs.8
+|   |       |-- xfs_info.8
+|   |       |-- xfs_io.8
+|   |       |-- xfs_logprint.8
+|   |       |-- xfs_mdrestore.8
+|   |       |-- xfs_metadump.8
+|   |       |-- xfs_mkfile.8
+|   |       |-- xfs_ncheck.8
+|   |       |-- xfs_quota.8
+|   |       |-- xfs_repair.8
+|   |       |-- xfs_rtcp.8
+|   |       |-- xfsdump.8
+|   |       |-- xfsinvutil.8
+|   |       `-- xfsrestore.8
+|   `-- share
+|       |-- kbd
+|       |   |-- consolefonts
+|       |   |   |-- 161.cp
+|       |   |   |-- 162.cp
+|       |   |   |-- 163.cp
+|       |   |   |-- 164.cp
+|       |   |   |-- 165.cp
+|       |   |   |-- 737.cp
+|       |   |   |-- 880.cp
+|       |   |   |-- 928.cp
+|       |   |   |-- 972.cp
+|       |   |   |-- Agafari-12.psfu
+|       |   |   |-- Agafari-14.psfu
+|       |   |   |-- Agafari-16.psfu
+|       |   |   |-- Cyr_a8x14.psfu
+|       |   |   |-- Cyr_a8x16.psfu
+|       |   |   |-- Cyr_a8x8.psfu
+|       |   |   |-- Goha-12.psfu
+|       |   |   |-- Goha-14.psfu
+|       |   |   |-- Goha-16.psfu
+|       |   |   |-- GohaClassic-12.psfu
+|       |   |   |-- GohaClassic-14.psfu
+|       |   |   |-- GohaClassic-16.psfu
+|       |   |   |-- Lat2-Terminus16.psfu
+|       |   |   |-- LatArCyrHeb-08.psfu
+|       |   |   |-- LatArCyrHeb-14.psfu
+|       |   |   |-- LatArCyrHeb-16+.psfu
+|       |   |   |-- LatArCyrHeb-16.psfu
+|       |   |   |-- LatArCyrHeb-19.psfu
+|       |   |   |-- LatKaCyrHeb-14.psfu
+|       |   |   |-- Mik_8x16
+|       |   |   |-- UniCyrExt_8x16.psf
+|       |   |   |-- UniCyr_8x14.psf
+|       |   |   |-- UniCyr_8x16.psf
+|       |   |   |-- UniCyr_8x8.psf
+|       |   |   |-- alt-8x14
+|       |   |   |-- alt-8x16
+|       |   |   |-- alt-8x8
+|       |   |   |-- altc-8x16
+|       |   |   |-- aply16.psf
+|       |   |   |-- arm8.fnt
+|       |   |   |-- b.fnt
+|       |   |   |-- c.fnt
+|       |   |   |-- cp1250.psfu
+|       |   |   |-- cp850-8x14.psfu
+|       |   |   |-- cp850-8x16.psfu
+|       |   |   |-- cp850-8x8.psfu
+|       |   |   |-- cp857.08
+|       |   |   |-- cp857.14
+|       |   |   |-- cp857.16
+|       |   |   |-- cp865-8x14.psfu
+|       |   |   |-- cp865-8x16.psfu
+|       |   |   |-- cp865-8x8.psfu
+|       |   |   |-- cp866-8x14.psf
+|       |   |   |-- cp866-8x16.psf
+|       |   |   |-- cp866-8x8.psf
+|       |   |   |-- cybercafe.fnt
+|       |   |   |-- cyr-sun16.psfu
+|       |   |   |-- default8x16.psfu
+|       |   |   |-- default8x9.psfu
+|       |   |   |-- drdos8x14.psfu
+|       |   |   |-- drdos8x16.psfu
+|       |   |   |-- drdos8x6.psfu
+|       |   |   |-- drdos8x8.psfu
+|       |   |   |-- gr737a-8x8.psfu
+|       |   |   |-- gr737a-9x14.psfu
+|       |   |   |-- gr737a-9x16.psfu
+|       |   |   |-- gr737b-8x11.psfu
+|       |   |   |-- gr737b-9x16-medieval.psfu
+|       |   |   |-- gr737c-8x14.psfu
+|       |   |   |-- gr737c-8x16.psfu
+|       |   |   |-- gr737c-8x6.psfu
+|       |   |   |-- gr737c-8x7.psfu
+|       |   |   |-- gr737c-8x8.psfu
+|       |   |   |-- gr737d-8x16.psfu
+|       |   |   |-- gr928-8x16-thin.psfu
+|       |   |   |-- gr928-9x14.psfu
+|       |   |   |-- gr928-9x16.psfu
+|       |   |   |-- gr928a-8x14.psfu
+|       |   |   |-- gr928a-8x16.psfu
+|       |   |   |-- gr928b-8x14.psfu
+|       |   |   |-- gr928b-8x16.psfu
+|       |   |   |-- greek-polytonic.psfu
+|       |   |   |-- iso01-12x22.psfu
+|       |   |   |-- iso01.08
+|       |   |   |-- iso01.14
+|       |   |   |-- iso01.16
+|       |   |   |-- iso02-12x22.psfu
+|       |   |   |-- iso02.08
+|       |   |   |-- iso02.14
+|       |   |   |-- iso02.16
+|       |   |   |-- iso03.08
+|       |   |   |-- iso03.14
+|       |   |   |-- iso03.16
+|       |   |   |-- iso04.08
+|       |   |   |-- iso04.14
+|       |   |   |-- iso04.16
+|       |   |   |-- iso05.08
+|       |   |   |-- iso05.14
+|       |   |   |-- iso05.16
+|       |   |   |-- iso06.08
+|       |   |   |-- iso06.14
+|       |   |   |-- iso06.16
+|       |   |   |-- iso07.14
+|       |   |   |-- iso07.16
+|       |   |   |-- iso07u-16.psfu
+|       |   |   |-- iso08.08
+|       |   |   |-- iso08.14
+|       |   |   |-- iso08.16
+|       |   |   |-- iso09.08
+|       |   |   |-- iso09.14
+|       |   |   |-- iso09.16
+|       |   |   |-- iso10.08
+|       |   |   |-- iso10.14
+|       |   |   |-- iso10.16
+|       |   |   |-- koi8-14.psf
+|       |   |   |-- koi8c-8x16
+|       |   |   |-- koi8r-8x14
+|       |   |   |-- koi8r-8x16
+|       |   |   |-- koi8r-8x8
+|       |   |   |-- koi8r.8x8.psfu
+|       |   |   |-- koi8u_8x14.psfu
+|       |   |   |-- koi8u_8x16.psfu
+|       |   |   |-- koi8u_8x8.psfu
+|       |   |   |-- lat0-08.psfu
+|       |   |   |-- lat0-10.psfu
+|       |   |   |-- lat0-12.psfu
+|       |   |   |-- lat0-14.psfu
+|       |   |   |-- lat0-16.psfu
+|       |   |   |-- lat1-08.psfu
+|       |   |   |-- lat1-10.psfu
+|       |   |   |-- lat1-12.psfu
+|       |   |   |-- lat1-14.psfu
+|       |   |   |-- lat1-16.psfu
+|       |   |   |-- lat2-08.psfu
+|       |   |   |-- lat2-10.psfu
+|       |   |   |-- lat2-12.psfu
+|       |   |   |-- lat2-14.psfu
+|       |   |   |-- lat2-16.psfu
+|       |   |   |-- lat2a-16.psfu
+|       |   |   |-- lat4-08.psfu
+|       |   |   |-- lat4-10.psfu
+|       |   |   |-- lat4-12.psfu
+|       |   |   |-- lat4-14.psfu
+|       |   |   |-- lat4-16+.psfu
+|       |   |   |-- lat4-16.psfu
+|       |   |   |-- lat4-19.psfu
+|       |   |   |-- lat4a-08.psfu
+|       |   |   |-- lat4a-10.psfu
+|       |   |   |-- lat4a-12.psfu
+|       |   |   |-- lat4a-14.psfu
+|       |   |   |-- lat4a-16+.psfu
+|       |   |   |-- lat4a-16.psfu
+|       |   |   |-- lat4a-19.psfu
+|       |   |   |-- lat5-12.psfu
+|       |   |   |-- lat5-14.psfu
+|       |   |   |-- lat5-16.psfu
+|       |   |   |-- lat7-14.psfu
+|       |   |   |-- lat7a-14.psfu
+|       |   |   |-- lat7a-16.psf
+|       |   |   |-- lat9-08.psf
+|       |   |   |-- lat9-10.psf
+|       |   |   |-- lat9-12.psf
+|       |   |   |-- lat9-14.psf
+|       |   |   |-- lat9-16.psf
+|       |   |   |-- lat9u-08.psfu
+|       |   |   |-- lat9u-10.psfu
+|       |   |   |-- lat9u-12.psfu
+|       |   |   |-- lat9u-14.psfu
+|       |   |   |-- lat9u-16.psfu
+|       |   |   |-- lat9v-08.psfu
+|       |   |   |-- lat9v-10.psfu
+|       |   |   |-- lat9v-12.psfu
+|       |   |   |-- lat9v-14.psfu
+|       |   |   |-- lat9v-16.psfu
+|       |   |   |-- lat9w-08.psfu
+|       |   |   |-- lat9w-10.psfu
+|       |   |   |-- lat9w-12.psfu
+|       |   |   |-- lat9w-14.psfu
+|       |   |   |-- lat9w-16.psfu
+|       |   |   |-- m.fnt
+|       |   |   |-- ml.fnt
+|       |   |   |-- mod_d.fnt
+|       |   |   |-- mod_s.fnt
+|       |   |   |-- mr.fnt
+|       |   |   |-- mu.fnt
+|       |   |   |-- partialfonts
+|       |   |   |   |-- 8859-1.a0-ff.08
+|       |   |   |   |-- 8859-1.a0-ff.14
+|       |   |   |   |-- 8859-1.a0-ff.16
+|       |   |   |   |-- 8859-10.a0-ff.08
+|       |   |   |   |-- 8859-10.a0-ff.14
+|       |   |   |   |-- 8859-10.a0-ff.16
+|       |   |   |   |-- 8859-2.a0-ff.08
+|       |   |   |   |-- 8859-2.a0-ff.14
+|       |   |   |   |-- 8859-2.a0-ff.16
+|       |   |   |   |-- 8859-3.a0-ff.08
+|       |   |   |   |-- 8859-3.a0-ff.14
+|       |   |   |   |-- 8859-3.a0-ff.16
+|       |   |   |   |-- 8859-4.a0-ff.08
+|       |   |   |   |-- 8859-4.a0-ff.14
+|       |   |   |   |-- 8859-4.a0-ff.16
+|       |   |   |   |-- 8859-5.a0-ff.08
+|       |   |   |   |-- 8859-5.a0-ff.14
+|       |   |   |   |-- 8859-5.a0-ff.16
+|       |   |   |   |-- 8859-6.a0-ff.08
+|       |   |   |   |-- 8859-6.a0-ff.14
+|       |   |   |   |-- 8859-6.a0-ff.16
+|       |   |   |   |-- 8859-7.a0-ff.08
+|       |   |   |   |-- 8859-7.a0-ff.14
+|       |   |   |   |-- 8859-7.a0-ff.16
+|       |   |   |   |-- 8859-8.a0-ff.08
+|       |   |   |   |-- 8859-8.a0-ff.14
+|       |   |   |   |-- 8859-8.a0-ff.16
+|       |   |   |   |-- 8859-9.a0-ff.08
+|       |   |   |   |-- 8859-9.a0-ff.14
+|       |   |   |   |-- 8859-9.a0-ff.16
+|       |   |   |   |-- ascii.20-7f.08
+|       |   |   |   |-- ascii.20-7f.14
+|       |   |   |   |-- ascii.20-7f.16
+|       |   |   |   |-- cp437.00-1f.08
+|       |   |   |   |-- cp437.00-1f.14
+|       |   |   |   |-- cp437.00-1f.16
+|       |   |   |   |-- none.00-17.08
+|       |   |   |   |-- none.00-17.14
+|       |   |   |   `-- none.00-17.16
+|       |   |   |-- r.fnt
+|       |   |   |-- rl.fnt
+|       |   |   |-- ro.fnt
+|       |   |   |-- ruscii_8x16.psfu
+|       |   |   |-- ruscii_8x8.psfu
+|       |   |   |-- s.fnt
+|       |   |   |-- sc.fnt
+|       |   |   |-- scrawl_s.fnt
+|       |   |   |-- scrawl_w.fnt
+|       |   |   |-- sd.fnt
+|       |   |   |-- sun12x22.psfu
+|       |   |   |-- t.fnt
+|       |   |   |-- t850b.fnt
+|       |   |   |-- tcvn8x16.psf
+|       |   |   `-- viscii10-8x16.psfu
+|       |   `-- keymaps
+|       |       `-- i386
+|       |           |-- azerty
+|       |           |   |-- azerty.map
+|       |           |   |-- be-latin1.map
+|       |           |   |-- fr-latin0.map
+|       |           |   |-- fr-latin1.map
+|       |           |   |-- fr-latin9.map
+|       |           |   |-- fr-old.map
+|       |           |   |-- fr-pc.map
+|       |           |   |-- fr.map
+|       |           |   |-- wangbe.map
+|       |           |   `-- wangbe2.map
+|       |           |-- colemak
+|       |           |   `-- en-latin9.map
+|       |           |-- dvorak
+|       |           |   |-- ANSI-dvorak.map
+|       |           |   |-- dvorak-fr.map
+|       |           |   |-- dvorak-l.map
+|       |           |   |-- dvorak-r.map
+|       |           |   |-- dvorak.map
+|       |           |   `-- no-dvorak.map
+|       |           |-- fgGIod
+|       |           |   |-- tr_f-latin5.map
+|       |           |   `-- trf-fgGIod.map
+|       |           |-- include
+|       |           |   |-- applkey.map
+|       |           |   |-- backspace.map
+|       |           |   |-- ctrl.map
+|       |           |   |-- euro.map
+|       |           |   |-- euro1.map
+|       |           |   |-- euro2.map
+|       |           |   |-- keypad.map
+|       |           |   |-- unicode.map
+|       |           |   `-- windowkeys.map
+|       |           |-- olpc
+|       |           |   |-- es-olpc.map
+|       |           |   `-- pt-olpc.map
+|       |           |-- qwerty
+|       |           |   |-- bashkir.map
+|       |           |   |-- bg-cp1251.map
+|       |           |   |-- bg-cp855.map
+|       |           |   |-- bg_bds-cp1251.map
+|       |           |   |-- bg_bds-utf8.map
+|       |           |   |-- bg_pho-cp1251.map
+|       |           |   |-- bg_pho-utf8.map
+|       |           |   |-- br-abnt.map
+|       |           |   |-- br-abnt2.map
+|       |           |   |-- br-latin1-abnt2.map
+|       |           |   |-- br-latin1-us.map
+|       |           |   |-- by-cp1251.map
+|       |           |   |-- by.map
+|       |           |   |-- bywin-cp1251.map
+|       |           |   |-- cf.map
+|       |           |   |-- cz-cp1250.map
+|       |           |   |-- cz-lat2-prog.map
+|       |           |   |-- cz-lat2.map
+|       |           |   |-- cz-qwerty.map
+|       |           |   |-- defkeymap.map
+|       |           |   |-- defkeymap_V1.0.map
+|       |           |   |-- dk-latin1.map
+|       |           |   |-- dk.map
+|       |           |   |-- emacs.map
+|       |           |   |-- emacs2.map
+|       |           |   |-- es-cp850.map
+|       |           |   |-- es.map
+|       |           |   |-- et-nodeadkeys.map
+|       |           |   |-- et.map
+|       |           |   |-- fi-latin1.map
+|       |           |   |-- fi-latin9.map
+|       |           |   |-- fi-old.map
+|       |           |   |-- fi.map
+|       |           |   |-- gr-pc.map
+|       |           |   |-- gr.map
+|       |           |   |-- hu101.map
+|       |           |   |-- il-heb.map
+|       |           |   |-- il-phonetic.map
+|       |           |   |-- il.map
+|       |           |   |-- is-latin1-us.map
+|       |           |   |-- is-latin1.map
+|       |           |   |-- it-ibm.map
+|       |           |   |-- it.map
+|       |           |   |-- it2.map
+|       |           |   |-- jp106.map
+|       |           |   |-- kazakh.map
+|       |           |   |-- ky_alt_sh-UTF-8.map
+|       |           |   |-- kyrgyz.map
+|       |           |   |-- la-latin1.map
+|       |           |   |-- lt.baltic.map
+|       |           |   |-- lt.l4.map
+|       |           |   |-- lt.map
+|       |           |   |-- mk-cp1251.map
+|       |           |   |-- mk-utf.map
+|       |           |   |-- mk.map
+|       |           |   |-- mk0.map
+|       |           |   |-- nl.map
+|       |           |   |-- nl2.map
+|       |           |   |-- no-latin1.map
+|       |           |   |-- no.map
+|       |           |   |-- pc110.map
+|       |           |   |-- pl.map
+|       |           |   |-- pl1.map
+|       |           |   |-- pl2.map
+|       |           |   |-- pl3.map
+|       |           |   |-- pl4.map
+|       |           |   |-- pt-latin1.map
+|       |           |   |-- pt-latin9.map
+|       |           |   |-- pt.map
+|       |           |   |-- ro.map
+|       |           |   |-- ro_std.map
+|       |           |   |-- ru-cp1251.map
+|       |           |   |-- ru-ms.map
+|       |           |   |-- ru-yawerty.map
+|       |           |   |-- ru.map
+|       |           |   |-- ru1.map
+|       |           |   |-- ru2.map
+|       |           |   |-- ru3.map
+|       |           |   |-- ru4.map
+|       |           |   |-- ru_win.map
+|       |           |   |-- ruwin_alt-CP1251.map
+|       |           |   |-- ruwin_alt-KOI8-R.map
+|       |           |   |-- ruwin_alt-UTF-8.map
+|       |           |   |-- ruwin_cplk-CP1251.map
+|       |           |   |-- ruwin_cplk-KOI8-R.map
+|       |           |   |-- ruwin_cplk-UTF-8.map
+|       |           |   |-- ruwin_ct_sh-CP1251.map
+|       |           |   |-- ruwin_ct_sh-KOI8-R.map
+|       |           |   |-- ruwin_ct_sh-UTF-8.map
+|       |           |   |-- ruwin_ctrl-CP1251.map
+|       |           |   |-- ruwin_ctrl-KOI8-R.map
+|       |           |   |-- ruwin_ctrl-UTF-8.map
+|       |           |   |-- se-fi-ir209.map
+|       |           |   |-- se-fi-lat6.map
+|       |           |   |-- se-ir209.map
+|       |           |   |-- se-lat6.map
+|       |           |   |-- se-latin1.map
+|       |           |   |-- sk-prog-qwerty.map
+|       |           |   |-- sk-qwerty.map
+|       |           |   |-- speakup-jfw.map
+|       |           |   |-- speakupmap.map
+|       |           |   |-- sr-cy.map
+|       |           |   |-- sv-latin1.map
+|       |           |   |-- tj_alt-UTF8.map
+|       |           |   |-- tr_q-latin5.map
+|       |           |   |-- tralt.map
+|       |           |   |-- trf.map
+|       |           |   |-- trq.map
+|       |           |   |-- ttwin_alt-UTF-8.map
+|       |           |   |-- ttwin_cplk-UTF-8.map
+|       |           |   |-- ttwin_ct_sh-UTF-8.map
+|       |           |   |-- ttwin_ctrl-UTF-8.map
+|       |           |   |-- ua-cp1251.map
+|       |           |   |-- ua-utf-ws.map
+|       |           |   |-- ua-utf.map
+|       |           |   |-- ua-ws.map
+|       |           |   |-- ua.map
+|       |           |   |-- uk.map
+|       |           |   |-- us-acentos.map
+|       |           |   `-- us.map
+|       |           `-- qwertz
+|       |               |-- croat.map
+|       |               |-- cz-us-qwertz.map
+|       |               |-- cz.map
+|       |               |-- de-latin1-nodeadkeys.map
+|       |               |-- de-latin1.map
+|       |               |-- de-mobii.map
+|       |               |-- de.map
+|       |               |-- de_CH-latin1.map
+|       |               |-- de_alt_UTF-8.map
+|       |               |-- fr_CH-latin1.map
+|       |               |-- fr_CH.map
+|       |               |-- hu.map
+|       |               |-- sg-latin1-lk450.map
+|       |               |-- sg-latin1.map
+|       |               |-- sg.map
+|       |               |-- sk-prog-qwertz.map
+|       |               |-- sk-qwertz.map
+|       |               `-- slovene.map
+|       `-- locale
+|           `-- locale.alias
+`-- var
+    |-- lib
+    |   `-- rpm
+    |       `-- Packages
+    |-- log
+    |   |-- btmp
+    |   |-- cron
+    |   |-- debug
+    |   |-- faillog
+    |   |-- lastlog
+    |   |-- maillog
+    |   |-- messages
+    |   |-- packages
+    |   |-- scripts
+    |   |-- secure
+    |   |-- setup
+    |   |   `-- tmp
+    |   |-- spooler
+    |   |-- syslog
+    |   `-- wtmp
+    |-- run
+    |   `-- utmp
+    `-- spool
+        `-- cron
+            `-- crontabs
+                `-- root
+
+73 directories, 1568 files

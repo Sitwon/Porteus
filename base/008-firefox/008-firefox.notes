@@ -1,0 +1,48 @@
+Also appears to have libflashplayer.so and flashblock.xpi installed.
+Adds 'Download' folder in /root and /home/Guest.
+
+build
+|-- home
+|   `-- guest
+|       `-- Downloads
+|-- root
+|   `-- Downloads
+|-- usr
+|   `-- lib
+|       |-- firefox -> firefox-4.0.1/
+|       |-- firefox-4.0.1
+|       |   `-- extensions
+|       |       |-- {19503e42-ca3c-4c27-b1e2-9cdb2170ee34}.xpi
+|       |       |-- {3d7eb24f-2740-49df-8937-200b1cc08f8a}
+|       |       |   |-- chrome
+|       |       |   |   `-- flashblock.jar
+|       |       |   |-- chrome.manifest
+|       |       |   |-- defaults
+|       |       |   |   `-- preferences
+|       |       |   |       `-- flashblock.js
+|       |       |   `-- install.rdf
+|       |       `-- {4a5e92e7-e460-4c84-ba52-01af3c581a45}.xpi
+|       |-- libnspr4.so -> firefox/libnspr4.so
+|       |-- libnss3.so -> firefox/libnss3.so
+|       |-- libnss3.so.0 -> firefox/libnss3.so
+|       |-- libnssutil3.so -> firefox/libnssutil3.so
+|       |-- libplc4.so -> firefox/libplc4.so
+|       |-- libplds4.so -> firefox/libplds4.so
+|       |-- libsmime3.so -> firefox/libsmime3.so
+|       |-- libssl3.so -> firefox/libssl3.so
+|       |-- libxpcom.so -> firefox/libxpcom.so
+|       |-- libxul.so -> firefox/libxul.so
+|       |-- mozilla
+|       |   `-- plugins
+|       |       `-- libflashplayer.so
+|       `-- opera
+|           `-- plugins
+|               `-- libflashplayer.so -> ../../mozilla/plugins/libflashplayer.so
+`-- var
+    `-- log
+        |-- packages
+        |-- scripts
+        `-- setup
+            `-- tmp
+
+24 directories, 18 files

@@ -1,0 +1,1267 @@
+build
+|-- etc
+|   |-- X11
+|   |   `-- xinit
+|   |       |-- xinitrc -> xinitrc.kde
+|   |       `-- xinitrc.kde
+|   |-- kde
+|   |   `-- kdm
+|   |       |-- backgroundrc
+|   |       `-- kdmrc
+|   |-- lisarc
+|   |-- mediaprm
+|   |-- mtools.conf
+|   |-- nas
+|   |   `-- nasd.conf.eg
+|   `-- profile.d
+|       |-- kde.csh
+|       `-- kde.sh
+|-- home
+|   `-- guest
+|       |-- Desktop
+|       |   |-- Home.desktop
+|       |   `-- System.desktop
+|       `-- Documents
+|-- lib
+|   |-- libcap.so -> libcap.so.2
+|   `-- libcap.so.2 -> libcap.so.2.19
+|-- opt
+|   `-- porteus-scripts
+|       `-- konqueror
+|           |-- convert-sq3
+|           |-- create-module
+|           |-- deb2xzm
+|           |-- extract-module
+|           |-- mount-module
+|           |-- slack2xzm
+|           |-- slack_pkg
+|           `-- unmount-module
+|-- root
+|   |-- Desktop
+|   |   |-- Home.desktop
+|   |   `-- System.desktop
+|   `-- Documents
+|-- sbin
+|   `-- mount.cifs -> /usr/sbin/mount.cifs
+|-- usr
+|   |-- bin
+|   |   |-- auconvert
+|   |   |-- auctl
+|   |   |-- audemo
+|   |   |-- audial
+|   |   |-- auedit
+|   |   |-- auinfo
+|   |   |-- aupanel
+|   |   |-- auphone
+|   |   |-- auplay
+|   |   |-- aurecord
+|   |   |-- auscope
+|   |   |-- autool
+|   |   |-- auwave
+|   |   |-- checkmail
+|   |   |-- designer -> /usr/lib/qt/bin/designer
+|   |   |-- diskd
+|   |   |-- diskseekd
+|   |   |-- fdlist -> fdmount
+|   |   |-- fdmount
+|   |   |-- fdmountd -> fdmount
+|   |   |-- fdrawcmd
+|   |   |-- fdumount -> fdmount
+|   |   |-- getfdprm
+|   |   |-- issndfile
+|   |   |-- kactivate
+|   |   |-- kdeactivate
+|   |   |-- kfloppy
+|   |   |-- kfmexec -> kioexec
+|   |   |-- kio_system_documenthelper
+|   |   |-- lrelease -> /usr/lib/qt/bin/lrelease
+|   |   |-- lupdate -> /usr/lib/qt/bin/lupdate
+|   |   |-- mattrib -> mtools
+|   |   |-- mbadblocks -> mtools
+|   |   |-- mcat -> mtools
+|   |   |-- mcd -> mtools
+|   |   |-- mcopy -> mtools
+|   |   |-- mdel -> mtools
+|   |   |-- mdeltree -> mtools
+|   |   |-- mdir -> mtools
+|   |   |-- mdu -> mtools
+|   |   |-- mformat -> mtools
+|   |   |-- minfo -> mtools
+|   |   |-- mkhybrid -> mkisofs
+|   |   |-- mkmanifest
+|   |   |-- mlabel -> mtools
+|   |   |-- mmd -> mtools
+|   |   |-- mmount -> mtools
+|   |   |-- mmove -> mtools
+|   |   |-- moc -> /usr/lib/qt/bin/moc
+|   |   |-- modulator -> /usr/lib/python2.6/site-packages/modulator/modulator.py
+|   |   |-- mpartition -> mtools
+|   |   |-- mrd -> mtools
+|   |   |-- mread -> mtools
+|   |   |-- mren -> mtools
+|   |   |-- msgfmt.py -> /usr/lib/python2.6/site-packages/i18n/msgfmt.py
+|   |   |-- mshowfat -> mtools
+|   |   |-- mtools
+|   |   |-- mtoolstest -> mtools
+|   |   |-- mtype -> mtools
+|   |   |-- mzip -> mtools
+|   |   |-- nasd
+|   |   |-- playbucket
+|   |   |-- porteus-scripts
+|   |   |-- pygettext.py -> /usr/lib/python2.6/site-packages/i18n/pygettext.py
+|   |   |-- pynche -> /usr/lib/python2.6/site-packages/pynche/pynche
+|   |   |-- python -> python2.6
+|   |   |-- python-config -> python2.6-config
+|   |   |-- qm2ts -> /usr/lib/qt/bin/qm2ts
+|   |   |-- qmake -> /usr/lib/qt/bin/qmake
+|   |   |-- qtconfig -> /usr/lib/qt/bin/qtconfig
+|   |   |-- rbkdeapi -> rbqtapi
+|   |   |-- rbkdesh -> rbqtsh
+|   |   |-- setfdprm
+|   |   |-- smbmount -> /sbin/mount.smbfs
+|   |   |-- soundtoh
+|   |   |-- startkde
+|   |   |-- superformat
+|   |   |-- unsquashfs3
+|   |   |-- xdfcopy
+|   |   `-- xdfformat -> xdfcopy
+|   |-- lib
+|   |   |-- X11
+|   |   |   `-- AuErrorDB
+|   |   |-- jni
+|   |   |   |-- libkdejava.so -> libkdejava.so.1.0.0
+|   |   |   |-- libkdejava.so.1 -> libkdejava.so.1.0.0
+|   |   |   |-- libqtjava.so -> libqtjava.so.1.0.0
+|   |   |   `-- libqtjava.so.1 -> libqtjava.so.1.0.0
+|   |   |-- kde3
+|   |   |   |-- kwin3_crystal.la
+|   |   |   |-- kwin3_crystal.so
+|   |   |   |-- kwin_crystal_config.la
+|   |   |   `-- kwin_crystal_config.so
+|   |   |-- libDCOP.so -> libDCOP.so.4.2.0
+|   |   |-- libDCOP.so.4 -> libDCOP.so.4.2.0
+|   |   |-- libHalf.la
+|   |   |-- libHalf.so -> libHalf.so.6.0.0
+|   |   |-- libHalf.so.6 -> libHalf.so.6.0.0
+|   |   |-- libHalf.so.6.0.0
+|   |   |-- libIex.la
+|   |   |-- libIex.so -> libIex.so.6.0.0
+|   |   |-- libIex.so.6 -> libIex.so.6.0.0
+|   |   |-- libIex.so.6.0.0
+|   |   |-- libIlmImf.so.6 -> libIlmImf.so.6.0.0
+|   |   |-- libIlmImf.so.6.0.0
+|   |   |-- libIlmThread.la
+|   |   |-- libIlmThread.so -> libIlmThread.so.6.0.0
+|   |   |-- libIlmThread.so.6 -> libIlmThread.so.6.0.0
+|   |   |-- libIlmThread.so.6.0.0
+|   |   |-- libImath.la
+|   |   |-- libImath.so -> libImath.so.6.0.0
+|   |   |-- libImath.so.6 -> libImath.so.6.0.0
+|   |   |-- libImath.so.6.0.0
+|   |   |-- libartsc.so -> libartsc.so.0.0.0
+|   |   |-- libartsc.so.0 -> libartsc.so.0.0.0
+|   |   |-- libartscbackend.so -> libartscbackend.so.0.0.0
+|   |   |-- libartscbackend.so.0 -> libartscbackend.so.0.0.0
+|   |   |-- libartsdsp.so -> libartsdsp.so.0.0.0
+|   |   |-- libartsdsp.so.0 -> libartsdsp.so.0.0.0
+|   |   |-- libartsdsp_st.so -> libartsdsp_st.so.0.0.0
+|   |   |-- libartsdsp_st.so.0 -> libartsdsp_st.so.0.0.0
+|   |   |-- libartsflow.so -> libartsflow.so.1.0.0
+|   |   |-- libartsflow.so.1 -> libartsflow.so.1.0.0
+|   |   |-- libartsflow_idl.so -> libartsflow_idl.so.1.0.0
+|   |   |-- libartsflow_idl.so.1 -> libartsflow_idl.so.1.0.0
+|   |   |-- libartsgslplayobject.so -> libartsgslplayobject.so.0.0.0
+|   |   |-- libartsgslplayobject.so.0 -> libartsgslplayobject.so.0.0.0
+|   |   |-- libartskde.so -> libartskde.so.1.2.0
+|   |   |-- libartskde.so.1 -> libartskde.so.1.2.0
+|   |   |-- libartswavplayobject.so -> libartswavplayobject.so.0.0.0
+|   |   |-- libartswavplayobject.so.0 -> libartswavplayobject.so.0.0.0
+|   |   |-- libaspell.so -> libaspell.so.15.1.4
+|   |   |-- libaspell.so.15 -> libaspell.so.15.1.4
+|   |   |-- libaudio.so -> libaudio.so.2.4
+|   |   |-- libaudio.so.2 -> libaudio.so.2.4
+|   |   |-- libaudio.so.2.4
+|   |   |-- libcdda_interface.so -> libcdda_interface.so.0.10.2
+|   |   |-- libcdda_interface.so.0 -> libcdda_interface.so.0.10.2
+|   |   |-- libcdda_paranoia.so -> libcdda_paranoia.so.0.10.2
+|   |   |-- libcdda_paranoia.so.0 -> libcdda_paranoia.so.0.10.2
+|   |   |-- libcom_err.so -> libcom_err.so.3.0
+|   |   |-- libcom_err.so.3 -> libcom_err.so.3.0
+|   |   |-- libconnectionmanager.so -> libconnectionmanager.so.0.0.0
+|   |   |-- libconnectionmanager.so.0 -> libconnectionmanager.so.0.0.0
+|   |   |-- libdbus-qt-1.so -> libdbus-qt-1.so.1.0.0
+|   |   |-- libdbus-qt-1.so.1 -> libdbus-qt-1.so.1.0.0
+|   |   |-- libgmcop.so -> libgmcop.so.1.0.0
+|   |   |-- libgmcop.so.1 -> libgmcop.so.1.0.0
+|   |   |-- libgssapi_krb5.so -> libgssapi_krb5.so.2.2
+|   |   |-- libgssapi_krb5.so.2 -> libgssapi_krb5.so.2.2
+|   |   |-- libgssrpc.so -> libgssrpc.so.4.1
+|   |   |-- libgssrpc.so.4 -> libgssrpc.so.4.1
+|   |   |-- libical.so -> libical.so.0.46.0
+|   |   |-- libical.so.0 -> libical.so.0.46.0
+|   |   |-- libical_cxx.so -> libical_cxx.so.0.0.0
+|   |   |-- libical_cxx.so.0 -> libical_cxx.so.0.0.0
+|   |   |-- libicalss.so -> libicalss.so.0.46.0
+|   |   |-- libicalss.so.0 -> libicalss.so.0.46.0
+|   |   |-- libicalss_cxx.so -> libicalss_cxx.so.0.0.0
+|   |   |-- libicalss_cxx.so.0 -> libicalss_cxx.so.0.0.0
+|   |   |-- libicalvcal.so -> libicalvcal.so.0.46.0
+|   |   |-- libicalvcal.so.0 -> libicalvcal.so.0.46.0
+|   |   |-- libid3tag.so -> libid3tag.so.0.3.0
+|   |   |-- libid3tag.so.0 -> libid3tag.so.0.3.0
+|   |   |-- libjasper.so.1 -> libjasper.so.1.0.0
+|   |   |-- libjasper.so.1.0.0
+|   |   |-- libk5crypto.so -> libk5crypto.so.3.1
+|   |   |-- libk5crypto.so.3 -> libk5crypto.so.3.1
+|   |   |-- libkabc.so -> libkabc.so.1.2.0
+|   |   |-- libkabc.so.1 -> libkabc.so.1.2.0
+|   |   |-- libkabc_dir.so -> libkabc_dir.so.1.0.0
+|   |   |-- libkabc_dir.so.1 -> libkabc_dir.so.1.0.0
+|   |   |-- libkabc_file.so -> libkabc_file.so.1.0.0
+|   |   |-- libkabc_file.so.1 -> libkabc_file.so.1.0.0
+|   |   |-- libkabc_ldapkio.so -> libkabc_ldapkio.so.1.0.0
+|   |   |-- libkabc_ldapkio.so.1 -> libkabc_ldapkio.so.1.0.0
+|   |   |-- libkabc_net.so -> libkabc_net.so.1.0.0
+|   |   |-- libkabc_net.so.1 -> libkabc_net.so.1.0.0
+|   |   |-- libkadm5clnt.so -> libkadm5clnt.so.6.0
+|   |   |-- libkadm5clnt.so.6 -> libkadm5clnt.so.6.0
+|   |   |-- libkadm5srv.so -> libkadm5srv.so.6.0
+|   |   |-- libkadm5srv.so.6 -> libkadm5srv.so.6.0
+|   |   |-- libkasbar.so -> libkasbar.so.1.0.0
+|   |   |-- libkasbar.so.1 -> libkasbar.so.1.0.0
+|   |   |-- libkateinterfaces.so -> libkateinterfaces.so.0.0.0
+|   |   |-- libkateinterfaces.so.0 -> libkateinterfaces.so.0.0.0
+|   |   |-- libkatepartinterfaces.so -> libkatepartinterfaces.so.0.0.0
+|   |   |-- libkatepartinterfaces.so.0 -> libkatepartinterfaces.so.0.0.0
+|   |   |-- libkateutils.so -> libkateutils.so.0.0.0
+|   |   |-- libkateutils.so.0 -> libkateutils.so.0.0.0
+|   |   |-- libkdb5.so -> libkdb5.so.4.0
+|   |   |-- libkdb5.so.4 -> libkdb5.so.4.0
+|   |   |-- libkdb_ldap.so -> libkdb_ldap.so.1.0
+|   |   |-- libkdb_ldap.so.1 -> libkdb_ldap.so.1.0
+|   |   |-- libkdecorations.so -> libkdecorations.so.1.0.0
+|   |   |-- libkdecorations.so.1 -> libkdecorations.so.1.0.0
+|   |   |-- libkdecore.so -> libkdecore.so.4.2.0
+|   |   |-- libkdecore.so.4 -> libkdecore.so.4.2.0
+|   |   |-- libkdefakes.so -> libkdefakes.so.4.2.0
+|   |   |-- libkdefakes.so.4 -> libkdefakes.so.4.2.0
+|   |   |-- libkdefx.so -> libkdefx.so.4.2.0
+|   |   |-- libkdefx.so.4 -> libkdefx.so.4.2.0
+|   |   |-- libkdeprint.so -> libkdeprint.so.4.2.0
+|   |   |-- libkdeprint.so.4 -> libkdeprint.so.4.2.0
+|   |   |-- libkdeprint_management.so -> libkdeprint_management.so.4.2.0
+|   |   |-- libkdeprint_management.so.4 -> libkdeprint_management.so.4.2.0
+|   |   |-- libkdesasl.so -> libkdesasl.so.1.2.0
+|   |   |-- libkdesasl.so.1 -> libkdesasl.so.1.2.0
+|   |   |-- libkdesu.so -> libkdesu.so.4.2.0
+|   |   |-- libkdesu.so.4 -> libkdesu.so.4.2.0
+|   |   |-- libkdeui.so -> libkdeui.so.4.2.0
+|   |   |-- libkdeui.so.4 -> libkdeui.so.4.2.0
+|   |   |-- libkdnssd.so -> libkdnssd.so.1.0.0
+|   |   |-- libkdnssd.so.1 -> libkdnssd.so.1.0.0
+|   |   |-- libkfontinst.so -> libkfontinst.so.0.0.0
+|   |   |-- libkfontinst.so.0 -> libkfontinst.so.0.0.0
+|   |   |-- libkhotkeys_shared.so -> libkhotkeys_shared.so.1.0.0
+|   |   |-- libkhotkeys_shared.so.1 -> libkhotkeys_shared.so.1.0.0
+|   |   |-- libkhtml.so -> libkhtml.so.4.2.0
+|   |   |-- libkhtml.so.4 -> libkhtml.so.4.2.0
+|   |   |-- libkickermain.so -> libkickermain.so.1.0.0
+|   |   |-- libkickermain.so.1 -> libkickermain.so.1.0.0
+|   |   |-- libkickoffsearch_interfaces.so -> libkickoffsearch_interfaces.so.0.0.0
+|   |   |-- libkickoffsearch_interfaces.so.0 -> libkickoffsearch_interfaces.so.0.0.0
+|   |   |-- libkimproxy.so -> libkimproxy.so.0.0.0
+|   |   |-- libkimproxy.so.0 -> libkimproxy.so.0.0.0
+|   |   |-- libkio.so -> libkio.so.4.2.0
+|   |   |-- libkio.so.4 -> libkio.so.4.2.0
+|   |   |-- libkjava.so -> libkjava.so.1.0.0
+|   |   |-- libkjava.so.1 -> libkjava.so.1.0.0
+|   |   |-- libkjs.so -> libkjs.so.1.2.0
+|   |   |-- libkjs.so.1 -> libkjs.so.1.2.0
+|   |   |-- libkjsembed.so -> libkjsembed.so.1.0.0
+|   |   |-- libkjsembed.so.1 -> libkjsembed.so.1.0.0
+|   |   |-- libkmdi.so -> libkmdi.so.1.0.0
+|   |   |-- libkmdi.so.1 -> libkmdi.so.1.0.0
+|   |   |-- libkmdi2.so -> libkmdi2.so.1.0.0
+|   |   |-- libkmdi2.so.1 -> libkmdi2.so.1.0.0
+|   |   |-- libkmedia2.so -> libkmedia2.so.1.0.0
+|   |   |-- libkmedia2.so.1 -> libkmedia2.so.1.0.0
+|   |   |-- libkmedia2_idl.so -> libkmedia2_idl.so.1.0.0
+|   |   |-- libkmedia2_idl.so.1 -> libkmedia2_idl.so.1.0.0
+|   |   |-- libkmediaplayer.so -> libkmediaplayer.so.0.0.0
+|   |   |-- libkmediaplayer.so.0 -> libkmediaplayer.so.0.0.0
+|   |   |-- libkmid.so -> libkmid.so.0.0.95
+|   |   |-- libkmid.so.0 -> libkmid.so.0.0.95
+|   |   |-- libknewstuff.so -> libknewstuff.so.1.0.0
+|   |   |-- libknewstuff.so.1 -> libknewstuff.so.1.0.0
+|   |   |-- libkntlm.so -> libkntlm.so.0.0.0
+|   |   |-- libkntlm.so.0 -> libkntlm.so.0.0.0
+|   |   |-- libkonq.so -> libkonq.so.4.2.0
+|   |   |-- libkonq.so.4 -> libkonq.so.4.2.0
+|   |   |-- libkonqsidebarplugin.so -> libkonqsidebarplugin.so.1.2.0
+|   |   |-- libkonqsidebarplugin.so.1 -> libkonqsidebarplugin.so.1.2.0
+|   |   |-- libkopete.so -> libkopete.so.1.0.0
+|   |   |-- libkopete.so.1 -> libkopete.so.1.0.0
+|   |   |-- libkopete_msn_shared.so -> libkopete_msn_shared.so.0.0.0
+|   |   |-- libkopete_msn_shared.so.0 -> libkopete_msn_shared.so.0.0.0
+|   |   |-- libkopete_oscar.so -> libkopete_oscar.so.2.0.0
+|   |   |-- libkopete_oscar.so.2 -> libkopete_oscar.so.2.0.0
+|   |   |-- libkopete_videodevice.so -> libkopete_videodevice.so.0.0.0
+|   |   |-- libkopete_videodevice.so.0 -> libkopete_videodevice.so.0.0.0
+|   |   |-- libkparts.so -> libkparts.so.2.1.0
+|   |   |-- libkparts.so.2 -> libkparts.so.2.1.0
+|   |   |-- libkrandr.so -> libkrandr.so.0.0.95
+|   |   |-- libkrandr.so.0 -> libkrandr.so.0.0.95
+|   |   |-- libkrb5.so -> libkrb5.so.3.3
+|   |   |-- libkrb5.so.3 -> libkrb5.so.3.3
+|   |   |-- libkrb5support.so -> libkrb5support.so.0.1
+|   |   |-- libkrb5support.so.0 -> libkrb5support.so.0.1
+|   |   |-- libkresources.so -> libkresources.so.1.2.0
+|   |   |-- libkresources.so.1 -> libkresources.so.1.2.0
+|   |   |-- libkscreensaver.so -> libkscreensaver.so.4.2.0
+|   |   |-- libkscreensaver.so.4 -> libkscreensaver.so.4.2.0
+|   |   |-- libkscript.so -> libkscript.so.0.0.0
+|   |   |-- libkscript.so.0 -> libkscript.so.0.0.0
+|   |   |-- libksgrd.so -> libksgrd.so.1.2.0
+|   |   |-- libksgrd.so.1 -> libksgrd.so.1.2.0
+|   |   |-- libkspell.so -> libkspell.so.4.2.0
+|   |   |-- libkspell.so.4 -> libkspell.so.4.2.0
+|   |   |-- libkspell2.so -> libkspell2.so.1.0.0
+|   |   |-- libkspell2.so.1 -> libkspell2.so.1.0.0
+|   |   |-- libksplashthemes.so -> libksplashthemes.so.0.0.0
+|   |   |-- libksplashthemes.so.0 -> libksplashthemes.so.0.0.0
+|   |   |-- libktexteditor.so -> libktexteditor.so.0.0.0
+|   |   |-- libktexteditor.so.0 -> libktexteditor.so.0.0.0
+|   |   |-- libkunittest.so -> libkunittest.so.1.0.0
+|   |   |-- libkunittest.so.1 -> libkunittest.so.1.0.0
+|   |   |-- libkutils.so -> libkutils.so.1.2.0
+|   |   |-- libkutils.so.1 -> libkutils.so.1.2.0
+|   |   |-- libmcop.so -> libmcop.so.1.0.0
+|   |   |-- libmcop.so.1 -> libmcop.so.1.0.0
+|   |   |-- libmcop_mt.so -> libmcop_mt.so.1.0.0
+|   |   |-- libmcop_mt.so.1 -> libmcop_mt.so.1.0.0
+|   |   |-- libnetapi.so -> libnetapi.so.0
+|   |   |-- libnetworkstatus.so -> libnetworkstatus.so.0.0.0
+|   |   |-- libnetworkstatus.so.0 -> libnetworkstatus.so.0.0.0
+|   |   |-- libpcre.so -> libpcre.so.0.0.1
+|   |   |-- libpcre.so.0 -> libpcre.so.0.0.1
+|   |   |-- libpcrecpp.so -> libpcrecpp.so.0.0.0
+|   |   |-- libpcrecpp.so.0 -> libpcrecpp.so.0.0.0
+|   |   |-- libpcreposix.so -> libpcreposix.so.0.0.0
+|   |   |-- libpcreposix.so.0 -> libpcreposix.so.0.0.0
+|   |   |-- libpspell.so -> libpspell.so.15.1.4
+|   |   |-- libpspell.so.15 -> libpspell.so.15.1.4
+|   |   |-- libpython2.6.so -> libpython2.6.so.1.0
+|   |   |-- libpython2.6.so.1.0
+|   |   |-- libqca.so -> libqca.so.1.0.0
+|   |   |-- libqca.so.1 -> libqca.so.1.0.0
+|   |   |-- libqca.so.1.0 -> libqca.so.1.0.0
+|   |   |-- libqca.so.1.0.0
+|   |   |-- libqtjavasupport.so -> libqtjavasupport.so.1.0.0
+|   |   |-- libqtjavasupport.so.1 -> libqtjavasupport.so.1.0.0
+|   |   |-- libqtmcop.so -> libqtmcop.so.1.0.0
+|   |   |-- libqtmcop.so.1 -> libqtmcop.so.1.0.0
+|   |   |-- librss.so -> librss.so.1.0.0
+|   |   |-- librss.so.1 -> librss.so.1.0.0
+|   |   |-- libsane.la
+|   |   |-- libsane.so -> libsane.so.1.0.22
+|   |   |-- libsane.so.1 -> libsane.so.1.0.22
+|   |   |-- libsane.so.1.0.22
+|   |   |-- libsmbclient.so -> libsmbclient.so.0
+|   |   |-- libsmbsharemodes.so -> libsmbsharemodes.so.0
+|   |   |-- libsmokekde.so -> libsmokekde.so.1.2.2
+|   |   |-- libsmokekde.so.1 -> libsmokekde.so.1.2.2
+|   |   |-- libsmokeqt.so -> libsmokeqt.so.1.2.2
+|   |   |-- libsmokeqt.so.1 -> libsmokeqt.so.1.2.2
+|   |   |-- libsoundserver_idl.so -> libsoundserver_idl.so.1.0.0
+|   |   |-- libsoundserver_idl.so.1 -> libsoundserver_idl.so.1.0.0
+|   |   |-- libtalloc.so -> libtalloc.so.1
+|   |   |-- libtaskbar.so -> libtaskbar.so.1.2.0
+|   |   |-- libtaskbar.so.1 -> libtaskbar.so.1.2.0
+|   |   |-- libtaskmanager.so -> libtaskmanager.so.1.0.0
+|   |   |-- libtaskmanager.so.1 -> libtaskmanager.so.1.0.0
+|   |   |-- libtdb.so -> libtdb.so.1
+|   |   |-- libtqt.so -> libtqt.so.4.2.0
+|   |   |-- libtqt.so.4 -> libtqt.so.4.2.0
+|   |   |-- libvcard.so -> libvcard.so.0.0.0
+|   |   |-- libvcard.so.0 -> libvcard.so.0.0.0
+|   |   |-- libwbclient.so -> libwbclient.so.0
+|   |   |-- libx11globalcomm.so -> libx11globalcomm.so.1.0.0
+|   |   |-- libx11globalcomm.so.1 -> libx11globalcomm.so.1.0.0
+|   |   |-- pkgconfig
+|   |   |   `-- qt-mt.pc -> /usr/lib/qt-3.3.8b/lib/pkgconfig/qt-mt.pc
+|   |   |-- pm-utils
+|   |   |   `-- sleep.d
+|   |   |-- qt -> qt-3.3.8b/
+|   |   |-- qt-3.3.8b
+|   |   |   |-- lib
+|   |   |   |   |-- libqt-mt.so -> libqt-mt.so.3.3.8
+|   |   |   |   |-- libqt-mt.so.3 -> libqt-mt.so.3.3.8
+|   |   |   |   |-- libqt-mt.so.3.3 -> libqt-mt.so.3.3.8
+|   |   |   |   |-- libqui.so -> libqui.so.1.0.0
+|   |   |   |   |-- libqui.so.1 -> libqui.so.1.0.0
+|   |   |   |   |-- libqui.so.1.0 -> libqui.so.1.0.0
+|   |   |   |   `-- qt-mt.pc
+|   |   |   |-- mkspecs
+|   |   |   |   `-- linux-g++
+|   |   |   |       `-- linux-g++ -> /usr/lib/qt-3.3.8b/mkspecs/linux-g++
+|   |   |   |-- plugins
+|   |   |   |   `-- imageformats
+|   |   |   |       |-- libqjpeg.so
+|   |   |   |       `-- libqmng.so
+|   |   |   |-- src
+|   |   |   `-- tools
+|   |   |       |-- assistant
+|   |   |       |   `-- lib
+|   |   |       |-- designer
+|   |   |       |   |-- designer
+|   |   |       |   |   |-- actiondnd.o
+|   |   |       |   |   |-- moc_about.o
+|   |   |       |   |   |-- moc_actiondnd.o
+|   |   |       |   |   |-- moc_actioneditor.o
+|   |   |       |   |   |-- moc_actioneditorimpl.o
+|   |   |       |   |   |-- moc_actionlistview.o
+|   |   |       |   |   |-- moc_asciivalidator.o
+|   |   |       |   |   |-- moc_command.o
+|   |   |       |   |   |-- moc_configtoolboxdialog.o
+|   |   |       |   |   |-- moc_connectiondialog.o
+|   |   |       |   |   |-- moc_connectionitems.o
+|   |   |       |   |   |-- moc_connectiontable.o
+|   |   |       |   |   |-- moc_createtemplate.o
+|   |   |       |   |   |-- moc_customwidgeteditor.o
+|   |   |       |   |   |-- moc_customwidgeteditorimpl.o
+|   |   |       |   |   |-- moc_database.o
+|   |   |       |   |   |-- moc_dbconnection.o
+|   |   |       |   |   |-- moc_dbconnectioneditor.o
+|   |   |       |   |   |-- moc_dbconnectionimpl.o
+|   |   |       |   |   |-- moc_dbconnections.o
+|   |   |       |   |   |-- moc_dbconnectionsimpl.o
+|   |   |       |   |   |-- moc_editfunctions.o
+|   |   |       |   |   |-- moc_editfunctionsimpl.o
+|   |   |       |   |   |-- moc_finddialog.o
+|   |   |       |   |   |-- moc_formfile.o
+|   |   |       |   |   |-- moc_formsettings.o
+|   |   |       |   |   |-- moc_formsettingsimpl.o
+|   |   |       |   |   |-- moc_formwindow.o
+|   |   |       |   |   |-- moc_gotolinedialog.o
+|   |   |       |   |   |-- moc_hierarchyview.o
+|   |   |       |   |   |-- moc_iconvieweditor.o
+|   |   |       |   |   |-- moc_iconvieweditorimpl.o
+|   |   |       |   |   |-- moc_layout.o
+|   |   |       |   |   |-- moc_listboxdnd.o
+|   |   |       |   |   |-- moc_listboxeditor.o
+|   |   |       |   |   |-- moc_listboxeditorimpl.o
+|   |   |       |   |   |-- moc_listboxrename.o
+|   |   |       |   |   |-- moc_listdnd.o
+|   |   |       |   |   |-- moc_listeditor.o
+|   |   |       |   |   |-- moc_listviewdnd.o
+|   |   |       |   |   |-- moc_listvieweditor.o
+|   |   |       |   |   |-- moc_listvieweditorimpl.o
+|   |   |       |   |   |-- moc_mainwindow.o
+|   |   |       |   |   |-- moc_menubareditor.o
+|   |   |       |   |   |-- moc_multilineeditor.o
+|   |   |       |   |   |-- moc_multilineeditorimpl.o
+|   |   |       |   |   |-- moc_newform.o
+|   |   |       |   |   |-- moc_newformimpl.o
+|   |   |       |   |   |-- moc_orderindicator.o
+|   |   |       |   |   |-- moc_outputwindow.o
+|   |   |       |   |   |-- moc_paletteeditor.o
+|   |   |       |   |   |-- moc_paletteeditoradvanced.o
+|   |   |       |   |   |-- moc_paletteeditoradvancedimpl.o
+|   |   |       |   |   |-- moc_paletteeditorimpl.o
+|   |   |       |   |   |-- moc_pixmapchooser.o
+|   |   |       |   |   |-- moc_pixmapcollectioneditor.o
+|   |   |       |   |   |-- moc_pixmapfunction.o
+|   |   |       |   |   |-- moc_popupmenueditor.o
+|   |   |       |   |   |-- moc_preferences.o
+|   |   |       |   |   |-- moc_previewframe.o
+|   |   |       |   |   |-- moc_previewwidget.o
+|   |   |       |   |   |-- moc_previewwidgetimpl.o
+|   |   |       |   |   |-- moc_project.o
+|   |   |       |   |   |-- moc_projectsettings.o
+|   |   |       |   |   |-- moc_projectsettingsimpl.o
+|   |   |       |   |   |-- moc_propertyeditor.o
+|   |   |       |   |   |-- moc_qcompletionedit.o
+|   |   |       |   |   |-- moc_replacedialog.o
+|   |   |       |   |   |-- moc_richtextfontdialog.o
+|   |   |       |   |   |-- moc_sizehandle.o
+|   |   |       |   |   |-- moc_sourceeditor.o
+|   |   |       |   |   |-- moc_sourcefile.o
+|   |   |       |   |   |-- moc_startdialog.o
+|   |   |       |   |   |-- moc_startdialogimpl.o
+|   |   |       |   |   |-- moc_styledbutton.o
+|   |   |       |   |   |-- moc_tableeditor.o
+|   |   |       |   |   |-- moc_tableeditorimpl.o
+|   |   |       |   |   |-- moc_timestamp.o
+|   |   |       |   |   |-- moc_variabledialog.o
+|   |   |       |   |   |-- moc_variabledialogimpl.o
+|   |   |       |   |   |-- moc_widgetaction.o
+|   |   |       |   |   |-- moc_widgetfactory.o
+|   |   |       |   |   |-- moc_wizardeditor.o
+|   |   |       |   |   |-- moc_wizardeditorimpl.o
+|   |   |       |   |   `-- moc_workspace.o
+|   |   |       |   |-- editor
+|   |   |       |   |-- plugins
+|   |   |       |   |   |-- cppeditor
+|   |   |       |   |   `-- wizards
+|   |   |       |   `-- uilib
+|   |   |       |-- linguist
+|   |   |       |   |-- linguist
+|   |   |       |   `-- tutorial
+|   |   |       |       |-- tt2
+|   |   |       |       |   `-- tt2
+|   |   |       |       `-- tt3
+|   |   |       |           `-- tt3
+|   |   |       `-- qtconfig
+|   |   |-- ruby
+|   |   |   `-- 1.8
+|   |   |       `-- i486-linux
+|   |   |           |-- korundum.so -> korundum.so.0.0.0
+|   |   |           |-- korundum.so.0 -> korundum.so.0.0.0
+|   |   |           |-- qtruby.so -> qtruby.so.0.0.0
+|   |   |           |-- qtruby.so.0 -> qtruby.so.0.0.0
+|   |   |           |-- qui.so -> qui.so.0.0.0
+|   |   |           `-- qui.so.0 -> qui.so.0.0.0
+|   |   `-- siconv
+|   |-- local
+|   |   `-- bin
+|   |       `-- kdesu
+|   |-- man
+|   |   |-- man1
+|   |   |   |-- aspell-import.1
+|   |   |   |-- aspell.1
+|   |   |   |-- btcflash.1
+|   |   |   |-- capsh.1
+|   |   |   |-- cdda2mp3.1
+|   |   |   |-- cdda2ogg.1
+|   |   |   |-- cdda2wav.1
+|   |   |   |-- cdparanoia.1
+|   |   |   |-- cdrdao.1
+|   |   |   |-- cdrecord.1
+|   |   |   |-- cue2toc.1
+|   |   |   |-- diskd.1
+|   |   |   |-- diskseekd.1
+|   |   |   |-- fdlist.1
+|   |   |   |-- fdmount.1
+|   |   |   |-- fdmountd.1
+|   |   |   |-- fdrawcmd.1
+|   |   |   |-- fdumount.1
+|   |   |   |-- findsmb.1
+|   |   |   |-- flac.1
+|   |   |   |-- getfdprm.1
+|   |   |   |-- growisofs.1
+|   |   |   |-- ldbadd.1
+|   |   |   |-- ldbdel.1
+|   |   |   |-- ldbedit.1
+|   |   |   |-- ldbmodify.1
+|   |   |   |-- ldbsearch.1
+|   |   |   |-- log2pcap.1
+|   |   |   |-- lrelease.1
+|   |   |   |-- lupdate.1
+|   |   |   |-- mattrib.1
+|   |   |   |-- mbadblocks.1
+|   |   |   |-- mcat.1
+|   |   |   |-- mcd.1
+|   |   |   |-- mcopy.1
+|   |   |   |-- mdel.1
+|   |   |   |-- mdeltree.1
+|   |   |   |-- mdir.1
+|   |   |   |-- mdu.1
+|   |   |   |-- metaflac.1
+|   |   |   |-- mformat.1
+|   |   |   |-- minfo.1
+|   |   |   |-- mkmanifest.1
+|   |   |   |-- mlabel.1
+|   |   |   |-- mmd.1
+|   |   |   |-- mmount.1
+|   |   |   |-- mmove.1
+|   |   |   |-- moc.1
+|   |   |   |-- mpartition.1
+|   |   |   |-- mrd.1
+|   |   |   |-- mren.1
+|   |   |   |-- mshowfat.1
+|   |   |   |-- mtools.1
+|   |   |   |-- mtoolstest.1
+|   |   |   |-- mtype.1
+|   |   |   |-- mzip.1
+|   |   |   |-- nmblookup.1
+|   |   |   |-- ntlm_auth.1
+|   |   |   |-- ogg123.1
+|   |   |   |-- oggdec.1
+|   |   |   |-- oggenc.1
+|   |   |   |-- ogginfo.1
+|   |   |   |-- pcre-config.1
+|   |   |   |-- pcregrep.1
+|   |   |   |-- pcretest.1
+|   |   |   |-- pdffonts.1
+|   |   |   |-- pdfimages.1
+|   |   |   |-- pdfinfo.1
+|   |   |   |-- pdftohtml.1
+|   |   |   |-- pdftoppm.1
+|   |   |   |-- pdftops.1
+|   |   |   |-- pdftotext.1
+|   |   |   |-- prezip-bin.1
+|   |   |   |-- profiles.1
+|   |   |   |-- pspell-config.1
+|   |   |   |-- python.1
+|   |   |   |-- readcd.1
+|   |   |   |-- rpcclient.1
+|   |   |   |-- rscsi.1
+|   |   |   |-- run-with-aspell.1
+|   |   |   |-- scgcheck.1
+|   |   |   |-- scgskeleton.1
+|   |   |   |-- setfdprm.1
+|   |   |   |-- smbcacls.1
+|   |   |   |-- smbclient.1
+|   |   |   |-- smbcontrol.1
+|   |   |   |-- smbcquotas.1
+|   |   |   |-- smbget.1
+|   |   |   |-- smbstatus.1
+|   |   |   |-- smbtar.1
+|   |   |   |-- smbtree.1
+|   |   |   |-- superformat.1
+|   |   |   |-- testparm.1
+|   |   |   |-- toc2cue.1
+|   |   |   |-- uic.1
+|   |   |   |-- vcut.1
+|   |   |   |-- vfstest.1
+|   |   |   |-- vorbiscomment.1
+|   |   |   |-- wbinfo.1
+|   |   |   |-- word-list-compress.1
+|   |   |   |-- xauth.1
+|   |   |   |-- xdfcopy.1
+|   |   |   `-- xdfformat.1
+|   |   |-- man3
+|   |   |   |-- DCOP.3
+|   |   |   |-- pcre.3
+|   |   |   |-- pcre_compile.3
+|   |   |   |-- pcre_compile2.3
+|   |   |   |-- pcre_config.3
+|   |   |   |-- pcre_copy_named_substring.3
+|   |   |   |-- pcre_copy_substring.3
+|   |   |   |-- pcre_dfa_exec.3
+|   |   |   |-- pcre_exec.3
+|   |   |   |-- pcre_free_substring.3
+|   |   |   |-- pcre_free_substring_list.3
+|   |   |   |-- pcre_fullinfo.3
+|   |   |   |-- pcre_get_named_substring.3
+|   |   |   |-- pcre_get_stringnumber.3
+|   |   |   |-- pcre_get_stringtable_entries.3
+|   |   |   |-- pcre_get_substring.3
+|   |   |   |-- pcre_get_substring_list.3
+|   |   |   |-- pcre_info.3
+|   |   |   |-- pcre_maketables.3
+|   |   |   |-- pcre_refcount.3
+|   |   |   |-- pcre_study.3
+|   |   |   |-- pcre_version.3
+|   |   |   |-- pcreapi.3
+|   |   |   |-- pcrebuild.3
+|   |   |   |-- pcrecallout.3
+|   |   |   |-- pcrecompat.3
+|   |   |   |-- pcrecpp.3
+|   |   |   |-- pcrematching.3
+|   |   |   |-- pcrepartial.3
+|   |   |   |-- pcrepattern.3
+|   |   |   |-- pcreperform.3
+|   |   |   |-- pcreposix.3
+|   |   |   |-- pcreprecompile.3
+|   |   |   |-- pcresample.3
+|   |   |   |-- pcrestack.3
+|   |   |   `-- pcresyntax.3
+|   |   |-- man4
+|   |   |-- man7
+|   |   |   |-- libsmbclient.7
+|   |   |   |-- pam_winbind.7
+|   |   |   `-- samba.7
+|   |   `-- man8
+|   |       |-- cifs.upcall.8
+|   |       |-- devdump.8
+|   |       |-- eventlogadm.8
+|   |       |-- getcap.8
+|   |       |-- idmap_ad.8
+|   |       |-- idmap_ldap.8
+|   |       |-- idmap_nss.8
+|   |       |-- idmap_rid.8
+|   |       |-- idmap_tdb.8
+|   |       |-- isodebug.8
+|   |       |-- isodump.8
+|   |       |-- isoinfo.8
+|   |       |-- isovfy.8
+|   |       |-- mkhybrid.8
+|   |       |-- mkisofs.8
+|   |       |-- mount.cifs.8
+|   |       |-- net.8
+|   |       |-- nmbd.8
+|   |       |-- pdbedit.8
+|   |       |-- setcap.8
+|   |       |-- smbd.8
+|   |       |-- smbpasswd.8
+|   |       |-- smbspool.8
+|   |       |-- swat.8
+|   |       |-- tdbbackup.8
+|   |       |-- tdbdump.8
+|   |       |-- tdbtool.8
+|   |       |-- umount.cifs.8
+|   |       |-- vfs_audit.8
+|   |       |-- vfs_cacheprime.8
+|   |       |-- vfs_cap.8
+|   |       |-- vfs_catia.8
+|   |       |-- vfs_commit.8
+|   |       |-- vfs_default_quota.8
+|   |       |-- vfs_extd_audit.8
+|   |       |-- vfs_fake_perms.8
+|   |       |-- vfs_full_audit.8
+|   |       |-- vfs_gpfs.8
+|   |       |-- vfs_netatalk.8
+|   |       |-- vfs_notify_fam.8
+|   |       |-- vfs_prealloc.8
+|   |       |-- vfs_readahead.8
+|   |       |-- vfs_readonly.8
+|   |       |-- vfs_recycle.8
+|   |       |-- vfs_shadow_copy.8
+|   |       |-- vfs_streams_depot.8
+|   |       |-- vfs_streams_xattr.8
+|   |       |-- vfs_xattr_tdb.8
+|   |       `-- winbindd.8
+|   `-- share
+|       |-- applications
+|       |   |-- kde
+|       |   |   `-- kwrite.desktop~
+|       |   |-- kde-uselivemod.desktop
+|       |   `-- mimeinfo.cache
+|       |-- apps
+|       |   |-- kdm
+|       |   |   |-- faces
+|       |   |   |   |-- guest.face.icon
+|       |   |   |   `-- root.face.icon
+|       |   |   `-- pics
+|       |   |       `-- users
+|       |   |           `-- fanthom.png
+|       |   |-- konqueror
+|       |   |   `-- servicemenus
+|       |   |       |-- convert_deb.desktop
+|       |   |       |-- convert_rpm.desktop
+|       |   |       |-- convert_sq3_module.desktop
+|       |   |       |-- floppy_format.desktop
+|       |   |       |-- make_porteus_module.desktop
+|       |   |       |-- module_tools.desktop
+|       |   |       |-- porteus_module_tools.desktop
+|       |   |       `-- tgz-txz_operations.desktop
+|       |   `-- kwin
+|       |       `-- crystal.desktop
+|       |-- config
+|       |   `-- kdm -> ../../../etc/kde/kdm
+|       |-- icons
+|       |   |-- crystalsvg
+|       |   |   |-- 128x128
+|       |   |   |   `-- apps
+|       |   |   |       |-- kthememgr2.png
+|       |   |   |       `-- noatun.png
+|       |   |   |-- 16x16
+|       |   |   |   |-- actions
+|       |   |   |   |   |-- build.png
+|       |   |   |   |   |-- button_cancel.png
+|       |   |   |   |   |-- button_ok.png
+|       |   |   |   |   |-- edit_add.png
+|       |   |   |   |   |-- folder.png
+|       |   |   |   |   |-- fonts.png
+|       |   |   |   |   |-- home.png
+|       |   |   |   |   |-- imagegallery.png
+|       |   |   |   |   |-- kalarm.png
+|       |   |   |   |   |-- kontact_contacts.png
+|       |   |   |   |   |-- kontact_date.png
+|       |   |   |   |   |-- kontact_journal.png
+|       |   |   |   |   |-- kontact_mail.png
+|       |   |   |   |   |-- messagebox_critical.png
+|       |   |   |   |   |-- messagebox_info.png
+|       |   |   |   |   |-- messagebox_warning.png
+|       |   |   |   |   |-- mouse.png
+|       |   |   |   |   |-- new_window.png
+|       |   |   |   |   |-- playlist.png
+|       |   |   |   |   |-- tab.png
+|       |   |   |   |   |-- view_fullscreen.png
+|       |   |   |   |   `-- view_nofullscreen.png
+|       |   |   |   |-- apps
+|       |   |   |   |   |-- error.png
+|       |   |   |   |   |-- galeon.png
+|       |   |   |   |   |-- home.png
+|       |   |   |   |   |-- kcmopengl.png
+|       |   |   |   |   |-- noatun.png
+|       |   |   |   |   |-- package_administration.png
+|       |   |   |   |   `-- package_programs.png
+|       |   |   |   |-- devices
+|       |   |   |   |   |-- Controller.png
+|       |   |   |   |   |-- Jaz.png
+|       |   |   |   |   |-- Modem.png
+|       |   |   |   |   |-- battery_charged.png
+|       |   |   |   |   |-- battery_empty.png
+|       |   |   |   |   |-- battery_low.png
+|       |   |   |   |   |-- battery_plugged.png
+|       |   |   |   |   |-- battery_two_thirds.png
+|       |   |   |   |   |-- burner.png
+|       |   |   |   |   |-- camera.png
+|       |   |   |   |   |-- hardware.png
+|       |   |   |   |   |-- keyboard.png
+|       |   |   |   |   |-- microphone.png
+|       |   |   |   |   |-- mp3player.png
+|       |   |   |   |   |-- network_local.png
+|       |   |   |   |   |-- pda.png
+|       |   |   |   |   |-- print_printer.png
+|       |   |   |   |   |-- printer.png
+|       |   |   |   |   |-- printer2.png
+|       |   |   |   |   |-- removable-1394.png
+|       |   |   |   |   `-- removable-usb.png
+|       |   |   |   |-- filesystems
+|       |   |   |   |   |-- computer.png
+|       |   |   |   |   |-- file_locked.png
+|       |   |   |   |   |-- file_temporary.png
+|       |   |   |   |   |-- folder_blue.png
+|       |   |   |   |   |-- folder_blue_open.png
+|       |   |   |   |   |-- folder_debian.png
+|       |   |   |   |   |-- folder_develop.png
+|       |   |   |   |   |-- folder_documents.png
+|       |   |   |   |   |-- folder_movies.png
+|       |   |   |   |   |-- folder_music.png
+|       |   |   |   |   |-- folder_music2.png
+|       |   |   |   |   |-- folder_photos.png
+|       |   |   |   |   |-- folder_ubuntu.png
+|       |   |   |   |   |-- folder_user-female.png
+|       |   |   |   |   |-- folder_user.png
+|       |   |   |   |   |-- folder_windows.png
+|       |   |   |   |   |-- folder_wine.png
+|       |   |   |   |   |-- gnome-fs-client.png
+|       |   |   |   |   |-- hd-linux.png
+|       |   |   |   |   |-- hd-windows.png
+|       |   |   |   |   |-- hd.png
+|       |   |   |   |   |-- hd2-backup.png
+|       |   |   |   |   |-- hd2-black.png
+|       |   |   |   |   |-- hd2-windows.png
+|       |   |   |   |   |-- hd2-wine.png
+|       |   |   |   |   `-- services.png
+|       |   |   |   `-- mimetypes
+|       |   |   |       |-- koffice.png
+|       |   |   |       |-- mozilla_doc.png
+|       |   |   |       |-- soffice.png
+|       |   |   |       |-- source_j.png
+|       |   |   |       `-- source_p.png
+|       |   |   |-- 22x22
+|       |   |   |   |-- actions
+|       |   |   |   |   |-- bookmark_toolbar.png
+|       |   |   |   |   |-- build.png
+|       |   |   |   |   |-- cancel.png
+|       |   |   |   |   |-- configure_shortcuts.png
+|       |   |   |   |   |-- edit_add.png
+|       |   |   |   |   |-- fonts.png
+|       |   |   |   |   |-- history_clear.png
+|       |   |   |   |   |-- home.png
+|       |   |   |   |   |-- imagegallery.png
+|       |   |   |   |   |-- info.png
+|       |   |   |   |   |-- kalarm.png
+|       |   |   |   |   |-- knewstuff.png
+|       |   |   |   |   |-- kontact_contacts.png
+|       |   |   |   |   |-- kontact_date.png
+|       |   |   |   |   |-- kontact_journal.png
+|       |   |   |   |   |-- kontact_mail.png
+|       |   |   |   |   |-- messagebox_critical.png
+|       |   |   |   |   |-- messagebox_info.png
+|       |   |   |   |   |-- messagebox_warning.png
+|       |   |   |   |   |-- new_window.png
+|       |   |   |   |   |-- no.png
+|       |   |   |   |   |-- ok.png
+|       |   |   |   |   |-- player_time.png
+|       |   |   |   |   |-- player_volume.png
+|       |   |   |   |   |-- playlist.png
+|       |   |   |   |   |-- tab.png
+|       |   |   |   |   |-- tab_new.png
+|       |   |   |   |   |-- tab_remove.png
+|       |   |   |   |   |-- view_fullscreen.png
+|       |   |   |   |   `-- view_nofullscreen.png
+|       |   |   |   |-- apps
+|       |   |   |   |   |-- home.png
+|       |   |   |   |   |-- kcmopengl.png
+|       |   |   |   |   |-- kfm_home.png
+|       |   |   |   |   |-- knotify.png
+|       |   |   |   |   |-- noatun.png
+|       |   |   |   |   |-- package.png
+|       |   |   |   |   |-- package_administration.png
+|       |   |   |   |   |-- package_applications.png
+|       |   |   |   |   |-- package_favourite.png
+|       |   |   |   |   |-- package_games.png
+|       |   |   |   |   |-- package_games_arcade.png
+|       |   |   |   |   |-- package_games_board.png
+|       |   |   |   |   |-- package_games_card.png
+|       |   |   |   |   |-- package_games_strategy.png
+|       |   |   |   |   |-- package_graphics.png
+|       |   |   |   |   |-- package_multimedia.png
+|       |   |   |   |   |-- package_network.png
+|       |   |   |   |   |-- package_programs.png
+|       |   |   |   |   |-- package_settings.png
+|       |   |   |   |   |-- package_system.png
+|       |   |   |   |   |-- package_toys.png
+|       |   |   |   |   |-- package_utilities.png
+|       |   |   |   |   |-- package_wordprocessing.png
+|       |   |   |   |   `-- terminal.png
+|       |   |   |   |-- devices
+|       |   |   |   |   |-- Controller.png
+|       |   |   |   |   |-- Jaz.png
+|       |   |   |   |   |-- Modem.png
+|       |   |   |   |   |-- battery_charged.png
+|       |   |   |   |   |-- battery_empty.png
+|       |   |   |   |   |-- battery_low.png
+|       |   |   |   |   |-- battery_plugged.png
+|       |   |   |   |   |-- battery_two_thirds.png
+|       |   |   |   |   |-- blockdevice.png
+|       |   |   |   |   |-- burner.png
+|       |   |   |   |   |-- camera.png
+|       |   |   |   |   |-- cdaudio_mount.png
+|       |   |   |   |   |-- cdrom_mount.png
+|       |   |   |   |   |-- cdrom_unmount.png
+|       |   |   |   |   |-- cdwriter_mount.png
+|       |   |   |   |   |-- cdwriter_unmount.png
+|       |   |   |   |   |-- chardevice.png
+|       |   |   |   |   |-- dvd_mount.png
+|       |   |   |   |   |-- dvd_unmount.png
+|       |   |   |   |   |-- hardware.png
+|       |   |   |   |   |-- keyboard.png
+|       |   |   |   |   |-- memory.png
+|       |   |   |   |   |-- microphone.png
+|       |   |   |   |   |-- mo_mount.png
+|       |   |   |   |   |-- mo_unmount.png
+|       |   |   |   |   |-- mouse.png
+|       |   |   |   |   |-- mp3player.png
+|       |   |   |   |   |-- network_local.png
+|       |   |   |   |   |-- nfs_mount.png
+|       |   |   |   |   |-- nfs_unmount.png
+|       |   |   |   |   |-- pda.png
+|       |   |   |   |   |-- print_printer.png
+|       |   |   |   |   |-- printer.png
+|       |   |   |   |   |-- printer2.png
+|       |   |   |   |   |-- removable-1394.png
+|       |   |   |   |   |-- removable-usb.png
+|       |   |   |   |   |-- scanner.png
+|       |   |   |   |   |-- tv.png
+|       |   |   |   |   |-- zip_mount.png
+|       |   |   |   |   `-- zip_unmount.png
+|       |   |   |   |-- filesystems
+|       |   |   |   |   |-- computer.png
+|       |   |   |   |   |-- file_locked.png
+|       |   |   |   |   |-- file_temporary.png
+|       |   |   |   |   |-- folder_blue.png
+|       |   |   |   |   |-- folder_blue_open.png
+|       |   |   |   |   |-- folder_crystal.png
+|       |   |   |   |   |-- folder_debian.png
+|       |   |   |   |   |-- folder_develop.png
+|       |   |   |   |   |-- folder_documents.png
+|       |   |   |   |   |-- folder_favorite.png
+|       |   |   |   |   |-- folder_home2.png
+|       |   |   |   |   |-- folder_html.png
+|       |   |   |   |   |-- folder_image.png
+|       |   |   |   |   |-- folder_important.png
+|       |   |   |   |   |-- folder_locked.png
+|       |   |   |   |   |-- folder_man.png
+|       |   |   |   |   |-- folder_movies.png
+|       |   |   |   |   |-- folder_music.png
+|       |   |   |   |   |-- folder_music2.png
+|       |   |   |   |   |-- folder_photos.png
+|       |   |   |   |   |-- folder_sound.png
+|       |   |   |   |   |-- folder_tar.png
+|       |   |   |   |   |-- folder_txt.png
+|       |   |   |   |   |-- folder_ubuntu.png
+|       |   |   |   |   |-- folder_user-female.png
+|       |   |   |   |   |-- folder_user.png
+|       |   |   |   |   |-- folder_video.png
+|       |   |   |   |   |-- folder_windows.png
+|       |   |   |   |   |-- folder_wine.png
+|       |   |   |   |   |-- ftp.png
+|       |   |   |   |   |-- gnome-fs-client.png
+|       |   |   |   |   |-- hd-linux.png
+|       |   |   |   |   |-- hd-windows.png
+|       |   |   |   |   |-- hd.png
+|       |   |   |   |   |-- hd2-backup.png
+|       |   |   |   |   |-- hd2-black.png
+|       |   |   |   |   |-- hd2-windows.png
+|       |   |   |   |   |-- hd2-wine.png
+|       |   |   |   |   |-- nedit.png
+|       |   |   |   |   |-- network_local.png
+|       |   |   |   |   `-- services.png
+|       |   |   |   `-- mimetypes
+|       |   |   |       |-- cdr.png
+|       |   |   |       |-- misc.png
+|       |   |   |       |-- resource.png
+|       |   |   |       |-- source_php.png
+|       |   |   |       `-- template_source.png
+|       |   |   |-- 32x32
+|       |   |   |   |-- actions
+|       |   |   |   |   |-- 1downarrow.png
+|       |   |   |   |   |-- 1leftarrow.png
+|       |   |   |   |   |-- 1rightarrow.png
+|       |   |   |   |   |-- 1uparrow.png
+|       |   |   |   |   |-- 2downarrow.png
+|       |   |   |   |   |-- 2leftarrow.png
+|       |   |   |   |   |-- 2rightarrow.png
+|       |   |   |   |   |-- 2uparrow.png
+|       |   |   |   |   |-- build.png
+|       |   |   |   |   |-- cancel.png
+|       |   |   |   |   |-- configure_shortcuts.png
+|       |   |   |   |   |-- edit_add.png
+|       |   |   |   |   |-- history.png
+|       |   |   |   |   |-- history_clear.png
+|       |   |   |   |   |-- home.png
+|       |   |   |   |   |-- idea.png
+|       |   |   |   |   |-- imagegallery.png
+|       |   |   |   |   |-- info.png
+|       |   |   |   |   |-- kalarm.png
+|       |   |   |   |   |-- kontact_contacts.png
+|       |   |   |   |   |-- kontact_date.png
+|       |   |   |   |   |-- kontact_journal.png
+|       |   |   |   |   |-- kontact_mail.png
+|       |   |   |   |   |-- new_window.png
+|       |   |   |   |   |-- news_subscribe.png
+|       |   |   |   |   |-- no.png
+|       |   |   |   |   |-- ok.png
+|       |   |   |   |   |-- pencil.png
+|       |   |   |   |   |-- player_time.png
+|       |   |   |   |   |-- player_volume.png
+|       |   |   |   |   |-- playlist.png
+|       |   |   |   |   |-- tab.png
+|       |   |   |   |   |-- tab_new.png
+|       |   |   |   |   |-- tab_remove.png
+|       |   |   |   |   |-- view_fullscreen.png
+|       |   |   |   |   `-- view_nofullscreen.png
+|       |   |   |   |-- apps
+|       |   |   |   |   |-- epiphany-bookmarks.png
+|       |   |   |   |   |-- home.png
+|       |   |   |   |   |-- kcmopengl.png
+|       |   |   |   |   |-- noatun.png
+|       |   |   |   |   |-- package_administration.png
+|       |   |   |   |   `-- package_programs.png
+|       |   |   |   |-- devices
+|       |   |   |   |   |-- Controller.png
+|       |   |   |   |   |-- Jaz.png
+|       |   |   |   |   |-- Modem.png
+|       |   |   |   |   |-- battery_charged.png
+|       |   |   |   |   |-- battery_empty.png
+|       |   |   |   |   |-- battery_low.png
+|       |   |   |   |   |-- battery_plugged.png
+|       |   |   |   |   |-- battery_two_thirds.png
+|       |   |   |   |   |-- burner.png
+|       |   |   |   |   |-- camera.png
+|       |   |   |   |   |-- hardware.png
+|       |   |   |   |   |-- keyboard.png
+|       |   |   |   |   |-- microphone.png
+|       |   |   |   |   |-- mp3player.png
+|       |   |   |   |   |-- network_local.png
+|       |   |   |   |   |-- pda.png
+|       |   |   |   |   |-- print_printer.png
+|       |   |   |   |   |-- printer.png
+|       |   |   |   |   |-- printer2.png
+|       |   |   |   |   |-- removable-1394.png
+|       |   |   |   |   `-- removable-usb.png
+|       |   |   |   |-- filesystems
+|       |   |   |   |   |-- computer.png
+|       |   |   |   |   |-- file_locked.png
+|       |   |   |   |   |-- file_temporary.png
+|       |   |   |   |   |-- folder_blue.png
+|       |   |   |   |   |-- folder_blue_open.png
+|       |   |   |   |   |-- folder_debian.png
+|       |   |   |   |   |-- folder_develop.png
+|       |   |   |   |   |-- folder_documents.png
+|       |   |   |   |   |-- folder_movies.png
+|       |   |   |   |   |-- folder_music.png
+|       |   |   |   |   |-- folder_music2.png
+|       |   |   |   |   |-- folder_photos.png
+|       |   |   |   |   |-- folder_ubuntu.png
+|       |   |   |   |   |-- folder_user-female.png
+|       |   |   |   |   |-- folder_user.png
+|       |   |   |   |   |-- folder_windows.png
+|       |   |   |   |   |-- folder_wine.png
+|       |   |   |   |   |-- gnome-fs-client.png
+|       |   |   |   |   |-- hd-linux.png
+|       |   |   |   |   |-- hd-windows.png
+|       |   |   |   |   |-- hd.png
+|       |   |   |   |   |-- hd2-backup.png
+|       |   |   |   |   |-- hd2-black.png
+|       |   |   |   |   |-- hd2-windows.png
+|       |   |   |   |   |-- hd2-wine.png
+|       |   |   |   |   `-- services.png
+|       |   |   |   `-- mimetypes
+|       |   |   |       |-- encrypted.png
+|       |   |   |       |-- koffice.png
+|       |   |   |       `-- mozilla_doc.png
+|       |   |   |-- 36x36
+|       |   |   |   `-- mimetypes
+|       |   |   |-- 48x48
+|       |   |   |   |-- apps
+|       |   |   |   |   |-- evolution-calendar.png
+|       |   |   |   |   |-- home.png
+|       |   |   |   |   |-- noatun.png
+|       |   |   |   |   |-- package_administration.png
+|       |   |   |   |   |-- package_programs.png
+|       |   |   |   |   `-- winprops.png
+|       |   |   |   |-- devices
+|       |   |   |   |   |-- Controller.png
+|       |   |   |   |   |-- Jaz.png
+|       |   |   |   |   |-- Modem.png
+|       |   |   |   |   |-- battery_charged.png
+|       |   |   |   |   |-- battery_empty.png
+|       |   |   |   |   |-- battery_low.png
+|       |   |   |   |   |-- battery_plugged.png
+|       |   |   |   |   |-- battery_two_thirds.png
+|       |   |   |   |   |-- burner.png
+|       |   |   |   |   |-- camera.png
+|       |   |   |   |   |-- hardware.png
+|       |   |   |   |   |-- keyboard.png
+|       |   |   |   |   |-- microphone.png
+|       |   |   |   |   |-- mp3player.png
+|       |   |   |   |   |-- network_local.png
+|       |   |   |   |   |-- pda.png
+|       |   |   |   |   |-- print_printer.png
+|       |   |   |   |   |-- printer.png
+|       |   |   |   |   |-- printer2.png
+|       |   |   |   |   |-- removable-1394.png
+|       |   |   |   |   `-- removable-usb.png
+|       |   |   |   |-- filesystems
+|       |   |   |   |   |-- computer.png
+|       |   |   |   |   |-- file_locked.png
+|       |   |   |   |   |-- file_temporary.png
+|       |   |   |   |   |-- folder_blue.png
+|       |   |   |   |   |-- folder_blue_open.png
+|       |   |   |   |   |-- folder_debian.png
+|       |   |   |   |   |-- folder_develop.png
+|       |   |   |   |   |-- folder_documents.png
+|       |   |   |   |   |-- folder_movies.png
+|       |   |   |   |   |-- folder_music.png
+|       |   |   |   |   |-- folder_music2.png
+|       |   |   |   |   |-- folder_photos.png
+|       |   |   |   |   |-- folder_ubuntu.png
+|       |   |   |   |   |-- folder_user-female.png
+|       |   |   |   |   |-- folder_user.png
+|       |   |   |   |   |-- folder_windows.png
+|       |   |   |   |   |-- folder_wine.png
+|       |   |   |   |   |-- gnome-fs-client.png
+|       |   |   |   |   |-- hd-linux.png
+|       |   |   |   |   |-- hd-windows.png
+|       |   |   |   |   |-- hd.png
+|       |   |   |   |   |-- hd2-backup.png
+|       |   |   |   |   |-- hd2-black.png
+|       |   |   |   |   |-- hd2-windows.png
+|       |   |   |   |   |-- hd2-wine.png
+|       |   |   |   |   `-- services.png
+|       |   |   |   `-- mimetypes
+|       |   |   |       `-- vcd.png
+|       |   |   `-- 64x64
+|       |   |       |-- apps
+|       |   |       |   |-- home.png
+|       |   |       |   |-- noatun.png
+|       |   |       |   |-- package_administration.png
+|       |   |       |   |-- package_games_arcade.png
+|       |   |       |   |-- package_games_board.png
+|       |   |       |   |-- package_games_card.png
+|       |   |       |   |-- package_games_strategy.png
+|       |   |       |   |-- package_graphics.png
+|       |   |       |   |-- package_programs.png
+|       |   |       |   |-- package_system.png
+|       |   |       |   `-- package_wordprocessing.png
+|       |   |       |-- devices
+|       |   |       |   |-- Controller.png
+|       |   |       |   |-- Jaz.png
+|       |   |       |   |-- Modem.png
+|       |   |       |   |-- battery_charged.png
+|       |   |       |   |-- battery_empty.png
+|       |   |       |   |-- battery_low.png
+|       |   |       |   |-- battery_plugged.png
+|       |   |       |   |-- battery_two_thirds.png
+|       |   |       |   |-- burner.png
+|       |   |       |   |-- camera.png
+|       |   |       |   |-- hardware.png
+|       |   |       |   |-- keyboard.png
+|       |   |       |   |-- microphone.png
+|       |   |       |   |-- mp3player.png
+|       |   |       |   |-- network_local.png
+|       |   |       |   |-- pda.png
+|       |   |       |   |-- print_printer.png
+|       |   |       |   |-- printer.png
+|       |   |       |   |-- printer2.png
+|       |   |       |   |-- removable-1394.png
+|       |   |       |   `-- removable-usb.png
+|       |   |       `-- filesystems
+|       |   |           |-- computer.png
+|       |   |           |-- file_locked.png
+|       |   |           |-- file_temporary.png
+|       |   |           |-- folder_blue.png
+|       |   |           |-- folder_blue_open.png
+|       |   |           |-- folder_debian.png
+|       |   |           |-- folder_develop.png
+|       |   |           |-- folder_documents.png
+|       |   |           |-- folder_movies.png
+|       |   |           |-- folder_music.png
+|       |   |           |-- folder_music2.png
+|       |   |           |-- folder_photos.png
+|       |   |           |-- folder_ubuntu.png
+|       |   |           |-- folder_user-female.png
+|       |   |           |-- folder_user.png
+|       |   |           |-- folder_windows.png
+|       |   |           |-- folder_wine.png
+|       |   |           |-- ftp.png
+|       |   |           |-- gnome-fs-client.png
+|       |   |           |-- hd-linux.png
+|       |   |           |-- hd-windows.png
+|       |   |           |-- hd.png
+|       |   |           |-- hd2-backup.png
+|       |   |           |-- hd2-black.png
+|       |   |           |-- hd2-windows.png
+|       |   |           |-- hd2-wine.png
+|       |   |           `-- services.png
+|       |   |-- default.kde -> crystalsvg
+|       |   `-- hicolor
+|       |       |-- 128x128
+|       |       |   `-- apps
+|       |       |       |-- kfloppy.png
+|       |       |       `-- kfm.png
+|       |       |-- 16x16
+|       |       |   `-- apps
+|       |       |       `-- kfloppy.png
+|       |       |-- 192x192
+|       |       |   `-- apps
+|       |       |-- 22x22
+|       |       |   `-- apps
+|       |       |       `-- kfloppy.png
+|       |       |-- 24x24
+|       |       |   `-- apps
+|       |       |-- 32x32
+|       |       |   `-- apps
+|       |       |       `-- kfloppy.png
+|       |       |-- 36x36
+|       |       |   `-- apps
+|       |       |-- 48x48
+|       |       |   `-- apps
+|       |       |       `-- kfloppy.png
+|       |       |-- 64x64
+|       |       |   `-- apps
+|       |       |       `-- kfloppy.png
+|       |       |-- 72x72
+|       |       |   `-- apps
+|       |       `-- 96x96
+|       |           `-- apps
+|       |-- locale
+|       |   `-- en_CA
+|       |       `-- LC_MESSAGES
+|       |-- mimelnk
+|       |   `-- application
+|       |       |-- x-lzm.desktop
+|       |       `-- x-xzm.desktop
+|       |-- pixmaps
+|       |-- themes
+|       |-- wallpapers
+|       |   |-- isadora.jpg
+|       |   |-- isadora.jpg.desktop
+|       |   `-- porteus-paper.jpg
+|       `-- xsessions
+|           `-- KDE-3.5.12.desktop
+`-- var
+    |-- lib
+    `-- log
+        |-- packages
+        `-- setup
+            `-- tmp
+
+149 directories, 1115 files

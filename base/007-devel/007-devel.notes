@@ -1,0 +1,5565 @@
+Also seems to include headers and static libs for packages in other modules.
+Is this a good way to do it?
+
+build
+|-- etc
+|   |-- localtime-copied-from -> /usr/share/zoneinfo/Factory
+|   |-- nscd.conf
+|   `-- profile.d
+|       |-- glibc.csh
+|       `-- glibc.sh
+|-- lib
+|   |-- ld-2.13.so
+|   |-- libBrokenLocale-2.13.so
+|   |-- libanl-2.13.so
+|   |-- libc-2.13.so
+|   |-- libcidn-2.13.so
+|   |-- libcidn.so.1 -> libcidn-2.13.so
+|   |-- libcom_err.a
+|   |-- libcrypt-2.13.so
+|   |-- libdl-2.13.so
+|   |-- libe2p.a
+|   |-- libext2fs.a
+|   |-- libm-2.13.so
+|   |-- libmemusage.so
+|   |-- libnsl-2.13.so
+|   |-- libnss_compat-2.13.so
+|   |-- libnss_dns-2.13.so
+|   |-- libnss_files-2.13.so
+|   |-- libnss_hesiod-2.13.so
+|   |-- libnss_nis-2.13.so
+|   |-- libnss_nisplus-2.13.so
+|   |-- libpcprofile.so
+|   |-- libpthread-2.13.so
+|   |-- libresolv-2.13.so
+|   |-- librt-2.13.so
+|   |-- libss.a
+|   |-- libthread_db-1.0.so
+|   `-- libutil-2.13.so
+|-- usr
+|   |-- include
+|   |   |-- ConsoleKit
+|   |   |   `-- ck-connector
+|   |   |       `-- ck-connector.h
+|   |   |-- EGL
+|   |   |   |-- egl.h
+|   |   |   |-- eglext.h
+|   |   |   `-- eglplatform.h
+|   |   |-- FLAC
+|   |   |   |-- all.h
+|   |   |   |-- assert.h
+|   |   |   |-- callback.h
+|   |   |   |-- export.h
+|   |   |   |-- format.h
+|   |   |   |-- metadata.h
+|   |   |   |-- ordinals.h
+|   |   |   |-- stream_decoder.h
+|   |   |   `-- stream_encoder.h
+|   |   |-- FLAC++
+|   |   |   |-- all.h
+|   |   |   |-- decoder.h
+|   |   |   |-- encoder.h
+|   |   |   |-- export.h
+|   |   |   `-- metadata.h
+|   |   |-- GL
+|   |   |   |-- GLwDrawA.h
+|   |   |   |-- GLwDrawAP.h
+|   |   |   |-- GLwMDrawA.h
+|   |   |   |-- GLwMDrawAP.h
+|   |   |   |-- gl.h
+|   |   |   |-- gl_mangle.h
+|   |   |   |-- glew.h
+|   |   |   |-- glext.h
+|   |   |   |-- glfbdev.h
+|   |   |   |-- glu.h
+|   |   |   |-- glu_mangle.h
+|   |   |   |-- glut.h
+|   |   |   |-- glutf90.h
+|   |   |   |-- glx.h
+|   |   |   |-- glx_mangle.h
+|   |   |   |-- glxew.h
+|   |   |   |-- glxext.h
+|   |   |   |-- internal
+|   |   |   |   `-- dri_interface.h
+|   |   |   |-- mesa_wgl.h
+|   |   |   |-- osmesa.h
+|   |   |   |-- vms_x_fix.h
+|   |   |   |-- wglew.h
+|   |   |   |-- wglext.h
+|   |   |   `-- wmesa.h
+|   |   |-- KBackgroundIface.h
+|   |   |-- KDChartAxisParams.h
+|   |   |-- KDChartAxisParamsWrapper.h
+|   |   |-- KDChartCustomBox.h
+|   |   |-- KDChartCustomBoxWrapper.h
+|   |   |-- KDChartDataIntern.h
+|   |   |-- KDChartDataRegion.h
+|   |   |-- KDChartEnums.h
+|   |   |-- KDChartGlobal.h
+|   |   |-- KDChartListTable.h
+|   |   |-- KDChartObjectFactory.h
+|   |   |-- KDChartParams.h
+|   |   |-- KDChartParamsWrapper.h
+|   |   |-- KDChartPropertySet.h
+|   |   |-- KDChartTable.h
+|   |   |-- KDChartTableBase.h
+|   |   |-- KDChartTableDataWrapper.h
+|   |   |-- KDChartTextPiece.h
+|   |   |-- KDChartVectorTable.h
+|   |   |-- KDChartWidget.h
+|   |   |-- KDChartWrapperFactory.h
+|   |   |-- KDFrame.h
+|   |   |-- KDFrameProfileSection.h
+|   |   |-- KDesktopIface.h
+|   |   |-- KHR
+|   |   |   `-- khrplatform.h
+|   |   |-- KScreensaverIface.h
+|   |   |-- KWinInterface.h
+|   |   |-- KoApplication.h
+|   |   |-- KoApplicationIface.h
+|   |   |-- KoBrush.h
+|   |   |-- KoCharSelectDia.h
+|   |   |-- KoChild.h
+|   |   |-- KoCommandHistory.h
+|   |   |-- KoContainerHandler.h
+|   |   |-- KoContextCelp.h
+|   |   |-- KoDocument.h
+|   |   |-- KoDocumentChild.h
+|   |   |-- KoDocumentIface.h
+|   |   |-- KoDocumentInfo.h
+|   |   |-- KoDocumentInfoDlg.h
+|   |   |-- KoDom.h
+|   |   |-- KoEditPath.h
+|   |   |-- KoFactory.h
+|   |   |-- KoFilter.h
+|   |   |-- KoFilterChain.h
+|   |   |-- KoFilterManager.h
+|   |   |-- KoFrame.h
+|   |   |-- KoGenStyles.h
+|   |   |-- KoGeneralPropertyUi.h
+|   |   |-- KoGlobal.h
+|   |   |-- KoGuideLineDia.h
+|   |   |-- KoGuides.h
+|   |   |-- KoImageResource.h
+|   |   |-- KoInsertLink.h
+|   |   |-- KoKoolBar.h
+|   |   |-- KoMainWindow.h
+|   |   |-- KoMainWindowIface.h
+|   |   |-- KoOasisLoadingContext.h
+|   |   |-- KoOasisSettings.h
+|   |   |-- KoOasisStyles.h
+|   |   |-- KoOpenPane.h
+|   |   |-- KoPageLayout.h
+|   |   |-- KoPageLayoutColumns.h
+|   |   |-- KoPageLayoutDia.h
+|   |   |-- KoPageLayoutHeader.h
+|   |   |-- KoPageLayoutSize.h
+|   |   |-- KoPartSelectAction.h
+|   |   |-- KoPartSelectDia.h
+|   |   |-- KoPen.h
+|   |   |-- KoPicture.h
+|   |   |-- KoPictureCollection.h
+|   |   |-- KoPictureFilePreview.h
+|   |   |-- KoPictureKey.h
+|   |   |-- KoPoint.h
+|   |   |-- KoQueryTrader.h
+|   |   |-- KoRuler.h
+|   |   |-- KoSelectAction.h
+|   |   |-- KoSpeaker.h
+|   |   |-- KoStore.h
+|   |   |-- KoStoreDevice.h
+|   |   |-- KoStyleStack.h
+|   |   |-- KoTabBar.h
+|   |   |-- KoTabChooser.h
+|   |   |-- KoTemplateChooseDia.h
+|   |   |-- KoTemplateCreateDia.h
+|   |   |-- KoTooluButton.h
+|   |   |-- KoUnit.h
+|   |   |-- KoUnitWidgets.h
+|   |   |-- KoView.h
+|   |   |-- KoViewIface.h
+|   |   |-- KoXmlNS.h
+|   |   |-- KoXmlWriter.h
+|   |   |-- KoZoomAction.h
+|   |   |-- KoZoomHandler.h
+|   |   |-- KoZoomMode.h
+|   |   |-- Kolinestyleaction.h
+|   |   |-- Kolinewidthaction.h
+|   |   |-- KonquerorIface.h
+|   |   |-- Koversiondialog.h
+|   |   |-- Qt
+|   |   |   |-- q3cstring.h
+|   |   |   |-- q3painter.h
+|   |   |   |-- q3pointarray.h
+|   |   |   |-- q3popupmenu.h
+|   |   |   |-- q3whatsthis.h
+|   |   |   |-- qapplication.h
+|   |   |   |-- qbytearray.h
+|   |   |   |-- qchar.h
+|   |   |   |-- qcommonstyle.h
+|   |   |   |-- qdatastream.h
+|   |   |   |-- qdir.h
+|   |   |   |-- qfileinfo.h
+|   |   |   |-- qglobal.h
+|   |   |   |-- qicon.h
+|   |   |   |-- qimage.h
+|   |   |   |-- qiodevice.h
+|   |   |   |-- qlist.h
+|   |   |   |-- qmenu.h
+|   |   |   |-- qmenudata.h
+|   |   |   |-- qmetaobject.h
+|   |   |   |-- qmovie.h
+|   |   |   |-- qnamespace.h
+|   |   |   |-- qobject.h
+|   |   |   |-- qobjectdefs.h
+|   |   |   |-- qpaintdevice.h
+|   |   |   |-- qpixmap.h
+|   |   |   |-- qscrollbar.h
+|   |   |   |-- qslider.h
+|   |   |   |-- qstring.h
+|   |   |   |-- qstyle.h
+|   |   |   |-- qstyleoption.h
+|   |   |   |-- qtabbar.h
+|   |   |   |-- qtextcodec.h
+|   |   |   |-- qtooltip.h
+|   |   |   |-- qvariant.h
+|   |   |   |-- qvector.h
+|   |   |   `-- qwidget.h
+|   |   |-- SDL
+|   |   |   |-- SDL.h
+|   |   |   |-- SDL_active.h
+|   |   |   |-- SDL_audio.h
+|   |   |   |-- SDL_byteorder.h
+|   |   |   |-- SDL_cdrom.h
+|   |   |   |-- SDL_config.h
+|   |   |   |-- SDL_cpuinfo.h
+|   |   |   |-- SDL_endian.h
+|   |   |   |-- SDL_error.h
+|   |   |   |-- SDL_events.h
+|   |   |   |-- SDL_getenv.h
+|   |   |   |-- SDL_image.h
+|   |   |   |-- SDL_joystick.h
+|   |   |   |-- SDL_keyboard.h
+|   |   |   |-- SDL_keysym.h
+|   |   |   |-- SDL_loadso.h
+|   |   |   |-- SDL_main.h
+|   |   |   |-- SDL_mixer.h
+|   |   |   |-- SDL_mouse.h
+|   |   |   |-- SDL_mutex.h
+|   |   |   |-- SDL_name.h
+|   |   |   |-- SDL_net.h
+|   |   |   |-- SDL_opengl.h
+|   |   |   |-- SDL_platform.h
+|   |   |   |-- SDL_quit.h
+|   |   |   |-- SDL_rwops.h
+|   |   |   |-- SDL_stdinc.h
+|   |   |   |-- SDL_syswm.h
+|   |   |   |-- SDL_thread.h
+|   |   |   |-- SDL_timer.h
+|   |   |   |-- SDL_ttf.h
+|   |   |   |-- SDL_types.h
+|   |   |   |-- SDL_version.h
+|   |   |   |-- SDL_video.h
+|   |   |   |-- begin_code.h
+|   |   |   `-- close_code.h
+|   |   |-- X11
+|   |   |   |-- CallbackI.h
+|   |   |   |-- Composite.h
+|   |   |   |-- CompositeP.h
+|   |   |   |-- ConstrainP.h
+|   |   |   |-- Constraint.h
+|   |   |   |-- ConvertI.h
+|   |   |   |-- Core.h
+|   |   |   |-- CoreP.h
+|   |   |   |-- CreateI.h
+|   |   |   |-- EventI.h
+|   |   |   |-- HookObjI.h
+|   |   |   |-- ICE
+|   |   |   |   |-- ICE.h
+|   |   |   |   |-- ICEconn.h
+|   |   |   |   |-- ICElib.h
+|   |   |   |   |-- ICEmsg.h
+|   |   |   |   |-- ICEproto.h
+|   |   |   |   `-- ICEutil.h
+|   |   |   |-- ImUtil.h
+|   |   |   |-- InitialI.h
+|   |   |   |-- Intrinsic.h
+|   |   |   |-- IntrinsicI.h
+|   |   |   |-- IntrinsicP.h
+|   |   |   |-- Object.h
+|   |   |   |-- ObjectP.h
+|   |   |   |-- PassivGraI.h
+|   |   |   |-- RectObj.h
+|   |   |   |-- RectObjP.h
+|   |   |   |-- ResConfigP.h
+|   |   |   |-- ResourceI.h
+|   |   |   |-- SM
+|   |   |   |   |-- SM.h
+|   |   |   |   |-- SMlib.h
+|   |   |   |   `-- SMproto.h
+|   |   |   |-- SelectionI.h
+|   |   |   |-- Shell.h
+|   |   |   |-- ShellI.h
+|   |   |   |-- ShellP.h
+|   |   |   |-- StringDefs.h
+|   |   |   |-- ThreadsI.h
+|   |   |   |-- TranslateI.h
+|   |   |   |-- VarargsI.h
+|   |   |   |-- Vendor.h
+|   |   |   |-- VendorP.h
+|   |   |   |-- XKBlib.h
+|   |   |   |-- Xauth.h
+|   |   |   |-- Xaw
+|   |   |   |   |-- AllWidgets.h
+|   |   |   |   |-- AsciiSink.h
+|   |   |   |   |-- AsciiSinkP.h
+|   |   |   |   |-- AsciiSrc.h
+|   |   |   |   |-- AsciiSrcP.h
+|   |   |   |   |-- AsciiText.h
+|   |   |   |   |-- AsciiTextP.h
+|   |   |   |   |-- Box.h
+|   |   |   |   |-- BoxP.h
+|   |   |   |   |-- Cardinals.h
+|   |   |   |   |-- Command.h
+|   |   |   |   |-- CommandP.h
+|   |   |   |   |-- Dialog.h
+|   |   |   |   |-- DialogP.h
+|   |   |   |   |-- Form.h
+|   |   |   |   |-- FormP.h
+|   |   |   |   |-- Grip.h
+|   |   |   |   |-- GripP.h
+|   |   |   |   |-- Label.h
+|   |   |   |   |-- LabelP.h
+|   |   |   |   |-- List.h
+|   |   |   |   |-- ListP.h
+|   |   |   |   |-- MenuButtoP.h
+|   |   |   |   |-- MenuButton.h
+|   |   |   |   |-- MultiSink.h
+|   |   |   |   |-- MultiSinkP.h
+|   |   |   |   |-- MultiSrc.h
+|   |   |   |   |-- MultiSrcP.h
+|   |   |   |   |-- Paned.h
+|   |   |   |   |-- PanedP.h
+|   |   |   |   |-- Panner.h
+|   |   |   |   |-- PannerP.h
+|   |   |   |   |-- Porthole.h
+|   |   |   |   |-- PortholeP.h
+|   |   |   |   |-- Repeater.h
+|   |   |   |   |-- RepeaterP.h
+|   |   |   |   |-- Reports.h
+|   |   |   |   |-- Scrollbar.h
+|   |   |   |   |-- ScrollbarP.h
+|   |   |   |   |-- Simple.h
+|   |   |   |   |-- SimpleMenP.h
+|   |   |   |   |-- SimpleMenu.h
+|   |   |   |   |-- SimpleP.h
+|   |   |   |   |-- Sme.h
+|   |   |   |   |-- SmeBSB.h
+|   |   |   |   |-- SmeBSBP.h
+|   |   |   |   |-- SmeLine.h
+|   |   |   |   |-- SmeLineP.h
+|   |   |   |   |-- SmeP.h
+|   |   |   |   |-- StripCharP.h
+|   |   |   |   |-- StripChart.h
+|   |   |   |   |-- Template.c
+|   |   |   |   |-- Template.h
+|   |   |   |   |-- TemplateP.h
+|   |   |   |   |-- Text.h
+|   |   |   |   |-- TextP.h
+|   |   |   |   |-- TextSink.h
+|   |   |   |   |-- TextSinkP.h
+|   |   |   |   |-- TextSrc.h
+|   |   |   |   |-- TextSrcP.h
+|   |   |   |   |-- Tip.h
+|   |   |   |   |-- TipP.h
+|   |   |   |   |-- Toggle.h
+|   |   |   |   |-- ToggleP.h
+|   |   |   |   |-- Tree.h
+|   |   |   |   |-- TreeP.h
+|   |   |   |   |-- VendorEP.h
+|   |   |   |   |-- Viewport.h
+|   |   |   |   |-- ViewportP.h
+|   |   |   |   |-- XawImP.h
+|   |   |   |   `-- XawInit.h
+|   |   |   |-- Xcms.h
+|   |   |   |-- Xcursor
+|   |   |   |   `-- Xcursor.h
+|   |   |   |-- Xdmcp.h
+|   |   |   |-- Xft
+|   |   |   |   |-- Xft.h
+|   |   |   |   `-- XftCompat.h
+|   |   |   |-- Xlib-xcb.h
+|   |   |   |-- Xlib.h
+|   |   |   |-- XlibConf.h
+|   |   |   |-- Xlibint.h
+|   |   |   |-- Xlocale.h
+|   |   |   |-- Xmu
+|   |   |   |   |-- Atoms.h
+|   |   |   |   |-- CharSet.h
+|   |   |   |   |-- CloseHook.h
+|   |   |   |   |-- Converters.h
+|   |   |   |   |-- CurUtil.h
+|   |   |   |   |-- CvtCache.h
+|   |   |   |   |-- DisplayQue.h
+|   |   |   |   |-- Drawing.h
+|   |   |   |   |-- Editres.h
+|   |   |   |   |-- EditresP.h
+|   |   |   |   |-- Error.h
+|   |   |   |   |-- ExtAgent.h
+|   |   |   |   |-- Initer.h
+|   |   |   |   |-- Lookup.h
+|   |   |   |   |-- Misc.h
+|   |   |   |   |-- StdCmap.h
+|   |   |   |   |-- StdSel.h
+|   |   |   |   |-- SysUtil.h
+|   |   |   |   |-- WhitePoint.h
+|   |   |   |   |-- WidgetNode.h
+|   |   |   |   |-- WinUtil.h
+|   |   |   |   |-- Xct.h
+|   |   |   |   `-- Xmu.h
+|   |   |   |-- Xregion.h
+|   |   |   |-- Xresource.h
+|   |   |   |-- Xtos.h
+|   |   |   |-- Xutil.h
+|   |   |   |-- cursorfont.h
+|   |   |   |-- extensions
+|   |   |   |   |-- MITMisc.h
+|   |   |   |   |-- XEVI.h
+|   |   |   |   |-- XInput.h
+|   |   |   |   |-- XInput2.h
+|   |   |   |   |-- XKBbells.h
+|   |   |   |   |-- XKBconfig.h
+|   |   |   |   |-- XKBfile.h
+|   |   |   |   |-- XKBrules.h
+|   |   |   |   |-- XKM.h
+|   |   |   |   |-- XKMformat.h
+|   |   |   |   |-- XLbx.h
+|   |   |   |   |-- XRes.h
+|   |   |   |   |-- XShm.h
+|   |   |   |   |-- XTest.h
+|   |   |   |   |-- Xag.h
+|   |   |   |   |-- Xcomposite.h
+|   |   |   |   |-- Xcup.h
+|   |   |   |   |-- Xdamage.h
+|   |   |   |   |-- Xdbe.h
+|   |   |   |   |-- Xext.h
+|   |   |   |   |-- Xfixes.h
+|   |   |   |   |-- Xge.h
+|   |   |   |   |-- Xinerama.h
+|   |   |   |   |-- Xrandr.h
+|   |   |   |   |-- Xrender.h
+|   |   |   |   |-- XvMClib.h
+|   |   |   |   |-- Xvlib.h
+|   |   |   |   |-- dmxext.h
+|   |   |   |   |-- dpms.h
+|   |   |   |   |-- extutil.h
+|   |   |   |   |-- multibuf.h
+|   |   |   |   |-- panoramiXext.h
+|   |   |   |   |-- record.h
+|   |   |   |   |-- scrnsaver.h
+|   |   |   |   |-- security.h
+|   |   |   |   |-- shape.h
+|   |   |   |   |-- sync.h
+|   |   |   |   |-- xf86vmode.h
+|   |   |   |   `-- xtestext1.h
+|   |   |   |-- fonts
+|   |   |   |   |-- bdfint.h
+|   |   |   |   |-- bitmap.h
+|   |   |   |   |-- bufio.h
+|   |   |   |   |-- fntfil.h
+|   |   |   |   |-- fntfilio.h
+|   |   |   |   |-- fntfilst.h
+|   |   |   |   |-- fontconf.h
+|   |   |   |   |-- fontenc.h
+|   |   |   |   |-- fontencc.h
+|   |   |   |   |-- fontmisc.h
+|   |   |   |   |-- fontshow.h
+|   |   |   |   |-- fontutil.h
+|   |   |   |   |-- fontxlfd.h
+|   |   |   |   |-- ft.h
+|   |   |   |   |-- ftfuncs.h
+|   |   |   |   `-- pcf.h
+|   |   |   `-- xpm.h
+|   |   |-- acl
+|   |   |   `-- libacl.h
+|   |   |-- af_vfs.h
+|   |   |-- alsa
+|   |   |   |-- alisp.h
+|   |   |   |-- asoundef.h
+|   |   |   |-- asoundlib.h
+|   |   |   |-- conf.h
+|   |   |   |-- control.h
+|   |   |   |-- control_external.h
+|   |   |   |-- error.h
+|   |   |   |-- global.h
+|   |   |   |-- hwdep.h
+|   |   |   |-- iatomic.h
+|   |   |   |-- input.h
+|   |   |   |-- mixer.h
+|   |   |   |-- mixer_abst.h
+|   |   |   |-- output.h
+|   |   |   |-- pcm.h
+|   |   |   |-- pcm_external.h
+|   |   |   |-- pcm_extplug.h
+|   |   |   |-- pcm_ioplug.h
+|   |   |   |-- pcm_old.h
+|   |   |   |-- pcm_plugin.h
+|   |   |   |-- pcm_rate.h
+|   |   |   |-- rawmidi.h
+|   |   |   |-- seq.h
+|   |   |   |-- seq_event.h
+|   |   |   |-- seq_midi_event.h
+|   |   |   |-- seqmid.h
+|   |   |   |-- sound
+|   |   |   |   |-- asound_fm.h
+|   |   |   |   |-- emu10k1.h
+|   |   |   |   |-- hdsp.h
+|   |   |   |   |-- hdspm.h
+|   |   |   |   |-- sb16_csp.h
+|   |   |   |   |-- sscape_ioctl.h
+|   |   |   |   `-- type_compat.h
+|   |   |   |-- timer.h
+|   |   |   |-- use-case.h
+|   |   |   `-- version.h
+|   |   |-- ao
+|   |   |   |-- ao.h
+|   |   |   |-- os_types.h
+|   |   |   `-- plugin.h
+|   |   |-- arts
+|   |   |   |-- anyref.h
+|   |   |   |-- arts_export.h
+|   |   |   |-- artsbuilder.h
+|   |   |   |-- artsbuilder.idl
+|   |   |   |-- artsflow.h
+|   |   |   |-- artsflow.idl
+|   |   |   |-- artsgui.h
+|   |   |   |-- artsgui.idl
+|   |   |   |-- artskde.h
+|   |   |   |-- artsmidi.h
+|   |   |   |-- artsmidi.idl
+|   |   |   |-- artsmodules.h
+|   |   |   |-- artsmodules.idl
+|   |   |   |-- artsmodulescommon.h
+|   |   |   |-- artsmodulescommon.idl
+|   |   |   |-- artsmoduleseffects.h
+|   |   |   |-- artsmoduleseffects.idl
+|   |   |   |-- artsmodulesmixers.h
+|   |   |   |-- artsmodulesmixers.idl
+|   |   |   |-- artsmodulessynth.h
+|   |   |   |-- artsmodulessynth.idl
+|   |   |   |-- artsversion.h
+|   |   |   |-- asyncstream.h
+|   |   |   |-- audioio.h
+|   |   |   |-- audiosubsys.h
+|   |   |   |-- buffer.h
+|   |   |   |-- bufferqueue.h
+|   |   |   |-- cache.h
+|   |   |   |-- cachedwav.h
+|   |   |   |-- common.h
+|   |   |   |-- connect.h
+|   |   |   |-- connection.h
+|   |   |   |-- convert.h
+|   |   |   |-- core.h
+|   |   |   |-- core.idl
+|   |   |   |-- cpuinfo.h
+|   |   |   |-- datapacket.h
+|   |   |   |-- debug.h
+|   |   |   |-- delayedreturn.h
+|   |   |   |-- dispatcher.h
+|   |   |   |-- dynamicrequest.h
+|   |   |   |-- dynamicskeleton.h
+|   |   |   |-- extensionloader.h
+|   |   |   |-- factory.h
+|   |   |   |-- fft.h
+|   |   |   |-- flowsystem.h
+|   |   |   |-- giomanager.h
+|   |   |   |-- gsl
+|   |   |   |   |-- gslcommon.h
+|   |   |   |   |-- gslconfig.h
+|   |   |   |   |-- gslconvert.h
+|   |   |   |   |-- gsldatacache.h
+|   |   |   |   |-- gsldatahandle-mad.h
+|   |   |   |   |-- gsldatahandle-vorbis.h
+|   |   |   |   |-- gsldatahandle.h
+|   |   |   |   |-- gsldatautils.h
+|   |   |   |   |-- gsldefs.h
+|   |   |   |   |-- gslengine.h
+|   |   |   |   |-- gslfft.h
+|   |   |   |   |-- gslfilter.h
+|   |   |   |   |-- gslieee754.h
+|   |   |   |   |-- gslloader.h
+|   |   |   |   |-- gslmagic.h
+|   |   |   |   |-- gslmath.h
+|   |   |   |   |-- gsloscillator.h
+|   |   |   |   |-- gslosctable.h
+|   |   |   |   |-- gslsignal.h
+|   |   |   |   |-- gslwavechunk.h
+|   |   |   |   `-- gslwaveosc.h
+|   |   |   |-- gslschedule.h
+|   |   |   |-- idlfilereg.h
+|   |   |   |-- ifacerepo_impl.h
+|   |   |   |-- iomanager.h
+|   |   |   |-- kartsdispatcher.h
+|   |   |   |-- kartsfloatwatch.h
+|   |   |   |-- kartsserver.h
+|   |   |   |-- kartswidget.h
+|   |   |   |-- kaudiomanagerplay.h
+|   |   |   |-- kaudioplaystream.h
+|   |   |   |-- kaudiorecordstream.h
+|   |   |   |-- kframe_impl.h
+|   |   |   |-- klayoutbox_impl.h
+|   |   |   |-- kmedia2.h
+|   |   |   |-- kmedia2.idl
+|   |   |   |-- kplayobject.h
+|   |   |   |-- kplayobjectfactory.h
+|   |   |   |-- kvideowidget.h
+|   |   |   |-- kwidget_impl.h
+|   |   |   |-- kwidgetrepo.h
+|   |   |   |-- mcopconfig.h
+|   |   |   |-- mcoputils.h
+|   |   |   |-- notification.h
+|   |   |   |-- object.h
+|   |   |   |-- objectmanager.h
+|   |   |   |-- pipebuffer.h
+|   |   |   |-- pool.h
+|   |   |   |-- qiomanager.h
+|   |   |   |-- reference.h
+|   |   |   |-- referenceclean.h
+|   |   |   |-- resample.h
+|   |   |   |-- socketconnection.h
+|   |   |   |-- soundserver.h
+|   |   |   |-- soundserver.idl
+|   |   |   |-- startupmanager.h
+|   |   |   |-- stdsynthmodule.h
+|   |   |   |-- synthschedule.h
+|   |   |   |-- tcpconnection.h
+|   |   |   |-- tcpserver.h
+|   |   |   |-- thread.h
+|   |   |   |-- type.h
+|   |   |   |-- unixconnection.h
+|   |   |   |-- unixserver.h
+|   |   |   `-- weakreference.h
+|   |   |-- artsc
+|   |   |   |-- artsc.h
+|   |   |   `-- artsc_export.h
+|   |   |-- aspell.h
+|   |   |-- atasmart.h
+|   |   |-- atk-1.0
+|   |   |   `-- atk
+|   |   |       |-- atk-enum-types.h
+|   |   |       |-- atk.h
+|   |   |       |-- atkaction.h
+|   |   |       |-- atkcomponent.h
+|   |   |       |-- atkdocument.h
+|   |   |       |-- atkeditabletext.h
+|   |   |       |-- atkgobjectaccessible.h
+|   |   |       |-- atkhyperlink.h
+|   |   |       |-- atkhyperlinkimpl.h
+|   |   |       |-- atkhypertext.h
+|   |   |       |-- atkimage.h
+|   |   |       |-- atkmisc.h
+|   |   |       |-- atknoopobject.h
+|   |   |       |-- atknoopobjectfactory.h
+|   |   |       |-- atkobject.h
+|   |   |       |-- atkobjectfactory.h
+|   |   |       |-- atkplug.h
+|   |   |       |-- atkregistry.h
+|   |   |       |-- atkrelation.h
+|   |   |       |-- atkrelationset.h
+|   |   |       |-- atkrelationtype.h
+|   |   |       |-- atkselection.h
+|   |   |       |-- atksocket.h
+|   |   |       |-- atkstate.h
+|   |   |       |-- atkstateset.h
+|   |   |       |-- atkstreamablecontent.h
+|   |   |       |-- atktable.h
+|   |   |       |-- atktext.h
+|   |   |       |-- atkutil.h
+|   |   |       `-- atkvalue.h
+|   |   |-- atlantic
+|   |   |   |-- atlantic_core.h
+|   |   |   |-- auction.h
+|   |   |   |-- configoption.h
+|   |   |   |-- estate.h
+|   |   |   |-- estategroup.h
+|   |   |   |-- game.h
+|   |   |   |-- libatlantic_export.h
+|   |   |   |-- player.h
+|   |   |   `-- trade.h
+|   |   |-- atlantik
+|   |   |   `-- ui
+|   |   |       |-- auction_widget.h
+|   |   |       |-- board.h
+|   |   |       |-- estatedetails.h
+|   |   |       |-- estateview.h
+|   |   |       |-- kwrappedlistviewitem.h
+|   |   |       |-- libatlantikui_export.h
+|   |   |       |-- portfolioestate.h
+|   |   |       |-- portfolioview.h
+|   |   |       |-- token.h
+|   |   |       `-- trade_widget.h
+|   |   |-- attr
+|   |   |   |-- attributes.h
+|   |   |   |-- error_context.h
+|   |   |   |-- libattr.h
+|   |   |   `-- xattr.h
+|   |   |-- audacious
+|   |   |   |-- api-alias-begin.h
+|   |   |   |-- api-alias-end.h
+|   |   |   |-- api-define-begin.h
+|   |   |   |-- api-define-end.h
+|   |   |   |-- api.h
+|   |   |   |-- audconfig.h
+|   |   |   |-- audctrl.h
+|   |   |   |-- audtag.h
+|   |   |   |-- configdb-api.h
+|   |   |   |-- configdb.h
+|   |   |   |-- dbus-service.h
+|   |   |   |-- dbus.h
+|   |   |   |-- debug.h
+|   |   |   |-- drct-api.h
+|   |   |   |-- drct.h
+|   |   |   |-- glib-compat.h
+|   |   |   |-- gtk-compat.h
+|   |   |   |-- i18n.h
+|   |   |   |-- interface.h
+|   |   |   |-- misc-api.h
+|   |   |   |-- misc.h
+|   |   |   |-- playlist-api.h
+|   |   |   |-- playlist.h
+|   |   |   |-- plugin.h
+|   |   |   |-- plugins-api.h
+|   |   |   |-- plugins.h
+|   |   |   |-- preferences.h
+|   |   |   `-- types.h
+|   |   |-- audiocdencoder.h
+|   |   |-- audiofile.h
+|   |   |-- aupvlist.h
+|   |   |-- autosprintf.h
+|   |   |-- blkid
+|   |   |   `-- blkid.h
+|   |   |-- bzlib.h
+|   |   |-- cairo
+|   |   |   |-- cairo-deprecated.h
+|   |   |   |-- cairo-features.h
+|   |   |   |-- cairo-ft.h
+|   |   |   |-- cairo-gobject.h
+|   |   |   |-- cairo-pdf.h
+|   |   |   |-- cairo-ps.h
+|   |   |   |-- cairo-script-interpreter.h
+|   |   |   |-- cairo-svg.h
+|   |   |   |-- cairo-tee.h
+|   |   |   |-- cairo-version.h
+|   |   |   |-- cairo-xlib-xrender.h
+|   |   |   |-- cairo-xlib.h
+|   |   |   `-- cairo.h
+|   |   |-- cdda
+|   |   |   |-- cdda_interface.h
+|   |   |   |-- cdda_paranoia.h
+|   |   |   `-- utils.h
+|   |   |-- cddb
+|   |   |   |-- cddb.h
+|   |   |   |-- cddb_cmd.h
+|   |   |   |-- cddb_config.h
+|   |   |   |-- cddb_conn.h
+|   |   |   |-- cddb_disc.h
+|   |   |   |-- cddb_error.h
+|   |   |   |-- cddb_log.h
+|   |   |   |-- cddb_site.h
+|   |   |   |-- cddb_track.h
+|   |   |   `-- version.h
+|   |   |-- cdio
+|   |   |   |-- audio.h
+|   |   |   |-- bytesex.h
+|   |   |   |-- bytesex_asm.h
+|   |   |   |-- cd_types.h
+|   |   |   |-- cdda.h
+|   |   |   |-- cdio.h
+|   |   |   |-- cdio_config.h
+|   |   |   |-- cdtext.h
+|   |   |   |-- device.h
+|   |   |   |-- disc.h
+|   |   |   |-- ds.h
+|   |   |   |-- dvd.h
+|   |   |   |-- ecma_167.h
+|   |   |   |-- iso9660.h
+|   |   |   |-- logging.h
+|   |   |   |-- mmc.h
+|   |   |   |-- paranoia.h
+|   |   |   |-- posix.h
+|   |   |   |-- read.h
+|   |   |   |-- rock.h
+|   |   |   |-- sector.h
+|   |   |   |-- track.h
+|   |   |   |-- types.h
+|   |   |   |-- udf.h
+|   |   |   |-- udf_file.h
+|   |   |   |-- udf_time.h
+|   |   |   |-- utf8.h
+|   |   |   |-- util.h
+|   |   |   |-- version.h
+|   |   |   `-- xa.h
+|   |   |-- cdio++
+|   |   |   |-- cdio.hpp
+|   |   |   |-- cdtext.hpp
+|   |   |   |-- device.hpp
+|   |   |   |-- devices.hpp
+|   |   |   |-- disc.hpp
+|   |   |   |-- enum.hpp
+|   |   |   |-- iso9660.hpp
+|   |   |   |-- mmc.hpp
+|   |   |   |-- read.hpp
+|   |   |   `-- track.hpp
+|   |   |-- cmodule.h
+|   |   |-- connectionmanager.h
+|   |   |-- cups
+|   |   |   |-- adminutil.h
+|   |   |   |-- array.h
+|   |   |   |-- backend.h
+|   |   |   |-- cgi.h
+|   |   |   |-- cups.h
+|   |   |   |-- dir.h
+|   |   |   |-- driver.h
+|   |   |   |-- file.h
+|   |   |   |-- help-index.h
+|   |   |   |-- http.h
+|   |   |   |-- image.h
+|   |   |   |-- ipp.h
+|   |   |   |-- language.h
+|   |   |   |-- mime.h
+|   |   |   |-- ppd.h
+|   |   |   |-- ppdc.h
+|   |   |   |-- raster.h
+|   |   |   |-- sidechannel.h
+|   |   |   |-- transcode.h
+|   |   |   `-- versioning.h
+|   |   |-- curses.h -> ncurses/curses.h
+|   |   |-- cursesapp.h -> ncurses/cursesapp.h
+|   |   |-- cursesf.h -> ncurses/cursesf.h
+|   |   |-- cursesm.h -> ncurses/cursesm.h
+|   |   |-- cursesp.h -> ncurses/cursesp.h
+|   |   |-- cursesw.h -> ncurses/cursesw.h
+|   |   |-- cursslk.h -> ncurses/cursslk.h
+|   |   |-- dbus-1.0
+|   |   |   `-- dbus
+|   |   |       |-- connection.h
+|   |   |       |-- dbus-address.h
+|   |   |       |-- dbus-bus.h
+|   |   |       |-- dbus-connection.h
+|   |   |       |-- dbus-errors.h
+|   |   |       |-- dbus-glib-bindings.h
+|   |   |       |-- dbus-glib-error-enum.h
+|   |   |       |-- dbus-glib-lowlevel.h
+|   |   |       |-- dbus-glib.h
+|   |   |       |-- dbus-gtype-specialized.h
+|   |   |       |-- dbus-macros.h
+|   |   |       |-- dbus-memory.h
+|   |   |       |-- dbus-message.h
+|   |   |       |-- dbus-misc.h
+|   |   |       |-- dbus-pending-call.h
+|   |   |       |-- dbus-protocol.h
+|   |   |       |-- dbus-python.h
+|   |   |       |-- dbus-qt.h
+|   |   |       |-- dbus-server.h
+|   |   |       |-- dbus-shared.h
+|   |   |       |-- dbus-signature.h
+|   |   |       |-- dbus-threads.h
+|   |   |       |-- dbus-types.h
+|   |   |       |-- dbus.h
+|   |   |       |-- message.h
+|   |   |       `-- server.h
+|   |   |-- dcopclient.h
+|   |   |-- dcopobject.h
+|   |   |-- dcopref.h
+|   |   |-- dcopstub.h
+|   |   |-- dcoptypes.h
+|   |   |-- dnssd
+|   |   |   |-- domainbrowser.h
+|   |   |   |-- publicservice.h
+|   |   |   |-- query.h
+|   |   |   |-- remoteservice.h
+|   |   |   |-- servicebase.h
+|   |   |   |-- servicebrowser.h
+|   |   |   `-- settings.h
+|   |   |-- dom
+|   |   |   |-- SVGAElement.h
+|   |   |   |-- SVGAltGlyphDefElement.h
+|   |   |   |-- SVGAltGlyphElement.h
+|   |   |   |-- SVGAngle.h
+|   |   |   |-- SVGAnimateColorElement.h
+|   |   |   |-- SVGAnimateElement.h
+|   |   |   |-- SVGAnimateMotionElement.h
+|   |   |   |-- SVGAnimateTransformElement.h
+|   |   |   |-- SVGAnimatedAngle.h
+|   |   |   |-- SVGAnimatedBoolean.h
+|   |   |   |-- SVGAnimatedEnumeration.h
+|   |   |   |-- SVGAnimatedInteger.h
+|   |   |   |-- SVGAnimatedLength.h
+|   |   |   |-- SVGAnimatedLengthList.h
+|   |   |   |-- SVGAnimatedNumber.h
+|   |   |   |-- SVGAnimatedNumberList.h
+|   |   |   |-- SVGAnimatedPathData.h
+|   |   |   |-- SVGAnimatedPoints.h
+|   |   |   |-- SVGAnimatedPreserveAspectRatio.h
+|   |   |   |-- SVGAnimatedRect.h
+|   |   |   |-- SVGAnimatedString.h
+|   |   |   |-- SVGAnimatedTransformList.h
+|   |   |   |-- SVGAnimationElement.h
+|   |   |   |-- SVGCSSRule.h
+|   |   |   |-- SVGCircleElement.h
+|   |   |   |-- SVGClipPathElement.h
+|   |   |   |-- SVGColor.h
+|   |   |   |-- SVGColorProfileElement.h
+|   |   |   |-- SVGColorProfileRule.h
+|   |   |   |-- SVGComponentTransferFunctionElement.h
+|   |   |   |-- SVGCursorElement.h
+|   |   |   |-- SVGDefinitionSrcElement.h
+|   |   |   |-- SVGDefsElement.h
+|   |   |   |-- SVGDescElement.h
+|   |   |   |-- SVGDocument.h
+|   |   |   |-- SVGElement.h
+|   |   |   |-- SVGElementInstance.h
+|   |   |   |-- SVGElementInstanceList.h
+|   |   |   |-- SVGEllipseElement.h
+|   |   |   |-- SVGEvent.h
+|   |   |   |-- SVGException.h
+|   |   |   |-- SVGExternalResourcesRequired.h
+|   |   |   |-- SVGFEBlendElement.h
+|   |   |   |-- SVGFEColorMatrixElement.h
+|   |   |   |-- SVGFEComponentTransferElement.h
+|   |   |   |-- SVGFECompositeElement.h
+|   |   |   |-- SVGFEConvolveMatrixElement.h
+|   |   |   |-- SVGFEDiffuseLightingElement.h
+|   |   |   |-- SVGFEDisplacementMapElement.h
+|   |   |   |-- SVGFEDistantLightElement.h
+|   |   |   |-- SVGFEFloodElement.h
+|   |   |   |-- SVGFEFuncAElement.h
+|   |   |   |-- SVGFEFuncBElement.h
+|   |   |   |-- SVGFEFuncGElement.h
+|   |   |   |-- SVGFEFuncRElement.h
+|   |   |   |-- SVGFEGaussianBlurElement.h
+|   |   |   |-- SVGFEImageElement.h
+|   |   |   |-- SVGFEMergeElement.h
+|   |   |   |-- SVGFEMergeNodeElement.h
+|   |   |   |-- SVGFEMorphologyElement.h
+|   |   |   |-- SVGFEOffsetElement.h
+|   |   |   |-- SVGFEPointLightElement.h
+|   |   |   |-- SVGFESpecularLightingElement.h
+|   |   |   |-- SVGFESpotLightElement.h
+|   |   |   |-- SVGFETileElement.h
+|   |   |   |-- SVGFETurbulenceElement.h
+|   |   |   |-- SVGFilterElement.h
+|   |   |   |-- SVGFilterPrimitiveStandardAttributes.h
+|   |   |   |-- SVGFitToViewBox.h
+|   |   |   |-- SVGFontElement.h
+|   |   |   |-- SVGFontFaceElement.h
+|   |   |   |-- SVGFontFaceFormatElement.h
+|   |   |   |-- SVGFontFaceNameElement.h
+|   |   |   |-- SVGFontFaceSrcElement.h
+|   |   |   |-- SVGFontFaceUriElement.h
+|   |   |   |-- SVGForeignObjectElement.h
+|   |   |   |-- SVGGElement.h
+|   |   |   |-- SVGGlyphElement.h
+|   |   |   |-- SVGGlyphRefElement.h
+|   |   |   |-- SVGGradientElement.h
+|   |   |   |-- SVGHKernElement.h
+|   |   |   |-- SVGICCColor.h
+|   |   |   |-- SVGImageElement.h
+|   |   |   |-- SVGLangSpace.h
+|   |   |   |-- SVGLength.h
+|   |   |   |-- SVGLengthList.h
+|   |   |   |-- SVGLineElement.h
+|   |   |   |-- SVGLinearGradientElement.h
+|   |   |   |-- SVGLocatable.h
+|   |   |   |-- SVGMPathElement.h
+|   |   |   |-- SVGMarkerElement.h
+|   |   |   |-- SVGMaskElement.h
+|   |   |   |-- SVGMatrix.h
+|   |   |   |-- SVGMetadataElement.h
+|   |   |   |-- SVGMissingGlyphElement.h
+|   |   |   |-- SVGNumber.h
+|   |   |   |-- SVGNumberList.h
+|   |   |   |-- SVGPaint.h
+|   |   |   |-- SVGPathElement.h
+|   |   |   |-- SVGPathSeg.h
+|   |   |   |-- SVGPathSegArc.h
+|   |   |   |-- SVGPathSegClosePath.h
+|   |   |   |-- SVGPathSegCurvetoCubic.h
+|   |   |   |-- SVGPathSegCurvetoCubicSmooth.h
+|   |   |   |-- SVGPathSegCurvetoQuadratic.h
+|   |   |   |-- SVGPathSegCurvetoQuadraticSmooth.h
+|   |   |   |-- SVGPathSegLineto.h
+|   |   |   |-- SVGPathSegLinetoHorizontal.h
+|   |   |   |-- SVGPathSegLinetoVertical.h
+|   |   |   |-- SVGPathSegList.h
+|   |   |   |-- SVGPathSegMoveto.h
+|   |   |   |-- SVGPatternElement.h
+|   |   |   |-- SVGPoint.h
+|   |   |   |-- SVGPointList.h
+|   |   |   |-- SVGPolygonElement.h
+|   |   |   |-- SVGPolylineElement.h
+|   |   |   |-- SVGPreserveAspectRatio.h
+|   |   |   |-- SVGRadialGradientElement.h
+|   |   |   |-- SVGRect.h
+|   |   |   |-- SVGRectElement.h
+|   |   |   |-- SVGRenderingIntent.h
+|   |   |   |-- SVGSVGElement.h
+|   |   |   |-- SVGScriptElement.h
+|   |   |   |-- SVGSetElement.h
+|   |   |   |-- SVGStopElement.h
+|   |   |   |-- SVGStringList.h
+|   |   |   |-- SVGStylable.h
+|   |   |   |-- SVGStyleElement.h
+|   |   |   |-- SVGSwitchElement.h
+|   |   |   |-- SVGSymbolElement.h
+|   |   |   |-- SVGTRefElement.h
+|   |   |   |-- SVGTSpanElement.h
+|   |   |   |-- SVGTests.h
+|   |   |   |-- SVGTextContentElement.h
+|   |   |   |-- SVGTextElement.h
+|   |   |   |-- SVGTextPathElement.h
+|   |   |   |-- SVGTextPositioningElement.h
+|   |   |   |-- SVGTitleElement.h
+|   |   |   |-- SVGTransform.h
+|   |   |   |-- SVGTransformList.h
+|   |   |   |-- SVGTransformable.h
+|   |   |   |-- SVGURIReference.h
+|   |   |   |-- SVGUnitTypes.h
+|   |   |   |-- SVGUseElement.h
+|   |   |   |-- SVGVKernElement.h
+|   |   |   |-- SVGViewElement.h
+|   |   |   |-- SVGViewSpec.h
+|   |   |   |-- SVGWindow.h
+|   |   |   |-- SVGZoomAndPan.h
+|   |   |   |-- SVGZoomEvent.h
+|   |   |   |-- css_rule.h
+|   |   |   |-- css_stylesheet.h
+|   |   |   |-- css_value.h
+|   |   |   |-- dom2_events.h
+|   |   |   |-- dom2_range.h
+|   |   |   |-- dom2_traversal.h
+|   |   |   |-- dom2_views.h
+|   |   |   |-- dom_core.h
+|   |   |   |-- dom_doc.h
+|   |   |   |-- dom_element.h
+|   |   |   |-- dom_exception.h
+|   |   |   |-- dom_html.h
+|   |   |   |-- dom_misc.h
+|   |   |   |-- dom_node.h
+|   |   |   |-- dom_string.h
+|   |   |   |-- dom_text.h
+|   |   |   |-- dom_xml.h
+|   |   |   |-- html_base.h
+|   |   |   |-- html_block.h
+|   |   |   |-- html_document.h
+|   |   |   |-- html_element.h
+|   |   |   |-- html_form.h
+|   |   |   |-- html_head.h
+|   |   |   |-- html_image.h
+|   |   |   |-- html_inline.h
+|   |   |   |-- html_list.h
+|   |   |   |-- html_misc.h
+|   |   |   |-- html_object.h
+|   |   |   `-- html_table.h
+|   |   |-- e2p
+|   |   |   `-- e2p.h
+|   |   |-- effectview.h
+|   |   |-- entities.h
+|   |   |-- equalizerview.h
+|   |   |-- esd.h
+|   |   |-- et
+|   |   |   `-- com_err.h
+|   |   |-- eti.h -> ncurses/eti.h
+|   |   |-- etip.h -> ncurses/etip.h
+|   |   |-- expat.h
+|   |   |-- expat_external.h
+|   |   |-- ext2fs
+|   |   |   |-- bitops.h
+|   |   |   |-- ext2_err.h
+|   |   |   |-- ext2_ext_attr.h
+|   |   |   |-- ext2_fs.h
+|   |   |   |-- ext2_io.h
+|   |   |   |-- ext2_types.h
+|   |   |   |-- ext2fs.h
+|   |   |   |-- ext3_extents.h
+|   |   |   `-- tdb.h
+|   |   |-- faad.h
+|   |   |-- fam.h
+|   |   |-- fixx11h.h
+|   |   |-- fontconfig
+|   |   |   |-- fcfreetype.h
+|   |   |   |-- fcprivate.h
+|   |   |   `-- fontconfig.h
+|   |   |-- form.h -> ncurses/form.h
+|   |   |-- freetype -> freetype2/freetype
+|   |   |-- freetype2
+|   |   |   `-- freetype
+|   |   |       |-- config
+|   |   |       |   |-- ftconfig.h
+|   |   |       |   |-- ftheader.h
+|   |   |       |   |-- ftmodule.h
+|   |   |       |   |-- ftoption.h
+|   |   |       |   `-- ftstdlib.h
+|   |   |       |-- freetype.h
+|   |   |       |-- ftadvanc.h
+|   |   |       |-- ftbbox.h
+|   |   |       |-- ftbdf.h
+|   |   |       |-- ftbitmap.h
+|   |   |       |-- ftcache.h
+|   |   |       |-- ftchapters.h
+|   |   |       |-- ftcid.h
+|   |   |       |-- fterrdef.h
+|   |   |       |-- fterrors.h
+|   |   |       |-- ftgasp.h
+|   |   |       |-- ftglyph.h
+|   |   |       |-- ftgxval.h
+|   |   |       |-- ftgzip.h
+|   |   |       |-- ftimage.h
+|   |   |       |-- ftincrem.h
+|   |   |       |-- ftlcdfil.h
+|   |   |       |-- ftlist.h
+|   |   |       |-- ftlzw.h
+|   |   |       |-- ftmac.h
+|   |   |       |-- ftmm.h
+|   |   |       |-- ftmodapi.h
+|   |   |       |-- ftmoderr.h
+|   |   |       |-- ftotval.h
+|   |   |       |-- ftoutln.h
+|   |   |       |-- ftpfr.h
+|   |   |       |-- ftrender.h
+|   |   |       |-- ftsizes.h
+|   |   |       |-- ftsnames.h
+|   |   |       |-- ftstroke.h
+|   |   |       |-- ftsynth.h
+|   |   |       |-- ftsystem.h
+|   |   |       |-- fttrigon.h
+|   |   |       |-- fttypes.h
+|   |   |       |-- ftwinfnt.h
+|   |   |       |-- ftxf86.h
+|   |   |       |-- t1tables.h
+|   |   |       |-- ttnameid.h
+|   |   |       |-- tttables.h
+|   |   |       |-- tttags.h
+|   |   |       `-- ttunpat.h
+|   |   |-- fribidi
+|   |   |   |-- fribidi.h
+|   |   |   |-- fribidi_char_sets.h
+|   |   |   |-- fribidi_char_sets.i
+|   |   |   |-- fribidi_char_sets_cap_rtl.h
+|   |   |   |-- fribidi_char_sets_cp1255.h
+|   |   |   |-- fribidi_char_sets_cp1256.h
+|   |   |   |-- fribidi_char_sets_isiri_3342.h
+|   |   |   |-- fribidi_char_sets_iso8859_6.h
+|   |   |   |-- fribidi_char_sets_iso8859_8.h
+|   |   |   |-- fribidi_char_sets_utf8.h
+|   |   |   |-- fribidi_config.h
+|   |   |   |-- fribidi_mem.h
+|   |   |   |-- fribidi_types.h
+|   |   |   |-- fribidi_types.i
+|   |   |   `-- fribidi_unicode.h
+|   |   |-- ft2build.h
+|   |   |-- fuse
+|   |   |   |-- cuse_lowlevel.h
+|   |   |   |-- fuse.h
+|   |   |   |-- fuse_common.h
+|   |   |   |-- fuse_common_compat.h
+|   |   |   |-- fuse_compat.h
+|   |   |   |-- fuse_lowlevel.h
+|   |   |   |-- fuse_lowlevel_compat.h
+|   |   |   `-- fuse_opt.h
+|   |   |-- fuse.h
+|   |   |-- gail-1.0
+|   |   |   |-- gail
+|   |   |   |   `-- gailwidget.h
+|   |   |   `-- libgail-util
+|   |   |       |-- gail-util.h
+|   |   |       |-- gailmisc.h
+|   |   |       `-- gailtextutil.h
+|   |   |-- gcrypt-module.h
+|   |   |-- gcrypt.h
+|   |   |-- gd.h
+|   |   |-- gd_io.h
+|   |   |-- gdcache.h
+|   |   |-- gdfontg.h
+|   |   |-- gdfontl.h
+|   |   |-- gdfontmb.h
+|   |   |-- gdfonts.h
+|   |   |-- gdfontt.h
+|   |   |-- gdfx.h
+|   |   |-- gdk-pixbuf-2.0
+|   |   |   |-- gdk-pixbuf
+|   |   |   |   |-- gdk-pixbuf-animation.h
+|   |   |   |   |-- gdk-pixbuf-core.h
+|   |   |   |   |-- gdk-pixbuf-enum-types.h
+|   |   |   |   |-- gdk-pixbuf-features.h
+|   |   |   |   |-- gdk-pixbuf-io.h
+|   |   |   |   |-- gdk-pixbuf-loader.h
+|   |   |   |   |-- gdk-pixbuf-marshal.h
+|   |   |   |   |-- gdk-pixbuf-simple-anim.h
+|   |   |   |   |-- gdk-pixbuf-transform.h
+|   |   |   |   |-- gdk-pixbuf.h
+|   |   |   |   `-- gdk-pixdata.h
+|   |   |   `-- gdk-pixbuf-xlib
+|   |   |       |-- gdk-pixbuf-xlib.h
+|   |   |       `-- gdk-pixbuf-xlibrgb.h
+|   |   |-- gif_lib.h
+|   |   |-- gio-unix-2.0
+|   |   |   `-- gio
+|   |   |       |-- gdesktopappinfo.h
+|   |   |       |-- gfiledescriptorbased.h
+|   |   |       |-- gunixconnection.h
+|   |   |       |-- gunixcredentialsmessage.h
+|   |   |       |-- gunixfdlist.h
+|   |   |       |-- gunixfdmessage.h
+|   |   |       |-- gunixinputstream.h
+|   |   |       |-- gunixmounts.h
+|   |   |       |-- gunixoutputstream.h
+|   |   |       `-- gunixsocketaddress.h
+|   |   |-- glib-2.0
+|   |   |   |-- gio
+|   |   |   |   |-- gaction.h
+|   |   |   |   |-- gactiongroup.h
+|   |   |   |   |-- gappinfo.h
+|   |   |   |   |-- gapplication.h
+|   |   |   |   |-- gapplicationcommandline.h
+|   |   |   |   |-- gasyncinitable.h
+|   |   |   |   |-- gasyncresult.h
+|   |   |   |   |-- gbufferedinputstream.h
+|   |   |   |   |-- gbufferedoutputstream.h
+|   |   |   |   |-- gcancellable.h
+|   |   |   |   |-- gcharsetconverter.h
+|   |   |   |   |-- gcontenttype.h
+|   |   |   |   |-- gconverter.h
+|   |   |   |   |-- gconverterinputstream.h
+|   |   |   |   |-- gconverteroutputstream.h
+|   |   |   |   |-- gcredentials.h
+|   |   |   |   |-- gdatainputstream.h
+|   |   |   |   |-- gdataoutputstream.h
+|   |   |   |   |-- gdbusaddress.h
+|   |   |   |   |-- gdbusauthobserver.h
+|   |   |   |   |-- gdbusconnection.h
+|   |   |   |   |-- gdbuserror.h
+|   |   |   |   |-- gdbusintrospection.h
+|   |   |   |   |-- gdbusmessage.h
+|   |   |   |   |-- gdbusmethodinvocation.h
+|   |   |   |   |-- gdbusnameowning.h
+|   |   |   |   |-- gdbusnamewatching.h
+|   |   |   |   |-- gdbusproxy.h
+|   |   |   |   |-- gdbusserver.h
+|   |   |   |   |-- gdbusutils.h
+|   |   |   |   |-- gdrive.h
+|   |   |   |   |-- gemblem.h
+|   |   |   |   |-- gemblemedicon.h
+|   |   |   |   |-- gfile.h
+|   |   |   |   |-- gfileattribute.h
+|   |   |   |   |-- gfileenumerator.h
+|   |   |   |   |-- gfileicon.h
+|   |   |   |   |-- gfileinfo.h
+|   |   |   |   |-- gfileinputstream.h
+|   |   |   |   |-- gfileiostream.h
+|   |   |   |   |-- gfilemonitor.h
+|   |   |   |   |-- gfilenamecompleter.h
+|   |   |   |   |-- gfileoutputstream.h
+|   |   |   |   |-- gfilterinputstream.h
+|   |   |   |   |-- gfilteroutputstream.h
+|   |   |   |   |-- gicon.h
+|   |   |   |   |-- ginetaddress.h
+|   |   |   |   |-- ginetsocketaddress.h
+|   |   |   |   |-- ginitable.h
+|   |   |   |   |-- ginputstream.h
+|   |   |   |   |-- gio.h
+|   |   |   |   |-- gioenums.h
+|   |   |   |   |-- gioenumtypes.h
+|   |   |   |   |-- gioerror.h
+|   |   |   |   |-- giomodule.h
+|   |   |   |   |-- gioscheduler.h
+|   |   |   |   |-- giostream.h
+|   |   |   |   |-- giotypes.h
+|   |   |   |   |-- gloadableicon.h
+|   |   |   |   |-- gmemoryinputstream.h
+|   |   |   |   |-- gmemoryoutputstream.h
+|   |   |   |   |-- gmount.h
+|   |   |   |   |-- gmountoperation.h
+|   |   |   |   |-- gnativevolumemonitor.h
+|   |   |   |   |-- gnetworkaddress.h
+|   |   |   |   |-- gnetworkservice.h
+|   |   |   |   |-- goutputstream.h
+|   |   |   |   |-- gpermission.h
+|   |   |   |   |-- gpollableinputstream.h
+|   |   |   |   |-- gpollableoutputstream.h
+|   |   |   |   |-- gproxy.h
+|   |   |   |   |-- gproxyaddress.h
+|   |   |   |   |-- gproxyaddressenumerator.h
+|   |   |   |   |-- gproxyresolver.h
+|   |   |   |   |-- gresolver.h
+|   |   |   |   |-- gseekable.h
+|   |   |   |   |-- gsettings.h
+|   |   |   |   |-- gsettingsbackend.h
+|   |   |   |   |-- gsimpleaction.h
+|   |   |   |   |-- gsimpleactiongroup.h
+|   |   |   |   |-- gsimpleasyncresult.h
+|   |   |   |   |-- gsimplepermission.h
+|   |   |   |   |-- gsocket.h
+|   |   |   |   |-- gsocketaddress.h
+|   |   |   |   |-- gsocketaddressenumerator.h
+|   |   |   |   |-- gsocketclient.h
+|   |   |   |   |-- gsocketconnectable.h
+|   |   |   |   |-- gsocketconnection.h
+|   |   |   |   |-- gsocketcontrolmessage.h
+|   |   |   |   |-- gsocketlistener.h
+|   |   |   |   |-- gsocketservice.h
+|   |   |   |   |-- gsrvtarget.h
+|   |   |   |   |-- gtcpconnection.h
+|   |   |   |   |-- gtcpwrapperconnection.h
+|   |   |   |   |-- gthemedicon.h
+|   |   |   |   |-- gthreadedsocketservice.h
+|   |   |   |   |-- gtlsbackend.h
+|   |   |   |   |-- gtlscertificate.h
+|   |   |   |   |-- gtlsclientconnection.h
+|   |   |   |   |-- gtlsconnection.h
+|   |   |   |   |-- gtlsserverconnection.h
+|   |   |   |   |-- gvfs.h
+|   |   |   |   |-- gvolume.h
+|   |   |   |   |-- gvolumemonitor.h
+|   |   |   |   |-- gzlibcompressor.h
+|   |   |   |   `-- gzlibdecompressor.h
+|   |   |   |-- glib
+|   |   |   |   |-- galloca.h
+|   |   |   |   |-- garray.h
+|   |   |   |   |-- gasyncqueue.h
+|   |   |   |   |-- gatomic.h
+|   |   |   |   |-- gbacktrace.h
+|   |   |   |   |-- gbase64.h
+|   |   |   |   |-- gbitlock.h
+|   |   |   |   |-- gbookmarkfile.h
+|   |   |   |   |-- gcache.h
+|   |   |   |   |-- gchecksum.h
+|   |   |   |   |-- gcompletion.h
+|   |   |   |   |-- gconvert.h
+|   |   |   |   |-- gdataset.h
+|   |   |   |   |-- gdate.h
+|   |   |   |   |-- gdatetime.h
+|   |   |   |   |-- gdir.h
+|   |   |   |   |-- gerror.h
+|   |   |   |   |-- gfileutils.h
+|   |   |   |   |-- ghash.h
+|   |   |   |   |-- ghook.h
+|   |   |   |   |-- ghostutils.h
+|   |   |   |   |-- gi18n-lib.h
+|   |   |   |   |-- gi18n.h
+|   |   |   |   |-- giochannel.h
+|   |   |   |   |-- gkeyfile.h
+|   |   |   |   |-- glist.h
+|   |   |   |   |-- gmacros.h
+|   |   |   |   |-- gmain.h
+|   |   |   |   |-- gmappedfile.h
+|   |   |   |   |-- gmarkup.h
+|   |   |   |   |-- gmem.h
+|   |   |   |   |-- gmessages.h
+|   |   |   |   |-- gnode.h
+|   |   |   |   |-- goption.h
+|   |   |   |   |-- gpattern.h
+|   |   |   |   |-- gpoll.h
+|   |   |   |   |-- gprimes.h
+|   |   |   |   |-- gprintf.h
+|   |   |   |   |-- gqsort.h
+|   |   |   |   |-- gquark.h
+|   |   |   |   |-- gqueue.h
+|   |   |   |   |-- grand.h
+|   |   |   |   |-- gregex.h
+|   |   |   |   |-- grel.h
+|   |   |   |   |-- gscanner.h
+|   |   |   |   |-- gsequence.h
+|   |   |   |   |-- gshell.h
+|   |   |   |   |-- gslice.h
+|   |   |   |   |-- gslist.h
+|   |   |   |   |-- gspawn.h
+|   |   |   |   |-- gstdio.h
+|   |   |   |   |-- gstrfuncs.h
+|   |   |   |   |-- gstring.h
+|   |   |   |   |-- gtestutils.h
+|   |   |   |   |-- gthread.h
+|   |   |   |   |-- gthreadpool.h
+|   |   |   |   |-- gtimer.h
+|   |   |   |   |-- gtimezone.h
+|   |   |   |   |-- gtree.h
+|   |   |   |   |-- gtypes.h
+|   |   |   |   |-- gunicode.h
+|   |   |   |   |-- gurifuncs.h
+|   |   |   |   |-- gutils.h
+|   |   |   |   |-- gvariant.h
+|   |   |   |   |-- gvarianttype.h
+|   |   |   |   `-- gwin32.h
+|   |   |   |-- glib-object.h
+|   |   |   |-- glib.h
+|   |   |   |-- gmodule.h
+|   |   |   `-- gobject
+|   |   |       |-- gbinding.h
+|   |   |       |-- gboxed.h
+|   |   |       |-- gclosure.h
+|   |   |       |-- genums.h
+|   |   |       |-- gmarshal.h
+|   |   |       |-- gobject.h
+|   |   |       |-- gobjectnotifyqueue.c
+|   |   |       |-- gparam.h
+|   |   |       |-- gparamspecs.h
+|   |   |       |-- gsignal.h
+|   |   |       |-- gsourceclosure.h
+|   |   |       |-- gtype.h
+|   |   |       |-- gtypemodule.h
+|   |   |       |-- gtypeplugin.h
+|   |   |       |-- gvalue.h
+|   |   |       |-- gvaluearray.h
+|   |   |       |-- gvaluecollector.h
+|   |   |       `-- gvaluetypes.h
+|   |   |-- gmp.h
+|   |   |-- gmpxx.h
+|   |   |-- gpg-error.h
+|   |   |-- gpm.h
+|   |   |-- gtk-2.0
+|   |   |   |-- gdk
+|   |   |   |   |-- gdk.h
+|   |   |   |   |-- gdkapplaunchcontext.h
+|   |   |   |   |-- gdkcairo.h
+|   |   |   |   |-- gdkcolor.h
+|   |   |   |   |-- gdkcursor.h
+|   |   |   |   |-- gdkdisplay.h
+|   |   |   |   |-- gdkdisplaymanager.h
+|   |   |   |   |-- gdkdnd.h
+|   |   |   |   |-- gdkdrawable.h
+|   |   |   |   |-- gdkenumtypes.h
+|   |   |   |   |-- gdkevents.h
+|   |   |   |   |-- gdkfont.h
+|   |   |   |   |-- gdkgc.h
+|   |   |   |   |-- gdki18n.h
+|   |   |   |   |-- gdkimage.h
+|   |   |   |   |-- gdkinput.h
+|   |   |   |   |-- gdkkeys.h
+|   |   |   |   |-- gdkkeysyms-compat.h
+|   |   |   |   |-- gdkkeysyms.h
+|   |   |   |   |-- gdkpango.h
+|   |   |   |   |-- gdkpixbuf.h
+|   |   |   |   |-- gdkpixmap.h
+|   |   |   |   |-- gdkprivate.h
+|   |   |   |   |-- gdkproperty.h
+|   |   |   |   |-- gdkregion.h
+|   |   |   |   |-- gdkrgb.h
+|   |   |   |   |-- gdkscreen.h
+|   |   |   |   |-- gdkselection.h
+|   |   |   |   |-- gdkspawn.h
+|   |   |   |   |-- gdktestutils.h
+|   |   |   |   |-- gdktypes.h
+|   |   |   |   |-- gdkvisual.h
+|   |   |   |   |-- gdkwindow.h
+|   |   |   |   `-- gdkx.h
+|   |   |   `-- gtk
+|   |   |       |-- gtk.h
+|   |   |       |-- gtkaboutdialog.h
+|   |   |       |-- gtkaccelgroup.h
+|   |   |       |-- gtkaccellabel.h
+|   |   |       |-- gtkaccelmap.h
+|   |   |       |-- gtkaccessible.h
+|   |   |       |-- gtkaction.h
+|   |   |       |-- gtkactiongroup.h
+|   |   |       |-- gtkactivatable.h
+|   |   |       |-- gtkadjustment.h
+|   |   |       |-- gtkalignment.h
+|   |   |       |-- gtkarrow.h
+|   |   |       |-- gtkaspectframe.h
+|   |   |       |-- gtkassistant.h
+|   |   |       |-- gtkbbox.h
+|   |   |       |-- gtkbin.h
+|   |   |       |-- gtkbindings.h
+|   |   |       |-- gtkbox.h
+|   |   |       |-- gtkbuildable.h
+|   |   |       |-- gtkbuilder.h
+|   |   |       |-- gtkbutton.h
+|   |   |       |-- gtkcalendar.h
+|   |   |       |-- gtkcelleditable.h
+|   |   |       |-- gtkcelllayout.h
+|   |   |       |-- gtkcellrenderer.h
+|   |   |       |-- gtkcellrendereraccel.h
+|   |   |       |-- gtkcellrenderercombo.h
+|   |   |       |-- gtkcellrendererpixbuf.h
+|   |   |       |-- gtkcellrendererprogress.h
+|   |   |       |-- gtkcellrendererspin.h
+|   |   |       |-- gtkcellrendererspinner.h
+|   |   |       |-- gtkcellrenderertext.h
+|   |   |       |-- gtkcellrenderertoggle.h
+|   |   |       |-- gtkcellview.h
+|   |   |       |-- gtkcheckbutton.h
+|   |   |       |-- gtkcheckmenuitem.h
+|   |   |       |-- gtkclipboard.h
+|   |   |       |-- gtkclist.h
+|   |   |       |-- gtkcolorbutton.h
+|   |   |       |-- gtkcolorsel.h
+|   |   |       |-- gtkcolorseldialog.h
+|   |   |       |-- gtkcombo.h
+|   |   |       |-- gtkcombobox.h
+|   |   |       |-- gtkcomboboxentry.h
+|   |   |       |-- gtkcomboboxtext.h
+|   |   |       |-- gtkcontainer.h
+|   |   |       |-- gtkctree.h
+|   |   |       |-- gtkcurve.h
+|   |   |       |-- gtkdebug.h
+|   |   |       |-- gtkdialog.h
+|   |   |       |-- gtkdnd.h
+|   |   |       |-- gtkdrawingarea.h
+|   |   |       |-- gtkeditable.h
+|   |   |       |-- gtkentry.h
+|   |   |       |-- gtkentrybuffer.h
+|   |   |       |-- gtkentrycompletion.h
+|   |   |       |-- gtkenums.h
+|   |   |       |-- gtkeventbox.h
+|   |   |       |-- gtkexpander.h
+|   |   |       |-- gtkfilechooser.h
+|   |   |       |-- gtkfilechooserbutton.h
+|   |   |       |-- gtkfilechooserdialog.h
+|   |   |       |-- gtkfilechooserwidget.h
+|   |   |       |-- gtkfilefilter.h
+|   |   |       |-- gtkfilesel.h
+|   |   |       |-- gtkfixed.h
+|   |   |       |-- gtkfontbutton.h
+|   |   |       |-- gtkfontsel.h
+|   |   |       |-- gtkframe.h
+|   |   |       |-- gtkgamma.h
+|   |   |       |-- gtkgc.h
+|   |   |       |-- gtkhandlebox.h
+|   |   |       |-- gtkhbbox.h
+|   |   |       |-- gtkhbox.h
+|   |   |       |-- gtkhpaned.h
+|   |   |       |-- gtkhruler.h
+|   |   |       |-- gtkhscale.h
+|   |   |       |-- gtkhscrollbar.h
+|   |   |       |-- gtkhseparator.h
+|   |   |       |-- gtkhsv.h
+|   |   |       |-- gtkiconfactory.h
+|   |   |       |-- gtkicontheme.h
+|   |   |       |-- gtkiconview.h
+|   |   |       |-- gtkimage.h
+|   |   |       |-- gtkimagemenuitem.h
+|   |   |       |-- gtkimcontext.h
+|   |   |       |-- gtkimcontextsimple.h
+|   |   |       |-- gtkimmodule.h
+|   |   |       |-- gtkimmulticontext.h
+|   |   |       |-- gtkinfobar.h
+|   |   |       |-- gtkinputdialog.h
+|   |   |       |-- gtkinvisible.h
+|   |   |       |-- gtkitem.h
+|   |   |       |-- gtkitemfactory.h
+|   |   |       |-- gtklabel.h
+|   |   |       |-- gtklayout.h
+|   |   |       |-- gtklinkbutton.h
+|   |   |       |-- gtklist.h
+|   |   |       |-- gtklistitem.h
+|   |   |       |-- gtkliststore.h
+|   |   |       |-- gtkmain.h
+|   |   |       |-- gtkmarshal.h
+|   |   |       |-- gtkmenu.h
+|   |   |       |-- gtkmenubar.h
+|   |   |       |-- gtkmenuitem.h
+|   |   |       |-- gtkmenushell.h
+|   |   |       |-- gtkmenutoolbutton.h
+|   |   |       |-- gtkmessagedialog.h
+|   |   |       |-- gtkmisc.h
+|   |   |       |-- gtkmodules.h
+|   |   |       |-- gtkmountoperation.h
+|   |   |       |-- gtknotebook.h
+|   |   |       |-- gtkobject.h
+|   |   |       |-- gtkoffscreenwindow.h
+|   |   |       |-- gtkoldeditable.h
+|   |   |       |-- gtkoptionmenu.h
+|   |   |       |-- gtkorientable.h
+|   |   |       |-- gtkpagesetup.h
+|   |   |       |-- gtkpaned.h
+|   |   |       |-- gtkpapersize.h
+|   |   |       |-- gtkpixmap.h
+|   |   |       |-- gtkplug.h
+|   |   |       |-- gtkpreview.h
+|   |   |       |-- gtkprintcontext.h
+|   |   |       |-- gtkprintoperation.h
+|   |   |       |-- gtkprintoperationpreview.h
+|   |   |       |-- gtkprintsettings.h
+|   |   |       |-- gtkprivate.h
+|   |   |       |-- gtkprogress.h
+|   |   |       |-- gtkprogressbar.h
+|   |   |       |-- gtkradioaction.h
+|   |   |       |-- gtkradiobutton.h
+|   |   |       |-- gtkradiomenuitem.h
+|   |   |       |-- gtkradiotoolbutton.h
+|   |   |       |-- gtkrange.h
+|   |   |       |-- gtkrc.h
+|   |   |       |-- gtkrecentaction.h
+|   |   |       |-- gtkrecentchooser.h
+|   |   |       |-- gtkrecentchooserdialog.h
+|   |   |       |-- gtkrecentchoosermenu.h
+|   |   |       |-- gtkrecentchooserwidget.h
+|   |   |       |-- gtkrecentfilter.h
+|   |   |       |-- gtkrecentmanager.h
+|   |   |       |-- gtkruler.h
+|   |   |       |-- gtkscale.h
+|   |   |       |-- gtkscalebutton.h
+|   |   |       |-- gtkscrollbar.h
+|   |   |       |-- gtkscrolledwindow.h
+|   |   |       |-- gtkselection.h
+|   |   |       |-- gtkseparator.h
+|   |   |       |-- gtkseparatormenuitem.h
+|   |   |       |-- gtkseparatortoolitem.h
+|   |   |       |-- gtksettings.h
+|   |   |       |-- gtkshow.h
+|   |   |       |-- gtksignal.h
+|   |   |       |-- gtksizegroup.h
+|   |   |       |-- gtksocket.h
+|   |   |       |-- gtkspinbutton.h
+|   |   |       |-- gtkspinner.h
+|   |   |       |-- gtkstatusbar.h
+|   |   |       |-- gtkstatusicon.h
+|   |   |       |-- gtkstock.h
+|   |   |       |-- gtkstyle.h
+|   |   |       |-- gtktable.h
+|   |   |       |-- gtktearoffmenuitem.h
+|   |   |       |-- gtktestutils.h
+|   |   |       |-- gtktext.h
+|   |   |       |-- gtktextbuffer.h
+|   |   |       |-- gtktextbufferrichtext.h
+|   |   |       |-- gtktextchild.h
+|   |   |       |-- gtktextdisplay.h
+|   |   |       |-- gtktextiter.h
+|   |   |       |-- gtktextlayout.h
+|   |   |       |-- gtktextmark.h
+|   |   |       |-- gtktexttag.h
+|   |   |       |-- gtktexttagtable.h
+|   |   |       |-- gtktextview.h
+|   |   |       |-- gtktipsquery.h
+|   |   |       |-- gtktoggleaction.h
+|   |   |       |-- gtktogglebutton.h
+|   |   |       |-- gtktoggletoolbutton.h
+|   |   |       |-- gtktoolbar.h
+|   |   |       |-- gtktoolbutton.h
+|   |   |       |-- gtktoolitem.h
+|   |   |       |-- gtktoolitemgroup.h
+|   |   |       |-- gtktoolpalette.h
+|   |   |       |-- gtktoolshell.h
+|   |   |       |-- gtktooltip.h
+|   |   |       |-- gtktooltips.h
+|   |   |       |-- gtktree.h
+|   |   |       |-- gtktreednd.h
+|   |   |       |-- gtktreeitem.h
+|   |   |       |-- gtktreemodel.h
+|   |   |       |-- gtktreemodelfilter.h
+|   |   |       |-- gtktreemodelsort.h
+|   |   |       |-- gtktreeselection.h
+|   |   |       |-- gtktreesortable.h
+|   |   |       |-- gtktreestore.h
+|   |   |       |-- gtktreeview.h
+|   |   |       |-- gtktreeviewcolumn.h
+|   |   |       |-- gtktypebuiltins.h
+|   |   |       |-- gtktypeutils.h
+|   |   |       |-- gtkuimanager.h
+|   |   |       |-- gtkvbbox.h
+|   |   |       |-- gtkvbox.h
+|   |   |       |-- gtkversion.h
+|   |   |       |-- gtkviewport.h
+|   |   |       |-- gtkvolumebutton.h
+|   |   |       |-- gtkvpaned.h
+|   |   |       |-- gtkvruler.h
+|   |   |       |-- gtkvscale.h
+|   |   |       |-- gtkvscrollbar.h
+|   |   |       |-- gtkvseparator.h
+|   |   |       |-- gtkwidget.h
+|   |   |       `-- gtkwindow.h
+|   |   |-- gtk-unix-print-2.0
+|   |   |   `-- gtk
+|   |   |       |-- gtkpagesetupunixdialog.h
+|   |   |       |-- gtkprinter.h
+|   |   |       |-- gtkprintjob.h
+|   |   |       |-- gtkprintunixdialog.h
+|   |   |       `-- gtkunixprint.h
+|   |   |-- gudev-1.0
+|   |   |   `-- gudev
+|   |   |       |-- gudev.h
+|   |   |       |-- gudevclient.h
+|   |   |       |-- gudevdevice.h
+|   |   |       |-- gudevenumerator.h
+|   |   |       |-- gudevenums.h
+|   |   |       |-- gudevenumtypes.h
+|   |   |       `-- gudevtypes.h
+|   |   |-- gvfs-client
+|   |   |   `-- gvfs
+|   |   |       |-- gvfsurimapper.h
+|   |   |       `-- gvfsuriutils.h
+|   |   |-- hal
+|   |   |   |-- libhal-storage.h
+|   |   |   `-- libhal.h
+|   |   |-- ical.h
+|   |   |-- icc34.h
+|   |   |-- id3
+|   |   |   |-- field.h
+|   |   |   |-- globals.h
+|   |   |   |-- id3lib_frame.h
+|   |   |   |-- id3lib_streams.h
+|   |   |   |-- id3lib_strings.h
+|   |   |   |-- misc_support.h
+|   |   |   |-- reader.h
+|   |   |   |-- readers.h
+|   |   |   |-- sized_types.h
+|   |   |   |-- tag.h
+|   |   |   |-- utils.h
+|   |   |   |-- writer.h
+|   |   |   `-- writers.h
+|   |   |-- id3.h
+|   |   |-- id3tag.h
+|   |   |-- idn-free.h
+|   |   |-- idn-int.h
+|   |   |-- idna.h
+|   |   |-- iodbcext.h
+|   |   |-- iodbcinst.h
+|   |   |-- iodbcunix.h
+|   |   |-- isql.h
+|   |   |-- isqlext.h
+|   |   |-- isqltypes.h
+|   |   |-- iwlib.h
+|   |   |-- jconfig.h
+|   |   |-- jerror.h
+|   |   |-- jmorecfg.h
+|   |   |-- jpeglib.h
+|   |   |-- k3b_export.h
+|   |   |-- k3bactivepipe.h
+|   |   |-- k3baudiocdtrackdrag.h
+|   |   |-- k3baudiocdtracksource.h
+|   |   |-- k3baudiocuefilewritingjob.h
+|   |   |-- k3baudiodatasource.h
+|   |   |-- k3baudiodatasourceiterator.h
+|   |   |-- k3baudiodecoder.h
+|   |   |-- k3baudiodoc.h
+|   |   |-- k3baudioencoder.h
+|   |   |-- k3baudiofile.h
+|   |   |-- k3baudiojob.h
+|   |   |-- k3baudiooutputplugin.h
+|   |   |-- k3baudiotrack.h
+|   |   |-- k3baudiozerodata.h
+|   |   |-- k3bbinimagewritingjob.h
+|   |   |-- k3bblankingjob.h
+|   |   |-- k3bbootitem.h
+|   |   |-- k3bbusywidget.h
+|   |   |-- k3bcdcopyjob.h
+|   |   |-- k3bcddb.h
+|   |   |-- k3bcddbresult.h
+|   |   |-- k3bcdparanoialib.h
+|   |   |-- k3bcdrdaowriter.h
+|   |   |-- k3bcdrecordwriter.h
+|   |   |-- k3bcdtext.h
+|   |   |-- k3bcdtextvalidator.h
+|   |   |-- k3bchecksumpipe.h
+|   |   |-- k3bclonejob.h
+|   |   |-- k3bcore.h
+|   |   |-- k3bcuefileparser.h
+|   |   |-- k3bcutcombobox.h
+|   |   |-- k3bdatadoc.h
+|   |   |-- k3bdataitem.h
+|   |   |-- k3bdatajob.h
+|   |   |-- k3bdebug.h
+|   |   |-- k3bdefaultexternalprograms.h
+|   |   |-- k3bdevice.h
+|   |   |-- k3bdevice_export.h
+|   |   |-- k3bdevicecombobox.h
+|   |   |-- k3bdeviceglobals.h
+|   |   |-- k3bdevicehandler.h
+|   |   |-- k3bdevicemanager.h
+|   |   |-- k3bdeviceselectiondialog.h
+|   |   |-- k3bdevicetypes.h
+|   |   |-- k3bdiritem.h
+|   |   |-- k3bdirsizejob.h
+|   |   |-- k3bdiskinfo.h
+|   |   |-- k3bdoc.h
+|   |   |-- k3bdvdcopyjob.h
+|   |   |-- k3bdvddoc.h
+|   |   |-- k3bdvdformattingjob.h
+|   |   |-- k3bdvdjob.h
+|   |   |-- k3bexceptions.h
+|   |   |-- k3bexternalbinmanager.h
+|   |   |-- k3bfileitem.h
+|   |   |-- k3bfilesplitter.h
+|   |   |-- k3bfilesysteminfo.h
+|   |   |-- k3bglobals.h
+|   |   |-- k3bglobalsettings.h
+|   |   |-- k3bgrowisofswriter.h
+|   |   |-- k3bhalconnection.h
+|   |   |-- k3bimagefilereader.h
+|   |   |-- k3binffilewriter.h
+|   |   |-- k3bintmapcombobox.h
+|   |   |-- k3bintvalidator.h
+|   |   |-- k3biso9660.h
+|   |   |-- k3biso9660backend.h
+|   |   |-- k3biso9660imagewritingjob.h
+|   |   |-- k3bisooptions.h
+|   |   |-- k3bjob.h
+|   |   |-- k3bjobhandler.h
+|   |   |-- k3blistview.h
+|   |   |-- k3blistviewitemanimator.h
+|   |   |-- k3bmd5job.h
+|   |   |-- k3bmixeddoc.h
+|   |   |-- k3bmixedjob.h
+|   |   |-- k3bmovixdoc.h
+|   |   |-- k3bmovixdvddoc.h
+|   |   |-- k3bmovixdvdjob.h
+|   |   |-- k3bmovixfileitem.h
+|   |   |-- k3bmovixjob.h
+|   |   |-- k3bmsf.h
+|   |   |-- k3bmsfedit.h
+|   |   |-- k3bmultichoicedialog.h
+|   |   |-- k3bpipe.h
+|   |   |-- k3bplugin.h
+|   |   |-- k3bpluginconfigwidget.h
+|   |   |-- k3bpluginfactory.h
+|   |   |-- k3bpluginmanager.h
+|   |   |-- k3bprocess.h
+|   |   |-- k3bprogressdialog.h
+|   |   |-- k3bprojectplugin.h
+|   |   |-- k3bpushbutton.h
+|   |   |-- k3bradioaction.h
+|   |   |-- k3brichtextlabel.h
+|   |   |-- k3bsignalwaiter.h
+|   |   |-- k3bsimplejobhandler.h
+|   |   |-- k3bstdguiitems.h
+|   |   |-- k3bstringutils.h
+|   |   |-- k3btempfile.h
+|   |   |-- k3bthread.h
+|   |   |-- k3bthreadjob.h
+|   |   |-- k3bthreadwidget.h
+|   |   |-- k3bthroughputestimator.h
+|   |   |-- k3btoc.h
+|   |   |-- k3btocfilewriter.h
+|   |   |-- k3btoolbox.h
+|   |   |-- k3btoolbutton.h
+|   |   |-- k3btrack.h
+|   |   |-- k3bvalidators.h
+|   |   |-- k3bvcddoc.h
+|   |   |-- k3bvcdjob.h
+|   |   |-- k3bvcdoptions.h
+|   |   |-- k3bverificationjob.h
+|   |   |-- k3bversion.h
+|   |   |-- k3bvideodvd.h
+|   |   |-- k3bvideodvdaudiostream.h
+|   |   |-- k3bvideodvddoc.h
+|   |   |-- k3bvideodvdjob.h
+|   |   |-- k3bvideodvdptt.h
+|   |   |-- k3bvideodvdsubpicturestream.h
+|   |   |-- k3bvideodvdtime.h
+|   |   |-- k3bvideodvdtitle.h
+|   |   |-- k3bvideodvdtitledetectclippingjob.h
+|   |   |-- k3bvideodvdtitletranscodingjob.h
+|   |   |-- k3bvideodvdvideostream.h
+|   |   |-- k3bwavefilewriter.h
+|   |   |-- kabc
+|   |   |   |-- address.h
+|   |   |   |-- addressbook.h
+|   |   |   |-- addressee.h
+|   |   |   |-- addresseedialog.h
+|   |   |   |-- addresseelist.h
+|   |   |   |-- addresslineedit.h
+|   |   |   |-- agent.h
+|   |   |   |-- distributionlist.h
+|   |   |   |-- distributionlistdialog.h
+|   |   |   |-- distributionlisteditor.h
+|   |   |   |-- errorhandler.h
+|   |   |   |-- field.h
+|   |   |   |-- format.h
+|   |   |   |-- formatfactory.h
+|   |   |   |-- formatplugin.h
+|   |   |   |-- geo.h
+|   |   |   |-- key.h
+|   |   |   |-- ldapclient.h
+|   |   |   |-- ldapconfigwidget.h
+|   |   |   |-- ldapurl.h
+|   |   |   |-- ldif.h
+|   |   |   |-- ldifconverter.h
+|   |   |   |-- lock.h
+|   |   |   |-- locknull.h
+|   |   |   |-- phonenumber.h
+|   |   |   |-- picture.h
+|   |   |   |-- plugin.h
+|   |   |   |-- resource.h
+|   |   |   |-- resourcedir.h
+|   |   |   |-- resourcefile.h
+|   |   |   |-- resourceldapkio.h
+|   |   |   |-- resourcenet.h
+|   |   |   |-- resourceselectdialog.h
+|   |   |   |-- secrecy.h
+|   |   |   |-- sortmode.h
+|   |   |   |-- sound.h
+|   |   |   |-- stdaddressbook.h
+|   |   |   |-- timezone.h
+|   |   |   |-- vcard.h
+|   |   |   |-- vcardconverter.h
+|   |   |   |-- vcardformat.h
+|   |   |   |-- vcardformatplugin.h
+|   |   |   |-- vcardline.h
+|   |   |   `-- vcardparser.h
+|   |   |-- kaboutapplication.h
+|   |   |-- kaboutdata.h
+|   |   |-- kaboutdialog.h
+|   |   |-- kaboutkde.h
+|   |   |-- kaccel.h
+|   |   |-- kaccelgen.h
+|   |   |-- kaccelmanager.h
+|   |   |-- kacl.h
+|   |   |-- kaction.h
+|   |   |-- kactionclasses.h
+|   |   |-- kactioncollection.h
+|   |   |-- kactionselector.h
+|   |   |-- kactionshortcutlist.h
+|   |   |-- kactivelabel.h
+|   |   |-- kallocator.h
+|   |   |-- kanimwidget.h
+|   |   |-- kapp.h
+|   |   |-- kapplication.h
+|   |   |-- kar.h
+|   |   |-- karchive.h
+|   |   |-- karrowbutton.h
+|   |   |-- kasyncio.h
+|   |   |-- kate
+|   |   |   |-- application.h
+|   |   |   |-- document.h
+|   |   |   |-- documentmanager.h
+|   |   |   |-- mainwindow.h
+|   |   |   |-- plugin.h
+|   |   |   |-- pluginconfiginterface.h
+|   |   |   |-- pluginconfiginterfaceextension.h
+|   |   |   |-- pluginmanager.h
+|   |   |   |-- toolviewmanager.h
+|   |   |   |-- utils
+|   |   |   |   |-- dockviewbase.h
+|   |   |   |   |-- listboxview.h
+|   |   |   |   `-- messageview.h
+|   |   |   |-- view.h
+|   |   |   `-- viewmanager.h
+|   |   |-- kaudioplayer.h
+|   |   |-- kauthicon.h
+|   |   |-- kautomount.h
+|   |   |-- kbookmark.h
+|   |   |-- kbookmarkbar.h
+|   |   |-- kbookmarkdombuilder.h
+|   |   |-- kbookmarkdrag.h
+|   |   |-- kbookmarkexporter.h
+|   |   |-- kbookmarkimporter.h
+|   |   |-- kbookmarkimporter_crash.h
+|   |   |-- kbookmarkimporter_ie.h
+|   |   |-- kbookmarkimporter_kde1.h
+|   |   |-- kbookmarkimporter_ns.h
+|   |   |-- kbookmarkimporter_opera.h
+|   |   |-- kbookmarkmanager.h
+|   |   |-- kbookmarkmenu.h
+|   |   |-- kbookmarknotifier.h
+|   |   |-- kbufferedio.h
+|   |   |-- kbufferedsocket.h
+|   |   |-- kbugreport.h
+|   |   |-- kbuttonbox.h
+|   |   |-- kcalendarsystem.h
+|   |   |-- kcalendarsystemfactory.h
+|   |   |-- kcanvasrootpixmap.h
+|   |   |-- kcarddialog.h
+|   |   |-- kcatalogue.h
+|   |   |-- kcharselect.h
+|   |   |-- kcharsets.h
+|   |   |-- kchat.h
+|   |   |-- kchatbase.h
+|   |   |-- kchatdialog.h
+|   |   |-- kclientsocketbase.h
+|   |   |-- kclipboard.h
+|   |   |-- kcmdlineargs.h
+|   |   |-- kcmenumngr.h
+|   |   |-- kcmodule.h
+|   |   |-- kcmodulecontainer.h
+|   |   |-- kcmoduleinfo.h
+|   |   |-- kcmoduleloader.h
+|   |   |-- kcmoduleproxy.h
+|   |   |-- kcmultidialog.h
+|   |   |-- kcoloractions.h
+|   |   |-- kcolorbtn.h
+|   |   |-- kcolorbutton.h
+|   |   |-- kcolorcombo.h
+|   |   |-- kcolordialog.h
+|   |   |-- kcolordlg.h
+|   |   |-- kcolordrag.h
+|   |   |-- kcombiview.h
+|   |   |-- kcombobox.h
+|   |   |-- kcommand.h
+|   |   |-- kcommondecoration.h
+|   |   |-- kcompletion.h
+|   |   |-- kcompletionbox.h
+|   |   |-- kconfig.h
+|   |   |-- kconfigbackend.h
+|   |   |-- kconfigbase.h
+|   |   |-- kconfigdata.h
+|   |   |-- kconfigdialog.h
+|   |   |-- kconfigdialogmanager.h
+|   |   |-- kconfigskeleton.h
+|   |   |-- kcpuinfo.h
+|   |   |-- kcrash.h
+|   |   |-- kcursor.h
+|   |   |-- kcustommenueditor.h
+|   |   |-- kcutlabel.h
+|   |   |-- kdatagramsocket.h
+|   |   |-- kdatastream.h
+|   |   |-- kdatatool.h
+|   |   |-- kdatepicker.h
+|   |   |-- kdatepik.h
+|   |   |-- kdatetbl.h
+|   |   |-- kdatetimewidget.h
+|   |   |-- kdatewidget.h
+|   |   |-- kdchart_export.h
+|   |   |-- kdcopactionproxy.h
+|   |   |-- kdcoppropertyproxy.h
+|   |   |-- kdcopservicestarter.h
+|   |   |-- kde.pot
+|   |   |-- kde_file.h
+|   |   |-- kde_terminal_interface.h
+|   |   |-- kdebug.h
+|   |   |-- kdebugclasses.h
+|   |   |-- kdecoration.h
+|   |   |-- kdecoration_p.h
+|   |   |-- kdecoration_plugins_p.h
+|   |   |-- kdecorationfactory.h
+|   |   |-- kdedmodule.h
+|   |   |-- kdelibs_export.h
+|   |   |-- kdemacros.h
+|   |   |-- kdeprint
+|   |   |   |-- driver.h
+|   |   |   |-- kiconselectaction.h
+|   |   |   |-- kmjob.h
+|   |   |   |-- kmjobmanager.h
+|   |   |   |-- kmjobviewer.h
+|   |   |   |-- kmmainview.h
+|   |   |   |-- kmmanager.h
+|   |   |   |-- kmobject.h
+|   |   |   |-- kmprinter.h
+|   |   |   |-- kmprinterpage.h
+|   |   |   |-- kmtimer.h
+|   |   |   |-- kpreloadobject.h
+|   |   |   |-- kprintdialog.h
+|   |   |   |-- kprintdialogpage.h
+|   |   |   `-- lpr
+|   |   |       |-- lprhandler.h
+|   |   |       |-- lprsettings.h
+|   |   |       `-- printcapentry.h
+|   |   |-- kdesktopfile.h
+|   |   |-- kdesu
+|   |   |   |-- client.h
+|   |   |   |-- defaults.h
+|   |   |   |-- kcookie.h
+|   |   |   |-- kdesu_pty.h
+|   |   |   |-- process.h
+|   |   |   |-- pty.h -> kdesu_pty.h
+|   |   |   |-- ssh.h
+|   |   |   |-- stub.h
+|   |   |   `-- su.h
+|   |   |-- kdeversion.h
+|   |   |-- kdialog.h
+|   |   |-- kdialogbase.h
+|   |   |-- kdirlister.h
+|   |   |-- kdirnotify.h
+|   |   |-- kdirnotify_stub.h
+|   |   |-- kdiroperator.h
+|   |   |-- kdirselectdialog.h
+|   |   |-- kdirsize.h
+|   |   |-- kdirwatch.h
+|   |   |-- kdiskfreesp.h
+|   |   |-- kdockwidget.h
+|   |   |-- kdockwindow.h
+|   |   |-- kdrawutil.h
+|   |   |-- kdualcolorbtn.h
+|   |   |-- kdualcolorbutton.h
+|   |   |-- keditcl.h
+|   |   |-- keditlistbox.h
+|   |   |-- kedittoolbar.h
+|   |   |-- kemailsettings.h
+|   |   |-- kencodingfiledialog.h
+|   |   |-- kexidb
+|   |   |   |-- admin.h
+|   |   |   |-- alter.h
+|   |   |   |-- connection.h
+|   |   |   |-- connectiondata.h
+|   |   |   |-- cursor.h
+|   |   |   |-- dbobjectnamevalidator.h
+|   |   |   |-- dbproperties.h
+|   |   |   |-- driver.h
+|   |   |   |-- driver_p.h
+|   |   |   |-- drivermanager.h
+|   |   |   |-- error.h
+|   |   |   |-- expression.h
+|   |   |   |-- field.h
+|   |   |   |-- fieldlist.h
+|   |   |   |-- fieldvalidator.h
+|   |   |   |-- global.h
+|   |   |   |-- indexschema.h
+|   |   |   |-- kexidb_export.h
+|   |   |   |-- keximigrate.h
+|   |   |   |-- keximigratedata.h
+|   |   |   |-- lookupfieldschema.h
+|   |   |   |-- migratemanager.h
+|   |   |   |-- msghandler.h
+|   |   |   |-- object.h
+|   |   |   |-- parser.h
+|   |   |   |-- preparedstatement.h
+|   |   |   |-- queryschema.h
+|   |   |   |-- queryschemaparameter.h
+|   |   |   |-- relationship.h
+|   |   |   |-- roweditbuffer.h
+|   |   |   |-- schemadata.h
+|   |   |   |-- simplecommandlineapp.h
+|   |   |   |-- tableschema.h
+|   |   |   |-- transaction.h
+|   |   |   `-- utils.h
+|   |   |-- kexiutils
+|   |   |   |-- identifier.h
+|   |   |   |-- kexiutils_export.h
+|   |   |   |-- longlongvalidator.h
+|   |   |   |-- styleproxy.h
+|   |   |   |-- tristate.h
+|   |   |   |-- utils.h
+|   |   |   `-- validator.h
+|   |   |-- kextendedsocket.h
+|   |   |-- kexthighscore.h
+|   |   |-- kexthighscore_item.h
+|   |   |-- kextsock.h
+|   |   |-- kfaximage.h
+|   |   |-- kfile.h
+|   |   |-- kfiledetailview.h
+|   |   |-- kfiledialog.h
+|   |   |-- kfilefilter.h
+|   |   |-- kfilefiltercombo.h
+|   |   |-- kfileiconview.h
+|   |   |-- kfileitem.h
+|   |   |-- kfileivi.h
+|   |   |-- kfilemetainfo.h
+|   |   |-- kfilepreview.h
+|   |   |-- kfileshare.h
+|   |   |-- kfilesharedlg.h
+|   |   |-- kfiletreebranch.h
+|   |   |-- kfiletreeview.h
+|   |   |-- kfiletreeviewitem.h
+|   |   |-- kfileview.h
+|   |   |-- kfilterbase.h
+|   |   |-- kfilterdev.h
+|   |   |-- kfind.h
+|   |   |-- kfinddialog.h
+|   |   |-- kfontcombo.h
+|   |   |-- kfontdialog.h
+|   |   |-- kfontrequester.h
+|   |   |-- kgame
+|   |   |   |-- kgame.h
+|   |   |   |-- kgamechat.h
+|   |   |   |-- kgameconnectdialog.h
+|   |   |   |-- kgamedebugdialog.h
+|   |   |   |-- kgamedialog.h
+|   |   |   |-- kgamedialogconfig.h
+|   |   |   |-- kgameerror.h
+|   |   |   |-- kgameerrordialog.h
+|   |   |   |-- kgameio.h
+|   |   |   |-- kgamemessage.h
+|   |   |   |-- kgamenetwork.h
+|   |   |   |-- kgameprocess.h
+|   |   |   |-- kgameproperty.h
+|   |   |   |-- kgamepropertyarray.h
+|   |   |   |-- kgamepropertyhandler.h
+|   |   |   |-- kgamepropertylist.h
+|   |   |   |-- kgamesequence.h
+|   |   |   |-- kgameversion.h
+|   |   |   |-- kmessageclient.h
+|   |   |   |-- kmessageio.h
+|   |   |   |-- kmessageserver.h
+|   |   |   `-- kplayer.h
+|   |   |-- kgamelcd.h
+|   |   |-- kgamemisc.h
+|   |   |-- kgameprogress.h
+|   |   |-- kgenericfactory.h
+|   |   |-- kgenericfactory.tcc
+|   |   |-- kglobal.h
+|   |   |-- kglobalaccel.h
+|   |   |-- kglobalsettings.h
+|   |   |-- kgreeterplugin.h
+|   |   |-- kgrid2d.h
+|   |   |-- kguiitem.h
+|   |   |-- khelpmenu.h
+|   |   |-- khexedit
+|   |   |   |-- byteseditinterface.h
+|   |   |   |-- charcolumninterface.h
+|   |   |   |-- clipboardinterface.h
+|   |   |   |-- valuecolumninterface.h
+|   |   |   `-- zoominterface.h
+|   |   |-- khighscore.h
+|   |   |-- khtml_events.h
+|   |   |-- khtml_part.h
+|   |   |-- khtml_settings.h
+|   |   |-- khtmldefaults.h
+|   |   |-- khtmlview.h
+|   |   |-- khttpproxysocketdevice.h
+|   |   |-- kickoff-search-plugin.h
+|   |   |-- kickoffsearchinterface.h
+|   |   |-- kicondialog.h
+|   |   |-- kiconeffect.h
+|   |   |-- kiconloader.h
+|   |   |-- kicontheme.h
+|   |   |-- kiconview.h
+|   |   |-- kiconviewsearchline.h
+|   |   |-- kidna.h
+|   |   |-- kimageeffect.h
+|   |   |-- kimagefilepreview.h
+|   |   |-- kimageio.h
+|   |   |-- kimiface.h
+|   |   |-- kimproxy.h
+|   |   |-- kimproxyiface.h
+|   |   |-- kinputdialog.h
+|   |   |-- kinstance.h
+|   |   |-- kio
+|   |   |   |-- authinfo.h
+|   |   |   |-- chmodjob.h
+|   |   |   |-- connection.h
+|   |   |   |-- davjob.h
+|   |   |   |-- defaultprogress.h
+|   |   |   |-- file.h
+|   |   |   |-- forwardingslavebase.h
+|   |   |   |-- global.h
+|   |   |   |-- http.h
+|   |   |   |-- http_slave_defaults.h
+|   |   |   |-- ioslave_defaults.h
+|   |   |   |-- job.h
+|   |   |   |-- jobclasses.h
+|   |   |   |-- kdesasl.h
+|   |   |   |-- kmdbase.h
+|   |   |   |-- kmdcodec.h
+|   |   |   |-- kntlm.h
+|   |   |   |-- metainfojob.h
+|   |   |   |-- netaccess.h
+|   |   |   |-- observer.h
+|   |   |   |-- passdlg.h
+|   |   |   |-- paste.h
+|   |   |   |-- previewjob.h
+|   |   |   |-- progressbase.h
+|   |   |   |-- renamedlg.h
+|   |   |   |-- scheduler.h
+|   |   |   |-- sessiondata.h
+|   |   |   |-- skipdlg.h
+|   |   |   |-- slave.h
+|   |   |   |-- slavebase.h
+|   |   |   |-- slaveconfig.h
+|   |   |   |-- slaveinterface.h
+|   |   |   |-- statusbarprogress.h
+|   |   |   |-- tcpslavebase.h
+|   |   |   |-- thumbcreator.h
+|   |   |   |-- uiserver.h
+|   |   |   `-- uiserver_stub.h
+|   |   |-- kiobuffer.h
+|   |   |-- kipc.h
+|   |   |-- kis_abstract_colorspace.h
+|   |   |-- kis_adjustment_layer.h
+|   |   |-- kis_alpha_mask.h
+|   |   |-- kis_annotation.h
+|   |   |-- kis_autobrush_resource.h
+|   |   |-- kis_autogradient_resource.h
+|   |   |-- kis_background.h
+|   |   |-- kis_basic_histogram_producers.h
+|   |   |-- kis_boundary.h
+|   |   |-- kis_brush.h
+|   |   |-- kis_button_event.h
+|   |   |-- kis_button_release_event.h
+|   |   |-- kis_canvas_controller.h
+|   |   |-- kis_canvas_observer.h
+|   |   |-- kis_canvas_painter.h
+|   |   |-- kis_canvas_subject.h
+|   |   |-- kis_channelinfo.h
+|   |   |-- kis_cmb_composite.h
+|   |   |-- kis_cmb_idlist.h
+|   |   |-- kis_color.h
+|   |   |-- kis_color_cup.h
+|   |   |-- kis_colorspace.h
+|   |   |-- kis_colorspace_factory_registry.h
+|   |   |-- kis_command.h
+|   |   |-- kis_composite_op.h
+|   |   |-- kis_config.h
+|   |   |-- kis_convolution_painter.h
+|   |   |-- kis_cursor.h
+|   |   |-- kis_doc.h
+|   |   |-- kis_doc_iface.h
+|   |   |-- kis_double_click_event.h
+|   |   |-- kis_double_widget.h
+|   |   |-- kis_event.h
+|   |   |-- kis_exif_info.h
+|   |   |-- kis_exif_value.h
+|   |   |-- kis_f16half_base_colorspace.h
+|   |   |-- kis_f32_base_colorspace.h
+|   |   |-- kis_fill_painter.h
+|   |   |-- kis_filter.h
+|   |   |-- kis_filter_config_widget.h
+|   |   |-- kis_filter_configuration.h
+|   |   |-- kis_filter_manager.h
+|   |   |-- kis_filter_registry.h
+|   |   |-- kis_filter_strategy.h
+|   |   |-- kis_filters_listview.h
+|   |   |-- kis_generic_registry.h
+|   |   |-- kis_global.h
+|   |   |-- kis_gradient.h
+|   |   |-- kis_gradient_chooser.h
+|   |   |-- kis_gradient_painter.h
+|   |   |-- kis_gradient_slider_widget.h
+|   |   |-- kis_histogram.h
+|   |   |-- kis_histogram_producer.h
+|   |   |-- kis_histogram_view.h
+|   |   |-- kis_icon_item.h
+|   |   |-- kis_iconwidget.h
+|   |   |-- kis_id.h
+|   |   |-- kis_image.h
+|   |   |-- kis_image_iface.h
+|   |   |-- kis_imagepipe_brush.h
+|   |   |-- kis_input_device.h
+|   |   |-- kis_int_spinbox.h
+|   |   |-- kis_integer_maths.h
+|   |   |-- kis_itemchooser.h
+|   |   |-- kis_iterator.h
+|   |   |-- kis_iteratorpixeltrait.h
+|   |   |-- kis_iterators_pixel.h
+|   |   |-- kis_label_zoom.h
+|   |   |-- kis_layer.h
+|   |   |-- kis_layer_visitor.h
+|   |   |-- kis_layerbox.h
+|   |   |-- kis_layerlist.h
+|   |   |-- kis_matrix_widget.ui.h
+|   |   |-- kis_meta_registry.h
+|   |   |-- kis_move_event.h
+|   |   |-- kis_multi_bool_filter_widget.h
+|   |   |-- kis_multi_double_filter_widget.h
+|   |   |-- kis_multi_integer_filter_widget.h
+|   |   |-- kis_nameserver.h
+|   |   |-- kis_opengl_image_context.h
+|   |   |-- kis_paint_device.h
+|   |   |-- kis_paint_device_iface.h
+|   |   |-- kis_paint_layer.h
+|   |   |-- kis_painter.h
+|   |   |-- kis_paintop.h
+|   |   |-- kis_paintop_box.h
+|   |   |-- kis_paintop_registry.h
+|   |   |-- kis_palette.h
+|   |   |-- kis_palette_widget.h
+|   |   |-- kis_pattern.h
+|   |   |-- kis_perspective_math.h
+|   |   |-- kis_point.h
+|   |   |-- kis_previewdialog.h
+|   |   |-- kis_previewwidget.h
+|   |   |-- kis_profile.h
+|   |   |-- kis_progress_display_interface.h
+|   |   |-- kis_progress_subject.h
+|   |   |-- kis_rect.h
+|   |   |-- kis_resource.h
+|   |   |-- kis_scale_visitor.h
+|   |   |-- kis_selection.h
+|   |   |-- kis_shared_ptr_vector.h
+|   |   |-- kis_substrate.h
+|   |   |-- kis_tileddatamanager.h
+|   |   |-- kis_tool.h
+|   |   |-- kis_tool_controller.h
+|   |   |-- kis_tool_dummy.h
+|   |   |-- kis_tool_factory.h
+|   |   |-- kis_tool_freehand.h
+|   |   |-- kis_tool_manager.h
+|   |   |-- kis_tool_non_paint.h
+|   |   |-- kis_tool_paint.h
+|   |   |-- kis_tool_registry.h
+|   |   |-- kis_tool_types.h
+|   |   |-- kis_transaction.h
+|   |   |-- kis_transform_worker.h
+|   |   |-- kis_types.h
+|   |   |-- kis_u16_base_colorspace.h
+|   |   |-- kis_u8_base_colorspace.h
+|   |   |-- kis_undo_adapter.h
+|   |   |-- kis_vec.h
+|   |   |-- kis_view.h
+|   |   |-- kivdirectoryoverlay.h
+|   |   |-- kjanuswidget.h
+|   |   |-- kjs
+|   |   |   |-- completion.h
+|   |   |   |-- function.h
+|   |   |   |-- global.h
+|   |   |   |-- identifier.h
+|   |   |   |-- interpreter.h
+|   |   |   |-- list.h
+|   |   |   |-- lookup.h
+|   |   |   |-- object.h
+|   |   |   |-- operations.h
+|   |   |   |-- property_map.h
+|   |   |   |-- reference.h
+|   |   |   |-- reference_list.h
+|   |   |   |-- scope_chain.h
+|   |   |   |-- simple_number.h
+|   |   |   |-- types.h
+|   |   |   |-- ustring.h
+|   |   |   `-- value.h
+|   |   |-- kjsembed
+|   |   |   |-- customobject_imp.h
+|   |   |   |-- global.h
+|   |   |   |-- jsbinding.h
+|   |   |   |-- jsbindingplugin.h
+|   |   |   |-- jsbuiltin.h
+|   |   |   |-- jsbuiltin_imp.h
+|   |   |   |-- jsconsolewidget.h
+|   |   |   |-- jseventmapper.h
+|   |   |   |-- jseventutils.h
+|   |   |   |-- jsfactory.h
+|   |   |   |-- jsfactory_imp.h
+|   |   |   |-- jsobjecteventproxy.h
+|   |   |   |-- jsobjectproxy.h
+|   |   |   |-- jsobjectproxy_imp.h
+|   |   |   |-- jsopaqueproxy.h
+|   |   |   |-- jsopaqueproxy_imp.h
+|   |   |   |-- jsproxy.h
+|   |   |   |-- jsproxy_imp.h
+|   |   |   |-- jssecuritypolicy.h
+|   |   |   |-- jsvalueproxy.h
+|   |   |   |-- jsvalueproxy_imp.h
+|   |   |   |-- kjsembedpart.h
+|   |   |   |-- kjsembedpart_imp.h
+|   |   |   |-- slotproxy.h
+|   |   |   |-- slotutils.h
+|   |   |   `-- xmlactionclient.h
+|   |   |-- kkbdaccessextensions.h
+|   |   |-- kkeybutton.h
+|   |   |-- kkeydialog.h
+|   |   |-- kkeynative.h
+|   |   |-- klanguagebutton.h
+|   |   |-- klargefile.h
+|   |   |-- kled.h
+|   |   |-- klibloader.h
+|   |   |-- klineedit.h
+|   |   |-- klineeditdlg.h
+|   |   |-- klistbox.h
+|   |   |-- klistview.h
+|   |   |-- klistviewsearchline.h
+|   |   |-- klocale.h
+|   |   |-- klockfile.h
+|   |   |-- kmacroexpander.h
+|   |   |-- kmainwindow.h
+|   |   |-- kmainwindowiface.h
+|   |   |-- kmanagerselection.h
+|   |   |-- kmdcodec.h
+|   |   |-- kmdi
+|   |   |   |-- global.h
+|   |   |   |-- mainwindow.h
+|   |   |   |-- tabwidget.h
+|   |   |   `-- toolviewaccessor.h
+|   |   |-- kmdichildarea.h
+|   |   |-- kmdichildfrm.h
+|   |   |-- kmdichildfrmcaption.h
+|   |   |-- kmdichildview.h
+|   |   |-- kmdidefines.h
+|   |   |-- kmdiiterator.h
+|   |   |-- kmdilistiterator.h
+|   |   |-- kmdimainfrm.h
+|   |   |-- kmdinulliterator.h
+|   |   |-- kmditaskbar.h
+|   |   |-- kmditoolviewaccessor.h
+|   |   |-- kmediaplayer
+|   |   |   |-- player.h
+|   |   |   |-- playerdcopobject.h
+|   |   |   `-- view.h
+|   |   |-- kmenubar.h
+|   |   |-- kmessagebox.h
+|   |   |-- kmimemagic.h
+|   |   |-- kmimesourcefactory.h
+|   |   |-- kmimetype.h
+|   |   |-- kmimetypechooser.h
+|   |   |-- kmimetyperesolver.h
+|   |   |-- kmountpoint.h
+|   |   |-- kmulticastsocket.h
+|   |   |-- kmulticastsocketdevice.h
+|   |   |-- kmultiformlistbox.h
+|   |   |-- kmultiformlistboxentry.h
+|   |   |-- kmultiformlistboxfactory.h
+|   |   |-- kmultipageInterface.h
+|   |   |-- kmultipledrag.h
+|   |   |-- kmultitabbar.h
+|   |   |-- knetworkinterface.h
+|   |   |-- knewmenu.h
+|   |   |-- knewstuff
+|   |   |   |-- downloaddialog.h
+|   |   |   |-- engine.h
+|   |   |   |-- entry.h
+|   |   |   |-- knewstuff.h
+|   |   |   |-- knewstuffbutton.h
+|   |   |   |-- knewstuffgeneric.h
+|   |   |   |-- knewstuffsecure.h
+|   |   |   |-- provider.h
+|   |   |   |-- providerdialog.h
+|   |   |   `-- uploaddialog.h
+|   |   |-- knfsshare.h
+|   |   |-- knotifyclient.h
+|   |   |-- knotifydialog.h
+|   |   |-- knotifywidgetbase.h
+|   |   |-- knuminput.h
+|   |   |-- knumvalidator.h
+|   |   |-- koChart.h
+|   |   |-- kobirdeyepanel.h
+|   |   |-- koffice_export.h
+|   |   |-- kofficeversion.h
+|   |   |-- kolf
+|   |   |   |-- ball.h
+|   |   |   |-- canvasitem.h
+|   |   |   |-- config.h
+|   |   |   |-- floater.h
+|   |   |   |-- game.h
+|   |   |   |-- object.h
+|   |   |   |-- rtti.h
+|   |   |   |-- slope.h
+|   |   |   |-- statedb.h
+|   |   |   `-- vector.h
+|   |   |-- konq_defaults.h
+|   |   |-- konq_dirpart.h
+|   |   |-- konq_drag.h
+|   |   |-- konq_events.h
+|   |   |-- konq_faviconmgr.h
+|   |   |-- konq_filetip.h
+|   |   |-- konq_historycomm.h
+|   |   |-- konq_historymgr.h
+|   |   |-- konq_iconviewwidget.h
+|   |   |-- konq_operations.h
+|   |   |-- konq_pixmapprovider.h
+|   |   |-- konq_popupmenu.h
+|   |   |-- konq_propsview.h
+|   |   |-- konq_settings.h
+|   |   |-- konq_undo.h
+|   |   |-- konq_xmlguiclient.h
+|   |   |-- konqbookmarkmanager.h
+|   |   |-- konqsidebarplugin.h
+|   |   |-- kopalettemanager.h
+|   |   |-- kopenssl.h
+|   |   |-- kopenwith.h
+|   |   |-- kopete
+|   |   |   |-- kabcpersistence.h
+|   |   |   |-- kopete_export.h
+|   |   |   |-- kopeteaccount.h
+|   |   |   |-- kopeteaccountmanager.h
+|   |   |   |-- kopeteaway.h
+|   |   |   |-- kopeteawayaction.h
+|   |   |   |-- kopeteawaydialog.h
+|   |   |   |-- kopeteblacklister.h
+|   |   |   |-- kopetechatsession.h
+|   |   |   |-- kopetechatsessionmanager.h
+|   |   |   |-- kopetecommandhandler.h
+|   |   |   |-- kopetecontact.h
+|   |   |   |-- kopetecontactlist.h
+|   |   |   |-- kopetecontactlistelement.h
+|   |   |   |-- kopetecontactproperty.h
+|   |   |   |-- kopeteeventpresentation.h
+|   |   |   |-- kopeteglobal.h
+|   |   |   |-- kopetegroup.h
+|   |   |   |-- kopetemessage.h
+|   |   |   |-- kopetemessageevent.h
+|   |   |   |-- kopetemessagehandler.h
+|   |   |   |-- kopetemessagehandlerchain.h
+|   |   |   |-- kopetemetacontact.h
+|   |   |   |-- kopetemimetypehandler.h
+|   |   |   |-- kopetenotifydataobject.h
+|   |   |   |-- kopeteonlinestatus.h
+|   |   |   |-- kopeteonlinestatusmanager.h
+|   |   |   |-- kopetepassword.h
+|   |   |   |-- kopetepasswordedaccount.h
+|   |   |   |-- kopetepicture.h
+|   |   |   |-- kopeteplugin.h
+|   |   |   |-- kopetepluginmanager.h
+|   |   |   |-- kopeteprefs.h
+|   |   |   |-- kopeteprotocol.h
+|   |   |   |-- kopetesimplemessagehandler.h
+|   |   |   |-- kopetetask.h
+|   |   |   |-- kopetetransfermanager.h
+|   |   |   |-- kopeteuiglobal.h
+|   |   |   |-- kopeteversion.h
+|   |   |   |-- managedconnectionaccount.h
+|   |   |   |-- ui
+|   |   |   |   |-- accountselector.h
+|   |   |   |   |-- addcontactpage.h
+|   |   |   |   |-- addressbooklinkwidget.h
+|   |   |   |   |-- addressbookselectordialog.h
+|   |   |   |   |-- addressbookselectorwidget.h
+|   |   |   |   |-- editaccountwidget.h
+|   |   |   |   |-- fileconfirmbase.h
+|   |   |   |   |-- kopeteawaydialogbase.h
+|   |   |   |   |-- kopetecontactaction.h
+|   |   |   |   |-- kopetefileconfirmdialog.h
+|   |   |   |   |-- kopetelistview.h
+|   |   |   |   |-- kopetelistviewitem.h
+|   |   |   |   |-- kopetelistviewsearchline.h
+|   |   |   |   |-- kopetepassworddialog.h
+|   |   |   |   |-- kopetepasswordwidget.h
+|   |   |   |   |-- kopetepasswordwidgetbase.h
+|   |   |   |   |-- kopetestdaction.h
+|   |   |   |   |-- kopeteview.h
+|   |   |   |   |-- kopeteviewplugin.h
+|   |   |   |   `-- userinfodialog.h
+|   |   |   `-- webcamwidget.h
+|   |   |-- kpalette.h
+|   |   |-- kpanelapplet.h
+|   |   |-- kpanelappmenu.h
+|   |   |-- kpanelextension.h
+|   |   |-- kpanelmenu.h
+|   |   |-- kparts
+|   |   |   |-- browserextension.h
+|   |   |   |-- browserinterface.h
+|   |   |   |-- browserrun.h
+|   |   |   |-- componentfactory.h
+|   |   |   |-- dockmainwindow.h
+|   |   |   |-- event.h
+|   |   |   |-- factory.h
+|   |   |   |-- genericfactory.h
+|   |   |   |-- historyprovider.h
+|   |   |   |-- mainwindow.h
+|   |   |   |-- part.h
+|   |   |   |-- partmanager.h
+|   |   |   |-- plugin.h
+|   |   |   `-- statusbarextension.h
+|   |   |-- kpassdlg.h
+|   |   |-- kpassivepopup.h
+|   |   |-- kpixmap.h
+|   |   |-- kpixmapeffect.h
+|   |   |-- kpixmapio.h
+|   |   |-- kpixmapprovider.h
+|   |   |-- kpixmapregionselectordialog.h
+|   |   |-- kpixmapregionselectorwidget.h
+|   |   |-- kpixmapsplitter.h
+|   |   |-- kplugininfo.h
+|   |   |-- kpluginselector.h
+|   |   |-- kpopupmenu.h
+|   |   |-- kpreviewwidgetbase.h
+|   |   |-- kprintaction.h
+|   |   |-- kprinter.h
+|   |   |-- kprocctrl.h
+|   |   |-- kprocess.h
+|   |   |-- kprocio.h
+|   |   |-- kprogress.h
+|   |   |-- kprogressbox.h
+|   |   |-- kpropertiesdialog.h
+|   |   |-- kpropsdlg.h
+|   |   |-- kprotocolinfo.h
+|   |   |-- kprotocolmanager.h
+|   |   |-- kpty.h
+|   |   |-- kpushbutton.h
+|   |   |-- krandomsequence.h
+|   |   |-- krecentdocument.h
+|   |   |-- kregexp.h
+|   |   |-- kregexpeditorinterface.h
+|   |   |-- kremoteencoding.h
+|   |   |-- kreplace.h
+|   |   |-- kreplacedialog.h
+|   |   |-- kresolver.h
+|   |   |-- kresources
+|   |   |   |-- configdialog.h
+|   |   |   |-- configpage.h
+|   |   |   |-- configwidget.h
+|   |   |   |-- factory.h
+|   |   |   |-- manager.h
+|   |   |   |-- manageriface.h
+|   |   |   |-- managerimpl.h
+|   |   |   |-- resource.h
+|   |   |   `-- selectdialog.h
+|   |   |-- krestrictedline.h
+|   |   |-- kreverseresolver.h
+|   |   |-- krfcdate.h
+|   |   |-- krootpixmap.h
+|   |   |-- krootprop.h
+|   |   |-- kross
+|   |   |   |-- api
+|   |   |   |   |-- callable.h
+|   |   |   |   |-- class.h
+|   |   |   |   |-- dict.h
+|   |   |   |   |-- event.h
+|   |   |   |   |-- eventaction.h
+|   |   |   |   |-- eventscript.h
+|   |   |   |   |-- eventsignal.h
+|   |   |   |   |-- eventslot.h
+|   |   |   |   |-- exception.h
+|   |   |   |   |-- function.h
+|   |   |   |   |-- interpreter.h
+|   |   |   |   |-- list.h
+|   |   |   |   |-- module.h
+|   |   |   |   |-- object.h
+|   |   |   |   |-- proxy.h
+|   |   |   |   |-- qtobject.h
+|   |   |   |   |-- script.h
+|   |   |   |   |-- value.h
+|   |   |   |   `-- variant.h
+|   |   |   `-- main
+|   |   |       |-- krossconfig.h
+|   |   |       |-- mainmodule.h
+|   |   |       |-- manager.h
+|   |   |       |-- scriptaction.h
+|   |   |       |-- scriptcontainer.h
+|   |   |       |-- scriptguiclient.h
+|   |   |       |-- wdgscriptsmanager.h
+|   |   |       `-- wdgscriptsmanagerbase.h
+|   |   |-- kruler.h
+|   |   |-- krun.h
+|   |   |-- ksambashare.h
+|   |   |-- ksavefile.h
+|   |   |-- ksaver.h
+|   |   |-- kscan.h
+|   |   |-- ksconfig.h
+|   |   |-- kscoredialog.h
+|   |   |-- kscreensaver.h
+|   |   |-- kscreensaver_vroot.h
+|   |   |-- kscrollview.h
+|   |   |-- kselect.h
+|   |   |-- kseparator.h
+|   |   |-- kserversocket.h
+|   |   |-- kservice.h
+|   |   |-- kservicegroup.h
+|   |   |-- kservicetype.h
+|   |   |-- ksettings
+|   |   |   |-- componentsdialog.h
+|   |   |   |-- dialog.h
+|   |   |   |-- dispatcher.h
+|   |   |   `-- pluginpage.h
+|   |   |-- ksgrd
+|   |   |   |-- HostConnector.h
+|   |   |   |-- SensorAgent.h
+|   |   |   |-- SensorClient.h
+|   |   |   |-- SensorManager.h
+|   |   |   |-- SensorShellAgent.h
+|   |   |   |-- SensorSocketAgent.h
+|   |   |   |-- StyleEngine.h
+|   |   |   |-- StyleSettings.h
+|   |   |   `-- TimerSettings.h
+|   |   |-- ksharedpixmap.h
+|   |   |-- ksharedptr.h
+|   |   |-- kshell.h
+|   |   |-- kshellcompletion.h
+|   |   |-- kshortcut.h
+|   |   |-- kshortcutdialog.h
+|   |   |-- kshortcutlist.h
+|   |   |-- kshred.h
+|   |   |-- ksim
+|   |   |   |-- chart.h
+|   |   |   |-- common.h
+|   |   |   |-- ksimconfig.h
+|   |   |   |-- label.h
+|   |   |   |-- led.h
+|   |   |   |-- pluginglobal.h
+|   |   |   |-- pluginloader.h
+|   |   |   |-- pluginmodule.h
+|   |   |   |-- progress.h
+|   |   |   |-- themeloader.h
+|   |   |   `-- themetypes.h
+|   |   |-- ksimpleconfig.h
+|   |   |-- ksmimecrypto.h
+|   |   |-- ksock.h
+|   |   |-- ksockaddr.h
+|   |   |-- ksocketaddress.h
+|   |   |-- ksocketbase.h
+|   |   |-- ksocketdevice.h
+|   |   |-- ksocks.h
+|   |   |-- ksockssocketdevice.h
+|   |   |-- ksortablevaluelist.h
+|   |   |-- kspeech.h
+|   |   |-- kspeechsink.h
+|   |   |-- kspell.h
+|   |   |-- kspell2
+|   |   |   |-- backgroundchecker.h
+|   |   |   |-- broker.h
+|   |   |   |-- configdialog.h
+|   |   |   |-- configwidget.h
+|   |   |   |-- defaultdictionary.h
+|   |   |   |-- dialog.h
+|   |   |   |-- dictionary.h
+|   |   |   |-- filter.h
+|   |   |   |-- highlighter.h
+|   |   |   `-- settings.h
+|   |   |-- kspelldlg.h
+|   |   |-- ksplash
+|   |   |   |-- objkstheme.h
+|   |   |   `-- themeengine.h
+|   |   |-- ksplashscreen.h
+|   |   |-- ksqueezedtextlabel.h
+|   |   |-- kssl.h
+|   |   |-- ksslall.h
+|   |   |-- ksslcertchain.h
+|   |   |-- ksslcertdlg.h
+|   |   |-- ksslcertificate.h
+|   |   |-- ksslcertificatecache.h
+|   |   |-- ksslcertificatefactory.h
+|   |   |-- ksslcertificatehome.h
+|   |   |-- ksslconfig.h
+|   |   |-- ksslconnectioninfo.h
+|   |   |-- ksslinfodlg.h
+|   |   |-- ksslkeygen.h
+|   |   |-- ksslpeerinfo.h
+|   |   |-- ksslpemcallback.h
+|   |   |-- ksslpkcs12.h
+|   |   |-- ksslpkcs7.h
+|   |   |-- ksslsession.h
+|   |   |-- ksslsettings.h
+|   |   |-- ksslsigners.h
+|   |   |-- ksslutils.h
+|   |   |-- ksslx509map.h
+|   |   |-- ksslx509v3.h
+|   |   |-- kstandarddirs.h
+|   |   |-- kstartupinfo.h
+|   |   |-- kstaticdeleter.h
+|   |   |-- kstatusbar.h
+|   |   |-- kstdaccel.h
+|   |   |-- kstdaction.h
+|   |   |-- kstddirs.h
+|   |   |-- kstdgameaction.h
+|   |   |-- kstdguiitem.h
+|   |   |-- kstreamsocket.h
+|   |   |-- kstringhandler.h
+|   |   |-- kstringvalidator.h
+|   |   |-- kstyle.h
+|   |   |-- ksvg
+|   |   |   |-- CanvasFactory.h
+|   |   |   |-- CanvasItem.h
+|   |   |   |-- CanvasItems.h
+|   |   |   |-- DocumentFactory.h
+|   |   |   |-- KSVGCanvas.h
+|   |   |   `-- ksvg_plugin.h
+|   |   |-- ksvgiconengine.h
+|   |   |-- kswitchlanguagedialog.h
+|   |   |-- ksycoca.h
+|   |   |-- ksycocaentry.h
+|   |   |-- ksycocatype.h
+|   |   |-- ksyntaxhighlighter.h
+|   |   |-- ksystemtray.h
+|   |   |-- ktabbar.h
+|   |   |-- ktabctl.h
+|   |   |-- ktabwidget.h
+|   |   |-- ktar.h
+|   |   |-- ktempdir.h
+|   |   |-- ktempfile.h
+|   |   |-- ktextbrowser.h
+|   |   |-- ktextedit.h
+|   |   |-- ktexteditor
+|   |   |   |-- blockselectioninterface.h
+|   |   |   |-- clipboardinterface.h
+|   |   |   |-- codecompletioninterface.h
+|   |   |   |-- configinterface.h
+|   |   |   |-- configinterfaceextension.h
+|   |   |   |-- cursorinterface.h
+|   |   |   |-- document.h
+|   |   |   |-- documentinfo.h
+|   |   |   |-- dynwordwrapinterface.h
+|   |   |   |-- editinterface.h
+|   |   |   |-- editinterfaceext.h
+|   |   |   |-- editor.h
+|   |   |   |-- editorchooser.h
+|   |   |   |-- encodinginterface.h
+|   |   |   |-- highlightinginterface.h
+|   |   |   |-- markinterface.h
+|   |   |   |-- markinterfaceextension.h
+|   |   |   |-- plugin.h
+|   |   |   |-- popupmenuinterface.h
+|   |   |   |-- printinterface.h
+|   |   |   |-- searchinterface.h
+|   |   |   |-- selectionextdcopinterface.h
+|   |   |   |-- selectioninterface.h
+|   |   |   |-- selectioninterfaceext.h
+|   |   |   |-- sessionconfiginterface.h
+|   |   |   |-- templateinterface.h
+|   |   |   |-- texthintinterface.h
+|   |   |   |-- undointerface.h
+|   |   |   |-- variableinterface.h
+|   |   |   |-- view.h
+|   |   |   |-- viewcursorinterface.h
+|   |   |   |-- viewstatusmsginterface.h
+|   |   |   `-- wordwrapinterface.h
+|   |   |-- ktimewidget.h
+|   |   |-- ktimezones.h
+|   |   |-- ktimezonewidget.h
+|   |   |-- ktip.h
+|   |   |-- ktoolbar.h
+|   |   |-- ktoolbarbutton.h
+|   |   |-- ktoolbarlabelaction.h
+|   |   |-- ktoolbarradiogroup.h
+|   |   |-- ktrader.h
+|   |   |-- ktypelist.h
+|   |   |-- kuniqueapp.h
+|   |   |-- kuniqueapplication.h
+|   |   |-- kunittest
+|   |   |   |-- module.h
+|   |   |   |-- runner.h
+|   |   |   `-- tester.h
+|   |   |-- kunload.h
+|   |   |-- kurifilter.h
+|   |   |-- kurl.h
+|   |   |-- kurlbar.h
+|   |   |-- kurlcombobox.h
+|   |   |-- kurlcompletion.h
+|   |   |-- kurldrag.h
+|   |   |-- kurllabel.h
+|   |   |-- kurlpixmapprovider.h
+|   |   |-- kurlrequester.h
+|   |   |-- kurlrequesterdlg.h
+|   |   |-- kuser.h
+|   |   |-- kuserprofile.h
+|   |   |-- kviewshell
+|   |   |   |-- anchor.h
+|   |   |   |-- bookmark.h
+|   |   |   |-- documentPageCache.h
+|   |   |   |-- documentRenderer.h
+|   |   |   |-- documentWidget.h
+|   |   |   |-- history.h
+|   |   |   |-- hyperlink.h
+|   |   |   |-- kmultipage.h
+|   |   |   |-- length.h
+|   |   |   |-- pageNumber.h
+|   |   |   |-- pageSize.h
+|   |   |   |-- pageView.h
+|   |   |   |-- renderedDocumentPage.h
+|   |   |   |-- renderedDocumentPagePixmap.h
+|   |   |   |-- renderedDocumentPagePrinter.h
+|   |   |   |-- selection.h
+|   |   |   |-- simplePageSize.h
+|   |   |   |-- textBox.h
+|   |   |   |-- zoom.h
+|   |   |   `-- zoomlimits.h
+|   |   |-- kvmallocator.h
+|   |   |-- kwallet.h
+|   |   |-- kwallettypes.h
+|   |   |-- kwidgetstreamer.h
+|   |   |-- kwin
+|   |   |   |-- client.h
+|   |   |   |-- kwinbutton.h
+|   |   |   |-- options.h
+|   |   |   `-- workspace.h
+|   |   |-- kwin.h
+|   |   |-- kwindowinfo.h
+|   |   |-- kwindowlistmenu.h
+|   |   |-- kwinmodule.h
+|   |   |-- kwizard.h
+|   |   |-- kword
+|   |   |   `-- KWMailMergeDataSource.h
+|   |   |-- kwordwrap.h
+|   |   |-- kxerrorhandler.h
+|   |   |-- kxmessages.h
+|   |   |-- kxmlgui.h
+|   |   |-- kxmlguibuilder.h
+|   |   |-- kxmlguiclient.h
+|   |   |-- kxmlguifactory.h
+|   |   |-- kzip.h
+|   |   |-- lame
+|   |   |   `-- lame.h
+|   |   |-- lcms.h
+|   |   |-- libart-2.0
+|   |   |   `-- libart_lgpl
+|   |   |       |-- art_affine.h
+|   |   |       |-- art_alphagamma.h
+|   |   |       |-- art_bpath.h
+|   |   |       |-- art_config.h
+|   |   |       |-- art_filterlevel.h
+|   |   |       |-- art_gray_svp.h
+|   |   |       |-- art_misc.h
+|   |   |       |-- art_pathcode.h
+|   |   |       |-- art_pixbuf.h
+|   |   |       |-- art_point.h
+|   |   |       |-- art_rect.h
+|   |   |       |-- art_rect_svp.h
+|   |   |       |-- art_rect_uta.h
+|   |   |       |-- art_render.h
+|   |   |       |-- art_render_gradient.h
+|   |   |       |-- art_render_mask.h
+|   |   |       |-- art_render_svp.h
+|   |   |       |-- art_rgb.h
+|   |   |       |-- art_rgb_a_affine.h
+|   |   |       |-- art_rgb_affine.h
+|   |   |       |-- art_rgb_bitmap_affine.h
+|   |   |       |-- art_rgb_pixbuf_affine.h
+|   |   |       |-- art_rgb_rgba_affine.h
+|   |   |       |-- art_rgb_svp.h
+|   |   |       |-- art_rgba.h
+|   |   |       |-- art_svp.h
+|   |   |       |-- art_svp_intersect.h
+|   |   |       |-- art_svp_ops.h
+|   |   |       |-- art_svp_point.h
+|   |   |       |-- art_svp_render_aa.h
+|   |   |       |-- art_svp_vpath.h
+|   |   |       |-- art_svp_vpath_stroke.h
+|   |   |       |-- art_svp_wind.h
+|   |   |       |-- art_uta.h
+|   |   |       |-- art_uta_ops.h
+|   |   |       |-- art_uta_rect.h
+|   |   |       |-- art_uta_svp.h
+|   |   |       |-- art_uta_vpath.h
+|   |   |       |-- art_vpath.h
+|   |   |       |-- art_vpath_bpath.h
+|   |   |       |-- art_vpath_dash.h
+|   |   |       |-- art_vpath_svp.h
+|   |   |       |-- libart-features.h
+|   |   |       `-- libart.h
+|   |   |-- libaudcore
+|   |   |   |-- audio.h
+|   |   |   |-- audstrings.h
+|   |   |   |-- eventqueue.h
+|   |   |   |-- hook.h
+|   |   |   |-- index.h
+|   |   |   |-- md5.h
+|   |   |   |-- stringpool.h
+|   |   |   |-- tuple.h
+|   |   |   |-- tuple_compiler.h
+|   |   |   |-- tuple_formatter.h
+|   |   |   |-- vfs.h
+|   |   |   |-- vfs_async.h
+|   |   |   |-- vfs_buffer.h
+|   |   |   `-- vfs_buffered_file.h
+|   |   |-- libaudgui
+|   |   |   |-- libaudgui-gtk.h
+|   |   |   |-- libaudgui.h
+|   |   |   `-- list.h
+|   |   |-- libdevmapper-event.h
+|   |   |-- libdevmapper.h
+|   |   |-- libdrm
+|   |   |   |-- drm.h
+|   |   |   |-- drm_mode.h
+|   |   |   |-- drm_sarea.h
+|   |   |   |-- i915_drm.h
+|   |   |   |-- intel_bufmgr.h
+|   |   |   |-- mach64_drm.h
+|   |   |   |-- mga_drm.h
+|   |   |   |-- nouveau_drm.h
+|   |   |   |-- nouveau_drmif.h
+|   |   |   |-- r128_drm.h
+|   |   |   |-- radeon_bo.h
+|   |   |   |-- radeon_bo_gem.h
+|   |   |   |-- radeon_bo_int.h
+|   |   |   |-- radeon_cs.h
+|   |   |   |-- radeon_cs_gem.h
+|   |   |   |-- radeon_cs_int.h
+|   |   |   |-- radeon_drm.h
+|   |   |   |-- savage_drm.h
+|   |   |   |-- sis_drm.h
+|   |   |   |-- via_drm.h
+|   |   |   `-- vmwgfx_drm.h
+|   |   |-- libexslt
+|   |   |   |-- exslt.h
+|   |   |   |-- exsltconfig.h
+|   |   |   `-- exsltexports.h
+|   |   |-- libfm
+|   |   |   `-- libfm
+|   |   |       |-- fm-app-chooser-combo-box.h
+|   |   |       |-- fm-app-chooser-dlg.h
+|   |   |       |-- fm-app-info.h
+|   |   |       |-- fm-app-menu-view.h
+|   |   |       |-- fm-archiver.h
+|   |   |       |-- fm-bookmarks.h
+|   |   |       |-- fm-cell-renderer-pixbuf.h
+|   |   |       |-- fm-cell-renderer-text.h
+|   |   |       |-- fm-clipboard.h
+|   |   |       |-- fm-config.h
+|   |   |       |-- fm-deep-count-job.h
+|   |   |       |-- fm-dir-list-job.h
+|   |   |       |-- fm-dnd-auto-scroll.h
+|   |   |       |-- fm-dnd-dest.h
+|   |   |       |-- fm-dnd-src.h
+|   |   |       |-- fm-dummy-monitor.h
+|   |   |       |-- fm-file-info-job.h
+|   |   |       |-- fm-file-info.h
+|   |   |       |-- fm-file-launcher.h
+|   |   |       |-- fm-file-menu.h
+|   |   |       |-- fm-file-ops-job-change-attr.h
+|   |   |       |-- fm-file-ops-job-delete.h
+|   |   |       |-- fm-file-ops-job-xfer.h
+|   |   |       |-- fm-file-ops-job.h
+|   |   |       |-- fm-file-properties.h
+|   |   |       |-- fm-folder-model.h
+|   |   |       |-- fm-folder-view.h
+|   |   |       |-- fm-folder.h
+|   |   |       |-- fm-gtk-file-launcher.h
+|   |   |       |-- fm-gtk-marshal.h
+|   |   |       |-- fm-gtk-utils.h
+|   |   |       |-- fm-gtk.h
+|   |   |       |-- fm-icon-pixbuf.h
+|   |   |       |-- fm-icon.h
+|   |   |       |-- fm-job.h
+|   |   |       |-- fm-list.h
+|   |   |       |-- fm-marshal.h
+|   |   |       |-- fm-mime-type.h
+|   |   |       |-- fm-monitor.h
+|   |   |       |-- fm-nav-history.h
+|   |   |       |-- fm-path-bar.h
+|   |   |       |-- fm-path-entry.h
+|   |   |       |-- fm-path.h
+|   |   |       |-- fm-places-model.h
+|   |   |       |-- fm-places-view.h
+|   |   |       |-- fm-progress-dlg.h
+|   |   |       |-- fm-simple-job.h
+|   |   |       |-- fm-tab-label.h
+|   |   |       |-- fm-thumbnail.h
+|   |   |       |-- fm-utils.h
+|   |   |       `-- fm.h
+|   |   |-- libglade-2.0
+|   |   |   `-- glade
+|   |   |       |-- glade-build.h
+|   |   |       |-- glade-init.h
+|   |   |       |-- glade-parser.h
+|   |   |       |-- glade-xml.h
+|   |   |       `-- glade.h
+|   |   |-- libgsf-1
+|   |   |   |-- gsf
+|   |   |   |   |-- gsf-blob.h
+|   |   |   |   |-- gsf-clip-data.h
+|   |   |   |   |-- gsf-doc-meta-data.h
+|   |   |   |   |-- gsf-docprop-vector.h
+|   |   |   |   |-- gsf-impl-utils.h
+|   |   |   |   |-- gsf-infile-impl.h
+|   |   |   |   |-- gsf-infile-msole.h
+|   |   |   |   |-- gsf-infile-msvba.h
+|   |   |   |   |-- gsf-infile-stdio.h
+|   |   |   |   |-- gsf-infile-tar.h
+|   |   |   |   |-- gsf-infile-zip.h
+|   |   |   |   |-- gsf-infile.h
+|   |   |   |   |-- gsf-input-bzip.h
+|   |   |   |   |-- gsf-input-gio.h
+|   |   |   |   |-- gsf-input-gzip.h
+|   |   |   |   |-- gsf-input-http.h
+|   |   |   |   |-- gsf-input-impl.h
+|   |   |   |   |-- gsf-input-iochannel.h
+|   |   |   |   |-- gsf-input-memory.h
+|   |   |   |   |-- gsf-input-proxy.h
+|   |   |   |   |-- gsf-input-stdio.h
+|   |   |   |   |-- gsf-input-textline.h
+|   |   |   |   |-- gsf-input.h
+|   |   |   |   |-- gsf-libxml.h
+|   |   |   |   |-- gsf-meta-names.h
+|   |   |   |   |-- gsf-msole-utils.h
+|   |   |   |   |-- gsf-open-pkg-utils.h
+|   |   |   |   |-- gsf-opendoc-utils.h
+|   |   |   |   |-- gsf-outfile-impl.h
+|   |   |   |   |-- gsf-outfile-msole.h
+|   |   |   |   |-- gsf-outfile-stdio.h
+|   |   |   |   |-- gsf-outfile-zip.h
+|   |   |   |   |-- gsf-outfile.h
+|   |   |   |   |-- gsf-output-bzip.h
+|   |   |   |   |-- gsf-output-csv.h
+|   |   |   |   |-- gsf-output-gio.h
+|   |   |   |   |-- gsf-output-gzip.h
+|   |   |   |   |-- gsf-output-iconv.h
+|   |   |   |   |-- gsf-output-impl.h
+|   |   |   |   |-- gsf-output-iochannel.h
+|   |   |   |   |-- gsf-output-memory.h
+|   |   |   |   |-- gsf-output-stdio.h
+|   |   |   |   |-- gsf-output.h
+|   |   |   |   |-- gsf-shared-memory.h
+|   |   |   |   |-- gsf-structured-blob.h
+|   |   |   |   |-- gsf-timestamp.h
+|   |   |   |   |-- gsf-utils.h
+|   |   |   |   `-- gsf.h
+|   |   |   `-- gsf-gnome
+|   |   |       |-- gsf-input-bonobo.h
+|   |   |       |-- gsf-input-gnomevfs.h
+|   |   |       |-- gsf-output-bonobo.h
+|   |   |       |-- gsf-output-gnomevfs.h
+|   |   |       `-- gsf-shared-bonobo-stream.h
+|   |   |-- libical
+|   |   |   |-- ical.h
+|   |   |   |-- icalarray.h
+|   |   |   |-- icalattach.h
+|   |   |   |-- icalcalendar.h
+|   |   |   |-- icalclassify.h
+|   |   |   |-- icalcluster.h
+|   |   |   |-- icalcomponent.h
+|   |   |   |-- icalderivedparameter.h
+|   |   |   |-- icalderivedproperty.h
+|   |   |   |-- icalderivedvalue.h
+|   |   |   |-- icaldirset.h
+|   |   |   |-- icaldirsetimpl.h
+|   |   |   |-- icalduration.h
+|   |   |   |-- icalenums.h
+|   |   |   |-- icalerror.h
+|   |   |   |-- icalfileset.h
+|   |   |   |-- icalfilesetimpl.h
+|   |   |   |-- icalgauge.h
+|   |   |   |-- icalgaugeimpl.h
+|   |   |   |-- icallangbind.h
+|   |   |   |-- icalmemory.h
+|   |   |   |-- icalmessage.h
+|   |   |   |-- icalmime.h
+|   |   |   |-- icalparameter.h
+|   |   |   |-- icalparameter_cxx.h
+|   |   |   |-- icalparser.h
+|   |   |   |-- icalperiod.h
+|   |   |   |-- icalproperty.h
+|   |   |   |-- icalproperty_cxx.h
+|   |   |   |-- icalrecur.h
+|   |   |   |-- icalrestriction.h
+|   |   |   |-- icalset.h
+|   |   |   |-- icalspanlist.h
+|   |   |   |-- icalss.h
+|   |   |   |-- icalssyacc.h
+|   |   |   |-- icaltime.h
+|   |   |   |-- icaltimezone.h
+|   |   |   |-- icaltypes.h
+|   |   |   |-- icaltz-util.h
+|   |   |   |-- icalvalue.h
+|   |   |   |-- icalvalue_cxx.h
+|   |   |   |-- icalvcal.h
+|   |   |   |-- icptrholder.h
+|   |   |   |-- port.h
+|   |   |   |-- pvl.h
+|   |   |   |-- sspm.h
+|   |   |   |-- vcaltmp.h
+|   |   |   |-- vcc.h
+|   |   |   |-- vcomponent.h
+|   |   |   `-- vobject.h
+|   |   |-- libipq.h
+|   |   |-- libiptc
+|   |   |   |-- ipt_kernel_headers.h
+|   |   |   |-- libip6tc.h
+|   |   |   |-- libiptc.h
+|   |   |   `-- libxtc.h
+|   |   |-- libkcddb
+|   |   |   |-- cache.h
+|   |   |   |-- cddb.h
+|   |   |   |-- cdinfo.h
+|   |   |   |-- client.h
+|   |   |   |-- config.h
+|   |   |   `-- configbase.h
+|   |   |-- libkmid
+|   |   |   |-- alsaout.h
+|   |   |   |-- dattypes.h
+|   |   |   |-- deviceman.h
+|   |   |   |-- fmout.h
+|   |   |   |-- gusout.h
+|   |   |   |-- libkmid.h
+|   |   |   |-- midfile.h
+|   |   |   |-- midimapper.h
+|   |   |   |-- midiout.h
+|   |   |   |-- midispec.h
+|   |   |   |-- midistat.h
+|   |   |   |-- mt32togm.h
+|   |   |   |-- notearray.h
+|   |   |   |-- player.h
+|   |   |   |-- synthout.h
+|   |   |   |-- track.h
+|   |   |   `-- voiceman.h
+|   |   |-- libkms
+|   |   |   `-- libkms.h
+|   |   |-- libkonq_export.h
+|   |   |-- libkrandr
+|   |   |   |-- ktimerdialog.h
+|   |   |   |-- libkrandr.h
+|   |   |   |-- lowlevel_randr.h
+|   |   |   `-- randr.h
+|   |   |-- libmcs
+|   |   |   `-- mcs.h
+|   |   |-- libmng.h
+|   |   |-- libmng_conf.h
+|   |   |-- libmng_types.h
+|   |   |-- libmount
+|   |   |   `-- libmount.h
+|   |   |-- libmowgli
+|   |   |   |-- mowgli.h
+|   |   |   |-- mowgli_alloc.h
+|   |   |   |-- mowgli_allocation_policy.h
+|   |   |   |-- mowgli_allocator.h
+|   |   |   |-- mowgli_argstack.h
+|   |   |   |-- mowgli_assert.h
+|   |   |   |-- mowgli_bitvector.h
+|   |   |   |-- mowgli_config.h
+|   |   |   |-- mowgli_dictionary.h
+|   |   |   |-- mowgli_error_backtrace.h
+|   |   |   |-- mowgli_exception.h
+|   |   |   |-- mowgli_formatter.h
+|   |   |   |-- mowgli_global_storage.h
+|   |   |   |-- mowgli_hash.h
+|   |   |   |-- mowgli_heap.h
+|   |   |   |-- mowgli_hook.h
+|   |   |   |-- mowgli_init.h
+|   |   |   |-- mowgli_ioevent.h
+|   |   |   |-- mowgli_iterator.h
+|   |   |   |-- mowgli_list.h
+|   |   |   |-- mowgli_logger.h
+|   |   |   |-- mowgli_mempool.h
+|   |   |   |-- mowgli_module.h
+|   |   |   |-- mowgli_object.h
+|   |   |   |-- mowgli_object_class.h
+|   |   |   |-- mowgli_object_messaging.h
+|   |   |   |-- mowgli_object_metadata.h
+|   |   |   |-- mowgli_patricia.h
+|   |   |   |-- mowgli_queue.h
+|   |   |   |-- mowgli_random.h
+|   |   |   |-- mowgli_signal.h
+|   |   |   |-- mowgli_spinlock.h
+|   |   |   |-- mowgli_stdinc.h
+|   |   |   `-- mowgli_string.h
+|   |   |-- libmtp.h
+|   |   |-- libnotify
+|   |   |   |-- notification.h
+|   |   |   |-- notify-enum-types.h
+|   |   |   |-- notify-features.h
+|   |   |   `-- notify.h
+|   |   |-- libpng -> libpng14
+|   |   |-- libpng12
+|   |   |   |-- png.h
+|   |   |   `-- pngconf.h
+|   |   |-- libpng14
+|   |   |   |-- png.h
+|   |   |   `-- pngconf.h
+|   |   |-- libraw1394
+|   |   |   |-- csr.h
+|   |   |   |-- ieee1394.h
+|   |   |   `-- raw1394.h
+|   |   |-- librsvg-2.0
+|   |   |   `-- librsvg
+|   |   |       |-- librsvg-enum-types.h
+|   |   |       |-- librsvg-features.h
+|   |   |       |-- rsvg-cairo.h
+|   |   |       `-- rsvg.h
+|   |   |-- libtext2path-0.1
+|   |   |   |-- BezierPath.h
+|   |   |   |-- Glyph.h
+|   |   |   `-- GlyphTracer.h
+|   |   |-- libudev.h
+|   |   |-- libupower-glib
+|   |   |   |-- up-client.h
+|   |   |   |-- up-device.h
+|   |   |   |-- up-history-item.h
+|   |   |   |-- up-qos-item.h
+|   |   |   |-- up-stats-item.h
+|   |   |   |-- up-types.h
+|   |   |   |-- up-version.h
+|   |   |   |-- up-wakeup-item.h
+|   |   |   |-- up-wakeups.h
+|   |   |   `-- upower.h
+|   |   |-- libusb-1.0
+|   |   |   `-- libusb.h
+|   |   |-- libxml2
+|   |   |   `-- libxml
+|   |   |       |-- DOCBparser.h
+|   |   |       |-- HTMLparser.h
+|   |   |       |-- HTMLtree.h
+|   |   |       |-- SAX.h
+|   |   |       |-- SAX2.h
+|   |   |       |-- c14n.h
+|   |   |       |-- catalog.h
+|   |   |       |-- chvalid.h
+|   |   |       |-- debugXML.h
+|   |   |       |-- dict.h
+|   |   |       |-- encoding.h
+|   |   |       |-- entities.h
+|   |   |       |-- globals.h
+|   |   |       |-- hash.h
+|   |   |       |-- list.h
+|   |   |       |-- nanoftp.h
+|   |   |       |-- nanohttp.h
+|   |   |       |-- parser.h
+|   |   |       |-- parserInternals.h
+|   |   |       |-- pattern.h
+|   |   |       |-- relaxng.h
+|   |   |       |-- schemasInternals.h
+|   |   |       |-- schematron.h
+|   |   |       |-- threads.h
+|   |   |       |-- tree.h
+|   |   |       |-- uri.h
+|   |   |       |-- valid.h
+|   |   |       |-- xinclude.h
+|   |   |       |-- xlink.h
+|   |   |       |-- xmlIO.h
+|   |   |       |-- xmlautomata.h
+|   |   |       |-- xmlerror.h
+|   |   |       |-- xmlexports.h
+|   |   |       |-- xmlmemory.h
+|   |   |       |-- xmlmodule.h
+|   |   |       |-- xmlreader.h
+|   |   |       |-- xmlregexp.h
+|   |   |       |-- xmlsave.h
+|   |   |       |-- xmlschemas.h
+|   |   |       |-- xmlschemastypes.h
+|   |   |       |-- xmlstring.h
+|   |   |       |-- xmlunicode.h
+|   |   |       |-- xmlversion.h
+|   |   |       |-- xmlwriter.h
+|   |   |       |-- xpath.h
+|   |   |       |-- xpathInternals.h
+|   |   |       `-- xpointer.h
+|   |   |-- libxslt
+|   |   |   |-- attributes.h
+|   |   |   |-- documents.h
+|   |   |   |-- extensions.h
+|   |   |   |-- extra.h
+|   |   |   |-- functions.h
+|   |   |   |-- imports.h
+|   |   |   |-- keys.h
+|   |   |   |-- namespaces.h
+|   |   |   |-- numbersInternals.h
+|   |   |   |-- pattern.h
+|   |   |   |-- preproc.h
+|   |   |   |-- security.h
+|   |   |   |-- templates.h
+|   |   |   |-- transform.h
+|   |   |   |-- variables.h
+|   |   |   |-- xslt.h
+|   |   |   |-- xsltInternals.h
+|   |   |   |-- xsltconfig.h
+|   |   |   |-- xsltexports.h
+|   |   |   |-- xsltlocale.h
+|   |   |   `-- xsltutils.h
+|   |   |-- lvm2app.h
+|   |   |-- lvm2cmd.h
+|   |   |-- lxappearance
+|   |   |   `-- lxappearance.h
+|   |   |-- lxpanel
+|   |   |   `-- plugin.h
+|   |   |-- lzma
+|   |   |   |-- base.h
+|   |   |   |-- bcj.h
+|   |   |   |-- block.h
+|   |   |   |-- check.h
+|   |   |   |-- container.h
+|   |   |   |-- delta.h
+|   |   |   |-- filter.h
+|   |   |   |-- hardware.h
+|   |   |   |-- index.h
+|   |   |   |-- index_hash.h
+|   |   |   |-- lzma.h
+|   |   |   |-- stream_flags.h
+|   |   |   |-- version.h
+|   |   |   `-- vli.h
+|   |   |-- lzma.h
+|   |   |-- lzo
+|   |   |   |-- lzo1.h
+|   |   |   |-- lzo1a.h
+|   |   |   |-- lzo1b.h
+|   |   |   |-- lzo1c.h
+|   |   |   |-- lzo1f.h
+|   |   |   |-- lzo1x.h
+|   |   |   |-- lzo1y.h
+|   |   |   |-- lzo1z.h
+|   |   |   |-- lzo2a.h
+|   |   |   |-- lzo_asm.h
+|   |   |   |-- lzoconf.h
+|   |   |   |-- lzodefs.h
+|   |   |   `-- lzoutil.h
+|   |   |-- mad.h
+|   |   |-- magic.h
+|   |   |-- menu-cache
+|   |   |   `-- menu-cache.h
+|   |   |-- menu.h -> ncurses/menu.h
+|   |   |-- mimetypetree.h
+|   |   |-- mp.h
+|   |   |-- mp4ff.h
+|   |   |-- mp4ffint.h
+|   |   |-- mpeglib
+|   |   |   |-- decoder
+|   |   |   |   |-- cddaPlugin.h
+|   |   |   |   |-- command.h
+|   |   |   |   |-- commandPipe.h
+|   |   |   |   |-- decoderPlugin.h
+|   |   |   |   |-- mpegPlugin.h
+|   |   |   |   |-- mpgPlugin.h
+|   |   |   |   |-- nukePlugin.h
+|   |   |   |   |-- splayPlugin.h
+|   |   |   |   |-- tplayPlugin.h
+|   |   |   |   |-- vorbisPlugin.h
+|   |   |   |   `-- yuvPlugin.h
+|   |   |   |-- frame
+|   |   |   |   |-- IOFrameQueue.h
+|   |   |   |   |-- audioFrame.h
+|   |   |   |   |-- audioFrameQueue.h
+|   |   |   |   |-- floatFrame.h
+|   |   |   |   |-- frame.h
+|   |   |   |   |-- frameQueue.h
+|   |   |   |   |-- framer.h
+|   |   |   |   |-- pcmFrame.h
+|   |   |   |   |-- rawDataBuffer.h
+|   |   |   |   `-- rawFrame.h
+|   |   |   |-- input
+|   |   |   |   |-- bufferInputStream.h
+|   |   |   |   |-- cddaInputStream.h
+|   |   |   |   |-- cdromInputStream.h
+|   |   |   |   |-- fileInputStream.h
+|   |   |   |   |-- httpInputStream.h
+|   |   |   |   |-- inputDetector.h
+|   |   |   |   |-- inputPlugin.h
+|   |   |   |   |-- inputStream.h
+|   |   |   |   `-- threadSafeInputStream.h
+|   |   |   |-- mpegutil
+|   |   |   |   |-- mpegStreamPlayer.h
+|   |   |   |   |-- mpegSystemHeader.h
+|   |   |   |   |-- mpegSystemStream.h
+|   |   |   |   |-- mpegVideoLength.h
+|   |   |   |   |-- pesSystemStream.h
+|   |   |   |   |-- psSystemStream.h
+|   |   |   |   `-- tsSystemStream.h
+|   |   |   |-- oggvorbis
+|   |   |   |   |-- oggFrame.h
+|   |   |   |   |-- ovFramer.h
+|   |   |   |   |-- vorbisDecoder.h
+|   |   |   |   `-- vorbisInfo.h
+|   |   |   |-- output
+|   |   |   |   |-- artsOutputStream.h
+|   |   |   |   |-- audioTime.h
+|   |   |   |   |-- avSyncer.h
+|   |   |   |   |-- dspX11OutputStream.h
+|   |   |   |   |-- outPlugin.h
+|   |   |   |   |-- outputStream.h
+|   |   |   |   |-- pluginInfo.h
+|   |   |   |   `-- threadSafeOutputStream.h
+|   |   |   |-- splay
+|   |   |   |   |-- mpegAudioFrame.h
+|   |   |   |   |-- mpegAudioInfo.h
+|   |   |   |   `-- splayDecoder.h
+|   |   |   `-- util
+|   |   |       |-- abstract
+|   |   |       |   |-- abs_thread.h
+|   |   |       |   `-- threadQueue.h
+|   |   |       |-- dynBuffer.h
+|   |   |       |-- file
+|   |   |       |   `-- fileAccess.h
+|   |   |       |-- mmx
+|   |   |       |   |-- mm_accel.h
+|   |   |       |   |-- mmx.h
+|   |   |       |   `-- mmx_asm.h
+|   |   |       |-- render
+|   |   |       |   |-- pictureArray.h
+|   |   |       |   `-- yuvPicture.h
+|   |   |       |-- syncClock.h
+|   |   |       |-- timeStamp.h
+|   |   |       |-- timeStampArray.h
+|   |   |       |-- timeWrapper.h
+|   |   |       `-- yaf
+|   |   |           |-- yafcore
+|   |   |           |   |-- buffer.h
+|   |   |           |   |-- inputDecoder.h
+|   |   |           |   |-- inputInterface.h
+|   |   |           |   |-- outputInterface.h
+|   |   |           |   `-- yaf_control.h
+|   |   |           `-- yafxplayer
+|   |   |               |-- inputDecoderXPlayer.h
+|   |   |               |-- inputDecoderYAF.h
+|   |   |               `-- yafOutputStream.h
+|   |   |-- mpeglib_artsplug
+|   |   |   |-- decoderBaseObject.h
+|   |   |   |-- decoderBaseObject.idl
+|   |   |   |-- decoderBaseObject_impl.h
+|   |   |   |-- splayPlayObject.h
+|   |   |   |-- splayPlayObject.idl
+|   |   |   `-- splayPlayObject_impl.h
+|   |   |-- nc_tparm.h -> ncurses/nc_tparm.h
+|   |   |-- ncurses
+|   |   |   |-- curses.h
+|   |   |   |-- cursesapp.h
+|   |   |   |-- cursesf.h
+|   |   |   |-- cursesm.h
+|   |   |   |-- cursesp.h
+|   |   |   |-- cursesw.h
+|   |   |   |-- cursslk.h
+|   |   |   |-- eti.h
+|   |   |   |-- etip.h
+|   |   |   |-- form.h
+|   |   |   |-- menu.h
+|   |   |   |-- nc_tparm.h
+|   |   |   |-- ncurses.h -> curses.h
+|   |   |   |-- ncurses_dll.h
+|   |   |   |-- panel.h
+|   |   |   |-- term.h
+|   |   |   |-- term_entry.h
+|   |   |   |-- termcap.h
+|   |   |   |-- tic.h
+|   |   |   `-- unctrl.h
+|   |   |-- ncurses.h -> ncurses/ncurses.h
+|   |   |-- ncurses_dll.h -> ncurses/ncurses_dll.h
+|   |   |-- ncursesw -> ncurses
+|   |   |-- neaacdec.h
+|   |   |-- neon
+|   |   |   |-- ne_207.h
+|   |   |   |-- ne_acl.h
+|   |   |   |-- ne_acl3744.h
+|   |   |   |-- ne_alloc.h
+|   |   |   |-- ne_auth.h
+|   |   |   |-- ne_basic.h
+|   |   |   |-- ne_compress.h
+|   |   |   |-- ne_dates.h
+|   |   |   |-- ne_defs.h
+|   |   |   |-- ne_i18n.h
+|   |   |   |-- ne_locks.h
+|   |   |   |-- ne_md5.h
+|   |   |   |-- ne_pkcs11.h
+|   |   |   |-- ne_props.h
+|   |   |   |-- ne_redirect.h
+|   |   |   |-- ne_request.h
+|   |   |   |-- ne_session.h
+|   |   |   |-- ne_socket.h
+|   |   |   |-- ne_ssl.h
+|   |   |   |-- ne_string.h
+|   |   |   |-- ne_uri.h
+|   |   |   |-- ne_utils.h
+|   |   |   |-- ne_xml.h
+|   |   |   `-- ne_xmlreq.h
+|   |   |-- netlink
+|   |   |   |-- addr.h
+|   |   |   |-- attr.h
+|   |   |   |-- cache-api.h
+|   |   |   |-- cache.h
+|   |   |   |-- data.h
+|   |   |   |-- fib_lookup
+|   |   |   |   |-- lookup.h
+|   |   |   |   `-- request.h
+|   |   |   |-- genl
+|   |   |   |   |-- ctrl.h
+|   |   |   |   |-- family.h
+|   |   |   |   |-- genl.h
+|   |   |   |   `-- mngt.h
+|   |   |   |-- handlers.h
+|   |   |   |-- list.h
+|   |   |   |-- msg.h
+|   |   |   |-- netlink-compat.h
+|   |   |   |-- netlink-kernel.h
+|   |   |   |-- netlink.h
+|   |   |   |-- object-api.h
+|   |   |   |-- object.h
+|   |   |   |-- route
+|   |   |   |   |-- addr.h
+|   |   |   |   |-- class-modules.h
+|   |   |   |   |-- class.h
+|   |   |   |   |-- classifier-modules.h
+|   |   |   |   |-- classifier.h
+|   |   |   |   |-- cls
+|   |   |   |   |   |-- fw.h
+|   |   |   |   |   |-- police.h
+|   |   |   |   |   `-- u32.h
+|   |   |   |   |-- link.h
+|   |   |   |   |-- neighbour.h
+|   |   |   |   |-- neightbl.h
+|   |   |   |   |-- nexthop.h
+|   |   |   |   |-- qdisc-modules.h
+|   |   |   |   |-- qdisc.h
+|   |   |   |   |-- route.h
+|   |   |   |   |-- rtnl.h
+|   |   |   |   |-- rule.h
+|   |   |   |   |-- sch
+|   |   |   |   |   |-- cbq.h
+|   |   |   |   |   |-- dsmark.h
+|   |   |   |   |   |-- fifo.h
+|   |   |   |   |   |-- htb.h
+|   |   |   |   |   |-- netem.h
+|   |   |   |   |   |-- prio.h
+|   |   |   |   |   |-- red.h
+|   |   |   |   |   |-- sfq.h
+|   |   |   |   |   `-- tbf.h
+|   |   |   |   `-- tc.h
+|   |   |   |-- socket.h
+|   |   |   |-- types.h
+|   |   |   `-- utils.h
+|   |   |-- netwm.h
+|   |   |-- netwm_def.h
+|   |   |-- networkstatuscommon.h
+|   |   |-- networkstatusiface.h
+|   |   |-- networkstatusindicator.h
+|   |   |-- noatun
+|   |   |   |-- app.h
+|   |   |   |-- controls.h
+|   |   |   |-- conversion.h
+|   |   |   |-- downloader.h
+|   |   |   |-- effects.h
+|   |   |   |-- engine.h
+|   |   |   |-- equalizer.h
+|   |   |   |-- noatunarts.h
+|   |   |   |-- player.h
+|   |   |   |-- playlist.h
+|   |   |   |-- playlistsaver.h
+|   |   |   |-- plugin.h
+|   |   |   |-- pluginloader.h
+|   |   |   |-- pref.h
+|   |   |   |-- scrollinglabel.h
+|   |   |   |-- stdaction.h
+|   |   |   |-- stereobuttonaction.h
+|   |   |   |-- tags.h
+|   |   |   |-- vequalizer.h
+|   |   |   |-- video.h
+|   |   |   `-- winskinvis.h
+|   |   |-- nouveau
+|   |   |   |-- nouveau_bo.h
+|   |   |   |-- nouveau_channel.h
+|   |   |   |-- nouveau_device.h
+|   |   |   |-- nouveau_grobj.h
+|   |   |   |-- nouveau_notifier.h
+|   |   |   |-- nouveau_pushbuf.h
+|   |   |   |-- nouveau_reloc.h
+|   |   |   |-- nouveau_resource.h
+|   |   |   |-- nv04_pushbuf.h
+|   |   |   `-- nvc0_pushbuf.h
+|   |   |-- ntfs-3g
+|   |   |   |-- acls.h
+|   |   |   |-- attrib.h
+|   |   |   |-- attrlist.h
+|   |   |   |-- bitmap.h
+|   |   |   |-- bootsect.h
+|   |   |   |-- cache.h
+|   |   |   |-- collate.h
+|   |   |   |-- compat.h
+|   |   |   |-- compress.h
+|   |   |   |-- debug.h
+|   |   |   |-- device.h
+|   |   |   |-- device_io.h
+|   |   |   |-- dir.h
+|   |   |   |-- efs.h
+|   |   |   |-- endians.h
+|   |   |   |-- index.h
+|   |   |   |-- inode.h
+|   |   |   |-- layout.h
+|   |   |   |-- lcnalloc.h
+|   |   |   |-- logfile.h
+|   |   |   |-- logging.h
+|   |   |   |-- mft.h
+|   |   |   |-- misc.h
+|   |   |   |-- mst.h
+|   |   |   |-- ntfstime.h
+|   |   |   |-- object_id.h
+|   |   |   |-- param.h
+|   |   |   |-- reparse.h
+|   |   |   |-- runlist.h
+|   |   |   |-- security.h
+|   |   |   |-- support.h
+|   |   |   |-- types.h
+|   |   |   |-- unistr.h
+|   |   |   |-- volume.h
+|   |   |   `-- xattrs.h
+|   |   |-- odbcinst.h
+|   |   |-- ogg
+|   |   |   |-- config_types.h
+|   |   |   |-- ogg.h
+|   |   |   `-- os_types.h
+|   |   |-- openbox
+|   |   |   `-- 3.4.11.2
+|   |   |       `-- openbox
+|   |   |           |-- color.h
+|   |   |           |-- font.h
+|   |   |           |-- geom.h
+|   |   |           |-- gradient.h
+|   |   |           |-- image.h
+|   |   |           |-- instance.h
+|   |   |           |-- mask.h
+|   |   |           |-- parse.h
+|   |   |           |-- render.h
+|   |   |           |-- theme.h
+|   |   |           `-- version.h
+|   |   |-- openssl
+|   |   |   |-- aes.h
+|   |   |   |-- asn1.h
+|   |   |   |-- asn1_mac.h
+|   |   |   |-- asn1t.h
+|   |   |   |-- bio.h
+|   |   |   |-- blowfish.h
+|   |   |   |-- bn.h
+|   |   |   |-- buffer.h
+|   |   |   |-- cast.h
+|   |   |   |-- comp.h
+|   |   |   |-- conf.h
+|   |   |   |-- conf_api.h
+|   |   |   |-- crypto.h
+|   |   |   |-- des.h
+|   |   |   |-- des_old.h
+|   |   |   |-- dh.h
+|   |   |   |-- dsa.h
+|   |   |   |-- dso.h
+|   |   |   |-- dtls1.h
+|   |   |   |-- e_os2.h
+|   |   |   |-- ebcdic.h
+|   |   |   |-- ec.h
+|   |   |   |-- ecdh.h
+|   |   |   |-- ecdsa.h
+|   |   |   |-- engine.h
+|   |   |   |-- err.h
+|   |   |   |-- evp.h
+|   |   |   |-- hmac.h
+|   |   |   |-- krb5_asn.h
+|   |   |   |-- kssl.h
+|   |   |   |-- lhash.h
+|   |   |   |-- md2.h
+|   |   |   |-- md4.h
+|   |   |   |-- md5.h
+|   |   |   |-- obj_mac.h
+|   |   |   |-- objects.h
+|   |   |   |-- ocsp.h
+|   |   |   |-- opensslconf.h
+|   |   |   |-- opensslv.h
+|   |   |   |-- ossl_typ.h
+|   |   |   |-- pem.h
+|   |   |   |-- pem2.h
+|   |   |   |-- pkcs12.h
+|   |   |   |-- pkcs7.h
+|   |   |   |-- pq_compat.h
+|   |   |   |-- pqueue.h
+|   |   |   |-- rand.h
+|   |   |   |-- rc2.h
+|   |   |   |-- rc4.h
+|   |   |   |-- ripemd.h
+|   |   |   |-- rsa.h
+|   |   |   |-- safestack.h
+|   |   |   |-- sha.h
+|   |   |   |-- ssl.h
+|   |   |   |-- ssl2.h
+|   |   |   |-- ssl23.h
+|   |   |   |-- ssl3.h
+|   |   |   |-- stack.h
+|   |   |   |-- store.h
+|   |   |   |-- symhacks.h
+|   |   |   |-- tls1.h
+|   |   |   |-- tmdiff.h
+|   |   |   |-- txt_db.h
+|   |   |   |-- ui.h
+|   |   |   |-- ui_compat.h
+|   |   |   |-- x509.h
+|   |   |   |-- x509_vfy.h
+|   |   |   `-- x509v3.h
+|   |   |-- oss-redir.h
+|   |   |-- panel.h -> ncurses/panel.h
+|   |   |-- pango-1.0
+|   |   |   `-- pango
+|   |   |       |-- pango-attributes.h
+|   |   |       |-- pango-bidi-type.h
+|   |   |       |-- pango-break.h
+|   |   |       |-- pango-context.h
+|   |   |       |-- pango-coverage.h
+|   |   |       |-- pango-engine.h
+|   |   |       |-- pango-enum-types.h
+|   |   |       |-- pango-features.h
+|   |   |       |-- pango-font.h
+|   |   |       |-- pango-fontmap.h
+|   |   |       |-- pango-fontset.h
+|   |   |       |-- pango-glyph-item.h
+|   |   |       |-- pango-glyph.h
+|   |   |       |-- pango-gravity.h
+|   |   |       |-- pango-item.h
+|   |   |       |-- pango-language.h
+|   |   |       |-- pango-layout.h
+|   |   |       |-- pango-matrix.h
+|   |   |       |-- pango-modules.h
+|   |   |       |-- pango-ot.h
+|   |   |       |-- pango-renderer.h
+|   |   |       |-- pango-script.h
+|   |   |       |-- pango-tabs.h
+|   |   |       |-- pango-types.h
+|   |   |       |-- pango-utils.h
+|   |   |       |-- pango.h
+|   |   |       |-- pangocairo.h
+|   |   |       |-- pangofc-decoder.h
+|   |   |       |-- pangofc-font.h
+|   |   |       |-- pangofc-fontmap.h
+|   |   |       |-- pangoft2.h
+|   |   |       |-- pangox.h
+|   |   |       |-- pangoxft-render.h
+|   |   |       `-- pangoxft.h
+|   |   |-- parted
+|   |   |   |-- constraint.h
+|   |   |   |-- debug.h
+|   |   |   |-- device.h
+|   |   |   |-- disk.h
+|   |   |   |-- exception.h
+|   |   |   |-- filesys.h
+|   |   |   |-- geom.h
+|   |   |   |-- natmath.h
+|   |   |   |-- parted.h
+|   |   |   |-- timer.h
+|   |   |   `-- unit.h
+|   |   |-- pcap
+|   |   |   |-- bluetooth.h
+|   |   |   |-- bpf.h
+|   |   |   |-- ipnet.h
+|   |   |   |-- namedb.h
+|   |   |   |-- pcap.h
+|   |   |   |-- sll.h
+|   |   |   |-- usb.h
+|   |   |   `-- vlan.h
+|   |   |-- pcap-bpf.h
+|   |   |-- pcap-namedb.h
+|   |   |-- pcap.h
+|   |   |-- pci
+|   |   |   |-- config.h
+|   |   |   |-- header.h
+|   |   |   |-- pci.h
+|   |   |   `-- types.h
+|   |   |-- pciaccess.h
+|   |   |-- pcre.h
+|   |   |-- pcre_scanner.h
+|   |   |-- pcre_stringpiece.h
+|   |   |-- pcrecpp.h
+|   |   |-- pcrecpparg.h
+|   |   |-- pcreposix.h
+|   |   |-- pixman -> pixman-1
+|   |   |-- pixman-1
+|   |   |   |-- pixman-version.h
+|   |   |   `-- pixman.h
+|   |   |-- pixman-version.h -> pixman-1/pixman-version.h
+|   |   |-- pixman.h -> pixman-1/pixman.h
+|   |   |-- plugin_deps.h
+|   |   |-- png.h -> libpng14/png.h
+|   |   |-- pngconf.h -> libpng14/pngconf.h
+|   |   |-- polkit-1
+|   |   |   |-- polkit
+|   |   |   |   |-- polkit.h
+|   |   |   |   |-- polkitactiondescription.h
+|   |   |   |   |-- polkitauthority.h
+|   |   |   |   |-- polkitauthorityfeatures.h
+|   |   |   |   |-- polkitauthorizationresult.h
+|   |   |   |   |-- polkitcheckauthorizationflags.h
+|   |   |   |   |-- polkitdetails.h
+|   |   |   |   |-- polkitenumtypes.h
+|   |   |   |   |-- polkiterror.h
+|   |   |   |   |-- polkitidentity.h
+|   |   |   |   |-- polkitimplicitauthorization.h
+|   |   |   |   |-- polkitpermission.h
+|   |   |   |   |-- polkitprivate.h
+|   |   |   |   |-- polkitsubject.h
+|   |   |   |   |-- polkitsystembusname.h
+|   |   |   |   |-- polkittemporaryauthorization.h
+|   |   |   |   |-- polkittypes.h
+|   |   |   |   |-- polkitunixgroup.h
+|   |   |   |   |-- polkitunixprocess.h
+|   |   |   |   |-- polkitunixsession.h
+|   |   |   |   `-- polkitunixuser.h
+|   |   |   |-- polkitagent
+|   |   |   |   |-- polkitagent.h
+|   |   |   |   |-- polkitagentenumtypes.h
+|   |   |   |   |-- polkitagentlistener.h
+|   |   |   |   |-- polkitagentsession.h
+|   |   |   |   |-- polkitagenttextlistener.h
+|   |   |   |   `-- polkitagenttypes.h
+|   |   |   `-- polkitbackend
+|   |   |       |-- polkitbackend.h
+|   |   |       |-- polkitbackendactionlookup.h
+|   |   |       |-- polkitbackendauthority.h
+|   |   |       |-- polkitbackendinteractiveauthority.h
+|   |   |       |-- polkitbackendlocalauthority.h
+|   |   |       `-- polkitbackendtypes.h
+|   |   |-- popt.h
+|   |   |-- pppd
+|   |   |   |-- cbcp.h
+|   |   |   |-- ccp.h
+|   |   |   |-- chap-new.h
+|   |   |   |-- chap_ms.h
+|   |   |   |-- eap.h
+|   |   |   |-- ecp.h
+|   |   |   |-- eui64.h
+|   |   |   |-- fsm.h
+|   |   |   |-- ipcp.h
+|   |   |   |-- ipv6cp.h
+|   |   |   |-- ipxcp.h
+|   |   |   |-- lcp.h
+|   |   |   |-- magic.h
+|   |   |   |-- md4.h
+|   |   |   |-- md5.h
+|   |   |   |-- patchlevel.h
+|   |   |   |-- pathnames.h
+|   |   |   |-- pppcrypt.h
+|   |   |   |-- pppd.h
+|   |   |   |-- session.h
+|   |   |   |-- sha1.h
+|   |   |   |-- spinlock.h
+|   |   |   |-- tdb.h
+|   |   |   `-- upap.h
+|   |   |-- pr29.h
+|   |   |-- provideriface.h
+|   |   |-- pspell
+|   |   |   `-- pspell.h
+|   |   |-- punycode.h
+|   |   |-- pycairo
+|   |   |   `-- pycairo.h
+|   |   |-- pygtk-2.0
+|   |   |   |-- pyglib.h
+|   |   |   |-- pygobject.h
+|   |   |   `-- pygtk
+|   |   |       `-- pygtk.h
+|   |   |-- python2.6
+|   |   |   |-- Python-ast.h
+|   |   |   |-- Python.h
+|   |   |   |-- abstract.h
+|   |   |   |-- asdl.h
+|   |   |   |-- ast.h
+|   |   |   |-- bitset.h
+|   |   |   |-- boolobject.h
+|   |   |   |-- bufferobject.h
+|   |   |   |-- bytearrayobject.h
+|   |   |   |-- bytes_methods.h
+|   |   |   |-- bytesobject.h
+|   |   |   |-- cStringIO.h
+|   |   |   |-- cellobject.h
+|   |   |   |-- ceval.h
+|   |   |   |-- classobject.h
+|   |   |   |-- cobject.h
+|   |   |   |-- code.h
+|   |   |   |-- codecs.h
+|   |   |   |-- compile.h
+|   |   |   |-- complexobject.h
+|   |   |   |-- datetime.h
+|   |   |   |-- descrobject.h
+|   |   |   |-- dictobject.h
+|   |   |   |-- enumobject.h
+|   |   |   |-- errcode.h
+|   |   |   |-- eval.h
+|   |   |   |-- fileobject.h
+|   |   |   |-- floatobject.h
+|   |   |   |-- frameobject.h
+|   |   |   |-- funcobject.h
+|   |   |   |-- genobject.h
+|   |   |   |-- graminit.h
+|   |   |   |-- grammar.h
+|   |   |   |-- import.h
+|   |   |   |-- intobject.h
+|   |   |   |-- intrcheck.h
+|   |   |   |-- iterobject.h
+|   |   |   |-- listobject.h
+|   |   |   |-- longintrepr.h
+|   |   |   |-- longobject.h
+|   |   |   |-- marshal.h
+|   |   |   |-- metagrammar.h
+|   |   |   |-- methodobject.h
+|   |   |   |-- modsupport.h
+|   |   |   |-- moduleobject.h
+|   |   |   |-- node.h
+|   |   |   |-- object.h
+|   |   |   |-- objimpl.h
+|   |   |   |-- opcode.h
+|   |   |   |-- osdefs.h
+|   |   |   |-- parsetok.h
+|   |   |   |-- patchlevel.h
+|   |   |   |-- pgen.h
+|   |   |   |-- pgenheaders.h
+|   |   |   |-- py_curses.h
+|   |   |   |-- pyarena.h
+|   |   |   |-- pyconfig.h
+|   |   |   |-- pydebug.h
+|   |   |   |-- pyerrors.h
+|   |   |   |-- pyexpat.h
+|   |   |   |-- pyfpe.h
+|   |   |   |-- pygetopt.h
+|   |   |   |-- pymacconfig.h
+|   |   |   |-- pymactoolbox.h
+|   |   |   |-- pymath.h
+|   |   |   |-- pymem.h
+|   |   |   |-- pyport.h
+|   |   |   |-- pystate.h
+|   |   |   |-- pystrcmp.h
+|   |   |   |-- pystrtod.h
+|   |   |   |-- pythonrun.h
+|   |   |   |-- pythread.h
+|   |   |   |-- rangeobject.h
+|   |   |   |-- setobject.h
+|   |   |   |-- sliceobject.h
+|   |   |   |-- stringobject.h
+|   |   |   |-- structmember.h
+|   |   |   |-- structseq.h
+|   |   |   |-- symtable.h
+|   |   |   |-- sysmodule.h
+|   |   |   |-- timefuncs.h
+|   |   |   |-- token.h
+|   |   |   |-- traceback.h
+|   |   |   |-- tupleobject.h
+|   |   |   |-- ucnhash.h
+|   |   |   |-- unicodeobject.h
+|   |   |   |-- warnings.h
+|   |   |   `-- weakrefobject.h
+|   |   |-- qt3
+|   |   |   |-- jri.h
+|   |   |   |-- jri_md.h
+|   |   |   |-- jritypes.h
+|   |   |   |-- npapi.h
+|   |   |   |-- npupp.h
+|   |   |   |-- private
+|   |   |   |   |-- qapplication_p.h
+|   |   |   |   |-- qcolor_p.h
+|   |   |   |   |-- qcom_p.h
+|   |   |   |   |-- qcomlibrary_p.h
+|   |   |   |   |-- qcomponentfactory_p.h
+|   |   |   |   |-- qcriticalsection_p.h
+|   |   |   |   |-- qdialogbuttons_p.h
+|   |   |   |   |-- qdir_p.h
+|   |   |   |   |-- qeffects_p.h
+|   |   |   |   |-- qeventloop_p.h
+|   |   |   |   |-- qfiledefs_p.h
+|   |   |   |   |-- qfontcodecs_p.h
+|   |   |   |   |-- qfontdata_p.h
+|   |   |   |   |-- qfontengine_p.h
+|   |   |   |   |-- qgfxdriverinterface_p.h
+|   |   |   |   |-- qgl_x11_p.h
+|   |   |   |   |-- qgpluginmanager_p.h
+|   |   |   |   |-- qimageformatinterface_p.h
+|   |   |   |   |-- qinputcontext_p.h
+|   |   |   |   |-- qinternal_p.h
+|   |   |   |   |-- qisciicodec_p.h
+|   |   |   |   |-- qkbddriverinterface_p.h
+|   |   |   |   |-- qlayoutengine_p.h
+|   |   |   |   |-- qlibrary_p.h
+|   |   |   |   |-- qlocale_p.h
+|   |   |   |   |-- qlock_p.h
+|   |   |   |   |-- qmousedriverinterface_p.h
+|   |   |   |   |-- qmutex_p.h
+|   |   |   |   |-- qmutexpool_p.h
+|   |   |   |   |-- qpainter_p.h
+|   |   |   |   |-- qpluginmanager_p.h
+|   |   |   |   |-- qprinter_p.h
+|   |   |   |   |-- qpsprinter_p.h
+|   |   |   |   |-- qrichtext_p.h
+|   |   |   |   |-- qscriptengine_p.h
+|   |   |   |   |-- qsettings_p.h
+|   |   |   |   |-- qsharedmemory_p.h
+|   |   |   |   |-- qsqldriverinterface_p.h
+|   |   |   |   |-- qsqlextension_p.h
+|   |   |   |   |-- qsqlmanager_p.h
+|   |   |   |   |-- qstyleinterface_p.h
+|   |   |   |   |-- qsvgdevice_p.h
+|   |   |   |   |-- qsyntaxhighlighter_p.h
+|   |   |   |   |-- qt_x11_p.h
+|   |   |   |   |-- qtextcodecinterface_p.h
+|   |   |   |   |-- qtextengine_p.h
+|   |   |   |   |-- qtextlayout_p.h
+|   |   |   |   |-- qthreadinstance_p.h
+|   |   |   |   |-- qtitlebar_p.h
+|   |   |   |   |-- qucom_p.h
+|   |   |   |   |-- qucomextra_p.h
+|   |   |   |   |-- qunicodetables_p.h
+|   |   |   |   |-- qwidget_p.h
+|   |   |   |   |-- qwidgetinterface_p.h
+|   |   |   |   `-- qwidgetresizehandler_p.h
+|   |   |   |-- q1xcompatibility.h
+|   |   |   |-- qabstractlayout.h
+|   |   |   |-- qaccel.h
+|   |   |   |-- qaccessible.h
+|   |   |   |-- qaction.h
+|   |   |   |-- qapp.h
+|   |   |   |-- qapplication.h
+|   |   |   |-- qarray.h
+|   |   |   |-- qasciicache.h
+|   |   |   |-- qasciidict.h
+|   |   |   |-- qassistantclient.h
+|   |   |   |-- qasyncimageio.h
+|   |   |   |-- qasyncio.h
+|   |   |   |-- qbig5codec.h
+|   |   |   |-- qbitarray.h
+|   |   |   |-- qbitarry.h
+|   |   |   |-- qbitmap.h
+|   |   |   |-- qbrush.h
+|   |   |   |-- qbttngrp.h
+|   |   |   |-- qbuffer.h
+|   |   |   |-- qbutton.h
+|   |   |   |-- qbuttongroup.h
+|   |   |   |-- qcache.h
+|   |   |   |-- qcanvas.h
+|   |   |   |-- qcdestyle.h
+|   |   |   |-- qcheckbox.h
+|   |   |   |-- qchkbox.h
+|   |   |   |-- qcleanuphandler.h
+|   |   |   |-- qclipboard.h
+|   |   |   |-- qclipbrd.h
+|   |   |   |-- qcollect.h
+|   |   |   |-- qcollection.h
+|   |   |   |-- qcolor.h
+|   |   |   |-- qcolordialog.h
+|   |   |   |-- qcombo.h
+|   |   |   |-- qcombobox.h
+|   |   |   |-- qcommonstyle.h
+|   |   |   |-- qcompactstyle.h
+|   |   |   |-- qconfig-dist.h
+|   |   |   |-- qconfig-large.h
+|   |   |   |-- qconfig-medium.h
+|   |   |   |-- qconfig-minimal.h
+|   |   |   |-- qconfig-small.h
+|   |   |   |-- qconfig.h
+|   |   |   |-- qconnect.h
+|   |   |   |-- qconnection.h
+|   |   |   |-- qcstring.h
+|   |   |   |-- qcursor.h
+|   |   |   |-- qdatabrowser.h
+|   |   |   |-- qdatastream.h
+|   |   |   |-- qdatatable.h
+|   |   |   |-- qdataview.h
+|   |   |   |-- qdatetime.h
+|   |   |   |-- qdatetimeedit.h
+|   |   |   |-- qdatetm.h
+|   |   |   |-- qdeepcopy.h
+|   |   |   |-- qdesktopwidget.h
+|   |   |   |-- qdial.h
+|   |   |   |-- qdialog.h
+|   |   |   |-- qdict.h
+|   |   |   |-- qdir.h
+|   |   |   |-- qdns.h
+|   |   |   |-- qdockarea.h
+|   |   |   |-- qdockwindow.h
+|   |   |   |-- qdom.h
+|   |   |   |-- qdragobject.h
+|   |   |   |-- qdrawutil.h
+|   |   |   |-- qdrawutl.h
+|   |   |   |-- qdropsite.h
+|   |   |   |-- qdstream.h
+|   |   |   |-- qeditorfactory.h
+|   |   |   |-- qerrormessage.h
+|   |   |   |-- qeucjpcodec.h
+|   |   |   |-- qeuckrcodec.h
+|   |   |   |-- qevent.h
+|   |   |   |-- qeventloop.h
+|   |   |   |-- qfeatures.h
+|   |   |   |-- qfile.h
+|   |   |   |-- qfiledef.h
+|   |   |   |-- qfiledialog.h
+|   |   |   |-- qfiledlg.h
+|   |   |   |-- qfileinf.h
+|   |   |   |-- qfileinfo.h
+|   |   |   |-- qfocusdata.h
+|   |   |   |-- qfont.h
+|   |   |   |-- qfontdatabase.h
+|   |   |   |-- qfontdialog.h
+|   |   |   |-- qfontinf.h
+|   |   |   |-- qfontinfo.h
+|   |   |   |-- qfontmet.h
+|   |   |   |-- qfontmetrics.h
+|   |   |   |-- qframe.h
+|   |   |   |-- qftp.h
+|   |   |   |-- qgarray.h
+|   |   |   |-- qgb18030codec.h
+|   |   |   |-- qgbkcodec.h
+|   |   |   |-- qgcache.h
+|   |   |   |-- qgdict.h
+|   |   |   |-- qgeneric.h
+|   |   |   |-- qgif.h
+|   |   |   |-- qgl.h
+|   |   |   |-- qglcolormap.h
+|   |   |   |-- qglist.h
+|   |   |   |-- qglobal.h
+|   |   |   |-- qgplugin.h
+|   |   |   |-- qgrid.h
+|   |   |   |-- qgridview.h
+|   |   |   |-- qgroupbox.h
+|   |   |   |-- qgrpbox.h
+|   |   |   |-- qguardedptr.h
+|   |   |   |-- qgvector.h
+|   |   |   |-- qhbox.h
+|   |   |   |-- qhbuttongroup.h
+|   |   |   |-- qheader.h
+|   |   |   |-- qhgroupbox.h
+|   |   |   |-- qhostaddress.h
+|   |   |   |-- qhttp.h
+|   |   |   |-- qiconset.h
+|   |   |   |-- qiconview.h
+|   |   |   |-- qimage.h
+|   |   |   |-- qimageformatplugin.h
+|   |   |   |-- qinputdialog.h
+|   |   |   |-- qintcach.h
+|   |   |   |-- qintcache.h
+|   |   |   |-- qintdict.h
+|   |   |   |-- qinterlacestyle.h
+|   |   |   |-- qiodev.h
+|   |   |   |-- qiodevice.h
+|   |   |   |-- qjiscodec.h
+|   |   |   |-- qjpegio.h
+|   |   |   |-- qjpunicode.h
+|   |   |   |-- qkeycode.h
+|   |   |   |-- qkeysequence.h
+|   |   |   |-- qlabel.h
+|   |   |   |-- qlayout.h
+|   |   |   |-- qlcdnum.h
+|   |   |   |-- qlcdnumber.h
+|   |   |   |-- qlibrary.h
+|   |   |   |-- qlined.h
+|   |   |   |-- qlineedit.h
+|   |   |   |-- qlist.h
+|   |   |   |-- qlistbox.h
+|   |   |   |-- qlistview.h
+|   |   |   |-- qlocale.h
+|   |   |   |-- qlocalfs.h
+|   |   |   |-- qmainwindow.h
+|   |   |   |-- qmap.h
+|   |   |   |-- qmemarray.h
+|   |   |   |-- qmenubar.h
+|   |   |   |-- qmenudata.h
+|   |   |   |-- qmenudta.h
+|   |   |   |-- qmessagebox.h
+|   |   |   |-- qmetaobj.h
+|   |   |   |-- qmetaobject.h
+|   |   |   |-- qmime.h
+|   |   |   |-- qmlined.h
+|   |   |   |-- qmngio.h
+|   |   |   |-- qmodules.h
+|   |   |   |-- qmotifplusstyle.h
+|   |   |   |-- qmotifstyle.h
+|   |   |   |-- qmovie.h
+|   |   |   |-- qmsgbox.h
+|   |   |   |-- qmultilinedit.h
+|   |   |   |-- qmultilineedit.h
+|   |   |   |-- qmutex.h
+|   |   |   |-- qnamespace.h
+|   |   |   |-- qnetwork.h
+|   |   |   |-- qnetworkprotocol.h
+|   |   |   |-- qnp.h
+|   |   |   |-- qobjcoll.h
+|   |   |   |-- qobjdefs.h
+|   |   |   |-- qobject.h
+|   |   |   |-- qobjectcleanuphandler.h
+|   |   |   |-- qobjectdefs.h
+|   |   |   |-- qobjectdict.h
+|   |   |   |-- qobjectlist.h
+|   |   |   |-- qpaintd.h
+|   |   |   |-- qpaintdc.h
+|   |   |   |-- qpaintdevice.h
+|   |   |   |-- qpaintdevicedefs.h
+|   |   |   |-- qpaintdevicemetrics.h
+|   |   |   |-- qpainter.h
+|   |   |   |-- qpair.h
+|   |   |   |-- qpalette.h
+|   |   |   |-- qpdevmet.h
+|   |   |   |-- qpen.h
+|   |   |   |-- qpicture.h
+|   |   |   |-- qpixmap.h
+|   |   |   |-- qpixmapcache.h
+|   |   |   |-- qplatinumstyle.h
+|   |   |   |-- qpmcache.h
+|   |   |   |-- qpngio.h
+|   |   |   |-- qpntarry.h
+|   |   |   |-- qpoint.h
+|   |   |   |-- qpointarray.h
+|   |   |   |-- qpolygonscanner.h
+|   |   |   |-- qpopmenu.h
+|   |   |   |-- qpopupmenu.h
+|   |   |   |-- qprintdialog.h
+|   |   |   |-- qprinter.h
+|   |   |   |-- qprndlg.h
+|   |   |   |-- qprocess.h
+|   |   |   |-- qprogbar.h
+|   |   |   |-- qprogdlg.h
+|   |   |   |-- qprogressbar.h
+|   |   |   |-- qprogressdialog.h
+|   |   |   |-- qpsprn.h
+|   |   |   |-- qptrcollection.h
+|   |   |   |-- qptrdict.h
+|   |   |   |-- qptrlist.h
+|   |   |   |-- qptrqueue.h
+|   |   |   |-- qptrstack.h
+|   |   |   |-- qptrvector.h
+|   |   |   |-- qpushbt.h
+|   |   |   |-- qpushbutton.h
+|   |   |   |-- qqueue.h
+|   |   |   |-- qradiobt.h
+|   |   |   |-- qradiobutton.h
+|   |   |   |-- qrangecontrol.h
+|   |   |   |-- qrangect.h
+|   |   |   |-- qrect.h
+|   |   |   |-- qregexp.h
+|   |   |   |-- qregion.h
+|   |   |   |-- qrtlcodec.h
+|   |   |   |-- qscrbar.h
+|   |   |   |-- qscrollbar.h
+|   |   |   |-- qscrollview.h
+|   |   |   |-- qsemaphore.h
+|   |   |   |-- qsemimodal.h
+|   |   |   |-- qserversocket.h
+|   |   |   |-- qsession.h
+|   |   |   |-- qsessionmanager.h
+|   |   |   |-- qsettings.h
+|   |   |   |-- qsgistyle.h
+|   |   |   |-- qshared.h
+|   |   |   |-- qsignal.h
+|   |   |   |-- qsignalmapper.h
+|   |   |   |-- qsignalslotimp.h
+|   |   |   |-- qsimplerichtext.h
+|   |   |   |-- qsize.h
+|   |   |   |-- qsizegrip.h
+|   |   |   |-- qsizepolicy.h
+|   |   |   |-- qsjiscodec.h
+|   |   |   |-- qslider.h
+|   |   |   |-- qsocket.h
+|   |   |   |-- qsocketdevice.h
+|   |   |   |-- qsocketnotifier.h
+|   |   |   |-- qsocknot.h
+|   |   |   |-- qsortedlist.h
+|   |   |   |-- qsound.h
+|   |   |   |-- qspinbox.h
+|   |   |   |-- qsplashscreen.h
+|   |   |   |-- qsplitter.h
+|   |   |   |-- qsql.h
+|   |   |   |-- qsqlcursor.h
+|   |   |   |-- qsqldatabase.h
+|   |   |   |-- qsqldriver.h
+|   |   |   |-- qsqldriverplugin.h
+|   |   |   |-- qsqleditorfactory.h
+|   |   |   |-- qsqlerror.h
+|   |   |   |-- qsqlfield.h
+|   |   |   |-- qsqlform.h
+|   |   |   |-- qsqlindex.h
+|   |   |   |-- qsqlpropertymap.h
+|   |   |   |-- qsqlquery.h
+|   |   |   |-- qsqlrecord.h
+|   |   |   |-- qsqlresult.h
+|   |   |   |-- qsqlselectcursor.h
+|   |   |   |-- qstack.h
+|   |   |   |-- qstatusbar.h
+|   |   |   |-- qstring.h
+|   |   |   |-- qstringlist.h
+|   |   |   |-- qstrlist.h
+|   |   |   |-- qstrvec.h
+|   |   |   |-- qstyle.h
+|   |   |   |-- qstylefactory.h
+|   |   |   |-- qstyleplugin.h
+|   |   |   |-- qstylesheet.h
+|   |   |   |-- qsyntaxhighlighter.h
+|   |   |   |-- qt.h
+|   |   |   |-- qtabbar.h
+|   |   |   |-- qtabdialog.h
+|   |   |   |-- qtabdlg.h
+|   |   |   |-- qtable.h
+|   |   |   |-- qtabwidget.h
+|   |   |   |-- qtextbrowser.h
+|   |   |   |-- qtextcodec.h
+|   |   |   |-- qtextcodecfactory.h
+|   |   |   |-- qtextcodecplugin.h
+|   |   |   |-- qtextedit.h
+|   |   |   |-- qtextstream.h
+|   |   |   |-- qtextview.h
+|   |   |   |-- qthread.h
+|   |   |   |-- qthreadstorage.h
+|   |   |   |-- qtimer.h
+|   |   |   |-- qtl.h
+|   |   |   |-- qtoolbar.h
+|   |   |   |-- qtoolbox.h
+|   |   |   |-- qtoolbutton.h
+|   |   |   |-- qtooltip.h
+|   |   |   |-- qtranslator.h
+|   |   |   |-- qtsciicodec.h
+|   |   |   |-- qtstream.h
+|   |   |   |-- qurl.h
+|   |   |   |-- qurlinfo.h
+|   |   |   |-- qurloperator.h
+|   |   |   |-- qutfcodec.h
+|   |   |   |-- quuid.h
+|   |   |   |-- qvalidator.h
+|   |   |   |-- qvaluelist.h
+|   |   |   |-- qvaluestack.h
+|   |   |   |-- qvaluevector.h
+|   |   |   |-- qvariant.h
+|   |   |   |-- qvbox.h
+|   |   |   |-- qvbuttongroup.h
+|   |   |   |-- qvector.h
+|   |   |   |-- qvfbhdr.h
+|   |   |   |-- qvgroupbox.h
+|   |   |   |-- qwaitcondition.h
+|   |   |   |-- qwhatsthis.h
+|   |   |   |-- qwidcoll.h
+|   |   |   |-- qwidget.h
+|   |   |   |-- qwidgetfactory.h
+|   |   |   |-- qwidgetintdict.h
+|   |   |   |-- qwidgetlist.h
+|   |   |   |-- qwidgetplugin.h
+|   |   |   |-- qwidgetstack.h
+|   |   |   |-- qwindefs.h
+|   |   |   |-- qwindow.h
+|   |   |   |-- qwindowdefs.h
+|   |   |   |-- qwindowsstyle.h
+|   |   |   |-- qwinexport.h
+|   |   |   |-- qwizard.h
+|   |   |   |-- qwmatrix.h
+|   |   |   |-- qworkspace.h
+|   |   |   `-- qxml.h
+|   |   |-- qxembed.h
+|   |   |-- radiusclient.h
+|   |   |-- renamedlgplugin.h
+|   |   |-- rpm
+|   |   |   |-- argv.h
+|   |   |   |-- header.h
+|   |   |   |-- rpmbuild.h
+|   |   |   |-- rpmcallback.h
+|   |   |   |-- rpmcli.h
+|   |   |   |-- rpmdb.h
+|   |   |   |-- rpmds.h
+|   |   |   |-- rpmfc.h
+|   |   |   |-- rpmfi.h
+|   |   |   |-- rpmfileutil.h
+|   |   |   |-- rpmgi.h
+|   |   |   |-- rpmio.h
+|   |   |   |-- rpmkeyring.h
+|   |   |   |-- rpmlegacy.h
+|   |   |   |-- rpmlib.h
+|   |   |   |-- rpmlog.h
+|   |   |   |-- rpmmacro.h
+|   |   |   |-- rpmpgp.h
+|   |   |   |-- rpmps.h
+|   |   |   |-- rpmspec.h
+|   |   |   |-- rpmsq.h
+|   |   |   |-- rpmstring.h
+|   |   |   |-- rpmsw.h
+|   |   |   |-- rpmtag.h
+|   |   |   |-- rpmtd.h
+|   |   |   |-- rpmte.h
+|   |   |   |-- rpmts.h
+|   |   |   |-- rpmtypes.h
+|   |   |   |-- rpmurl.h
+|   |   |   |-- rpmutil.h
+|   |   |   `-- rpmvf.h
+|   |   |-- rss
+|   |   |   |-- article.h
+|   |   |   |-- document.h
+|   |   |   |-- global.h
+|   |   |   |-- image.h
+|   |   |   |-- librss.h
+|   |   |   |-- loader.h
+|   |   |   `-- textinput.h
+|   |   |-- samplerate.h
+|   |   |-- sasl
+|   |   |   |-- hmac-md5.h
+|   |   |   |-- md5.h
+|   |   |   |-- md5global.h
+|   |   |   |-- prop.h
+|   |   |   |-- sasl.h
+|   |   |   |-- saslplug.h
+|   |   |   `-- saslutil.h
+|   |   |-- scriptclientinterface.h
+|   |   |-- scriptinterface.h
+|   |   |-- scriptmanager.h
+|   |   |-- scsi
+|   |   |   |-- sg_cmds.h
+|   |   |   |-- sg_cmds_basic.h
+|   |   |   |-- sg_cmds_extra.h
+|   |   |   |-- sg_cmds_mmc.h
+|   |   |   |-- sg_io_linux.h
+|   |   |   |-- sg_lib.h
+|   |   |   |-- sg_lib_data.h
+|   |   |   |-- sg_linux_inc.h
+|   |   |   `-- sg_pt.h
+|   |   |-- sensors
+|   |   |   |-- error.h
+|   |   |   `-- sensors.h
+|   |   |-- serviceiface.h
+|   |   |-- smoke.h
+|   |   |-- sndfile.h
+|   |   |-- sndfile.hh
+|   |   |-- sql.h
+|   |   |-- sqlext.h
+|   |   |-- sqlite3.h
+|   |   |-- sqlite3ext.h
+|   |   |-- sqltypes.h
+|   |   |-- sqlucode.h
+|   |   |-- ss
+|   |   |   |-- ss.h
+|   |   |   `-- ss_err.h
+|   |   |-- startup-notification-1.0
+|   |   |   `-- libsn
+|   |   |       |-- sn-common.h
+|   |   |       |-- sn-launchee.h
+|   |   |       |-- sn-launcher.h
+|   |   |       |-- sn-monitor.h
+|   |   |       |-- sn-util.h
+|   |   |       `-- sn.h
+|   |   |-- stringprep.h
+|   |   |-- sys
+|   |   |   |-- acl.h
+|   |   |   |-- asoundlib.h
+|   |   |   `-- capability.h
+|   |   |-- sysfs
+|   |   |   |-- dlist.h
+|   |   |   `-- libsysfs.h
+|   |   |-- taglib
+|   |   |   |-- aifffile.h
+|   |   |   |-- aiffproperties.h
+|   |   |   |-- apefooter.h
+|   |   |   |-- apeitem.h
+|   |   |   |-- apetag.h
+|   |   |   |-- asfattribute.h
+|   |   |   |-- asffile.h
+|   |   |   |-- asfproperties.h
+|   |   |   |-- asftag.h
+|   |   |   |-- attachedpictureframe.h
+|   |   |   |-- audioproperties.h
+|   |   |   |-- commentsframe.h
+|   |   |   |-- fileref.h
+|   |   |   |-- flacfile.h
+|   |   |   |-- flacproperties.h
+|   |   |   |-- generalencapsulatedobjectframe.h
+|   |   |   |-- id3v1genres.h
+|   |   |   |-- id3v1tag.h
+|   |   |   |-- id3v2extendedheader.h
+|   |   |   |-- id3v2footer.h
+|   |   |   |-- id3v2frame.h
+|   |   |   |-- id3v2framefactory.h
+|   |   |   |-- id3v2header.h
+|   |   |   |-- id3v2synchdata.h
+|   |   |   |-- id3v2tag.h
+|   |   |   |-- mp4atom.h
+|   |   |   |-- mp4coverart.h
+|   |   |   |-- mp4file.h
+|   |   |   |-- mp4item.h
+|   |   |   |-- mp4properties.h
+|   |   |   |-- mp4tag.h
+|   |   |   |-- mpcfile.h
+|   |   |   |-- mpcproperties.h
+|   |   |   |-- mpegfile.h
+|   |   |   |-- mpegheader.h
+|   |   |   |-- mpegproperties.h
+|   |   |   |-- oggfile.h
+|   |   |   |-- oggflacfile.h
+|   |   |   |-- oggpage.h
+|   |   |   |-- oggpageheader.h
+|   |   |   |-- popularimeterframe.h
+|   |   |   |-- privateframe.h
+|   |   |   |-- relativevolumeframe.h
+|   |   |   |-- rifffile.h
+|   |   |   |-- speexfile.h
+|   |   |   |-- speexproperties.h
+|   |   |   |-- tag.h
+|   |   |   |-- tag_c.h
+|   |   |   |-- taglib.h
+|   |   |   |-- taglib_config.h
+|   |   |   |-- taglib_export.h
+|   |   |   |-- tbytevector.h
+|   |   |   |-- tbytevectorlist.h
+|   |   |   |-- textidentificationframe.h
+|   |   |   |-- tfile.h
+|   |   |   |-- tlist.h
+|   |   |   |-- tlist.tcc
+|   |   |   |-- tmap.h
+|   |   |   |-- tmap.tcc
+|   |   |   |-- trueaudiofile.h
+|   |   |   |-- trueaudioproperties.h
+|   |   |   |-- tstring.h
+|   |   |   |-- tstringlist.h
+|   |   |   |-- uniquefileidentifierframe.h
+|   |   |   |-- unknownframe.h
+|   |   |   |-- unsynchronizedlyricsframe.h
+|   |   |   |-- urllinkframe.h
+|   |   |   |-- vorbisfile.h
+|   |   |   |-- vorbisproperties.h
+|   |   |   |-- wavfile.h
+|   |   |   |-- wavpackfile.h
+|   |   |   |-- wavpackproperties.h
+|   |   |   |-- wavproperties.h
+|   |   |   |-- xingheader.h
+|   |   |   `-- xiphcomment.h
+|   |   |-- tcl-private
+|   |   |   |-- generic
+|   |   |   |   |-- regcustom.h
+|   |   |   |   |-- regerrs.h
+|   |   |   |   |-- regex.h
+|   |   |   |   |-- regguts.h
+|   |   |   |   |-- tcl.h -> ../../tcl.h
+|   |   |   |   |-- tclCompile.h
+|   |   |   |   |-- tclDecls.h -> ../../tclDecls.h
+|   |   |   |   |-- tclFileSystem.h
+|   |   |   |   |-- tclIO.h
+|   |   |   |   |-- tclInt.h
+|   |   |   |   |-- tclIntDecls.h
+|   |   |   |   |-- tclIntPlatDecls.h
+|   |   |   |   |-- tclPlatDecls.h -> ../../tclPlatDecls.h
+|   |   |   |   |-- tclPort.h
+|   |   |   |   |-- tclRegexp.h
+|   |   |   |   |-- tclTomMath.h
+|   |   |   |   |-- tclTomMathDecls.h
+|   |   |   |   |-- tclTomMathInt.h
+|   |   |   |   |-- tclUnixPort.h -> ../unix/tclUnixPort.h
+|   |   |   |   |-- tclUnixThrd.h -> ../unix/tclUnixThrd.h
+|   |   |   |   `-- tommath.h
+|   |   |   `-- unix
+|   |   |       |-- tclUnixPort.h
+|   |   |       `-- tclUnixThrd.h
+|   |   |-- tcl.h
+|   |   |-- tclDecls.h
+|   |   |-- tclExtend.h
+|   |   |-- tclPlatDecls.h
+|   |   |-- tclTomMath.h
+|   |   |-- tclTomMathDecls.h
+|   |   |-- term.h -> ncurses/term.h
+|   |   |-- term_entry.h -> ncurses/term_entry.h
+|   |   |-- termcap-ncurses.h -> ncurses/termcap.h
+|   |   |-- termcap.h
+|   |   |-- theora
+|   |   |   |-- codec.h
+|   |   |   |-- theora.h
+|   |   |   |-- theoradec.h
+|   |   |   `-- theoraenc.h
+|   |   |-- tic.h -> ncurses/tic.h
+|   |   |-- tiff.h
+|   |   |-- tiffconf.h
+|   |   |-- tiffio.h
+|   |   |-- tiffio.hxx
+|   |   |-- tiffvers.h
+|   |   |-- tk-private
+|   |   |   |-- generic
+|   |   |   |   |-- default.h
+|   |   |   |   |-- ks_names.h
+|   |   |   |   |-- tk.h -> ../../tk.h
+|   |   |   |   |-- tk3d.h
+|   |   |   |   |-- tkButton.h
+|   |   |   |   |-- tkCanvas.h
+|   |   |   |   |-- tkColor.h
+|   |   |   |   |-- tkDecls.h -> ../../tkDecls.h
+|   |   |   |   |-- tkEntry.h
+|   |   |   |   |-- tkFileFilter.h
+|   |   |   |   |-- tkFont.h
+|   |   |   |   |-- tkInt.h
+|   |   |   |   |-- tkIntDecls.h
+|   |   |   |   |-- tkIntPlatDecls.h
+|   |   |   |   |-- tkIntXlibDecls.h
+|   |   |   |   |-- tkMenu.h
+|   |   |   |   |-- tkMenubutton.h
+|   |   |   |   |-- tkPlatDecls.h -> ../../tkPlatDecls.h
+|   |   |   |   |-- tkPort.h
+|   |   |   |   |-- tkScale.h
+|   |   |   |   |-- tkScrollbar.h
+|   |   |   |   |-- tkSelect.h
+|   |   |   |   |-- tkText.h
+|   |   |   |   |-- tkUndo.h
+|   |   |   |   |-- tkUnixDefault.h -> ../unix/tkUnixDefault.h
+|   |   |   |   |-- tkUnixInt.h -> ../unix/tkUnixInt.h
+|   |   |   |   `-- tkUnixPort.h -> ../unix/tkUnixPort.h
+|   |   |   `-- unix
+|   |   |       |-- tkUnixDefault.h
+|   |   |       |-- tkUnixInt.h
+|   |   |       `-- tkUnixPort.h
+|   |   |-- tk.h
+|   |   |-- tkDecls.h
+|   |   |-- tkPlatDecls.h
+|   |   |-- tkaction.h
+|   |   |-- tkcoloractions.h
+|   |   |-- tkcombobox.h
+|   |   |-- tktoolbarbutton.h
+|   |   |-- tld.h
+|   |   |-- tq1xcompatibility.h
+|   |   |-- tqabstractlayout.h
+|   |   |-- tqaccel.h
+|   |   |-- tqaccessible.h
+|   |   |-- tqaction.h
+|   |   |-- tqapp.h
+|   |   |-- tqapplication.h
+|   |   |-- tqarray.h
+|   |   |-- tqasciicache.h
+|   |   |-- tqasciidict.h
+|   |   |-- tqasyncimageio.h
+|   |   |-- tqasyncio.h
+|   |   |-- tqbig5codec.h
+|   |   |-- tqbitarray.h
+|   |   |-- tqbitarry.h
+|   |   |-- tqbitmap.h
+|   |   |-- tqbrush.h
+|   |   |-- tqbttngrp.h
+|   |   |-- tqbuffer.h
+|   |   |-- tqbutton.h
+|   |   |-- tqbuttongroup.h
+|   |   |-- tqcache.h
+|   |   |-- tqcanvas.h
+|   |   |-- tqcdestyle.h
+|   |   |-- tqcheckbox.h
+|   |   |-- tqchkbox.h
+|   |   |-- tqcleanuphandler.h
+|   |   |-- tqclipboard.h
+|   |   |-- tqclipbrd.h
+|   |   |-- tqcollect.h
+|   |   |-- tqcollection.h
+|   |   |-- tqcolor.h
+|   |   |-- tqcolordialog.h
+|   |   |-- tqcombo.h
+|   |   |-- tqcombobox.h
+|   |   |-- tqcommonstyle.h
+|   |   |-- tqcompactstyle.h
+|   |   |-- tqconfig.h
+|   |   |-- tqconnect.h
+|   |   |-- tqconnection.h
+|   |   |-- tqcstring.h
+|   |   |-- tqcursor.h
+|   |   |-- tqdatabrowser.h
+|   |   |-- tqdatastream.h
+|   |   |-- tqdatatable.h
+|   |   |-- tqdataview.h
+|   |   |-- tqdatetime.h
+|   |   |-- tqdatetimeedit.h
+|   |   |-- tqdatetm.h
+|   |   |-- tqdeepcopy.h
+|   |   |-- tqdesktopwidget.h
+|   |   |-- tqdial.h
+|   |   |-- tqdialog.h
+|   |   |-- tqdict.h
+|   |   |-- tqdir.h
+|   |   |-- tqdns.h
+|   |   |-- tqdockarea.h
+|   |   |-- tqdockwindow.h
+|   |   |-- tqdom.h
+|   |   |-- tqdragobject.h
+|   |   |-- tqdrawutil.h
+|   |   |-- tqdrawutl.h
+|   |   |-- tqdropsite.h
+|   |   |-- tqdstream.h
+|   |   |-- tqeditorfactory.h
+|   |   |-- tqerrormessage.h
+|   |   |-- tqeucjpcodec.h
+|   |   |-- tqeuckrcodec.h
+|   |   |-- tqevent.h
+|   |   |-- tqeventloop.h
+|   |   |-- tqfeatures.h
+|   |   |-- tqfile.h
+|   |   |-- tqfiledef.h
+|   |   |-- tqfiledialog.h
+|   |   |-- tqfiledlg.h
+|   |   |-- tqfileinf.h
+|   |   |-- tqfileinfo.h
+|   |   |-- tqfocusdata.h
+|   |   |-- tqfont.h
+|   |   |-- tqfontdatabase.h
+|   |   |-- tqfontdialog.h
+|   |   |-- tqfontinf.h
+|   |   |-- tqfontinfo.h
+|   |   |-- tqfontmet.h
+|   |   |-- tqfontmetrics.h
+|   |   |-- tqframe.h
+|   |   |-- tqftp.h
+|   |   |-- tqgarray.h
+|   |   |-- tqgb18030codec.h
+|   |   |-- tqgbkcodec.h
+|   |   |-- tqgcache.h
+|   |   |-- tqgdict.h
+|   |   |-- tqgeneric.h
+|   |   |-- tqgif.h
+|   |   |-- tqgl.h
+|   |   |-- tqglcolormap.h
+|   |   |-- tqglist.h
+|   |   |-- tqglobal.h
+|   |   |-- tqgplugin.h
+|   |   |-- tqgrid.h
+|   |   |-- tqgridview.h
+|   |   |-- tqgroupbox.h
+|   |   |-- tqgrpbox.h
+|   |   |-- tqguardedptr.h
+|   |   |-- tqgvector.h
+|   |   |-- tqhbox.h
+|   |   |-- tqhbuttongroup.h
+|   |   |-- tqheader.h
+|   |   |-- tqhgroupbox.h
+|   |   |-- tqhostaddress.h
+|   |   |-- tqhttp.h
+|   |   |-- tqiconset.h
+|   |   |-- tqiconview.h
+|   |   |-- tqimage.h
+|   |   |-- tqimageformatplugin.h
+|   |   |-- tqinputcontext.h
+|   |   |-- tqinputcontextfactory.h
+|   |   |-- tqinputdialog.h
+|   |   |-- tqintcach.h
+|   |   |-- tqintcache.h
+|   |   |-- tqintdict.h
+|   |   |-- tqinterlacestyle.h
+|   |   |-- tqiodev.h
+|   |   |-- tqiodevice.h
+|   |   |-- tqjiscodec.h
+|   |   |-- tqjpegio.h
+|   |   |-- tqjpunicode.h
+|   |   |-- tqkeycode.h
+|   |   |-- tqkeysequence.h
+|   |   |-- tqlabel.h
+|   |   |-- tqlayout.h
+|   |   |-- tqlcdnumber.h
+|   |   |-- tqlibrary.h
+|   |   |-- tqlined.h
+|   |   |-- tqlineedit.h
+|   |   |-- tqlist.h
+|   |   |-- tqlistbox.h
+|   |   |-- tqlistiterator.h
+|   |   |-- tqlistview.h
+|   |   |-- tqlocale.h
+|   |   |-- tqlocalfs.h
+|   |   |-- tqmainwindow.h
+|   |   |-- tqmap.h
+|   |   |-- tqmemarray.h
+|   |   |-- tqmenubar.h
+|   |   |-- tqmenudata.h
+|   |   |-- tqmenudta.h
+|   |   |-- tqmessagebox.h
+|   |   |-- tqmetaobj.h
+|   |   |-- tqmetaobject.h
+|   |   |-- tqmime.h
+|   |   |-- tqmlined.h
+|   |   |-- tqmngio.h
+|   |   |-- tqmodules.h
+|   |   |-- tqmotifplusstyle.h
+|   |   |-- tqmotifstyle.h
+|   |   |-- tqmovie.h
+|   |   |-- tqmsgbox.h
+|   |   |-- tqmultilinedit.h
+|   |   |-- tqmultilineedit.h
+|   |   |-- tqmutex.h
+|   |   |-- tqnamespace.h
+|   |   |-- tqnetwork.h
+|   |   |-- tqnetworkprotocol.h
+|   |   |-- tqnp.h
+|   |   |-- tqobjcoll.h
+|   |   |-- tqobjdefs.h
+|   |   |-- tqobject.h
+|   |   |-- tqobjectcleanuphandler.h
+|   |   |-- tqobjectdict.h
+|   |   |-- tqobjectlist.h
+|   |   |-- tqpaintd.h
+|   |   |-- tqpaintdc.h
+|   |   |-- tqpaintdevice.h
+|   |   |-- tqpaintdevicemetrics.h
+|   |   |-- tqpainter.h
+|   |   |-- tqpair.h
+|   |   |-- tqpalette.h
+|   |   |-- tqpdevmet.h
+|   |   |-- tqpen.h
+|   |   |-- tqpicture.h
+|   |   |-- tqpixmap.h
+|   |   |-- tqpixmapcache.h
+|   |   |-- tqplatinumstyle.h
+|   |   |-- tqpmcache.h
+|   |   |-- tqpngio.h
+|   |   |-- tqpntarry.h
+|   |   |-- tqpoint.h
+|   |   |-- tqpointarray.h
+|   |   |-- tqpolygonscanner.h
+|   |   |-- tqpopmenu.h
+|   |   |-- tqpopupmenu.h
+|   |   |-- tqprintdialog.h
+|   |   |-- tqprinter.h
+|   |   |-- tqprndlg.h
+|   |   |-- tqprocess.h
+|   |   |-- tqprogbar.h
+|   |   |-- tqprogdlg.h
+|   |   |-- tqprogressbar.h
+|   |   |-- tqprogressdialog.h
+|   |   |-- tqptrcollection.h
+|   |   |-- tqptrdict.h
+|   |   |-- tqptrlist.h
+|   |   |-- tqptrqueue.h
+|   |   |-- tqptrstack.h
+|   |   |-- tqptrvector.h
+|   |   |-- tqpushbt.h
+|   |   |-- tqpushbutton.h
+|   |   |-- tqqueue.h
+|   |   |-- tqradiobt.h
+|   |   |-- tqradiobutton.h
+|   |   |-- tqrangecontrol.h
+|   |   |-- tqrangect.h
+|   |   |-- tqrect.h
+|   |   |-- tqregexp.h
+|   |   |-- tqregion.h
+|   |   |-- tqrtlcodec.h
+|   |   |-- tqscrbar.h
+|   |   |-- tqscrollbar.h
+|   |   |-- tqscrollview.h
+|   |   |-- tqsemaphore.h
+|   |   |-- tqsemimodal.h
+|   |   |-- tqserversocket.h
+|   |   |-- tqsession.h
+|   |   |-- tqsessionmanager.h
+|   |   |-- tqsettings.h
+|   |   |-- tqsgistyle.h
+|   |   |-- tqshared.h
+|   |   |-- tqsignal.h
+|   |   |-- tqsignalmapper.h
+|   |   |-- tqsignalslotimp.h
+|   |   |-- tqsimplerichtext.h
+|   |   |-- tqsize.h
+|   |   |-- tqsizegrip.h
+|   |   |-- tqsizepolicy.h
+|   |   |-- tqsjiscodec.h
+|   |   |-- tqslider.h
+|   |   |-- tqsocket.h
+|   |   |-- tqsocketdevice.h
+|   |   |-- tqsocketnotifier.h
+|   |   |-- tqsocknot.h
+|   |   |-- tqsortedlist.h
+|   |   |-- tqsound.h
+|   |   |-- tqspinbox.h
+|   |   |-- tqsplashscreen.h
+|   |   |-- tqsplitter.h
+|   |   |-- tqsql.h
+|   |   |-- tqsqlcursor.h
+|   |   |-- tqsqldatabase.h
+|   |   |-- tqsqldriver.h
+|   |   |-- tqsqldriverplugin.h
+|   |   |-- tqsqleditorfactory.h
+|   |   |-- tqsqlerror.h
+|   |   |-- tqsqlfield.h
+|   |   |-- tqsqlform.h
+|   |   |-- tqsqlindex.h
+|   |   |-- tqsqlpropertymap.h
+|   |   |-- tqsqlquery.h
+|   |   |-- tqsqlrecord.h
+|   |   |-- tqsqlresult.h
+|   |   |-- tqsqlselectcursor.h
+|   |   |-- tqstack.h
+|   |   |-- tqstatusbar.h
+|   |   |-- tqstring.h
+|   |   |-- tqstringlist.h
+|   |   |-- tqstrlist.h
+|   |   |-- tqstrvec.h
+|   |   |-- tqstyle.h
+|   |   |-- tqstylefactory.h
+|   |   |-- tqstyleplugin.h
+|   |   |-- tqstylesheet.h
+|   |   |-- tqsyntaxhighlighter.h
+|   |   |-- tqt.h
+|   |   |-- tqtabbar.h
+|   |   |-- tqtabdialog.h
+|   |   |-- tqtabdlg.h
+|   |   |-- tqtable.h
+|   |   |-- tqtabwidget.h
+|   |   |-- tqtextbrowser.h
+|   |   |-- tqtextcodec.h
+|   |   |-- tqtextcodecfactory.h
+|   |   |-- tqtextcodecplugin.h
+|   |   |-- tqtextedit.h
+|   |   |-- tqtextstream.h
+|   |   |-- tqtextview.h
+|   |   |-- tqthread.h
+|   |   |-- tqthreadstorage.h
+|   |   |-- tqtimer.h
+|   |   |-- tqtl.h
+|   |   |-- tqtoolbar.h
+|   |   |-- tqtoolbox.h
+|   |   |-- tqtoolbutton.h
+|   |   |-- tqtooltip.h
+|   |   |-- tqtranslator.h
+|   |   |-- tqtsciicodec.h
+|   |   |-- tqtstream.h
+|   |   |-- tqucomextra_p.h
+|   |   |-- tqurl.h
+|   |   |-- tqurlinfo.h
+|   |   |-- tqurloperator.h
+|   |   |-- tqutfcodec.h
+|   |   |-- tquuid.h
+|   |   |-- tqvalidator.h
+|   |   |-- tqvaluelist.h
+|   |   |-- tqvaluestack.h
+|   |   |-- tqvaluevector.h
+|   |   |-- tqvariant.h
+|   |   |-- tqvbox.h
+|   |   |-- tqvbuttongroup.h
+|   |   |-- tqvector.h
+|   |   |-- tqvfbhdr.h
+|   |   |-- tqvgroupbox.h
+|   |   |-- tqwaitcondition.h
+|   |   |-- tqwhatsthis.h
+|   |   |-- tqwidcoll.h
+|   |   |-- tqwidget.h
+|   |   |-- tqwidgetfactory.h
+|   |   |-- tqwidgetintdict.h
+|   |   |-- tqwidgetlist.h
+|   |   |-- tqwidgetplugin.h
+|   |   |-- tqwidgetstack.h
+|   |   |-- tqwindefs.h
+|   |   |-- tqwindowdefs.h
+|   |   |-- tqwindowsstyle.h
+|   |   |-- tqwinexport.h
+|   |   |-- tqwizard.h
+|   |   |-- tqwmatrix.h
+|   |   |-- tqworkspace.h
+|   |   |-- tqxml.h
+|   |   |-- ulockmgr.h
+|   |   |-- unctrl.h -> ncurses/unctrl.h
+|   |   |-- usb.h
+|   |   |-- utempter.h
+|   |   |-- uuid
+|   |   |   `-- uuid.h
+|   |   |-- va
+|   |   |   |-- va.h
+|   |   |   |-- va_backend.h
+|   |   |   |-- va_backend_egl.h
+|   |   |   |-- va_backend_glx.h
+|   |   |   |-- va_backend_tpi.h
+|   |   |   |-- va_dri.h
+|   |   |   |-- va_dri2.h
+|   |   |   |-- va_dricommon.h
+|   |   |   |-- va_dummy.h
+|   |   |   |-- va_egl.h
+|   |   |   |-- va_glx.h
+|   |   |   |-- va_tpi.h
+|   |   |   |-- va_version.h
+|   |   |   `-- va_x11.h
+|   |   |-- vdpau
+|   |   |   |-- vdpau.h
+|   |   |   `-- vdpau_x11.h
+|   |   |-- vorbis
+|   |   |   |-- codec.h
+|   |   |   |-- vorbisenc.h
+|   |   |   `-- vorbisfile.h
+|   |   |-- vte-0.0
+|   |   |   `-- vte
+|   |   |       |-- pty.h
+|   |   |       |-- reaper.h
+|   |   |       |-- vte.h
+|   |   |       |-- vteaccess.h
+|   |   |       |-- vtedeprecated.h
+|   |   |       |-- vtepty.h
+|   |   |       |-- vtetypebuiltins.h
+|   |   |       `-- vteversion.h
+|   |   |-- wavpack
+|   |   |   `-- wavpack.h
+|   |   |-- wireless.h
+|   |   |-- wv2
+|   |   |   |-- associatedstrings.h
+|   |   |   |-- convert.h
+|   |   |   |-- dllmagic.h
+|   |   |   |-- fields.h
+|   |   |   |-- fonts.h
+|   |   |   |-- functor.h
+|   |   |   |-- functordata.h
+|   |   |   |-- global.h
+|   |   |   |-- handlers.h
+|   |   |   |-- lists.h
+|   |   |   |-- olestorage.h
+|   |   |   |-- olestream.h
+|   |   |   |-- paragraphproperties.h
+|   |   |   |-- parser.h
+|   |   |   |-- parserfactory.h
+|   |   |   |-- sharedptr.h
+|   |   |   |-- styles.h
+|   |   |   |-- textconverter.h
+|   |   |   |-- ustring.h
+|   |   |   |-- utilities.h
+|   |   |   |-- word95_generated.h
+|   |   |   |-- word97_generated.h
+|   |   |   |-- word_helper.h
+|   |   |   `-- wvlog.h
+|   |   |-- xcb
+|   |   |   |-- bigreq.h
+|   |   |   |-- composite.h
+|   |   |   |-- damage.h
+|   |   |   |-- dpms.h
+|   |   |   |-- dri2.h
+|   |   |   |-- glx.h
+|   |   |   |-- randr.h
+|   |   |   |-- record.h
+|   |   |   |-- render.h
+|   |   |   |-- res.h
+|   |   |   |-- screensaver.h
+|   |   |   |-- shape.h
+|   |   |   |-- shm.h
+|   |   |   |-- sync.h
+|   |   |   |-- xc_misc.h
+|   |   |   |-- xcb.h
+|   |   |   |-- xcb_atom.h
+|   |   |   |-- xcb_aux.h
+|   |   |   |-- xcb_bitops.h
+|   |   |   |-- xcb_event.h
+|   |   |   |-- xcb_icccm.h
+|   |   |   |-- xcb_image.h
+|   |   |   |-- xcb_keysyms.h
+|   |   |   |-- xcb_pixel.h
+|   |   |   |-- xcb_property.h
+|   |   |   |-- xcb_renderutil.h
+|   |   |   |-- xcb_reply.h
+|   |   |   |-- xcbext.h
+|   |   |   |-- xevie.h
+|   |   |   |-- xf86dri.h
+|   |   |   |-- xfixes.h
+|   |   |   |-- xinerama.h
+|   |   |   |-- xinput.h
+|   |   |   |-- xprint.h
+|   |   |   |-- xproto.h
+|   |   |   |-- xselinux.h
+|   |   |   |-- xtest.h
+|   |   |   |-- xv.h
+|   |   |   `-- xvmc.h
+|   |   |-- xf86drm.h
+|   |   |-- xf86drmMode.h
+|   |   |-- xfs
+|   |   |   |-- bitops.h
+|   |   |   |-- cache.h
+|   |   |   |-- dmapi.h
+|   |   |   |-- handle.h
+|   |   |   |-- jdm.h
+|   |   |   |-- kmem.h
+|   |   |   |-- libxfs.h
+|   |   |   |-- libxlog.h
+|   |   |   |-- linux.h
+|   |   |   |-- list.h
+|   |   |   |-- parent.h
+|   |   |   |-- platform_defs.h
+|   |   |   |-- swab.h
+|   |   |   |-- xfs.h
+|   |   |   |-- xfs_ag.h
+|   |   |   |-- xfs_alloc.h
+|   |   |   |-- xfs_alloc_btree.h
+|   |   |   |-- xfs_arch.h
+|   |   |   |-- xfs_attr_leaf.h
+|   |   |   |-- xfs_attr_sf.h
+|   |   |   |-- xfs_bit.h
+|   |   |   |-- xfs_bmap.h
+|   |   |   |-- xfs_bmap_btree.h
+|   |   |   |-- xfs_btree.h
+|   |   |   |-- xfs_btree_trace.h
+|   |   |   |-- xfs_buf_item.h
+|   |   |   |-- xfs_da_btree.h
+|   |   |   |-- xfs_dfrag.h
+|   |   |   |-- xfs_dinode.h
+|   |   |   |-- xfs_dir2.h
+|   |   |   |-- xfs_dir2_block.h
+|   |   |   |-- xfs_dir2_data.h
+|   |   |   |-- xfs_dir2_leaf.h
+|   |   |   |-- xfs_dir2_node.h
+|   |   |   |-- xfs_dir2_sf.h
+|   |   |   |-- xfs_dir_leaf.h
+|   |   |   |-- xfs_dir_sf.h
+|   |   |   |-- xfs_extfree_item.h
+|   |   |   |-- xfs_fs.h
+|   |   |   |-- xfs_ialloc.h
+|   |   |   |-- xfs_ialloc_btree.h
+|   |   |   |-- xfs_imap.h
+|   |   |   |-- xfs_inode.h
+|   |   |   |-- xfs_inode_item.h
+|   |   |   |-- xfs_inum.h
+|   |   |   |-- xfs_log.h
+|   |   |   |-- xfs_log_priv.h
+|   |   |   |-- xfs_log_recover.h
+|   |   |   |-- xfs_metadump.h
+|   |   |   |-- xfs_mount.h
+|   |   |   |-- xfs_quota.h
+|   |   |   |-- xfs_rtalloc.h
+|   |   |   |-- xfs_sb.h
+|   |   |   |-- xfs_trans.h
+|   |   |   |-- xfs_trans_space.h
+|   |   |   |-- xfs_types.h
+|   |   |   `-- xqm.h
+|   |   |-- xorg
+|   |   |   |-- BT.h
+|   |   |   |-- IBM.h
+|   |   |   |-- TI.h
+|   |   |   |-- XIstubs.h
+|   |   |   |-- Xwacom.h
+|   |   |   |-- bstore.h
+|   |   |   |-- bstorestr.h
+|   |   |   |-- bt829.h
+|   |   |   |-- callback.h
+|   |   |   |-- cfb8_16.h
+|   |   |   |-- closestr.h
+|   |   |   |-- closure.h
+|   |   |   |-- colormap.h
+|   |   |   |-- colormapst.h
+|   |   |   |-- compiler.h
+|   |   |   |-- compositeext.h
+|   |   |   |-- cursor.h
+|   |   |   |-- cursorstr.h
+|   |   |   |-- damage.h
+|   |   |   |-- damagestr.h
+|   |   |   |-- dbestruct.h
+|   |   |   |-- dgaproc.h
+|   |   |   |-- dix.h
+|   |   |   |-- dixaccess.h
+|   |   |   |-- dixevents.h
+|   |   |   |-- dixfont.h
+|   |   |   |-- dixfontstr.h
+|   |   |   |-- dixgrabs.h
+|   |   |   |-- dixstruct.h
+|   |   |   |-- dri.h
+|   |   |   |-- dri2.h
+|   |   |   |-- dristruct.h
+|   |   |   |-- edid.h
+|   |   |   |-- evdev-properties.h
+|   |   |   |-- events.h
+|   |   |   |-- exa.h
+|   |   |   |-- exevents.h
+|   |   |   |-- extension.h
+|   |   |   |-- extinit.h
+|   |   |   |-- extnsionst.h
+|   |   |   |-- fb.h
+|   |   |   |-- fbdevhw.h
+|   |   |   |-- fboverlay.h
+|   |   |   |-- fbpict.h
+|   |   |   |-- fbrop.h
+|   |   |   |-- fi1236.h
+|   |   |   |-- fourcc.h
+|   |   |   |-- gc.h
+|   |   |   |-- gcstruct.h
+|   |   |   |-- geext.h
+|   |   |   |-- geint.h
+|   |   |   |-- globals.h
+|   |   |   |-- glyphstr.h
+|   |   |   |-- hotplug.h
+|   |   |   |-- i2c_def.h
+|   |   |   |-- input.h
+|   |   |   |-- inputstr.h
+|   |   |   |-- isdv4.h
+|   |   |   |-- joystick-properties.h
+|   |   |   |-- list.h
+|   |   |   |-- mi.h
+|   |   |   |-- mibstore.h
+|   |   |   |-- micmap.h
+|   |   |   |-- micoord.h
+|   |   |   |-- mifillarc.h
+|   |   |   |-- mifpoly.h
+|   |   |   |-- migc.h
+|   |   |   |-- miline.h
+|   |   |   |-- mioverlay.h
+|   |   |   |-- mipict.h
+|   |   |   |-- mipointer.h
+|   |   |   |-- mipointrst.h
+|   |   |   |-- misc.h
+|   |   |   |-- miscstruct.h
+|   |   |   |-- mispans.h
+|   |   |   |-- mistruct.h
+|   |   |   |-- miwideline.h
+|   |   |   |-- mizerarc.h
+|   |   |   |-- msp3430.h
+|   |   |   |-- opaque.h
+|   |   |   |-- os.h
+|   |   |   |-- panoramiX.h
+|   |   |   |-- panoramiXsrv.h
+|   |   |   |-- picture.h
+|   |   |   |-- picturestr.h
+|   |   |   |-- pixmap.h
+|   |   |   |-- pixmapstr.h
+|   |   |   |-- privates.h
+|   |   |   |-- property.h
+|   |   |   |-- propertyst.h
+|   |   |   |-- ptrveloc.h
+|   |   |   |-- randrstr.h
+|   |   |   |-- region.h
+|   |   |   |-- regionstr.h
+|   |   |   |-- registry.h
+|   |   |   |-- renderedge.h
+|   |   |   |-- resource.h
+|   |   |   |-- rgb.h
+|   |   |   |-- rrtransform.h
+|   |   |   |-- sarea.h
+|   |   |   |-- screenint.h
+|   |   |   |-- scrnintstr.h
+|   |   |   |-- selection.h
+|   |   |   |-- servermd.h
+|   |   |   |-- shadow.h
+|   |   |   |-- shadowfb.h
+|   |   |   |-- shmint.h
+|   |   |   |-- site.h
+|   |   |   |-- swaprep.h
+|   |   |   |-- swapreq.h
+|   |   |   |-- synaptics-properties.h
+|   |   |   |-- synaptics.h
+|   |   |   |-- tda8425.h
+|   |   |   |-- tda9850.h
+|   |   |   |-- tda9885.h
+|   |   |   |-- uda1380.h
+|   |   |   |-- validate.h
+|   |   |   |-- vbe.h
+|   |   |   |-- vbeModes.h
+|   |   |   |-- vgaHW.h
+|   |   |   |-- vidmodeproc.h
+|   |   |   |-- wacom-properties.h
+|   |   |   |-- wfbrename.h
+|   |   |   |-- window.h
+|   |   |   |-- windowstr.h
+|   |   |   |-- xaa.h
+|   |   |   |-- xaaWrapper.h
+|   |   |   |-- xaalocal.h
+|   |   |   |-- xaarop.h
+|   |   |   |-- xace.h
+|   |   |   |-- xacestr.h
+|   |   |   |-- xf86.h
+|   |   |   |-- xf86Crtc.h
+|   |   |   |-- xf86Cursor.h
+|   |   |   |-- xf86DDC.h
+|   |   |   |-- xf86Modes.h
+|   |   |   |-- xf86Module.h
+|   |   |   |-- xf86Opt.h
+|   |   |   |-- xf86Optrec.h
+|   |   |   |-- xf86Parser.h
+|   |   |   |-- xf86Pci.h
+|   |   |   |-- xf86PciInfo.h
+|   |   |   |-- xf86Priv.h
+|   |   |   |-- xf86Privstr.h
+|   |   |   |-- xf86RamDac.h
+|   |   |   |-- xf86RandR12.h
+|   |   |   |-- xf86Rename.h
+|   |   |   |-- xf86VGAarbiter.h
+|   |   |   |-- xf86Xinput.h
+|   |   |   |-- xf86_OSlib.h
+|   |   |   |-- xf86_OSproc.h
+|   |   |   |-- xf86cmap.h
+|   |   |   |-- xf86fbman.h
+|   |   |   |-- xf86i2c.h
+|   |   |   |-- xf86int10.h
+|   |   |   |-- xf86sbusBus.h
+|   |   |   |-- xf86str.h
+|   |   |   |-- xf86xv.h
+|   |   |   |-- xf86xvmc.h
+|   |   |   |-- xf86xvpriv.h
+|   |   |   |-- xfixes.h
+|   |   |   |-- xisb.h
+|   |   |   |-- xkbfile.h
+|   |   |   |-- xkbrules.h
+|   |   |   |-- xkbsrv.h
+|   |   |   |-- xkbstr.h
+|   |   |   |-- xorg-server.h
+|   |   |   |-- xorgVersion.h
+|   |   |   |-- xserver-properties.h
+|   |   |   |-- xvdix.h
+|   |   |   `-- xvmcext.h
+|   |   |-- xtables.h
+|   |   |-- zconf.h
+|   |   `-- zlib.h
+|   |-- lib
+|   |   |-- libFLAC++.a
+|   |   |-- libFLAC.a
+|   |   |-- libGLEW.a
+|   |   |-- libSDLmain.a
+|   |   |-- libacl.a
+|   |   |-- libart_lgpl_2.a
+|   |   |-- libattr.a
+|   |   |-- libaudiofile.a
+|   |   |-- libbz2.a
+|   |   |-- libcrypto.a
+|   |   |-- libcurses.a -> libncurses.a
+|   |   |-- libdevmapper-event.a
+|   |   |-- libdevmapper.a
+|   |   |-- libdm.a
+|   |   |-- libesd.a
+|   |   |-- libesddsp.a
+|   |   |-- libexpat.a
+|   |   |-- libexslt.a
+|   |   |-- libfontconfig.a
+|   |   |-- libform.a
+|   |   |-- libformw.a
+|   |   |-- libfribidi.a
+|   |   |-- libgamin_shared.a
+|   |   |-- libgcrypt.a
+|   |   |-- libgmp.a
+|   |   |-- libgmpxx.a
+|   |   |-- libgpg-error.a
+|   |   |-- libgpm.a
+|   |   |-- libgudev-1.0.a
+|   |   |-- libidn.a
+|   |   |-- libiw.a
+|   |   |-- libjpeg.a
+|   |   |-- liblvm2app.a
+|   |   |-- liblvm2cmd.a
+|   |   |-- libmenu.a
+|   |   |-- libmenuw.a
+|   |   |-- libmp.a
+|   |   |-- libmp3lame.a
+|   |   |-- libmp4ff.a
+|   |   |-- libncurses++.a
+|   |   |-- libncurses++w.a
+|   |   |-- libncurses.a
+|   |   |-- libncursesw.a
+|   |   |-- libobparser.a
+|   |   |-- libobrender.a
+|   |   |-- libogg.a
+|   |   |-- libossredir.a
+|   |   |-- libpanel.a
+|   |   |-- libpanelw.a
+|   |   |-- libpcap.a
+|   |   |-- libpci.a
+|   |   |-- libpng.a -> libpng14.a
+|   |   |-- libpng12.a
+|   |   |-- libpng14.a
+|   |   |-- libpopt.a
+|   |   |-- libradiusclient.a
+|   |   |-- libsgutils2.a
+|   |   |-- libssl.a
+|   |   |-- libtclstub8.5.a
+|   |   |-- libtermcap.a
+|   |   |-- libtiff.a
+|   |   |-- libtiffxx.a
+|   |   |-- libtkstub8.5.a
+|   |   |-- libudev.a
+|   |   |-- libva-compat.a
+|   |   |-- libva-egl.a
+|   |   |-- libva-glx.a
+|   |   |-- libva-tpi.a
+|   |   |-- libva-x11.a
+|   |   |-- libva.a
+|   |   |-- libxml2.a
+|   |   |-- libxslt.a
+|   |   |-- libz.a
+|   |   |-- lxappearance
+|   |   |   `-- plugins
+|   |   |       `-- obconf.a
+|   |   |-- perl5
+|   |   |   `-- 5.12.3
+|   |   |       `-- i486-linux-thread-multi
+|   |   |           `-- CORE
+|   |   |               `-- libperl.a
+|   |   |-- python2.6
+|   |   |   |-- config
+|   |   |   |   `-- libpython2.6.a
+|   |   |   `-- site-packages
+|   |   |       |-- libxml2mod.a
+|   |   |       `-- libxsltmod.a
+|   |   `-- va
+|   |       `-- drivers
+|   |           |-- dummy_drv_video.a
+|   |           `-- i965_drv_video.a
+|   |-- man
+|   |   |-- man1
+|   |   |   |-- aclocal-1.11.1
+|   |   |   |-- aclocal.1
+|   |   |   |-- addr2line.1
+|   |   |   |-- ar.1
+|   |   |   |-- as.1
+|   |   |   |-- autoconf.1
+|   |   |   |-- autoheader.1
+|   |   |   |-- autom4te.1
+|   |   |   |-- automake-1.11.1
+|   |   |   |-- automake.1
+|   |   |   |-- autopoint.1
+|   |   |   |-- autoreconf.1
+|   |   |   |-- autoscan.1
+|   |   |   |-- autoupdate.1
+|   |   |   |-- c++.1
+|   |   |   |-- c++filt.1
+|   |   |   |-- cc.1
+|   |   |   |-- config.guess.1
+|   |   |   |-- config.sub.1
+|   |   |   |-- cpp.1
+|   |   |   |-- elfedit.1
+|   |   |   |-- g++.1
+|   |   |   |-- gcc.1
+|   |   |   |-- gcov.1
+|   |   |   |-- gettextize.1
+|   |   |   |-- gprof.1
+|   |   |   |-- ifnames.1
+|   |   |   |-- ld.1
+|   |   |   |-- libtool.1
+|   |   |   |-- libtoolize.1
+|   |   |   |-- m4.1
+|   |   |   |-- make.1
+|   |   |   |-- makedepend.1
+|   |   |   |-- msgattrib.1
+|   |   |   |-- msgcat.1
+|   |   |   |-- msgcmp.1
+|   |   |   |-- msgcomm.1
+|   |   |   |-- msgconv.1
+|   |   |   |-- msgen.1
+|   |   |   |-- msgexec.1
+|   |   |   |-- msgfilter.1
+|   |   |   |-- msgfmt.1
+|   |   |   |-- msggrep.1
+|   |   |   |-- msginit.1
+|   |   |   |-- msgmerge.1
+|   |   |   |-- msgunfmt.1
+|   |   |   |-- msguniq.1
+|   |   |   |-- nasm.1
+|   |   |   |-- ndisasm.1
+|   |   |   |-- nlmconv.1
+|   |   |   |-- nm.1
+|   |   |   |-- objcopy.1
+|   |   |   |-- objdump.1
+|   |   |   |-- pkg-config.1
+|   |   |   |-- ranlib.1
+|   |   |   |-- readelf.1
+|   |   |   |-- recode-sr-latin.1
+|   |   |   |-- size.1
+|   |   |   |-- strings-GNU.1
+|   |   |   |-- strip.1
+|   |   |   |-- windmc.1
+|   |   |   `-- xgettext.1
+|   |   |-- man3
+|   |   |   |-- ffi.3
+|   |   |   |-- ffi_call.3
+|   |   |   `-- ffi_prep_cif.3
+|   |   |-- man7
+|   |   |   |-- Xprint.7
+|   |   |   |-- fsf-funding.7
+|   |   |   |-- gfdl.7
+|   |   |   `-- gpl.7
+|   |   `-- man8
+|   |       |-- intltool-extract.8
+|   |       |-- intltool-merge.8
+|   |       |-- intltool-prepare.8
+|   |       |-- intltool-update.8
+|   |       `-- intltoolize.8
+|   `-- share
+|       `-- pkgconfig -> ../lib/pkgconfig
+`-- var
+    `-- log
+        |-- packages
+        |-- scripts
+        `-- setup
+            `-- tmp
+
+264 directories, 5295 files

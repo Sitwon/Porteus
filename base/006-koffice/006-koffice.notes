@@ -1,0 +1,20 @@
+build
+|-- usr
+|   `-- lib
+|       |-- libMagickCore.la
+|       |-- libMagickCore.so -> libMagickCore.so.2.0.0
+|       |-- libMagickCore.so.1 -> libMagickCore.so.2.0.0
+|       |-- libMagickCore.so.2 -> libMagickCore.so.2.0.0
+|       |-- libMagickCore.so.2.0.0
+|       |-- libpython2.5.so -> libpython2.6.so.1.0
+|       |-- libpython2.5.so.1.0 -> libpython2.6.so.1.0
+|       |-- libwpd-0.8.so.8 -> libwpd-0.8.so.8.0.14
+|       `-- libwpd-0.8.so.8.0.14
+`-- var
+    `-- log
+        |-- packages
+        |-- scripts
+        `-- setup
+            `-- tmp
+
+8 directories, 9 files
