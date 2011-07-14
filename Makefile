@@ -30,6 +30,7 @@ clean:
 	rm -f $(INITRD)
 	rm -f $(BASE)
 	rm -f new/porteus/md5sums.txt
+	rm -f new/boot/vmlinuz
 
 build: $(DIRS) $(INITRD) $(BASE)
 
@@ -37,10 +38,10 @@ iso: $(ISO)
 
 zip: $(ZIP)
 
-$(ISO): $(INITRD) $(BASE) new/porteus/md5sums.txt
+$(ISO): new/boot/vmlinuz $(INITRD) $(BASE) new/porteus/md5sums.txt
 	cd new && porteus/make_iso.sh ../$@
 
-$(ZIP): $(INITRD) $(BASE) new/porteus/md5sums.txt
+$(ZIP): new/boot/vmlinuz $(INITRD) $(BASE) new/porteus/md5sums.txt
 	cd new && zip -r ../$@ .
 
 new/porteus/md5sums.txt: $(INITRD) $(BASE)
@@ -48,6 +49,15 @@ new/porteus/md5sums.txt: $(INITRD) $(BASE)
 
 $(DIRS):
 	mkdir -p $@
+
+kernel/linux-2.6.38.8.tar.bz2:
+	wget http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.38.8.tar.bz2
+
+kernel/linux-2.6.38.8/arch/x86/boot/bzImage: kernel/linux-2.6.38.8.tar.bz2 kernel/porteus.config kernel/aufs2.1-38.patch kernel/build-kernel.sh
+	cd kernel && sh build-kernel.sh
+
+new/boot/vmlinuz: kernel/linux-2.6.38.8/arch/x86/boot/bzImage
+	cp $< $@
 
 new/porteus/base/000-kernel.xzm: | $(DIRS)
 	porteus-scripts/dir2xzm base/000-kernel $@
@@ -76,12 +86,17 @@ new/porteus/base/007-devel.xzm: | $(DIRS)
 new/porteus/base/008-firefox.xzm: | $(DIRS)
 	porteus-scripts/dir2xzm base/008-firefox $@
 
-$(INITRD):
+$(INITRD): kernel/linux-2.6.38.8/arch/x86/boot/bzImage
 	dd if=/dev/zero of=new/boot/initrd bs=1024 count=$(INITRD_SIZE)
 	mkfs.ext2 -F new/boot/initrd >/dev/null 2>&1
 	mkdir -p /tmp/initrd-new
 	mount -o loop new/boot/initrd /tmp/initrd-new
 	cp -af initrd/* /tmp/initrd-new
+	mkdir -p /tmp/initrd-new/lib/modules/2.6.38.8-porteus/kernel/drivers/net/e1000
+	cp kernel/linux-2.6.38.8/drivers/net/mii.ko /tmp/initrd-new/lib/modules/2.6.38.8-porteus/kernel/drivers/net/mii.ko
+	cp kernel/linux-2.6.38.8/drivers/net/pcnet32.ko /tmp/initrd-new/lib/modules/2.6.38.8-porteus/kernel/drivers/net/pcnet32.ko
+	cp kernel/linux-2.6.38.8/drivers/net/e1000/e1000.ko /tmp/initrd-new/lib/modules/2.6.38.8-porteus/kernel/drivers/net/e1000/e1000.ko
+	depmod -b /tmp/initrd-new 2.6.38.8-porteus
 	umount /tmp/initrd-new
 	xz --check=crc32 --x86 --lzma2 new/boot/initrd
 

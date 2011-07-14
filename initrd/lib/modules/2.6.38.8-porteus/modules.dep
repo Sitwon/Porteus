@@ -1,3 +1,0 @@
-kernel/drivers/net/e1000/e1000.ko:
-kernel/drivers/net/mii.ko:
-kernel/drivers/net/pcnet32.ko: kernel/drivers/net/mii.ko
