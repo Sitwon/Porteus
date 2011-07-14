@@ -6,6 +6,8 @@
 #
 # Author: Ben the Pyrate <dragonwisard@gmail.com>
 
+set -e
+
 VERSION=2.6.38.8
 AUFS_PATCH=aufs2.1-38.patch
 

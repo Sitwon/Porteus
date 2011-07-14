@@ -51,7 +51,7 @@ $(DIRS):
 	mkdir -p $@
 
 kernel/linux-2.6.38.8.tar.bz2:
-	wget http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.38.8.tar.bz2
+	cd kernel && wget http://www.kernel.org/pub/linux/kernel/v2.6/linux-2.6.38.8.tar.bz2
 
 kernel/linux-2.6.38.8/arch/x86/boot/bzImage: kernel/linux-2.6.38.8.tar.bz2 kernel/porteus.config kernel/aufs2.1-38.patch kernel/build-kernel.sh
 	cd kernel && sh build-kernel.sh
