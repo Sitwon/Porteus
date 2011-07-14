@@ -89,6 +89,7 @@ new/porteus/base/008-firefox.xzm: | $(DIRS)
 $(INITRD): kernel/linux-2.6.38.8/arch/x86/boot/bzImage
 	dd if=/dev/zero of=new/boot/initrd bs=1024 count=$(INITRD_SIZE)
 	mkfs.ext2 -F new/boot/initrd >/dev/null 2>&1
+	rm -rf /tmp/initrd-new
 	mkdir -p /tmp/initrd-new
 	mount -o loop new/boot/initrd /tmp/initrd-new
 	cp -af initrd/* /tmp/initrd-new
