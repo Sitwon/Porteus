@@ -15,6 +15,8 @@ rm -rf linux-$VERSION
 # Extract
 tar xvf linux-$VERSION.tar.?z*
 
+mkdir -p kernel-modules-pkg
+
 cd linux-$VERSION
 
 # Patch
@@ -27,6 +29,12 @@ cp ../porteus.config .config
 
 # Build
 make -j4
+
+# Make modules package
+INSTALL_MOD_PATH=../kernel-modules-pkg make modules_install
+cd ../kernel-modules-pkg
+/sbin/makepkg -l y -c n ../kernel-modules-$VERSION-i486-sit_1.tgz
+cd -
 
 cd ..
 
