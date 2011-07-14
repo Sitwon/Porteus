@@ -34,9 +34,12 @@ BASE= \
 	  new/porteus/base/008-firefox.xzm \
 
 
-.PHONY: all clean build iso zip
+.PHONY: all clean build iso zip test
 
 all: iso zip
+
+test: iso
+	qemu-system-x86_64 --enable-kvm -cdrom $(ISO) -boot d -m 512 -vga std
 
 clean:
 	rm -f $(INITRD)
