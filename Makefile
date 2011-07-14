@@ -71,8 +71,13 @@ kernel/linux-2.6.38.8/arch/x86/boot/bzImage: kernel/linux-2.6.38.8.tar.bz2 kerne
 new/boot/vmlinuz: kernel/linux-2.6.38.8/arch/x86/boot/bzImage
 	cp $< $@
 
+kernel/kernel-modules-1.6.38.8-i486-sit_1.tgz: kernel/linux-2.6.38.8/arch/x86/boot/bzImage
+
+base/000-kernel/build/var/log/packages/kernel-modules-1.6.38.8-i486-sit_1: kernel/kernel-modules-2.6.38.8-i486-sit_1.tgz
+	ROOT=base/000-kernel/build /sbin/installpkg kernel/kernel-modules-2.6.38.8-i486-sit_1.tgz
+
 new/porteus/base/000-kernel.xzm: | $(DIRS)
-	porteus-scripts/dir2xzm base/000-kernel $@
+	porteus-scripts/dir2xzm base/000-kernel/build $@
 
 new/porteus/base/001-core.xzm: | $(DIRS)
 	porteus-scripts/dir2xzm base/001-core $@
