@@ -4,6 +4,18 @@ ISO= porteus.iso
 ZIP= porteus.zip
 INITRD= new/boot/initrd.xz
 INITRD_SIZE= 6666
+INITRD_DIRS= \
+	  initrd/dev \
+	  initrd/lost+found \
+	  initrd/memory \
+	  initrd/mnt \
+	  initrd/opt \
+	  initrd/proc \
+	  initrd/sys \
+	  initrd/tmp \
+	  initrd/union \
+	  initrd/var \
+
 DIRS= \
 	  new/porteus/base \
 	  new/porteus/modules \
@@ -47,7 +59,7 @@ $(ZIP): new/boot/vmlinuz $(INITRD) $(BASE) new/porteus/md5sums.txt
 new/porteus/md5sums.txt: $(INITRD) $(BASE)
 	cd new/porteus && md5sum ../boot/vmlinuz ../boot/initrd.xz `find ./base -iname '*.xzm'` > md5sums.txt
 
-$(DIRS):
+$(INITRD_DIRS) $(DIRS):
 	mkdir -p $@
 
 kernel/linux-2.6.38.8.tar.bz2:
@@ -86,7 +98,7 @@ new/porteus/base/007-devel.xzm: | $(DIRS)
 new/porteus/base/008-firefox.xzm: | $(DIRS)
 	porteus-scripts/dir2xzm base/008-firefox $@
 
-$(INITRD): kernel/linux-2.6.38.8/arch/x86/boot/bzImage
+$(INITRD): $(INITRD_DIRS) kernel/linux-2.6.38.8/arch/x86/boot/bzImage
 	dd if=/dev/zero of=new/boot/initrd bs=1024 count=$(INITRD_SIZE)
 	mkfs.ext2 -F new/boot/initrd >/dev/null 2>&1
 	rm -rf /tmp/initrd-new
