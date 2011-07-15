@@ -46,6 +46,7 @@ clean:
 	rm -f $(BASE)
 	rm -f new/porteus/md5sums.txt
 	rm -f new/boot/vmlinuz
+	$(MAKE) -C base clean
 
 build: $(DIRS) $(INITRD) $(BASE)
 
@@ -79,32 +80,11 @@ kernel/kernel-modules-2.6.38.8-i486-sit_1.tgz: kernel/linux-2.6.38.8/arch/x86/bo
 base/000-kernel/build/var/log/packages/kernel-modules-1.6.38.8-i486-sit_1: kernel/kernel-modules-2.6.38.8-i486-sit_1.tgz
 	ROOT=base/000-kernel/build /sbin/installpkg kernel/kernel-modules-2.6.38.8-i486-sit_1.tgz
 
-new/porteus/base/000-kernel.xzm: | $(DIRS)
-	porteus-scripts/dir2xzm base/000-kernel/build $@
+base/%:
+	$(MAKE) -C base $(@:base/%=%)
 
-new/porteus/base/001-core.xzm: | $(DIRS)
-	porteus-scripts/dir2xzm base/001-core $@
-
-new/porteus/base/002-xorg.xzm: | $(DIRS)
-	porteus-scripts/dir2xzm base/002-xorg $@
-
-new/porteus/base/003-lxde.xzm: | $(DIRS)
-	porteus-scripts/dir2xzm base/003-lxde $@
-
-new/porteus/base/004-kde.xzm: | $(DIRS)
-	porteus-scripts/dir2xzm base/004-kde $@
-
-new/porteus/base/005-kdeapps.xzm: | $(DIRS)
-	porteus-scripts/dir2xzm base/005-kdeapps $@
-
-new/porteus/base/006-koffice.xzm: | $(DIRS)
-	porteus-scripts/dir2xzm base/006-koffice $@
-
-new/porteus/base/007-devel.xzm: | $(DIRS)
-	porteus-scripts/dir2xzm base/007-devel $@
-
-new/porteus/base/008-firefox.xzm: | $(DIRS)
-	porteus-scripts/dir2xzm base/008-firefox $@
+new/porteus/base/%: base/% | $(DIRS)
+	cp $< $@
 
 $(INITRD): $(INITRD_DIRS) kernel/linux-2.6.38.8/arch/x86/boot/bzImage
 	dd if=/dev/zero of=new/boot/initrd bs=1024 count=$(INITRD_SIZE)

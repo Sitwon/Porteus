@@ -1,0 +1,28 @@
+DIRS= \
+	  build \
+	  pkgs \
+
+PACKAGES= \
+		  kernel-modules-2.6.38.8-i486-sit_1 \
+
+all: $(DIRS) $(PACKAGES)
+
+.PHONY: all clean
+
+clean:
+	git clean -fdx .
+
+$(DIRS):
+	mkdir -p $@
+
+$(PACKAGES): %: build/var/log/packages/% | $(DIRS)
+
+build/var/log/packages/%: pkgs/%.tgz | $(DIRS)
+	ROOT=build /sbin/installpkg $<
+
+pkgs/kernel-modules-2.6.38.8-i486-sit_1.tgz: ../../kernel/kernel-modules-2.6.38.8-i486-sit_1.tgz | $(DIRS)
+	cp $< $@
+
+../../kernel/kernel-modules-2.6.38.8-i486-sit_1.tgz:
+	$(MAKE) -C ../.. kernel/kernel-modules-2.6.38.8-i486-sit_1.tgz
+
