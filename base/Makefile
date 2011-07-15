@@ -1,23 +1,20 @@
 MODULES= \
-		 000-kernel \
-		 001-core \
-		 002-xorg \
-		 003-lxde \
-		 004-kde \
-		 005-kdeapps \
-		 006-koffice \
-		 007-devel \
-		 008-firefox \
+		 000-kernel.xzm \
+		 001-core.xzm \
+		 002-xorg.xzm \
+		 003-lxde.xzm \
+		 004-kde.xzm \
+		 005-kdeapps.xzm \
+		 006-koffice.xzm \
+		 007-devel.xzm \
+		 008-firefox.xzm \
 
-all: $(MODULES:%=%.xzm)
+all: $(MODULES)
 
 .PHONY: all clean $(MODULES)
 
-%.xzm: %
-	../porteus-scripts/dir2xzm $</build $@
-
 $(MODULES):
-	$(MAKE) -C $@
+	$(MAKE) -C $(@:%.xzm=%) ../$@
 
 clean:
 	rm -f $(MODULES:%=%.xzm)

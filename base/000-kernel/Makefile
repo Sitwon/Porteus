@@ -6,6 +6,9 @@ PACKAGES= $(shell cat *.pkglist)
 
 all: $(DIRS) $(PACKAGES)
 
+../%.xzm: $(DIRS) $(PACKAGES)
+	../../porteus-scripts/dir2xzm build $@
+
 .PHONY: all clean
 
 clean:
