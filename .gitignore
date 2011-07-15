@@ -1,7 +1,13 @@
 .*.swp
 *~
 new/boot/initrd.xz
+new/boot/vmlinuz
 new/porteus/base
 new/porteus/md5sums.txt
 porteus.iso
 porteus.zip
+base/*.xzm
+base/*/pkgs
+kernel/kernel-modules-pkg
+kernel/kernel-modules-*.tgz
+kernel/linux-*
