@@ -2,8 +2,7 @@ DIRS= \
 	  build \
 	  pkgs \
 
-PACKAGES= \
-		  kernel-modules-2.6.38.8-i486-sit_1 \
+PACKAGES= $(shell cat *.pkglist)
 
 all: $(DIRS) $(PACKAGES)
 
@@ -19,6 +18,9 @@ $(PACKAGES): %: build/var/log/packages/% | $(DIRS)
 
 build/var/log/packages/%: pkgs/%.tgz | $(DIRS)
 	ROOT=build /sbin/installpkg $<
+
+pkgs/%:
+	$(MAKE) -C src ../$(@)
 
 pkgs/kernel-modules-2.6.38.8-i486-sit_1.tgz: ../../kernel/kernel-modules-2.6.38.8-i486-sit_1.tgz | $(DIRS)
 	cp $< $@
