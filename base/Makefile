@@ -11,7 +11,7 @@ MODULES= \
 
 all: $(MODULES:%=%.xzm)
 
-.PHONY: all clean
+.PHONY: all clean $(MODULES)
 
 %.xzm: %
 	../porteus-scripts/dir2xzm $</build $@
